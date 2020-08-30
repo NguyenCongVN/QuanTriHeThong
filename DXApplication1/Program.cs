@@ -24,7 +24,7 @@ namespace DXApplication1
             BonusSkins.Register();
             main = new FrmMain();
             main.IsMdiContainer = true;
-            Application.Run(new FrmMain());
+            Application.Run(new frmLogin());
         }
     }
 }
