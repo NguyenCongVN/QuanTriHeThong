@@ -376,3 +376,4 @@ C:\Users\Dell\Desktop\Working-Lien-Cong\QuanTriHeThong\DXApplication1\obj\Debug\
 C:\Users\Dell\Desktop\Working-Lien-Cong\QuanTriHeThong\DXApplication1\obj\Debug\DXApplication1.csproj.CopyComplete
 C:\Users\Dell\Desktop\Working-Lien-Cong\QuanTriHeThong\DXApplication1\obj\Debug\DXApplication1.exe
 C:\Users\Dell\Desktop\Working-Lien-Cong\QuanTriHeThong\DXApplication1\obj\Debug\DXApplication1.pdb
+C:\Users\Dell\Desktop\Working-Lien-Cong\QuanTriHeThong\DXApplication1\obj\Debug\DXApplication1.Account.UpdatePass.resources

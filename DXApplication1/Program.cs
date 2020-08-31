@@ -6,6 +6,7 @@ using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DXApplication1.Views;
 
+
 namespace DXApplication1
 {
     static class Program
@@ -24,7 +25,7 @@ namespace DXApplication1
             BonusSkins.Register();
             main = new FrmMain();
             main.IsMdiContainer = true;
-            Application.Run(new frmLogin());
+            Application.Run(new FrmMain());
         }
     }
 }
