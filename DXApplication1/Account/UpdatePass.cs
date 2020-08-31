@@ -8,11 +8,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DXApplication1.Models;
 
 namespace DXApplication1.Account
 {
     public partial class UpdatePass : DevExpress.XtraEditors.XtraForm
     {
+        NguoiDung nd = new NguoiDung();
+        
+
         public UpdatePass()
         {
             InitializeComponent();
@@ -24,7 +28,10 @@ namespace DXApplication1.Account
                 XtraMessageBox.Show("Bạn phải nhập đầy đủ thông tin!");
             else if (txtReNewPass.Text != txtNewPass.Text)
                 XtraMessageBox.Show("Mật khẩu xác nhận không đúng!");
+            else
+            {
 
+            }    
         }
     }
 }
