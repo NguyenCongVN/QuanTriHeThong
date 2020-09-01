@@ -31,12 +31,7 @@ namespace DXApplication1
             BonusSkins.Register();
 
             ndSql = new NguoiDungSql();
-
-            
-            
-            Application.Run(lg);
-
-
+            Application.Run(new frmDky());
         }
     }
 }

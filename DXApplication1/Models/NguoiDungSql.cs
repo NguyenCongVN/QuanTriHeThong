@@ -14,7 +14,6 @@ namespace DXApplication1.Models
         {
             SqlCommand command = new SqlCommand("UPDATE_PASS", Connection);
             command.CommandType = CommandType.StoredProcedure;
-
             try
             {
                 command.Parameters.Add(new SqlParameter("@MA", SqlDbType.Char, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MaDangNhapNguoiDung));

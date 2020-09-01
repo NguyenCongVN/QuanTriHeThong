@@ -84,6 +84,7 @@
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\NguoiDungSql.cs" />
     <Compile Include="Models\ConnectionDatabase.cs" />
+    <Compile Include="Utilizes\UserUtilizes.cs" />
     <Compile Include="Views\frmDky.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,7 +120,6 @@
     <Compile Include="Client\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Account\UpdatePass.resx">
       <DependentUpon>UpdatePass.cs</DependentUpon>
