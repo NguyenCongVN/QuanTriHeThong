@@ -13,7 +13,8 @@ namespace DXApplication1
 {
     static class Program
     {
-        public static FrmMain main;
+        public static FrmMain_Admin main;
+        
 
         /// <summary>
         /// The main entry point for the application.
@@ -28,12 +29,10 @@ namespace DXApplication1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
-            ndSql = new NguoiDungSql();
-            main = new FrmMain();
-            lg = new frmLogin();
-            up_datePass = new UpdatePass();
+            main = new FrmMain_Admin();
             main.IsMdiContainer = true;
-            Application.Run(lg);
+            Application.Run(new FrmMain_Admin());
+
         }
     }
 }
