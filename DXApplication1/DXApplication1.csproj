@@ -112,6 +112,7 @@
     </Compile>
     <EmbeddedResource Include="Admin\QuanLyNhanVien.resx">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Client\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +132,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Form_Admin.resx">
       <DependentUpon>Form_Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
