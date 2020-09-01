@@ -10,7 +10,7 @@ namespace DXApplication1
 {
     static class Program
     {
-        public static FrmMain main;
+        public static FrmMain_Admin main;
         
 
         /// <summary>
@@ -23,9 +23,9 @@ namespace DXApplication1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
-            main = new FrmMain();
+            main = new FrmMain_Admin();
             main.IsMdiContainer = true;
-            Application.Run(new FrmMain());
+            Application.Run(new FrmMain_Admin());
         }
     }
 }

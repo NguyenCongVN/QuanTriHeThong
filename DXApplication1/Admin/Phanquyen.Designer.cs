@@ -35,18 +35,20 @@
             this.gridControlDetaiPhanQuyen = new DevExpress.XtraGrid.GridControl();
             this.gridViewMain = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumnQuyen = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridViewNguoiDung = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridControlChucVu_NguoiDung = new DevExpress.XtraGrid.GridControl();
+            this.gridViewChucVu = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelVaitro = new System.Windows.Forms.Panel();
             this.labelVaitro = new System.Windows.Forms.Label();
             this.panelDetailPhanQuyen = new System.Windows.Forms.Panel();
-            this.gridControlChucVu_NguoiDung = new DevExpress.XtraGrid.GridControl();
-            this.gridViewChucVu = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetaiPhanQuyen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
-            this.panelVaitro.SuspendLayout();
-            this.panelDetailPhanQuyen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewNguoiDung)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlChucVu_NguoiDung)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewChucVu)).BeginInit();
+            this.panelVaitro.SuspendLayout();
+            this.panelDetailPhanQuyen.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridViewDetail
@@ -76,15 +78,14 @@
             // 
             // gridControlDetaiPhanQuyen
             // 
-            this.gridControlDetaiPhanQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
             gridLevelNode1.LevelTemplate = this.gridViewDetail;
             gridLevelNode1.RelationName = "Detail";
             this.gridControlDetaiPhanQuyen.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.gridControlDetaiPhanQuyen.Location = new System.Drawing.Point(0, 0);
+            this.gridControlDetaiPhanQuyen.Location = new System.Drawing.Point(0, 77);
             this.gridControlDetaiPhanQuyen.MainView = this.gridViewMain;
             this.gridControlDetaiPhanQuyen.Name = "gridControlDetaiPhanQuyen";
-            this.gridControlDetaiPhanQuyen.Size = new System.Drawing.Size(1279, 753);
+            this.gridControlDetaiPhanQuyen.Size = new System.Drawing.Size(1279, 676);
             this.gridControlDetaiPhanQuyen.TabIndex = 1;
             this.gridControlDetaiPhanQuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewMain,
@@ -115,6 +116,34 @@
             this.gridColumnQuyen.VisibleIndex = 0;
             this.gridColumnQuyen.Width = 94;
             // 
+            // gridViewNguoiDung
+            // 
+            this.gridViewNguoiDung.GridControl = this.gridControlChucVu_NguoiDung;
+            this.gridViewNguoiDung.Name = "gridViewNguoiDung";
+            // 
+            // gridControlChucVu_NguoiDung
+            // 
+            this.gridControlChucVu_NguoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode2.LevelTemplate = this.gridViewNguoiDung;
+            gridLevelNode2.RelationName = "NguoiDung";
+            this.gridControlChucVu_NguoiDung.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode2});
+            this.gridControlChucVu_NguoiDung.Location = new System.Drawing.Point(0, 32);
+            this.gridControlChucVu_NguoiDung.MainView = this.gridViewChucVu;
+            this.gridControlChucVu_NguoiDung.Name = "gridControlChucVu_NguoiDung";
+            this.gridControlChucVu_NguoiDung.Size = new System.Drawing.Size(332, 721);
+            this.gridControlChucVu_NguoiDung.TabIndex = 1;
+            this.gridControlChucVu_NguoiDung.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewChucVu,
+            this.gridViewNguoiDung});
+            // 
+            // gridViewChucVu
+            // 
+            this.gridViewChucVu.GridControl = this.gridControlChucVu_NguoiDung;
+            this.gridViewChucVu.Name = "gridViewChucVu";
+            this.gridViewChucVu.OptionsDetail.ShowDetailTabs = false;
+            this.gridViewChucVu.OptionsView.ShowGroupPanel = false;
+            // 
             // panelVaitro
             // 
             this.panelVaitro.Controls.Add(this.gridControlChucVu_NguoiDung);
@@ -144,25 +173,6 @@
             this.panelDetailPhanQuyen.Size = new System.Drawing.Size(1279, 753);
             this.panelDetailPhanQuyen.TabIndex = 1;
             // 
-            // gridControlChucVu_NguoiDung
-            // 
-            this.gridControlChucVu_NguoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode2.RelationName = "Level1";
-            this.gridControlChucVu_NguoiDung.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
-            this.gridControlChucVu_NguoiDung.Location = new System.Drawing.Point(0, 32);
-            this.gridControlChucVu_NguoiDung.MainView = this.gridViewChucVu;
-            this.gridControlChucVu_NguoiDung.Name = "gridControlChucVu_NguoiDung";
-            this.gridControlChucVu_NguoiDung.Size = new System.Drawing.Size(332, 721);
-            this.gridControlChucVu_NguoiDung.TabIndex = 1;
-            this.gridControlChucVu_NguoiDung.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewChucVu});
-            // 
-            // gridViewChucVu
-            // 
-            this.gridViewChucVu.GridControl = this.gridControlChucVu_NguoiDung;
-            this.gridViewChucVu.Name = "gridViewChucVu";
-            // 
             // Phanquyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -175,10 +185,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDetaiPhanQuyen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).EndInit();
-            this.panelVaitro.ResumeLayout(false);
-            this.panelDetailPhanQuyen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewNguoiDung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlChucVu_NguoiDung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewChucVu)).EndInit();
+            this.panelVaitro.ResumeLayout(false);
+            this.panelDetailPhanQuyen.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -195,5 +206,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnThaoTac;
         private DevExpress.XtraGrid.GridControl gridControlChucVu_NguoiDung;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewChucVu;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewNguoiDung;
     }
 }
