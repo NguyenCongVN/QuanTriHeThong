@@ -5,6 +5,9 @@ using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DXApplication1.Views;
+using DXApplication1.Models;
+using DXApplication1.Account;
+
 
 namespace DXApplication1
 {
@@ -16,6 +19,9 @@ namespace DXApplication1
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        public static NguoiDungSql ndSql;
+        public static frmLogin lg;
+        public static UpdatePass up_datePass;
         [STAThread]
         
         static void Main()
@@ -23,9 +29,13 @@ namespace DXApplication1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
+            ndSql = new NguoiDungSql();
             main = new FrmMain();
+            lg = new frmLogin();
+            up_datePass = new UpdatePass();
             main.IsMdiContainer = true;
-            Application.Run(new FrmMain());
+
+            Application.Run(lg);
         }
     }
 }

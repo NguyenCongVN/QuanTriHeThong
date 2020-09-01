@@ -1,6 +1,6 @@
-﻿namespace DXApplication1
+﻿namespace DXApplication1.Account
 {
-    partial class frmLogin
+    partial class UpdatePass
     {
         /// <summary>
         /// Required designer variable.
@@ -29,118 +29,138 @@
         private void InitializeComponent()
         {
             this.grpCtrl1 = new DevExpress.XtraEditors.GroupControl();
-            this.txtPass = new DevExpress.XtraEditors.TextEdit();
+            this.txtReNewPass = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.txtNewPass = new DevExpress.XtraEditors.TextEdit();
             this.lbPass = new DevExpress.XtraEditors.LabelControl();
-            this.txtUser = new DevExpress.XtraEditors.TextEdit();
+            this.txtOldPass = new DevExpress.XtraEditors.TextEdit();
             this.lbUser = new DevExpress.XtraEditors.LabelControl();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grpCtrl1)).BeginInit();
             this.grpCtrl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReNewPass.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNewPass.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOldPass.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // grpCtrl1
             // 
             this.grpCtrl1.Appearance.BackColor = System.Drawing.Color.DodgerBlue;
             this.grpCtrl1.Appearance.Options.UseBackColor = true;
-            this.grpCtrl1.Controls.Add(this.txtPass);
+            this.grpCtrl1.Controls.Add(this.txtReNewPass);
+            this.grpCtrl1.Controls.Add(this.labelControl2);
+            this.grpCtrl1.Controls.Add(this.txtNewPass);
             this.grpCtrl1.Controls.Add(this.lbPass);
-            this.grpCtrl1.Controls.Add(this.txtUser);
+            this.grpCtrl1.Controls.Add(this.txtOldPass);
             this.grpCtrl1.Controls.Add(this.lbUser);
-            this.grpCtrl1.Location = new System.Drawing.Point(72, 32);
+            this.grpCtrl1.Location = new System.Drawing.Point(82, 32);
             this.grpCtrl1.Name = "grpCtrl1";
-            this.grpCtrl1.Size = new System.Drawing.Size(614, 210);
+            this.grpCtrl1.Size = new System.Drawing.Size(580, 221);
             this.grpCtrl1.TabIndex = 0;
-            this.grpCtrl1.Text = "Thông tin đăng nhập";
+            this.grpCtrl1.Text = "Đổi mật khẩu";
             // 
-            // txtPass
+            // txtReNewPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(283, 126);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Properties.Appearance.Options.UseFont = true;
-            this.txtPass.Size = new System.Drawing.Size(238, 24);
-            this.txtPass.TabIndex = 3;
-            this.txtPass.EditValueChanged += new System.EventHandler(this.textEdit2_EditValueChanged);
+            this.txtReNewPass.Location = new System.Drawing.Point(269, 147);
+            this.txtReNewPass.Name = "txtReNewPass";
+            this.txtReNewPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReNewPass.Properties.Appearance.Options.UseFont = true;
+            this.txtReNewPass.Size = new System.Drawing.Size(238, 24);
+            this.txtReNewPass.TabIndex = 8;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(77, 149);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(156, 18);
+            this.labelControl2.TabIndex = 7;
+            this.labelControl2.Text = "Nhập lại mật khẩu mới: ";
+            // 
+            // txtNewPass
+            // 
+            this.txtNewPass.Location = new System.Drawing.Point(269, 104);
+            this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPass.Properties.Appearance.Options.UseFont = true;
+            this.txtNewPass.Size = new System.Drawing.Size(238, 24);
+            this.txtNewPass.TabIndex = 3;
             // 
             // lbPass
             // 
             this.lbPass.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPass.Appearance.Options.UseFont = true;
-            this.lbPass.Location = new System.Drawing.Point(91, 128);
+            this.lbPass.Location = new System.Drawing.Point(76, 106);
             this.lbPass.Name = "lbPass";
-            this.lbPass.Size = new System.Drawing.Size(61, 18);
+            this.lbPass.Size = new System.Drawing.Size(99, 18);
             this.lbPass.TabIndex = 2;
-            this.lbPass.Text = "Mật khẩu";
+            this.lbPass.Text = "Mật khẩu mới: ";
             // 
-            // txtUser
+            // txtOldPass
             // 
-            this.txtUser.Location = new System.Drawing.Point(283, 61);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Properties.Appearance.Options.UseFont = true;
-            this.txtUser.Size = new System.Drawing.Size(238, 24);
-            this.txtUser.TabIndex = 1;
+            this.txtOldPass.Location = new System.Drawing.Point(269, 61);
+            this.txtOldPass.Name = "txtOldPass";
+            this.txtOldPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOldPass.Properties.Appearance.Options.UseFont = true;
+            this.txtOldPass.Size = new System.Drawing.Size(238, 24);
+            this.txtOldPass.TabIndex = 1;
             // 
             // lbUser
             // 
             this.lbUser.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUser.Appearance.Options.UseFont = true;
-            this.lbUser.Location = new System.Drawing.Point(91, 63);
+            this.lbUser.Location = new System.Drawing.Point(76, 63);
             this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(101, 18);
+            this.lbUser.Size = new System.Drawing.Size(91, 18);
             this.lbUser.TabIndex = 0;
-            this.lbUser.Text = "Tên đăng nhập";
+            this.lbUser.Text = "Mật khẩu cũ: ";
             // 
             // btnOK
             // 
             this.btnOK.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(261, 267);
+            this.btnOK.Location = new System.Drawing.Point(269, 278);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 29);
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            this.btnOK.MouseLeave += new System.EventHandler(this.btnOK_MouseLeave);
-            this.btnOK.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnOK_MouseMove);
             // 
             // btnCancel
             // 
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(418, 267);
+            this.btnCancel.Location = new System.Drawing.Point(426, 278);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 29);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
-            this.btnCancel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCancel_MouseMove);
             // 
-            // frmLogin
+            // UpdatePass
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 315);
+            this.ClientSize = new System.Drawing.Size(746, 332);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.grpCtrl1);
-            this.Name = "frmLogin";
+            this.Name = "UpdatePass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ĐĂNG NHẬP HỆ THỐNG";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.Text = "ĐỔI MẬT KHẨU";
+            this.Load += new System.EventHandler(this.UpdatePass_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grpCtrl1)).EndInit();
             this.grpCtrl1.ResumeLayout(false);
             this.grpCtrl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReNewPass.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNewPass.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOldPass.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -152,7 +172,9 @@
         private DevExpress.XtraEditors.LabelControl lbUser;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
-        public DevExpress.XtraEditors.TextEdit txtPass;
-        public DevExpress.XtraEditors.TextEdit txtUser;
+        public DevExpress.XtraEditors.TextEdit txtNewPass;
+        public DevExpress.XtraEditors.TextEdit txtOldPass;
+        public DevExpress.XtraEditors.TextEdit txtReNewPass;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
     }
 }
