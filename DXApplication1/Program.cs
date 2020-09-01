@@ -29,9 +29,13 @@ namespace DXApplication1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
-            main = new FrmMain_Admin();
-            main.IsMdiContainer = true;
-            Application.Run(new FrmMain_Admin());
+
+            ndSql = new NguoiDungSql();
+
+            
+            
+            Application.Run(lg);
+
 
         }
     }

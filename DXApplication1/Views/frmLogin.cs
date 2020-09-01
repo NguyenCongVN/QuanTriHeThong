@@ -60,6 +60,8 @@ namespace DXApplication1
                 if (CheckLogin(txtUser.Text, txtPass.Text) == 1)
                 {
                     this.Hide();
+                    Program.main = new FrmMain();
+                    Program.main.IsMdiContainer = true;
                     Program.main.Show();
                 }
                 else
