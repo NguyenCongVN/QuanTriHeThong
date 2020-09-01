@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DXApplication1.Models;
-
+using DXApplication1.Utilizes;
 
 namespace DXApplication1
 {
@@ -75,15 +75,13 @@ namespace DXApplication1
             list = Program.ndSql.SelectAll();
             foreach (var value in list)
             {
-                if (value.MaDangNhapNguoiDung == _name && value.MatKhau == _pass)
+                if (value.MaDangNhapNguoiDung == _name && UserUtilizes.GetHashString(value.MatKhau) == _pass)
                 {
                     check = 1;
                     userLogin = new NguoiDung();
                     userLogin.MaDangNhapNguoiDung = value.MaDangNhapNguoiDung;
-                    userLogin.MatKhau = value.MatKhau;
-                   
+                    userLogin.MatKhau = UserUtilizes.GetHashString(value.MatKhau);
                     break;
-                    
                 }
             }
             return check;
