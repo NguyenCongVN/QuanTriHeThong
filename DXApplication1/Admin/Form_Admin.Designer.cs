@@ -1,6 +1,6 @@
 ﻿namespace DXApplication1
 {
-    partial class FrmMain
+    partial class FrmMain_Admin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain_Admin));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnLogin = new DevExpress.XtraBars.BarButtonItem();
             this.btnChangePass = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPhanquyen = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThongTinCaNhan = new DevExpress.XtraBars.BarButtonItem();
             this.btnSaveData = new DevExpress.XtraBars.BarButtonItem();
             this.btnRestore = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.barButtonItemPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbBackground = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpManage = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.tabHienThi1 = new DevExpress.XtraTab.XtraTabControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-
+            this.panelMain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabHienThi1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -64,15 +64,15 @@
             this.btnLogin,
             this.btnChangePass,
             this.btnLogout,
-            this.btnPhanquyen,
+            this.btnThongTinCaNhan,
             this.btnSaveData,
             this.btnRestore,
-
-            this.skinRibbonGalleryBarItem1});
-
+            this.skinRibbonGalleryBarItem1,
+            this.barButtonItemPhanQuyen,
+            this.barButtonItemNhanVien});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 16;
+            this.ribbonControl1.MaxItemId = 18;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
@@ -98,8 +98,6 @@
             this.btnChangePass.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChangePass.ImageOptions.LargeImage")));
             this.btnChangePass.Name = "btnChangePass";
             this.btnChangePass.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnChangePass.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePass_ItemClick);
-
             // 
             // btnLogout
             // 
@@ -110,14 +108,13 @@
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             // 
-            // btnPhanquyen
+            // btnThongTinCaNhan
             // 
-            this.btnPhanquyen.Caption = "Thông tin cá nhân";
-            this.btnPhanquyen.Id = 4;
-            this.btnPhanquyen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhanquyen.ImageOptions.Image")));
-            this.btnPhanquyen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhanquyen.ImageOptions.LargeImage")));
-            this.btnPhanquyen.Name = "btnPhanquyen";
-            this.btnPhanquyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhanquyen_ItemClick);
+            this.btnThongTinCaNhan.Caption = "Thông tin cá nhân";
+            this.btnThongTinCaNhan.Id = 4;
+            this.btnThongTinCaNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThongTinCaNhan.ImageOptions.Image")));
+            this.btnThongTinCaNhan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThongTinCaNhan.ImageOptions.LargeImage")));
+            this.btnThongTinCaNhan.Name = "btnThongTinCaNhan";
             // 
             // btnSaveData
             // 
@@ -141,6 +138,24 @@
             this.skinRibbonGalleryBarItem1.Id = 7;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
+            // barButtonItemPhanQuyen
+            // 
+            this.barButtonItemPhanQuyen.Caption = "Phân quyền";
+            this.barButtonItemPhanQuyen.Id = 16;
+            this.barButtonItemPhanQuyen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemPhanQuyen.ImageOptions.Image")));
+            this.barButtonItemPhanQuyen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemPhanQuyen.ImageOptions.LargeImage")));
+            this.barButtonItemPhanQuyen.Name = "barButtonItemPhanQuyen";
+            this.barButtonItemPhanQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPhanQuyen_ItemClick);
+            // 
+            // barButtonItemNhanVien
+            // 
+            this.barButtonItemNhanVien.Caption = "NhanVien";
+            this.barButtonItemNhanVien.Id = 17;
+            this.barButtonItemNhanVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemNhanVien.ImageOptions.Image")));
+            this.barButtonItemNhanVien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemNhanVien.ImageOptions.LargeImage")));
+            this.barButtonItemNhanVien.Name = "barButtonItemNhanVien";
+            this.barButtonItemNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNhanVien_ItemClick);
+            // 
             // rbpHeThong
             // 
             this.rbpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -154,7 +169,8 @@
             // 
             this.rbHeThong.ItemLinks.Add(this.btnChangePass);
             this.rbHeThong.ItemLinks.Add(this.btnLogout);
-            this.rbHeThong.ItemLinks.Add(this.btnPhanquyen);
+            this.rbHeThong.ItemLinks.Add(this.btnThongTinCaNhan);
+            this.rbHeThong.ItemLinks.Add(this.barButtonItemPhanQuyen);
             this.rbHeThong.Name = "rbHeThong";
             this.rbHeThong.Text = "Hệ thống";
             // 
@@ -173,8 +189,16 @@
             // 
             // rbpManage
             // 
+            this.rbpManage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
             this.rbpManage.Name = "rbpManage";
             this.rbpManage.Text = "Quản lý";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemNhanVien);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
             // rbpHelp
             // 
@@ -204,15 +228,6 @@
             this.ribbonPage5.Name = "ribbonPage5";
             this.ribbonPage5.Text = "ribbonPage5";
             // 
-            // tabHienThi1
-            // 
-            this.tabHienThi1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabHienThi1.Location = new System.Drawing.Point(0, 178);
-            this.tabHienThi1.Name = "tabHienThi1";
-            this.tabHienThi1.Size = new System.Drawing.Size(1510, 451);
-            this.tabHienThi1.TabIndex = 1;
-            this.tabHienThi1.Click += new System.EventHandler(this.tabHienThi1_Click);
-            // 
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "Bệnh Nhân";
@@ -221,17 +236,24 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-
             // 
-            // FrmMain
+            // panelMain
+            // 
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 178);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(1510, 451);
+            this.panelMain.TabIndex = 3;
+            // 
+            // FrmMain_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1510, 629);
-            this.Controls.Add(this.tabHienThi1);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.ribbonControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FrmMain";
+            this.Name = "FrmMain_Admin";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ";
@@ -239,7 +261,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabHienThi1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,18 +278,20 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
-        private DevExpress.XtraTab.XtraTabPage tabHienThi;
+      //  private DevExpress.XtraTab.XtraTabPage tabHienThi;
         private DevExpress.XtraBars.BarButtonItem btnLogin;
         private DevExpress.XtraBars.BarButtonItem btnChangePass;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
-        private DevExpress.XtraBars.BarButtonItem btnPhanquyen;
+        private DevExpress.XtraBars.BarButtonItem btnThongTinCaNhan;
         private DevExpress.XtraBars.BarButtonItem btnSaveData;
         private DevExpress.XtraBars.BarButtonItem btnRestore;
-        public  DevExpress.XtraTab.XtraTabControl tabHienThi1;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-
+        private DevExpress.XtraBars.BarButtonItem barButtonItemPhanQuyen;
+        private System.Windows.Forms.Panel panelMain;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemNhanVien;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }
 

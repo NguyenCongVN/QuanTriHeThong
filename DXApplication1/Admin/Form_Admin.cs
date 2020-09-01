@@ -8,15 +8,15 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DXApplication1.Models;
-using DXApplication1.Account;
+using DXApplication1.Views;
 
 namespace DXApplication1
 {
     
-    public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class FrmMain_Admin : DevExpress.XtraBars.Ribbon.RibbonForm
     {
 
-        public FrmMain()
+        public FrmMain_Admin()
         {
             
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace DXApplication1
             {
                 e.Cancel = true;
             }
-
+            
         }
 
         private void btnLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -58,26 +58,28 @@ namespace DXApplication1
             login.Show();
             
         }
-
-
-        private void tabHienThi1_Click(object sender, EventArgs e)
+        private void barButtonItemPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Admin.Phanquyen phanquyen = new Admin.Phanquyen();
+            phanquyen.TopLevel = false;
+            panelMain.Controls.Clear();
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(phanquyen);
+            phanquyen.Dock = DockStyle.Fill;
+            phanquyen.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            phanquyen.Show();
         }
 
-
-        private void btnPhanquyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barButtonItemNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Admin.QuanLyNhanVien quanLyNhanVien = new Admin.QuanLyNhanVien();
+            quanLyNhanVien.TopLevel = false;
+            panelMain.Controls.Clear();
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(quanLyNhanVien);
+            quanLyNhanVien.Dock = DockStyle.Fill;
+            quanLyNhanVien.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            quanLyNhanVien.Show();
         }
-
-
-        private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Program.up_datePass = new UpdatePass();
-            Program.up_datePass.Show();
-        }
-
-
     }
 }
