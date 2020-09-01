@@ -75,6 +75,14 @@
     <Compile Include="Admin\QuanLyNhanVien.Designer.cs">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Account\UpdatePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\UpdatePass.Designer.cs">
+      <DependentUpon>UpdatePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NguoiDung.cs" />
+    <Compile Include="Models\NguoiDungSql.cs" />
     <Compile Include="Models\ConnectionDatabase.cs" />
     <Compile Include="Views\frmDky.cs">
       <SubType>Form</SubType>
@@ -104,6 +112,16 @@
     </Compile>
     <EmbeddedResource Include="Admin\QuanLyNhanVien.resx">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    <Compile Include="Client\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Account\UpdatePass.resx">
+      <DependentUpon>UpdatePass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDky.resx">
       <DependentUpon>frmDky.cs</DependentUpon>
@@ -113,6 +131,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\Form_Admin.resx">
       <DependentUpon>Form_Admin.cs</DependentUpon>
+    <EmbeddedResource Include="Client\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Admin\Phanquyen.resx">
