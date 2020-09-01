@@ -565,3 +565,4 @@ D:\Git\QuanTriHeThong\DXApplication1\obj\Debug\DXApplication1.csproj.CoreCompile
 D:\Git\QuanTriHeThong\DXApplication1\obj\Debug\DXApplication1.csproj.CopyComplete
 D:\Git\QuanTriHeThong\DXApplication1\obj\Debug\DXApplication1.exe
 D:\Git\QuanTriHeThong\DXApplication1\obj\Debug\DXApplication1.pdb
+D:\Git\QuanTriHeThong\DXApplication1\obj\Debug\DXApplication1.Admin.Phanquyen.resources

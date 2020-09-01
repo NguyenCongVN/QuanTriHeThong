@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DXApplication1.Models;
+using DXApplication1.Views;
 
 namespace DXApplication1
 {
@@ -57,28 +58,16 @@ namespace DXApplication1
             login.Show();
             
         }
-
-        private void btBN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barButtonItemPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
-        }
-
-        public void btThanNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
-
-        private void tabHienThi1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void btnPhanquyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
+            Admin.Phanquyen phanquyen = new Admin.Phanquyen();
+            phanquyen.TopLevel = false;
+            panelMain.Controls.Clear();
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(phanquyen);
+            phanquyen.Dock = DockStyle.Fill;
+            phanquyen.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            phanquyen.Show();
         }
     }
 }

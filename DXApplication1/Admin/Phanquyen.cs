@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace DXApplication1.Views
+namespace DXApplication1.Admin
 {
     public partial class Phanquyen : DevExpress.XtraEditors.XtraForm
     {

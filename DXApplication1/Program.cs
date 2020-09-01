@@ -11,6 +11,7 @@ namespace DXApplication1
     static class Program
     {
         public static FrmMain main;
+        
 
         /// <summary>
         /// The main entry point for the application.
