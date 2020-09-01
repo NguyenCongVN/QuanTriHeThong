@@ -10,15 +10,15 @@ namespace DXApplication1.Models
 {
     class NguoiDungSql : ConnectionDatabase
     {
-        public bool UpdatePass(NguoiDung user)
+        public bool UpdatePass(NguoiDung user, string new_pass)
         {
-            SqlCommand command = new SqlCommand("UpDatePass", Connection);
+            SqlCommand command = new SqlCommand("UPDATE_PASS", Connection);
             command.CommandType = CommandType.StoredProcedure;
 
             try
             {
                 command.Parameters.Add(new SqlParameter("@MA", SqlDbType.Char, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MaDangNhapNguoiDung));
-                command.Parameters.Add(new SqlParameter("@PASS", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MatKhau));
+                command.Parameters.Add(new SqlParameter("@PASS", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, new_pass));
 
                 Connection.Open();
                 command.ExecuteNonQuery();
@@ -38,7 +38,7 @@ namespace DXApplication1.Models
         }
         public List<NguoiDung> SelectAll()
         {
-            SqlCommand command = new SqlCommand("SelectAll", Connection);
+            SqlCommand command = new SqlCommand("SELECT_ALL", Connection);
             command.CommandType = CommandType.StoredProcedure;
 
             try

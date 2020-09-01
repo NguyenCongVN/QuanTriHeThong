@@ -16,6 +16,7 @@ namespace DXApplication1
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
          NguoiDung userLogin;
+        internal NguoiDung UserLogin { get => userLogin; set => userLogin = value; }
         public frmLogin()
         {
             InitializeComponent();
@@ -74,10 +75,6 @@ namespace DXApplication1
             list = Program.ndSql.SelectAll();
             foreach (var value in list)
             {
-                MessageBox.Show(value.MatKhau);
-                MessageBox.Show(value.MaDangNhapNguoiDung);
-                MessageBox.Show(_name);
-                MessageBox.Show(_pass);
                 if (value.MaDangNhapNguoiDung == _name && value.MatKhau == _pass)
                 {
                     check = 1;
@@ -94,6 +91,11 @@ namespace DXApplication1
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -48,7 +48,6 @@ namespace DXApplication1
             {
                 e.Cancel = true;
             }
-            
         }
 
         private void btnLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -63,10 +62,6 @@ namespace DXApplication1
 
         }
 
-        public void btThanNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
 
 
         private void tabHienThi1_Click(object sender, EventArgs e)
@@ -75,10 +70,14 @@ namespace DXApplication1
         }
 
 
-
         private void btnPhanquyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        }
+
+        private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Program.up_datePass.Show();
         }
     }
 }
