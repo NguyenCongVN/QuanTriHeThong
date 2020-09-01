@@ -29,10 +29,10 @@ namespace DXApplication1
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
             ndSql = new NguoiDungSql();
-            main = new FrmMain();
+            
             lg = new frmLogin();
-            up_datePass = new UpdatePass();
-            main.IsMdiContainer = true;
+            
+            
             Application.Run(lg);
         }
     }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DXApplication1.Models;
+using DXApplication1.Account;
 
 namespace DXApplication1
 {
@@ -48,6 +49,7 @@ namespace DXApplication1
             {
                 e.Cancel = true;
             }
+              
         }
 
         private void btnLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -56,13 +58,6 @@ namespace DXApplication1
             login.Show();
             
         }
-
-        private void btBN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
-
 
         private void tabHienThi1_Click(object sender, EventArgs e)
         {
@@ -77,7 +72,13 @@ namespace DXApplication1
 
         private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Program.up_datePass = new UpdatePass();
             Program.up_datePass.Show();
+        }
+
+        private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }
