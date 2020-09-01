@@ -17,8 +17,8 @@
 mono_crash.*
 
 # Build results
-bin/[Dd]ebug/*.exe
-bin/[Dd]ebug/*.pdb
+[Dd]ebug/*.exe
+[Dd]ebug/*.pdb
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
