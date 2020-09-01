@@ -1,6 +1,6 @@
 ﻿namespace DXApplication1
 {
-    partial class FrmMain
+    partial class FrmMain_Admin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain_Admin));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnLogin = new DevExpress.XtraBars.BarButtonItem();
             this.btnChangePass = new DevExpress.XtraBars.BarButtonItem();
@@ -38,11 +38,13 @@
             this.btnRestore = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.barButtonItemPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbBackground = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpManage = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -66,10 +68,11 @@
             this.btnSaveData,
             this.btnRestore,
             this.skinRibbonGalleryBarItem1,
-            this.barButtonItemPhanQuyen});
+            this.barButtonItemPhanQuyen,
+            this.barButtonItemNhanVien});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 17;
+            this.ribbonControl1.MaxItemId = 18;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
@@ -109,8 +112,8 @@
             // 
             this.btnThongTinCaNhan.Caption = "Thông tin cá nhân";
             this.btnThongTinCaNhan.Id = 4;
-            this.btnThongTinCaNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhanquyen.ImageOptions.Image")));
-            this.btnThongTinCaNhan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhanquyen.ImageOptions.LargeImage")));
+            this.btnThongTinCaNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThongTinCaNhan.ImageOptions.Image")));
+            this.btnThongTinCaNhan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThongTinCaNhan.ImageOptions.LargeImage")));
             this.btnThongTinCaNhan.Name = "btnThongTinCaNhan";
             // 
             // btnSaveData
@@ -139,10 +142,19 @@
             // 
             this.barButtonItemPhanQuyen.Caption = "Phân quyền";
             this.barButtonItemPhanQuyen.Id = 16;
-            this.barButtonItemPhanQuyen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonItemPhanQuyen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.barButtonItemPhanQuyen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemPhanQuyen.ImageOptions.Image")));
+            this.barButtonItemPhanQuyen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemPhanQuyen.ImageOptions.LargeImage")));
             this.barButtonItemPhanQuyen.Name = "barButtonItemPhanQuyen";
             this.barButtonItemPhanQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPhanQuyen_ItemClick);
+            // 
+            // barButtonItemNhanVien
+            // 
+            this.barButtonItemNhanVien.Caption = "NhanVien";
+            this.barButtonItemNhanVien.Id = 17;
+            this.barButtonItemNhanVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemNhanVien.ImageOptions.Image")));
+            this.barButtonItemNhanVien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemNhanVien.ImageOptions.LargeImage")));
+            this.barButtonItemNhanVien.Name = "barButtonItemNhanVien";
+            this.barButtonItemNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNhanVien_ItemClick);
             // 
             // rbpHeThong
             // 
@@ -177,8 +189,16 @@
             // 
             // rbpManage
             // 
+            this.rbpManage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
             this.rbpManage.Name = "rbpManage";
             this.rbpManage.Text = "Quản lý";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemNhanVien);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
             // rbpHelp
             // 
@@ -225,7 +245,7 @@
             this.panelMain.Size = new System.Drawing.Size(1510, 451);
             this.panelMain.TabIndex = 3;
             // 
-            // FrmMain
+            // FrmMain_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -233,7 +253,7 @@
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.ribbonControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FrmMain";
+            this.Name = "FrmMain_Admin";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ";
@@ -258,7 +278,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
-        private DevExpress.XtraTab.XtraTabPage tabHienThi;
+      //  private DevExpress.XtraTab.XtraTabPage tabHienThi;
         private DevExpress.XtraBars.BarButtonItem btnLogin;
         private DevExpress.XtraBars.BarButtonItem btnChangePass;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
@@ -270,6 +290,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItemPhanQuyen;
         private System.Windows.Forms.Panel panelMain;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemNhanVien;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }
 

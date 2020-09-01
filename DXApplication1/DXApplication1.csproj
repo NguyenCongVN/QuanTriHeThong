@@ -69,6 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\QuanLyNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\QuanLyNhanVien.Designer.cs">
+      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ConnectionDatabase.cs" />
     <Compile Include="Views\frmDky.cs">
       <SubType>Form</SubType>
@@ -82,11 +88,11 @@
     <Compile Include="Views\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Form1.cs">
+    <Compile Include="Admin\Form_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Admin\Form_Admin.Designer.cs">
+      <DependentUpon>Form_Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,14 +102,17 @@
     <Compile Include="Admin\Phanquyen.Designer.cs">
       <DependentUpon>Phanquyen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\QuanLyNhanVien.resx">
+      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDky.resx">
       <DependentUpon>frmDky.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\Form_Admin.resx">
+      <DependentUpon>Form_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Admin\Phanquyen.resx">

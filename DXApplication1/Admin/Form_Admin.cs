@@ -13,10 +13,10 @@ using DXApplication1.Views;
 namespace DXApplication1
 {
     
-    public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class FrmMain_Admin : DevExpress.XtraBars.Ribbon.RibbonForm
     {
 
-        public FrmMain()
+        public FrmMain_Admin()
         {
             
             InitializeComponent();
@@ -68,6 +68,18 @@ namespace DXApplication1
             phanquyen.Dock = DockStyle.Fill;
             phanquyen.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             phanquyen.Show();
+        }
+
+        private void barButtonItemNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Admin.QuanLyNhanVien quanLyNhanVien = new Admin.QuanLyNhanVien();
+            quanLyNhanVien.TopLevel = false;
+            panelMain.Controls.Clear();
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(quanLyNhanVien);
+            quanLyNhanVien.Dock = DockStyle.Fill;
+            quanLyNhanVien.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            quanLyNhanVien.Show();
         }
     }
 }
