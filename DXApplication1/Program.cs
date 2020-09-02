@@ -10,7 +10,10 @@ namespace DXApplication1
 {
     static class Program
     {
-        public static FrmMain_Admin main;
+
+        public static FrmMain main;
+=======
+
 
 
         /// <summary>
@@ -28,7 +31,14 @@ namespace DXApplication1
             BonusSkins.Register();
 
             ndSql = new NguoiDungSql();
-            Application.Run(new frmLogin());
+
+
+            lg = new frmLogin();
+
+            Application.Run(new FrmMain());
+
+
+
         }
     }
 }
