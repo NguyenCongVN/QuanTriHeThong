@@ -1,5 +1,6 @@
 ﻿using DevExpress.UserSkins;
 using DXApplication1.Account;
+using DXApplication1.Admin;
 using DXApplication1.Models;
 using DXApplication1.Views;
 using System;
@@ -32,10 +33,7 @@ namespace DXApplication1
 
             lg = new frmLogin();
 
-            Application.Run(new frmLogin());
-
-
-
+            Application.Run(new QuanLyNhanVien());
         }
     }
 }

@@ -22,7 +22,6 @@ namespace DXApplication1.Models
             {
                 command.Parameters.Add(new SqlParameter("@MA", SqlDbType.VarChar, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MaDangNhapNguoiDung));
                 command.Parameters.Add(new SqlParameter("@PASS", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, new_pass));
-
                 Connection.Open();
                 command.ExecuteNonQuery();
                 return true;
