@@ -5,11 +5,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DXApplication1.Models
 {
     class NguoiDungSql : ConnectionDatabase
     {
+        
         public bool UpdatePass(NguoiDung user, string new_pass)
         {
             SqlCommand command = new SqlCommand("UPDATE_PASS", Connection);
@@ -36,6 +38,7 @@ namespace DXApplication1.Models
                 command.Dispose();
             }
         }
+
         public List<NguoiDung> SelectAll()
         {
             SqlCommand command = new SqlCommand("SELECT_ALL", Connection);

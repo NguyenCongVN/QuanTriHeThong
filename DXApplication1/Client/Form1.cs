@@ -10,11 +10,13 @@ using DevExpress.XtraEditors;
 using DXApplication1.Models;
 using DXApplication1.Account;
 
+
 namespace DXApplication1
 {
     
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        int chk = 0;
 
         public FrmMain()
         {
@@ -43,22 +45,25 @@ namespace DXApplication1
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dr;
-            dr = XtraMessageBox.Show("Bạn có muốn thoát ? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.No)
+            if(chk == 0)
             {
-                e.Cancel = true;
-            }
-
+                DialogResult dr;
+                dr = XtraMessageBox.Show("Bạn có muốn thoát ? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }    
+            
+              
         }
 
         private void btnLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmLogin login = new frmLogin();
-            login.Show();
+            Program.lg = new frmLogin();
+            Program.lg.Show();
             
         }
-
 
         private void tabHienThi1_Click(object sender, EventArgs e)
         {
@@ -71,13 +76,25 @@ namespace DXApplication1
 
         }
 
-
         private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.up_datePass = new UpdatePass();
             Program.up_datePass.Show();
         }
 
+        private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DialogResult dr;
+            dr = XtraMessageBox.Show("Bạn có muốn đăng xuất ? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                chk = 1;
+                Program.lg = new frmLogin();
+                Program.lg.Show();
+                this.Hide();
 
+            }
+
+        }
     }
 }

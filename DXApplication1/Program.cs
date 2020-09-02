@@ -13,8 +13,8 @@ namespace DXApplication1
 {
     static class Program
     {
-        public static FrmMain_Admin main;
-        
+        public static FrmMain main;
+
 
         /// <summary>
         /// The main entry point for the application.
@@ -23,7 +23,7 @@ namespace DXApplication1
         public static frmLogin lg;
         public static UpdatePass up_datePass;
         [STAThread]
-        
+
         static void Main()
         {
             Application.EnableVisualStyles();
@@ -32,9 +32,9 @@ namespace DXApplication1
 
             ndSql = new NguoiDungSql();
 
-            
-            
-            Application.Run(lg);
+            lg = new frmLogin();
+
+            Application.Run(new FrmMain());
 
 
         }
