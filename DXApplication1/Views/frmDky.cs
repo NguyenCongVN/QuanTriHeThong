@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DXApplication1.Utilizes;
-using System.Data.SqlClient;
+﻿using DevExpress.XtraEditors;
 using DXApplication1.Models;
+using DXApplication1.Utilizes;
+using System;
 
 namespace DXApplication1.Views
 {
@@ -23,28 +14,61 @@ namespace DXApplication1.Views
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+
+            // Bắt lỗi nhập thông tin.
             try
             {
                 if (txtUser.Text == "" || txtPass.Text == "" || txtRePass.Text == "" || txtDiaChi.Text == ""
                     || txtEmail.Text == "" || txtHoTen.Text == "" || txtSoDienThoai.Text == "")
-                 throw new Exception("Bạn phải nhập đầy đủ thông tin!");
-                if(txtRePass.Text != txtPass.Text)
-                 throw new Exception("Mật khẩu xác nhận không đúng!");
-                if(!UserUtilizes.IsValidEmail(txtEmail.Text))
+                    throw new Exception("Bạn phải nhập đầy đủ thông tin!");
+                if (txtRePass.Text != txtPass.Text)
+                    throw new Exception("Mật khẩu xác nhận không đúng!");
+                if (!UserUtilizes.IsValidEmail(txtEmail.Text))
                 {
                     throw new Exception("Hãy nhập một email hợp lệ");
                 }
 
-                if(!UserUtilizes.IsPhoneNumber(txtSoDienThoai.Text))
+                if (!UserUtilizes.IsPhoneNumber(txtSoDienThoai.Text))
                 {
                     throw new Exception("Hãy nhập vào số điện thoại đúng");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                XtraMessageBox.Show(ex.ToString());
+                XtraMessageBox.Show(ex.Message);
                 return;
             }
+
+            //// Đăng kí tài khoản
+            ///
+
+            DangKy(txtUser.Text, txtPass.Text, txtHoTen.Text,
+                txtEmail.Text, txtSoDienThoai.Text, txtDiaChi.Text, dateNgaySinh.DateTime);
+        }
+
+
+        public bool DangKy(string maDangNhap, string matKhau, string hoTen, string email, string soDienThoai, string diaChi, DateTime ngaySinh)
+        {
+            string hashedPassword = Utilizes.UserUtilizes.GetHashString(matKhau);
+            ThongTinNguoiDung thongTinNguoiDung = new ThongTinNguoiDung
+            {
+                MaDangNhapNguoiDung = maDangNhap,
+                HoTen = hoTen,
+                Email = email,
+                SoDienThoai = soDienThoai,
+                DiaChi = diaChi,
+                NgaySinh = ngaySinh
+            };
+            NguoiDung nguoiDung = new NguoiDung
+            {
+                MaDangNhapNguoiDung = maDangNhap,
+                MatKhau = hashedPassword,
+                ChucVu = "Nhanvien",
+                ThongTinNguoiDung = thongTinNguoiDung
+            };
+            if (Program.ndSql.Register(nguoiDung))
+                return true;
+            return false;
         }
     }
 }

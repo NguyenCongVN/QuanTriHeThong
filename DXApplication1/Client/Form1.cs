@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DXApplication1.Models;
+﻿using DevExpress.XtraEditors;
 using DXApplication1.Account;
+using System;
+using System.Windows.Forms;
 
 namespace DXApplication1
 {
-    
+
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
 
         public FrmMain()
         {
-            
+
             InitializeComponent();
         }
 
@@ -56,7 +49,7 @@ namespace DXApplication1
         {
             frmLogin login = new frmLogin();
             login.Show();
-            
+
         }
 
 

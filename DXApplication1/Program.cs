@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using DevExpress.UserSkins;
-using DevExpress.Skins;
-using DXApplication1.Views;
-using DXApplication1.Models;
+﻿using DevExpress.UserSkins;
 using DXApplication1.Account;
+using DXApplication1.Models;
+using DXApplication1.Views;
+using System;
+using System.Windows.Forms;
 
 
 namespace DXApplication1
@@ -14,7 +11,7 @@ namespace DXApplication1
     static class Program
     {
         public static FrmMain_Admin main;
-        
+
 
         /// <summary>
         /// The main entry point for the application.
@@ -23,7 +20,7 @@ namespace DXApplication1
         public static frmLogin lg;
         public static UpdatePass up_datePass;
         [STAThread]
-        
+
         static void Main()
         {
             Application.EnableVisualStyles();
@@ -31,7 +28,7 @@ namespace DXApplication1
             BonusSkins.Register();
 
             ndSql = new NguoiDungSql();
-            Application.Run(new frmDky());
+            Application.Run(new frmLogin());
         }
     }
 }
