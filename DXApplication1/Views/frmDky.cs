@@ -57,13 +57,13 @@ namespace DXApplication1.Views
                 Email = email,
                 SoDienThoai = soDienThoai,
                 DiaChi = diaChi,
+                ChucVu = "Nhanvien",
                 NgaySinh = ngaySinh
             };
             NguoiDung nguoiDung = new NguoiDung
             {
                 MaDangNhapNguoiDung = maDangNhap,
                 MatKhau = hashedPassword,
-                ChucVu = "Nhanvien",
                 ThongTinNguoiDung = thongTinNguoiDung
             };
             if (Program.ndSql.Register(nguoiDung))

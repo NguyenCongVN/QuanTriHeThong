@@ -14,7 +14,7 @@ namespace DXApplication1.Models
             command.CommandType = CommandType.StoredProcedure;
             try
             {
-                command.Parameters.Add(new SqlParameter("@MA", SqlDbType.Char, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MaDangNhapNguoiDung));
+                command.Parameters.Add(new SqlParameter("@MA", SqlDbType.VarChar, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MaDangNhapNguoiDung));
                 command.Parameters.Add(new SqlParameter("@PASS", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, new_pass));
 
                 Connection.Open();
@@ -55,7 +55,6 @@ namespace DXApplication1.Models
                 Connection.Close();
                 command.Dispose();
             }
-
         }
 
         // Đăng kí tài khoản
@@ -67,14 +66,14 @@ namespace DXApplication1.Models
 
             try
             {
-                cmd.Parameters.Add(new SqlParameter("@maDangNhapNguoiDung", SqlDbType.Char, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MaDangNhapNguoiDung));
+                cmd.Parameters.Add(new SqlParameter("@maDangNhapNguoiDung", SqlDbType.VarChar, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MaDangNhapNguoiDung));
                 cmd.Parameters.Add(new SqlParameter("@matKhau", user.MatKhau));
-                cmd.Parameters.Add(new SqlParameter("@soDienThoai", SqlDbType.Char, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.SoDienThoai));
+                cmd.Parameters.Add(new SqlParameter("@soDienThoai", SqlDbType.VarChar, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.SoDienThoai));
                 cmd.Parameters.Add(new SqlParameter("@hoTen", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.HoTen));
                 cmd.Parameters.Add(new SqlParameter("@email", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.Email));
                 cmd.Parameters.Add(new SqlParameter("@diaChi", SqlDbType.NVarChar, 200, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.DiaChi));
                 cmd.Parameters.Add(new SqlParameter("@ngaySinh", user.ThongTinNguoiDung.NgaySinh.Date));
-                cmd.Parameters.Add(new SqlParameter("@chucVu", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ChucVu));
+                cmd.Parameters.Add(new SqlParameter("@chucVu", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.ChucVu));
                 Connection.Open();
                 cmd.ExecuteNonQuery();
                 return true;
@@ -90,7 +89,6 @@ namespace DXApplication1.Models
                 Connection.Close();
                 cmd.Dispose();
             }
-
         }
 
 
