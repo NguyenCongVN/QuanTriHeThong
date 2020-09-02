@@ -42,7 +42,7 @@ namespace DXApplication1.Account
             txtEmail.Text = Program.detail_user.Email;
             txtDiaChi.Text = Program.detail_user.DiaChi;
             txtSoDienThoai.Text = Program.detail_user.SoDienThoai;
-            txtChucvu.Text = Program.detail_user.chucvu;
+            txtChucvu.Text = Program.detail_user.ChucVu;
             dateNgaySinh.DateTime = Program.detail_user.NgaySinh;
             dateNgayTao.DateTime = Program.detail_user.NgayTao;
         }
@@ -61,7 +61,7 @@ namespace DXApplication1.Account
                 Program.detail_user.NgaySinh = dateNgaySinh.DateTime.Date;
                 Program.detail_user.SoDienThoai = txtSoDienThoai.Text;
                 Program.detail_user.DiaChi = txtDiaChi.Text;
-                Program.detail_user.chucvu = txtChucvu.Text;
+                Program.detail_user.ChucVu = txtChucvu.Text;
                 Program.detail_user.NgayTao = dateNgayTao.DateTime;
                 Program.detail_user.Email = txtEmail.Text;
                 if (Program.detail_userSql.Update_Detail(Program.detail_user) == true)

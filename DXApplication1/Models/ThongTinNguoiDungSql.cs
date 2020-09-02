@@ -10,7 +10,7 @@ namespace DXApplication1.Models
         public ThongTinNguoiDung Select_Detail(ThongTinNguoiDung detail_user, string ma)
         {
             SqlCommand command = new SqlCommand("Detail_User @MA", Connection);
-            command.Parameters.Add(new SqlParameter("@MA", SqlDbType.Char, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, ma));
+            command.Parameters.Add(new SqlParameter("@MA", SqlDbType.VarChar, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, ma));
             command.CommandType = CommandType.Text;
 
             try
@@ -46,13 +46,13 @@ namespace DXApplication1.Models
             try
             {
                 command.Parameters.Add(new SqlParameter("@EMAIL", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, detail_user.Email));
-                command.Parameters.Add(new SqlParameter("@MA", SqlDbType.Char, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, detail_user.MaDangNhapNguoiDung));
+                command.Parameters.Add(new SqlParameter("@MA", SqlDbType.VarChar, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, detail_user.MaDangNhapNguoiDung));
                 command.Parameters.Add(new SqlParameter("@SDT", SqlDbType.Char, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, detail_user.SoDienThoai));
                 command.Parameters.Add(new SqlParameter("@HOTEN", SqlDbType.NVarChar, 100, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, detail_user.HoTen));
                 //command.Parameters.Add(new SqlParameter("@EMAIL", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, detail_user.Email));
                 command.Parameters.Add(new SqlParameter("@NGAYTAO", SqlDbType.DateTime, 15, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, detail_user.NgayTao));
                 command.Parameters.Add(new SqlParameter("@DC", SqlDbType.NVarChar, 200, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, detail_user.DiaChi));
-                command.Parameters.Add(new SqlParameter("@CHUCVU", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, detail_user.chucvu));
+                command.Parameters.Add(new SqlParameter("@CHUCVU", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, detail_user.ChucVu));
                 command.Parameters.Add(new SqlParameter("@NS", SqlDbType.Date, 8, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, detail_user.NgaySinh));
 
                 Connection.Open();
@@ -108,7 +108,7 @@ namespace DXApplication1.Models
             }
             if (!data.IsDBNull(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.chucvu.ToString())))
             {
-                detail_user.chucvu = data.GetString(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.chucvu.ToString()));
+                detail_user.ChucVu = data.GetString(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.chucvu.ToString()));
 
             }
         }
