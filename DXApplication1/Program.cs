@@ -7,6 +7,7 @@ using DevExpress.Skins;
 using DXApplication1.Views;
 using DXApplication1.Models;
 using DXApplication1.Account;
+using DXApplication1.Admin;
 
 
 namespace DXApplication1
@@ -14,7 +15,7 @@ namespace DXApplication1
     static class Program
     {
         public static FrmMain_Admin main;
-        
+
 
         /// <summary>
         /// The main entry point for the application.
@@ -22,8 +23,10 @@ namespace DXApplication1
         public static NguoiDungSql ndSql;
         public static frmLogin lg;
         public static UpdatePass up_datePass;
+        public static LoaiQuyenSql loaiQuyenSql;
+        public static QuyenSql quyenSql;
         [STAThread]
-        
+
         static void Main()
         {
             Application.EnableVisualStyles();
@@ -31,7 +34,7 @@ namespace DXApplication1
             BonusSkins.Register();
             main = new FrmMain_Admin();
             main.IsMdiContainer = true;
-            Application.Run(new FrmMain_Admin());
+            Application.Run(new Phanquyen());
 
         }
     }

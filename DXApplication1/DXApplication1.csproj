@@ -81,9 +81,19 @@
     <Compile Include="Account\UpdatePass.Designer.cs">
       <DependentUpon>UpdatePass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Chucvu.cs" />
+    <Compile Include="Models\ChucvuSql.cs" />
+    <Compile Include="Models\LoaiQuyen.cs" />
+    <Compile Include="Models\LoaiQuyenSql.cs" />
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\NguoiDungSql.cs" />
     <Compile Include="Models\ConnectionDatabase.cs" />
+    <Compile Include="Models\Quyen.cs" />
+    <Compile Include="Models\QuyenSql.cs" />
+    <Compile Include="Models\Quyen_LoaiQuyen.cs" />
+    <Compile Include="Models\Quyen_LoaiQuyenSql.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Utilizes\UserUtilizes.cs" />
     <Compile Include="Views\frmDky.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,7 +112,6 @@
     <Compile Include="Admin\Form_Admin.Designer.cs">
       <DependentUpon>Form_Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Admin\Phanquyen.cs">
       <SubType>Form</SubType>
@@ -119,7 +128,6 @@
     <Compile Include="Client\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Account\UpdatePass.resx">
       <DependentUpon>UpdatePass.cs</DependentUpon>
