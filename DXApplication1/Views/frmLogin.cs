@@ -55,9 +55,21 @@ namespace DXApplication1
                 if (CheckLogin(txtUser.Text, txtPass.Text) == 1)
                 {
                     this.Hide();
-                    Program.main = new FrmMain();
-                    Program.main.IsMdiContainer = true;
-                    Program.main.Show();
+                    Program.detail_user = new ThongTinNguoiDung();
+
+                    Program.detail_userSql.Select_Detail(Program.detail_user, userLogin.MaDangNhapNguoiDung);
+                    if(Program.detail_user.ChucVu== "Admin")
+                    {
+                        Program.main_admin = new FrmMain_Admin();
+                        Program.main_admin.IsMdiContainer = true;
+                        Program.main_admin.Show();
+                    }
+                    else
+                    {
+                        Program.main = new FrmMain();
+                        Program.main.IsMdiContainer = true;
+                        Program.main.Show();
+                    }
                 }
                 else
                 {
@@ -72,6 +84,7 @@ namespace DXApplication1
             list = Program.ndSql.SelectAll();
             foreach (var value in list)
             {
+
                 if (value.MaDangNhapNguoiDung == _name && UserUtilizes.GetHashString(_pass) == value.MatKhau)
                 {
                     check = 1;
