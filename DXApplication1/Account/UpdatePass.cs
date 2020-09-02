@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using DXApplication1.Models;
-using DXApplication1.Utilizes;
 using System;
 
 namespace DXApplication1.Account
@@ -21,13 +20,14 @@ namespace DXApplication1.Account
                 XtraMessageBox.Show("Bạn phải nhập đầy đủ thông tin!", "Error???");
             else if (txtReNewPass.Text != txtNewPass.Text)
                 XtraMessageBox.Show("Mật khẩu xác nhận không đúng!", "Error???");
-            else if (Program.lg.UserLogin.MatKhau != UserUtilizes.GetHashString(txtOldPass.Text))
+            else if (Program.lg.UserLogin.MatKhau != Utilizes.UserUtilizes.GetHashString(txtOldPass.Text))
             {
                 XtraMessageBox.Show("Mật khẩu cũ không đúng!", "Error???");
+
             }
             else
             {
-                if (Program.ndSql.UpdatePass(Program.lg.UserLogin, UserUtilizes.GetHashString(txtNewPass.Text)) == true)
+                if (Program.ndSql.UpdatePass(Program.lg.UserLogin, Utilizes.UserUtilizes.GetHashString(txtNewPass.Text)) == true)
                     XtraMessageBox.Show("Đổi mật khẩu thành công!");
             }
         }

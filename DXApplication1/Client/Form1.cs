@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraEditors;
 using DXApplication1.Account;
-using DXApplication1.Models;
 using System;
 using System.Windows.Forms;
 
@@ -16,8 +15,6 @@ namespace DXApplication1
         {
 
             InitializeComponent();
-            
-            
         }
 
 
@@ -70,10 +67,7 @@ namespace DXApplication1
 
         private void btnPhanquyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Program.detail_user = new ThongTinNguoiDung();
-            Program.detail_userSql.Select_Detail(Program.detail_user, Program.lg.UserLogin.MaDangNhapNguoiDung);
-            Detail_User detail_form = new Detail_User();
-            detail_form.Show();
+
         }
 
         private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

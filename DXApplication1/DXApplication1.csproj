@@ -69,12 +69,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\Detail_User.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Account\Detail_User.Designer.cs">
-      <DependentUpon>Detail_User.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin\QuanLyNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,8 +84,10 @@
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\NguoiDungSql.cs" />
     <Compile Include="Models\ConnectionDatabase.cs" />
+
     <Compile Include="Models\ThongTinNguoiDung.cs" />
     <Compile Include="Models\ThongTinNguoiDungSql.cs" />
+
     <Compile Include="Utilizes\UserUtilizes.cs" />
     <Compile Include="Views\frmDky.cs">
       <SubType>Form</SubType>
@@ -119,9 +115,6 @@
     <Compile Include="Admin\Phanquyen.Designer.cs">
       <DependentUpon>Phanquyen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Account\Detail_User.resx">
-      <DependentUpon>Detail_User.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Admin\QuanLyNhanVien.resx">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
