@@ -84,6 +84,10 @@
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\NguoiDungSql.cs" />
     <Compile Include="Models\ConnectionDatabase.cs" />
+
+    <Compile Include="Models\ThongTinNguoiDung.cs" />
+    <Compile Include="Models\ThongTinNguoiDungSql.cs" />
+
     <Compile Include="Utilizes\UserUtilizes.cs" />
     <Compile Include="Views\frmDky.cs">
       <SubType>Form</SubType>

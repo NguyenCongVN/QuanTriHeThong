@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using DevExpress.UserSkins;
-using DevExpress.Skins;
-using DXApplication1.Views;
-using DXApplication1.Models;
+﻿using DevExpress.UserSkins;
 using DXApplication1.Account;
+using DXApplication1.Models;
+using DXApplication1.Views;
+using System;
+using System.Windows.Forms;
 
 
 namespace DXApplication1
 {
     static class Program
     {
+
         public static FrmMain main;
+=======
+
 
 
         /// <summary>
@@ -32,9 +32,11 @@ namespace DXApplication1
 
             ndSql = new NguoiDungSql();
 
+
             lg = new frmLogin();
 
             Application.Run(new FrmMain());
+
 
 
         }

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace DXApplication1.Models
@@ -16,7 +18,6 @@ namespace DXApplication1.Models
         {
             SqlCommand command = new SqlCommand("UPDATE_PASS", Connection);
             command.CommandType = CommandType.StoredProcedure;
-
             try
             {
                 command.Parameters.Add(new SqlParameter("@MA", SqlDbType.Char, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MaDangNhapNguoiDung));
@@ -63,6 +64,46 @@ namespace DXApplication1.Models
             }
 
         }
+
+        // Đăng kí tài khoản
+
+        public bool Register(NguoiDung user)
+        {
+            SqlCommand cmd = new SqlCommand("ThemTaiKhoan", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@maDangNhapNguoiDung", SqlDbType.Char, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MaDangNhapNguoiDung));
+                cmd.Parameters.Add(new SqlParameter("@matKhau", user.MatKhau));
+                cmd.Parameters.Add(new SqlParameter("@soDienThoai", SqlDbType.Char, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.SoDienThoai));
+                cmd.Parameters.Add(new SqlParameter("@hoTen", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.HoTen));
+                cmd.Parameters.Add(new SqlParameter("@email", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.Email));
+                cmd.Parameters.Add(new SqlParameter("@diaChi", SqlDbType.NVarChar, 200, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.DiaChi));
+                cmd.Parameters.Add(new SqlParameter("@ngaySinh", user.ThongTinNguoiDung.NgaySinh.Date));
+                cmd.Parameters.Add(new SqlParameter("@chucVu", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ChucVu));
+                Connection.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                DialogResult d;
+                d = MessageBox.Show("Mã tài khoản này đã tồn tại, vui lòng chọn mã tài khoản khác");
+                return false;
+            }
+            finally
+            {
+                Connection.Close();
+                cmd.Dispose();
+            }
+
+        }
+
+
+        //
+
+
         internal void PopulatePlayerFromReader(NguoiDung user, IDataReader data)
         {
             user.MaDangNhapNguoiDung = data.GetString(data.GetOrdinal(NguoiDung.UserFields.MaDangNhapNguoiDung.ToString()));

@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace DXApplication1
 {
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
-         NguoiDung userLogin;
+        NguoiDung userLogin;
         internal NguoiDung UserLogin { get => userLogin; set => userLogin = value; }
         public frmLogin()
         {
@@ -60,7 +55,7 @@ namespace DXApplication1
                 if (CheckLogin(txtUser.Text, txtPass.Text) == 1)
                 {
                     this.Hide();
-                    Program.main = new FrmMain();
+                    Program.main = new FrmMain_Admin();
                     Program.main.IsMdiContainer = true;
                     Program.main.Show();
                 }
@@ -77,12 +72,12 @@ namespace DXApplication1
             list = Program.ndSql.SelectAll();
             foreach (var value in list)
             {
-                if (value.MaDangNhapNguoiDung == _name && UserUtilizes.GetHashString(value.MatKhau) == _pass)
+                if (value.MaDangNhapNguoiDung == _name && UserUtilizes.GetHashString(_pass) == value.MatKhau)
                 {
                     check = 1;
                     userLogin = new NguoiDung();
                     userLogin.MaDangNhapNguoiDung = value.MaDangNhapNguoiDung;
-                    userLogin.MatKhau = UserUtilizes.GetHashString(value.MatKhau);
+                    userLogin.MatKhau = UserUtilizes.GetHashString(_pass);
                     break;
                 }
             }

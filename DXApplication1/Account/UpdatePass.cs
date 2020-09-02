@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using DXApplication1.Models;
+using System;
 
 namespace DXApplication1.Account
 {
     public partial class UpdatePass : DevExpress.XtraEditors.XtraForm
     {
         NguoiDung nd = new NguoiDung();
-        
+
 
         public UpdatePass()
         {
@@ -28,17 +20,17 @@ namespace DXApplication1.Account
                 XtraMessageBox.Show("Bạn phải nhập đầy đủ thông tin!", "Error???");
             else if (txtReNewPass.Text != txtNewPass.Text)
                 XtraMessageBox.Show("Mật khẩu xác nhận không đúng!", "Error???");
-            else if(Program.lg.UserLogin.MatKhau != txtOldPass.Text)
+            else if (Program.lg.UserLogin.MatKhau != txtOldPass.Text)
             {
                 XtraMessageBox.Show("Mật khẩu cũ không đúng!", "Error???");
 
-            } 
+            }
             else
             {
                 if (Program.ndSql.UpdatePass(Program.lg.UserLogin, txtNewPass.Text) == true)
                     XtraMessageBox.Show("Đổi mật khẩu thành công!");
 
-            }    
+            }
         }
 
         private void UpdatePass_Load(object sender, EventArgs e)

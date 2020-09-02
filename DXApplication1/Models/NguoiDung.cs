@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DXApplication1.Models
+﻿namespace DXApplication1.Models
 {
     class NguoiDung : ConnectionDatabase
     {
         string _name;
         string _pass;
+        string _chucVu;
+        ThongTinNguoiDung _thongTinNguoiDung;
 
         public NguoiDung()
         {
@@ -18,7 +14,8 @@ namespace DXApplication1.Models
         public enum UserFields
         {
             MaDangNhapNguoiDung,
-            MatKhau
+            MatKhau,
+            ThongTinNguoiDung
         }
         public string MaDangNhapNguoiDung
         {
@@ -42,6 +39,32 @@ namespace DXApplication1.Models
                 }
             }
         }
+
+
+        public string ChucVu
+        {
+            get { return _chucVu; }
+            set
+            {
+                if (_chucVu != value)
+                {
+                    _chucVu = value;
+                }
+            }
+        }
+
+
+        public ThongTinNguoiDung ThongTinNguoiDung
+        {
+            get { return _thongTinNguoiDung; }
+            set
+            {
+                if (_thongTinNguoiDung != value)
+                {
+                    _thongTinNguoiDung = value;
+                }
+            }
+        }
+
     }
-   
 }

@@ -1,26 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DXApplication1.Models;
+﻿using DevExpress.XtraEditors;
 using DXApplication1.Account;
+using System;
+using System.Windows.Forms;
 
 
 namespace DXApplication1
 {
-    
+
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         int chk = 0;
 
         public FrmMain()
         {
-            
+
             InitializeComponent();
         }
 
@@ -60,9 +53,10 @@ namespace DXApplication1
 
         private void btnLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
             Program.lg = new frmLogin();
             Program.lg.Show();
-            
+
         }
 
         private void tabHienThi1_Click(object sender, EventArgs e)
