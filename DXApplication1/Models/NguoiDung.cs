@@ -4,7 +4,6 @@
     {
         string _name;
         string _pass;
-        string _chucVu;
         ThongTinNguoiDung _thongTinNguoiDung;
 
         public NguoiDung()
@@ -39,20 +38,6 @@
                 }
             }
         }
-
-
-        public string ChucVu
-        {
-            get { return _chucVu; }
-            set
-            {
-                if (_chucVu != value)
-                {
-                    _chucVu = value;
-                }
-            }
-        }
-
 
         public ThongTinNguoiDung ThongTinNguoiDung
         {

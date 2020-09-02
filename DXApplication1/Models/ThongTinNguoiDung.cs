@@ -72,11 +72,13 @@ namespace DXApplication1.Models
             get { return ngaySinh; }
             set { ngaySinh = value; }
         }
-        string _chucvu;
-        public string chucvu
+
+        private string chucVu;
+
+        public string ChucVu
         {
-            get { return _chucvu; }
-            set { _chucvu = value; }
+            get { return chucVu; }
+            set { chucVu = value; }
         }
     }
 }
