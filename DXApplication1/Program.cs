@@ -12,9 +12,6 @@ namespace DXApplication1
     {
 
         public static FrmMain main;
-=======
-
-
 
         /// <summary>
         /// The main entry point for the application.
@@ -35,7 +32,7 @@ namespace DXApplication1
 
             lg = new frmLogin();
 
-            Application.Run(new FrmMain());
+            Application.Run(new frmLogin());
 
 
 
