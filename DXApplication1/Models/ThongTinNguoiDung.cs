@@ -5,7 +5,19 @@ namespace DXApplication1.Models
     class ThongTinNguoiDung : ConnectionDatabase
     {
         private string maDangNhapNguoiDung;
+        public enum DetailUserFields
+        {
+            MaDangNhapNguoiDung,
+            SoDienThoai,
+            HoTen,
+            Email,
+            NgayTao,
+            DiaChi,
+            NgaySinh,
+            chucvu
 
+
+        }
         public string MaDangNhapNguoiDung
         {
             get { return maDangNhapNguoiDung; }
@@ -68,6 +80,5 @@ namespace DXApplication1.Models
             get { return chucVu; }
             set { chucVu = value; }
         }
-
     }
 }

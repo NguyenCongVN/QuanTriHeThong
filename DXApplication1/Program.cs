@@ -13,13 +13,16 @@ namespace DXApplication1
     {
 
         public static FrmMain main;
+        public static FrmMain_Admin main_admin;
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         public static NguoiDungSql ndSql;
+        public static ThongTinNguoiDungSql detail_userSql;
         public static frmLogin lg;
         public static UpdatePass up_datePass;
+        public static ThongTinNguoiDung detail_user;
         [STAThread]
 
         static void Main()
@@ -29,11 +32,12 @@ namespace DXApplication1
             BonusSkins.Register();
 
             ndSql = new NguoiDungSql();
-
+            detail_userSql = new ThongTinNguoiDungSql();
 
             lg = new frmLogin();
 
             Application.Run(new QuanLyNhanVien());
+
         }
     }
 }
