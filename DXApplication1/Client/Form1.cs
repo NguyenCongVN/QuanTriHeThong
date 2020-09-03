@@ -14,10 +14,7 @@ namespace DXApplication1
 
         public FrmMain()
         {
-
             InitializeComponent();
-            
-            
         }
 
 
@@ -49,9 +46,11 @@ namespace DXApplication1
                 {
                     e.Cancel = true;
                 }
-            }    
-            
-              
+                else
+                {
+                    Program.lg.Close();
+                }
+            }
         }
 
         private void btnLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -92,7 +91,6 @@ namespace DXApplication1
                 Program.lg = new frmLogin();
                 Program.lg.Show();
                 this.Hide();
-
             }
 
         }

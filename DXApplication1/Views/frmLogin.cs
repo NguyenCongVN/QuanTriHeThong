@@ -88,9 +88,9 @@ namespace DXApplication1
                 if (value.MaDangNhapNguoiDung == _name && UserUtilizes.GetHashString(_pass) == value.MatKhau)
                 {
                     check = 1;
-                    userLogin = new NguoiDung();
-                    userLogin.MaDangNhapNguoiDung = value.MaDangNhapNguoiDung;
-                    userLogin.MatKhau = UserUtilizes.GetHashString(_pass);
+                    this.userLogin = new NguoiDung();
+                    this.userLogin.MaDangNhapNguoiDung = value.MaDangNhapNguoiDung;
+                    this.userLogin.MatKhau = UserUtilizes.GetHashString(_pass);
                     break;
                 }
             }

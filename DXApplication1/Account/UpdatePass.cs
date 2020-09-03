@@ -24,13 +24,11 @@ namespace DXApplication1.Account
             else if (Program.lg.UserLogin.MatKhau != UserUtilizes.GetHashString(txtOldPass.Text))
             {
                 XtraMessageBox.Show("Mật khẩu cũ không đúng!", "Error???");
-
             }
             else
             {
                 if (Program.ndSql.UpdatePass(Program.lg.UserLogin, UserUtilizes.GetHashString(txtNewPass.Text)) == true)
                     XtraMessageBox.Show("Đổi mật khẩu thành công!");
-
             }
         }
 
