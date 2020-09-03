@@ -34,10 +34,9 @@ namespace DXApplication1.Utilizes
                 return false;
             }
         }
-
         public static bool IsPhoneNumber(string number)
         {
-            return Regex.Match(number, @"^(\+[0-9]{9})$").Success;
+            return Regex.Match(number, @"^([0-9]{6,10})$").Success;
         }
 
         public static bool IsValidDay(DateTime dateTime)
