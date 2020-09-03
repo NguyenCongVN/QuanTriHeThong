@@ -10,8 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DXApplication1.Models;
 using DevExpress.XtraGrid.Views.Grid;
-
 namespace DXApplication1.Admin
+
 {
     public partial class Phanquyen : DevExpress.XtraEditors.XtraForm
     {

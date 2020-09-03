@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
+using DXApplication1.Account;
 using DXApplication1.Models;
+using System;
+using System.Windows.Forms;
+
 
 namespace DXApplication1
 {
-    
+
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        int chk = 0;
 
         public FrmMain()
         {
-            
             InitializeComponent();
         }
 
@@ -42,29 +38,28 @@ namespace DXApplication1
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dr;
-            dr = XtraMessageBox.Show("Bạn có muốn thoát ? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.No)
+            if(chk == 0)
             {
-                e.Cancel = true;
+                DialogResult dr;
+                dr = XtraMessageBox.Show("Bạn có muốn thoát ? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Program.lg.Close();
+                }
             }
-
         }
 
         private void btnLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmLogin login = new frmLogin();
-            login.Show();
-            
-        }
 
-        private void btBN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
+            Program.lg = new frmLogin();
+            Program.lg.Show();
 
         }
-
-
-
 
         private void tabHienThi1_Click(object sender, EventArgs e)
         {
@@ -74,14 +69,30 @@ namespace DXApplication1
 
         private void btnPhanquyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Program.detail_user = new ThongTinNguoiDung();
+            Program.detail_userSql.Select_Detail(Program.detail_user, Program.lg.UserLogin.MaDangNhapNguoiDung);
+            Detail_User detail_form = new Detail_User();
+            detail_form.Show();
         }
-
 
         private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Program.up_datePass = new UpdatePass();
             Program.up_datePass.Show();
         }
 
+        private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DialogResult dr;
+            dr = XtraMessageBox.Show("Bạn có muốn đăng xuất ? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                chk = 1;
+                Program.lg = new frmLogin();
+                Program.lg.Show();
+                this.Hide();
+            }
+
+        }
     }
 }

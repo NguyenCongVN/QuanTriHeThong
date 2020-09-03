@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+DXApplication1/bin/Debug/DXApplication1.exe
+DXApplication1/bin/Debug/DXApplication1.exe.config

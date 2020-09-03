@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DXApplication1.Models;
 
 namespace DXApplication1.Admin
 {
@@ -15,7 +6,16 @@ namespace DXApplication1.Admin
     {
         public QuanLyNhanVien()
         {
+            ThongTinNguoiDung thongTinNguoiDung = Program.detail_user;
             InitializeComponent();
+            textBoxMaDangNhap.Text = thongTinNguoiDung.MaDangNhapNguoiDung;
+            textBoxHoTen.Text = thongTinNguoiDung.HoTen;
+            textBoxEmail.Text = thongTinNguoiDung.Email;
+            textBoxDiaChi.Text = thongTinNguoiDung.DiaChi;
+            textBoxSoDienThoai.Text = thongTinNguoiDung.SoDienThoai;
+            textBoxChucVu.Text = thongTinNguoiDung.ChucVu;
+            dateEditNgaySinh.DateTime = thongTinNguoiDung.NgaySinh;
+            dateEditNgayTaoTaiKhoan.DateTime = thongTinNguoiDung.NgayTao;
         }
     }
 }

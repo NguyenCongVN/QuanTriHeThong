@@ -49,7 +49,6 @@
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.tabHienThi1 = new DevExpress.XtraTab.XtraTabControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabHienThi1)).BeginInit();
             this.SuspendLayout();
@@ -66,18 +65,15 @@
             this.btnPhanquyen,
             this.btnSaveData,
             this.btnRestore,
-
             this.skinRibbonGalleryBarItem1});
-
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 16;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
             this.rbpManage,
             this.rbpHelp});
-            this.ribbonControl1.Size = new System.Drawing.Size(1510, 178);
+            this.ribbonControl1.Size = new System.Drawing.Size(1179, 143);
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // btnLogin
@@ -98,7 +94,6 @@
             this.btnChangePass.Name = "btnChangePass";
             this.btnChangePass.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.btnChangePass.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePass_ItemClick);
-
             // 
             // btnLogout
             // 
@@ -108,6 +103,7 @@
             this.btnLogout.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.LargeImage")));
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
             // btnPhanquyen
             // 
@@ -206,9 +202,10 @@
             // tabHienThi1
             // 
             this.tabHienThi1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabHienThi1.Location = new System.Drawing.Point(0, 178);
+            this.tabHienThi1.Location = new System.Drawing.Point(0, 143);
+            this.tabHienThi1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabHienThi1.Name = "tabHienThi1";
-            this.tabHienThi1.Size = new System.Drawing.Size(1510, 451);
+            this.tabHienThi1.Size = new System.Drawing.Size(1179, 368);
             this.tabHienThi1.TabIndex = 1;
             this.tabHienThi1.Click += new System.EventHandler(this.tabHienThi1_Click);
             // 
@@ -220,16 +217,14 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1510, 629);
+            this.ClientSize = new System.Drawing.Size(1179, 511);
             this.Controls.Add(this.tabHienThi1);
             this.Controls.Add(this.ribbonControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMain";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
