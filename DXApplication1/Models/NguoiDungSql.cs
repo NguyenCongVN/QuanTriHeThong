@@ -13,7 +13,12 @@ namespace DXApplication1.Models
 {
     class NguoiDungSql : ConnectionDatabase
     {
-        
+
+        SqlInfoMessageEventHandler showResultFromSql = (sender, e) =>
+        {
+            MessageBox.Show(e.Message);
+        };
+
         public bool UpdatePass(NguoiDung user, string new_pass)
         {
             SqlCommand command = new SqlCommand("UPDATE_PASS", Connection);
@@ -81,17 +86,18 @@ namespace DXApplication1.Models
                 cmd.Parameters.Add(new SqlParameter("@ngaySinh", user.ThongTinNguoiDung.NgaySinh.Date));
                 cmd.Parameters.Add(new SqlParameter("@chucVu", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.ChucVu));
                 Connection.Open();
+                Connection.InfoMessage += showResultFromSql;
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception ex)
             {
-                DialogResult d;
-                d = MessageBox.Show("Mã tài khoản này đã tồn tại, vui lòng chọn mã tài khoản khác");
+                MessageBox.Show("Có lỗi xảy ra");
                 return false;
             }
             finally
             {
+                Connection.InfoMessage -= showResultFromSql;
                 Connection.Close();
                 cmd.Dispose();
             }

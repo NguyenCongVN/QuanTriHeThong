@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -37,6 +38,13 @@ namespace DXApplication1.Utilizes
         public static bool IsPhoneNumber(string number)
         {
             return Regex.Match(number, @"^(\+[0-9]{9})$").Success;
+        }
+
+        public static bool IsValidDay(DateTime dateTime)
+        {
+            if (dateTime.Date <= DateTime.Now.Date)
+                return true;
+            return false;
         }
     }
 }

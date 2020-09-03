@@ -32,6 +32,10 @@ namespace DXApplication1.Views
                 {
                     throw new Exception("Hãy nhập vào số điện thoại đúng");
                 }
+                if(!UserUtilizes.IsValidDay(dateNgaySinh.DateTime.Date))
+                {
+                    throw new Exception("Hãy nhập vào ngày sinh đúng");
+                }
             }
             catch (Exception ex)
             {
