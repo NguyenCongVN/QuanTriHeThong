@@ -14,10 +14,7 @@ namespace DXApplication1
 
         public FrmMain()
         {
-
             InitializeComponent();
-            
-            
         }
 
 
@@ -48,6 +45,10 @@ namespace DXApplication1
                 if (dr == DialogResult.No)
                 {
                     e.Cancel = true;
+                }
+                else
+                {
+                    Program.lg.Close();
                 }
             }    
             
@@ -92,7 +93,6 @@ namespace DXApplication1
                 Program.lg = new frmLogin();
                 Program.lg.Show();
                 this.Hide();
-
             }
 
         }
