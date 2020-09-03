@@ -35,7 +35,7 @@ namespace DXApplication1
 
             lg = new frmLogin();
 
-            Application.Run(lg);
+            Application.Run(new FrmMain_Admin());
 
 
 
