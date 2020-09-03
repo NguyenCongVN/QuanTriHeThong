@@ -50,9 +50,7 @@ namespace DXApplication1
                 {
                     Program.lg.Close();
                 }
-            }    
-            
-              
+            }
         }
 
         private void btnLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

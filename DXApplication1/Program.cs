@@ -36,8 +36,7 @@ namespace DXApplication1
 
             lg = new frmLogin();
 
-            Application.Run(new QuanLyNhanVien());
-
+            Application.Run(lg);
         }
     }
 }
