@@ -106,7 +106,10 @@ namespace DXApplication1.Admin
             Quyen_LoaiQuyenSql quyen_LoaiQuyenSql = new Quyen_LoaiQuyenSql();
             List<Quyen_LoaiQuyen> quyen_LoaiQuyens = new List<Quyen_LoaiQuyen>();
             quyen_LoaiQuyens = quyen_LoaiQuyenSql.GetQuyen_LoaiQuyen(tenChucVu);
-
+            foreach(Quyen_LoaiQuyen i in quyen_LoaiQuyens)
+            {
+               // gridViewDetail.OptionsSelection.CheckBoxSelectorField
+            }    
         }
 
         private void buttonLuu_Click(object sender, EventArgs e)

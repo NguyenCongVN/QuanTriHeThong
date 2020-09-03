@@ -30,6 +30,8 @@
         {
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridViewDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnCheck = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridColumnQuyenId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnThaoTac = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControlMainPhanQuyen = new DevExpress.XtraGrid.GridControl();
@@ -41,6 +43,7 @@
             this.panelDetailPhanQuyen = new System.Windows.Forms.Panel();
             this.buttonLuu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMainPhanQuyen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).BeginInit();
             this.panelVaitro.SuspendLayout();
@@ -50,6 +53,7 @@
             // gridViewDetail
             // 
             this.gridViewDetail.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnCheck,
             this.gridColumnQuyenId,
             this.gridColumnThaoTac});
             this.gridViewDetail.CustomizationFormBounds = new System.Drawing.Rectangle(1598, 754, 322, 276);
@@ -59,6 +63,30 @@
             this.gridViewDetail.OptionsSelection.MultiSelect = true;
             this.gridViewDetail.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridViewDetail.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumnCheck
+            // 
+            this.gridColumnCheck.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnCheck.AppearanceCell.Options.UseFont = true;
+            this.gridColumnCheck.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnCheck.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnCheck.Caption = "Check";
+            this.gridColumnCheck.ColumnEdit = this.repositoryItemCheckEdit1;
+            this.gridColumnCheck.FieldName = "Check";
+            this.gridColumnCheck.MinWidth = 25;
+            this.gridColumnCheck.Name = "gridColumnCheck";
+            this.gridColumnCheck.OptionsColumn.AllowEdit = false;
+            this.gridColumnCheck.OptionsColumn.FixedWidth = true;
+            this.gridColumnCheck.Visible = true;
+            this.gridColumnCheck.VisibleIndex = 1;
+            this.gridColumnCheck.Width = 500;
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repositoryItemCheckEdit1.Appearance.Options.UseFont = true;
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
             // gridColumnQuyenId
             // 
@@ -73,8 +101,8 @@
             this.gridColumnQuyenId.OptionsColumn.AllowEdit = false;
             this.gridColumnQuyenId.OptionsColumn.FixedWidth = true;
             this.gridColumnQuyenId.Visible = true;
-            this.gridColumnQuyenId.VisibleIndex = 1;
-            this.gridColumnQuyenId.Width = 800;
+            this.gridColumnQuyenId.VisibleIndex = 2;
+            this.gridColumnQuyenId.Width = 641;
             // 
             // gridColumnThaoTac
             // 
@@ -89,7 +117,7 @@
             this.gridColumnThaoTac.OptionsColumn.AllowEdit = false;
             this.gridColumnThaoTac.OptionsColumn.FixedWidth = true;
             this.gridColumnThaoTac.Visible = true;
-            this.gridColumnThaoTac.VisibleIndex = 2;
+            this.gridColumnThaoTac.VisibleIndex = 3;
             this.gridColumnThaoTac.Width = 800;
             // 
             // gridControlMainPhanQuyen
@@ -102,6 +130,8 @@
             this.gridControlMainPhanQuyen.Location = new System.Drawing.Point(0, 63);
             this.gridControlMainPhanQuyen.MainView = this.gridViewMain;
             this.gridControlMainPhanQuyen.Name = "gridControlMainPhanQuyen";
+            this.gridControlMainPhanQuyen.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemCheckEdit1});
             this.gridControlMainPhanQuyen.Size = new System.Drawing.Size(1445, 776);
             this.gridControlMainPhanQuyen.TabIndex = 1;
             this.gridControlMainPhanQuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -205,6 +235,7 @@
             this.Name = "Phanquyen";
             this.Text = "Phanquyen";
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMainPhanQuyen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMain)).EndInit();
             this.panelVaitro.ResumeLayout(false);
@@ -227,5 +258,7 @@
         private System.Windows.Forms.Button buttonLuu;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnQuyenId;
         private System.Windows.Forms.ComboBox comboBoxChucVu;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCheck;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
     }
 }
