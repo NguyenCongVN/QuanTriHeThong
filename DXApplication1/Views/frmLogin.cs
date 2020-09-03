@@ -105,5 +105,15 @@ namespace DXApplication1
         {
             this.Close();
         }
+
+        private void checkEditHienMatKhau_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkEditHienMatKhau.Checked == true)
+            txtPass.Properties.PasswordChar = char.MinValue;
+            else
+            {
+                txtPass.Properties.PasswordChar = '*';
+            }
+        }
     }
 }
