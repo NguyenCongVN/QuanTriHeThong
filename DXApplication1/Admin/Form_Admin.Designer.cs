@@ -71,15 +71,13 @@
             this.barButtonItemPhanQuyen,
             this.barButtonItemNhanVien});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 18;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
             this.rbpManage,
             this.rbpHelp});
-            this.ribbonControl1.Size = new System.Drawing.Size(1510, 178);
-            this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
+            this.ribbonControl1.Size = new System.Drawing.Size(1179, 143);
             // 
             // btnLogin
             // 
@@ -240,19 +238,19 @@
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 178);
+            this.panelMain.Location = new System.Drawing.Point(0, 143);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1510, 451);
+            this.panelMain.Size = new System.Drawing.Size(1179, 368);
             this.panelMain.TabIndex = 3;
             // 
             // FrmMain_Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1510, 629);
+            this.ClientSize = new System.Drawing.Size(1179, 511);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.ribbonControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMain_Admin";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

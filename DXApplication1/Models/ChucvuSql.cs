@@ -37,7 +37,6 @@ namespace DXApplication1.Models
                 Connection.Close();
                 sqlCommand.Dispose();
             }
-
         }
 
         //public 
