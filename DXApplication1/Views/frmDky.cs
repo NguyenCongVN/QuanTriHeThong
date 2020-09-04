@@ -80,5 +80,30 @@ namespace DXApplication1.Views
                 
             return false;
         }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void checkEditHienMatKhau_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkEditHienMatKhau.Checked == true)
+                txtPass.Properties.PasswordChar = char.MinValue;
+            else
+            {
+                txtPass.Properties.PasswordChar = '*';
+            }
+        }
+
+        private void checkEditHienMatKhauNhapLai_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkEditHienMatKhauNhapLai.Checked == true)
+                txtRePass.Properties.PasswordChar = char.MinValue;
+            else
+            {
+                txtRePass.Properties.PasswordChar = '*';
+            }
+        }
     }
 }

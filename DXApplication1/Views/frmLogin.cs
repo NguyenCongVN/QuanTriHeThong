@@ -75,6 +75,7 @@ namespace DXApplication1
                 {
                     MessageBox.Show("Thông tin đăng nhập sai!", "Error???");
                 }
+
             }
         }
         int CheckLogin(string _name, string _pass)
@@ -104,6 +105,16 @@ namespace DXApplication1
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void checkEditHienMatKhau_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkEditHienMatKhau.Checked == true)
+            txtPass.Properties.PasswordChar = char.MinValue;
+            else
+            {
+                txtPass.Properties.PasswordChar = '*';
+            }
         }
     }
 }

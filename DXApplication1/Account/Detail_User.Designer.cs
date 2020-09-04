@@ -43,11 +43,11 @@
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnRegister = new DevExpress.XtraEditors.SimpleButton();
             this.grpCtrl1 = new DevExpress.XtraEditors.GroupControl();
-            this.btnChange = new DevExpress.XtraEditors.SimpleButton();
-            this.txtChucvu = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.dateNgayTao = new DevExpress.XtraEditors.DateEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.txtChucvu = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.btnChange = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
@@ -57,9 +57,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpCtrl1)).BeginInit();
             this.grpCtrl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChucvu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTao.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTao.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChucvu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dateNgaySinh
@@ -249,17 +249,30 @@
             this.grpCtrl1.Text = "Thông tin chi tiết";
             this.grpCtrl1.Paint += new System.Windows.Forms.PaintEventHandler(this.grpCtrl1_Paint);
             // 
-            // btnChange
+            // dateNgayTao
             // 
-            this.btnChange.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChange.Appearance.Options.UseFont = true;
-            this.btnChange.Location = new System.Drawing.Point(395, 561);
-            this.btnChange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(92, 30);
-            this.btnChange.TabIndex = 9;
-            this.btnChange.Text = "Chỉnh Sửa";
-            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            this.dateNgayTao.EditValue = null;
+            this.dateNgayTao.Location = new System.Drawing.Point(283, 415);
+            this.dateNgayTao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateNgayTao.Name = "dateNgayTao";
+            this.dateNgayTao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNgayTao.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNgayTao.Properties.ReadOnly = true;
+            this.dateNgayTao.Size = new System.Drawing.Size(107, 22);
+            this.dateNgayTao.TabIndex = 31;
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl14.Appearance.Options.UseFont = true;
+            this.labelControl14.Location = new System.Drawing.Point(101, 416);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(60, 18);
+            this.labelControl14.TabIndex = 30;
+            this.labelControl14.Text = "Ngày tạo";
             // 
             // txtChucvu
             // 
@@ -283,34 +296,21 @@
             this.labelControl2.TabIndex = 27;
             this.labelControl2.Text = "Chức vụ";
             // 
-            // dateNgayTao
+            // btnChange
             // 
-            this.dateNgayTao.EditValue = null;
-            this.dateNgayTao.Location = new System.Drawing.Point(283, 415);
-            this.dateNgayTao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateNgayTao.Name = "dateNgayTao";
-            this.dateNgayTao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgayTao.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgayTao.Properties.ReadOnly = true;
-            this.dateNgayTao.Size = new System.Drawing.Size(107, 22);
-            this.dateNgayTao.TabIndex = 31;
-            // 
-            // labelControl14
-            // 
-            this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl14.Appearance.Options.UseFont = true;
-            this.labelControl14.Location = new System.Drawing.Point(101, 416);
-            this.labelControl14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(64, 18);
-            this.labelControl14.TabIndex = 30;
-            this.labelControl14.Text = "Ngày sinh";
+            this.btnChange.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChange.Appearance.Options.UseFont = true;
+            this.btnChange.Location = new System.Drawing.Point(395, 561);
+            this.btnChange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(92, 30);
+            this.btnChange.TabIndex = 9;
+            this.btnChange.Text = "Chỉnh Sửa";
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // Detail_User
             // 
-            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Appearance.BackColor = System.Drawing.Color.Snow;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -332,9 +332,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.grpCtrl1)).EndInit();
             this.grpCtrl1.ResumeLayout(false);
             this.grpCtrl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChucvu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTao.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTao.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChucvu.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

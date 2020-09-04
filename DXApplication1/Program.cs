@@ -38,11 +38,7 @@ namespace DXApplication1
             detail_userSql = new ThongTinNguoiDungSql();
 
             lg = new frmLogin();
-            dky = new frmDky();
-            admin = new FrmMain_Admin();
-            quanLyNhanVien = new QuanLyNhanVien();
-            quanLyNhanVien.IsMdiContainer = true;
-            Application.Run(admin);
+            Application.Run(lg);
         }
     }
 }
