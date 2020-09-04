@@ -61,6 +61,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Properties.Appearance.Options.UseFont = true;
+            this.txtPass.Properties.UseSystemPasswordChar = true;
             this.txtPass.Size = new System.Drawing.Size(238, 24);
             this.txtPass.TabIndex = 3;
             this.txtPass.EditValueChanged += new System.EventHandler(this.textEdit2_EditValueChanged);
@@ -124,7 +125,7 @@
             // 
             // frmLogin
             // 
-            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Appearance.BackColor = System.Drawing.Color.Snow;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

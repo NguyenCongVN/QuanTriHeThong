@@ -66,6 +66,7 @@
             this.txtReNewPass.Name = "txtReNewPass";
             this.txtReNewPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReNewPass.Properties.Appearance.Options.UseFont = true;
+            this.txtReNewPass.Properties.UseSystemPasswordChar = true;
             this.txtReNewPass.Size = new System.Drawing.Size(238, 24);
             this.txtReNewPass.TabIndex = 8;
             // 
@@ -85,6 +86,7 @@
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewPass.Properties.Appearance.Options.UseFont = true;
+            this.txtNewPass.Properties.UseSystemPasswordChar = true;
             this.txtNewPass.Size = new System.Drawing.Size(238, 24);
             this.txtNewPass.TabIndex = 3;
             // 
@@ -104,6 +106,7 @@
             this.txtOldPass.Name = "txtOldPass";
             this.txtOldPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOldPass.Properties.Appearance.Options.UseFont = true;
+            this.txtOldPass.Properties.UseSystemPasswordChar = true;
             this.txtOldPass.Size = new System.Drawing.Size(238, 24);
             this.txtOldPass.TabIndex = 1;
             // 
@@ -143,7 +146,7 @@
             // 
             // UpdatePass
             // 
-            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Appearance.BackColor = System.Drawing.Color.Snow;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
