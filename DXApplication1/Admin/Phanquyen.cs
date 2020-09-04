@@ -30,7 +30,8 @@ namespace DXApplication1.Admin
             chucvus = chucvuSql.GetName();
             foreach (Chucvu i in chucvus)
             {
-                comboBoxChucVu.Items.Add(i.ChucVu);
+                comboBoxChucVu.Items.Add(i.TenChucVu);
+               
 
             }
 
@@ -57,6 +58,7 @@ namespace DXApplication1.Admin
           
         }
         #endregion
+        
 
         #region Events
         private void gridControlDetaiPhanQuyen_Load(object sender, EventArgs e)

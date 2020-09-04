@@ -19,10 +19,14 @@ namespace DXApplication1
         public static NguoiDungSql ndSql;
         public static ThongTinNguoiDungSql detail_userSql;
         public static frmLogin lg;
+        public static frmDky dky;
         public static UpdatePass up_datePass;
         public static LoaiQuyenSql loaiQuyenSql;
         public static QuyenSql quyenSql;
         public static ThongTinNguoiDung detail_user;
+        public static FrmMain_Admin admin;
+        public static QuanLyNhanVien quanLyNhanVien;
+        public static QuanLyNhanVienSql quanLyNhanVienSql;
         [STAThread]
 
         static void Main()
@@ -34,8 +38,11 @@ namespace DXApplication1
             detail_userSql = new ThongTinNguoiDungSql();
 
             lg = new frmLogin();
-
-            Application.Run(lg);
+            dky = new frmDky();
+            admin = new FrmMain_Admin();
+            quanLyNhanVien = new QuanLyNhanVien();
+            quanLyNhanVien.IsMdiContainer = true;
+            Application.Run(admin);
         }
     }
 }

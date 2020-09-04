@@ -89,11 +89,13 @@
     </Compile>
     <Compile Include="Models\Chucvu.cs" />
     <Compile Include="Models\ChucvuSql.cs" />
+    <Compile Include="Models\connection.cs" />
     <Compile Include="Models\LoaiQuyen.cs" />
     <Compile Include="Models\LoaiQuyenSql.cs" />
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\NguoiDungSql.cs" />
     <Compile Include="Models\ConnectionDatabase.cs" />
+    <Compile Include="Models\QuanLyNhanVienSql.cs" />
     <Compile Include="Models\Quyen.cs" />
     <Compile Include="Models\QuyenSql.cs" />
     <Compile Include="Models\Quyen_LoaiQuyen.cs" />

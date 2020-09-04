@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Windows.Forms;
+using DXApplication1.Admin;
 
 namespace DXApplication1.Models
 {
@@ -16,7 +17,14 @@ namespace DXApplication1.Models
 
         SqlInfoMessageEventHandler showResultFromSql = (sender, e) =>
         {
-            MessageBox.Show(e.Message);
+            if(int.Parse(e.Message) == 1)
+            {
+                DialogResult result = MessageBox.Show("Them tai khoan thanh cong", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(result == DialogResult.OK)
+                {
+                    Program.admin.barButtonItemNhanVien_ItemClick(null, null);
+                }
+            }    
         };
 
         public bool UpdatePass(NguoiDung user, string new_pass)
@@ -87,6 +95,8 @@ namespace DXApplication1.Models
                 cmd.Parameters.Add(new SqlParameter("@chucVu", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.ChucVu));
                 Connection.Open();
                 Connection.InfoMessage += showResultFromSql;
+                // DialogResult dialogResult = MessageBox.Show(showResultFromSql.ToString(), "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 cmd.ExecuteNonQuery();
                 return true;
             }

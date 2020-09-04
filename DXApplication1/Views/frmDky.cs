@@ -2,6 +2,7 @@
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
 using System;
+using DXApplication1.Admin;
 
 namespace DXApplication1.Views
 {
@@ -48,6 +49,8 @@ namespace DXApplication1.Views
 
             DangKy(txtUser.Text, txtPass.Text, txtHoTen.Text,
                 txtEmail.Text, txtSoDienThoai.Text, txtDiaChi.Text, dateNgaySinh.DateTime);
+            
+            
         }
 
 
@@ -71,7 +74,10 @@ namespace DXApplication1.Views
                 ThongTinNguoiDung = thongTinNguoiDung
             };
             if (Program.ndSql.Register(nguoiDung))
+            {
                 return true;
+            }    
+                
             return false;
         }
     }

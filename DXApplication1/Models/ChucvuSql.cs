@@ -47,7 +47,7 @@ namespace DXApplication1.Models
 
         internal void PopulatePlayerFromReader(Chucvu chucVu, IDataReader dataReader)
         {
-            chucVu.ChucVu = dataReader.GetString(dataReader.GetOrdinal(Chucvu.ChucVuFeilds.ChucVu.ToString()));
+            chucVu.TenChucVu = dataReader.GetString(dataReader.GetOrdinal(Chucvu.ChucVuFeilds.TenChucVu.ToString()));
         }
 
         internal List<Chucvu> PopulateObjectFromReader(IDataReader data)

@@ -106,9 +106,9 @@ namespace DXApplication1.Models
                 detail_user.NgayTao = data.GetDateTime(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.NgayTao.ToString()));
 
             }
-            if (!data.IsDBNull(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.chucvu.ToString())))
+            if (!data.IsDBNull(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.MaChucVu.ToString())))
             {
-                detail_user.ChucVu = data.GetString(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.chucvu.ToString()));
+                detail_user.ChucVu = data.GetString(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.MaChucVu.ToString()));
 
             }
         }
