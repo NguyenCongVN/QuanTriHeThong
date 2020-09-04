@@ -75,6 +75,7 @@ namespace DXApplication1
                 {
                     MessageBox.Show("Thông tin đăng nhập sai!", "Error???");
                 }
+
             }
         }
         int CheckLogin(string _name, string _pass)
