@@ -10,25 +10,15 @@ namespace DXApplication1.Models
     {
         public enum ChucVuFeilds
         {
-            ChucVu
+            TenChucVu
         }
 
-        string _chucVu;
+        string _tenChucVu;
         public Chucvu()
         {
 
         }
 
-        public string ChucVu
-        {
-            get { return _chucVu; }
-            set
-            {
-                if (_chucVu != value)
-                {
-                    _chucVu = value;
-                }
-            }
-        }
+        public string TenChucVu { get => _tenChucVu; set => _tenChucVu = value; }
     }
 }

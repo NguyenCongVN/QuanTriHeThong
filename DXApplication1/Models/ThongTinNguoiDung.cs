@@ -14,8 +14,7 @@ namespace DXApplication1.Models
             NgayTao,
             DiaChi,
             NgaySinh,
-            chucvu
-
+            MaChucVu
 
         }
         public string MaDangNhapNguoiDung

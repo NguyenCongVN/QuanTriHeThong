@@ -10,7 +10,7 @@ namespace DXApplication1.Models
 {
     class Quyen_LoaiQuyenSql:ConnectionDatabase
     {
-        public List<Quyen_LoaiQuyen> GetQuyen_LoaiQuyen(string chucVu)
+        public List<Quyen_LoaiQuyen> GetQuyen_LoaiQuyen(string tenChucVu)
         {
             SqlCommand command = new SqlCommand("dbo.LayQuyenTheoChucVu", Connection);
             command.CommandType = CommandType.StoredProcedure;
@@ -18,7 +18,7 @@ namespace DXApplication1.Models
             try
             {
               
-                command.Parameters.Add(new SqlParameter("@chucvu", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, chucVu));
+                command.Parameters.Add(new SqlParameter("@tenChucVu", SqlDbType.NVarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, tenChucVu));
                 Connection.Open();
 
                 IDataReader dataReader = command.ExecuteReader();
