@@ -55,6 +55,10 @@
             this.lbPass = new DevExpress.XtraEditors.LabelControl();
             this.txtUser = new DevExpress.XtraEditors.TextEdit();
             this.lbUser = new DevExpress.XtraEditors.LabelControl();
+
+            this.checkEditHienMatKhau = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEditHienMatKhauNhapLai = new DevExpress.XtraEditors.CheckEdit();
+
             ((System.ComponentModel.ISupportInitialize)(this.grpCtrl1)).BeginInit();
             this.grpCtrl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
@@ -66,6 +70,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRePass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditHienMatKhau.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditHienMatKhauNhapLai.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnHuy
@@ -78,6 +84,7 @@
             this.btnHuy.Size = new System.Drawing.Size(87, 30);
             this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnRegister
             // 
@@ -95,6 +102,8 @@
             // 
             this.grpCtrl1.Appearance.BackColor = System.Drawing.Color.DodgerBlue;
             this.grpCtrl1.Appearance.Options.UseBackColor = true;
+            this.grpCtrl1.Controls.Add(this.checkEditHienMatKhauNhapLai);
+            this.grpCtrl1.Controls.Add(this.checkEditHienMatKhau);
             this.grpCtrl1.Controls.Add(this.labelControl13);
             this.grpCtrl1.Controls.Add(this.labelControl12);
             this.grpCtrl1.Controls.Add(this.labelControl11);
@@ -122,7 +131,9 @@
             this.grpCtrl1.Location = new System.Drawing.Point(101, 27);
             this.grpCtrl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpCtrl1.Name = "grpCtrl1";
-            this.grpCtrl1.Size = new System.Drawing.Size(614, 517);
+
+            this.grpCtrl1.Size = new System.Drawing.Size(590, 420);
+
             this.grpCtrl1.TabIndex = 3;
             this.grpCtrl1.Text = "Thông tin đăng ký";
             // 
@@ -132,10 +143,12 @@
             this.labelControl13.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl13.Appearance.Options.UseFont = true;
             this.labelControl13.Appearance.Options.UseForeColor = true;
-            this.labelControl13.Location = new System.Drawing.Point(168, 373);
+
+            this.labelControl13.Location = new System.Drawing.Point(144, 303);
             this.labelControl13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(8, 18);
+            this.labelControl13.Size = new System.Drawing.Size(7, 14);
+
             this.labelControl13.TabIndex = 26;
             this.labelControl13.Text = "*";
             // 
@@ -145,10 +158,12 @@
             this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl12.Appearance.Options.UseFont = true;
             this.labelControl12.Appearance.Options.UseForeColor = true;
-            this.labelControl12.Location = new System.Drawing.Point(177, 434);
+
+            this.labelControl12.Location = new System.Drawing.Point(152, 353);
             this.labelControl12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(8, 18);
+            this.labelControl12.Size = new System.Drawing.Size(7, 14);
+
             this.labelControl12.TabIndex = 25;
             this.labelControl12.Text = "*";
             // 
@@ -158,10 +173,12 @@
             this.labelControl11.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl11.Appearance.Options.UseFont = true;
             this.labelControl11.Appearance.Options.UseForeColor = true;
-            this.labelControl11.Location = new System.Drawing.Point(208, 320);
+
+            this.labelControl11.Location = new System.Drawing.Point(178, 260);
             this.labelControl11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(8, 18);
+            this.labelControl11.Size = new System.Drawing.Size(7, 14);
+
             this.labelControl11.TabIndex = 24;
             this.labelControl11.Text = "*";
             // 
@@ -171,10 +188,12 @@
             this.labelControl10.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl10.Appearance.Options.UseFont = true;
             this.labelControl10.Appearance.Options.UseForeColor = true;
-            this.labelControl10.Location = new System.Drawing.Point(168, 274);
+
+            this.labelControl10.Location = new System.Drawing.Point(144, 223);
             this.labelControl10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(8, 18);
+            this.labelControl10.Size = new System.Drawing.Size(7, 14);
+
             this.labelControl10.TabIndex = 23;
             this.labelControl10.Text = "*";
             // 
@@ -184,10 +203,12 @@
             this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(168, 219);
+
+            this.labelControl9.Location = new System.Drawing.Point(144, 178);
             this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(8, 18);
+            this.labelControl9.Size = new System.Drawing.Size(7, 14);
+
             this.labelControl9.TabIndex = 22;
             this.labelControl9.Text = "*";
             // 
@@ -345,8 +366,10 @@
             this.txtRePass.Name = "txtRePass";
             this.txtRePass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRePass.Properties.Appearance.Options.UseFont = true;
-            this.txtRePass.Properties.UseSystemPasswordChar = true;
-            this.txtRePass.Size = new System.Drawing.Size(238, 24);
+            this.txtRePass.Properties.PasswordChar = '*';
+
+            this.txtRePass.Size = new System.Drawing.Size(204, 20);
+
             this.txtRePass.TabIndex = 8;
             // 
             // labelControl2
@@ -367,8 +390,10 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Properties.Appearance.Options.UseFont = true;
-            this.txtPass.Properties.UseSystemPasswordChar = true;
-            this.txtPass.Size = new System.Drawing.Size(238, 24);
+
+            this.txtPass.Properties.PasswordChar = '*';
+            this.txtPass.Size = new System.Drawing.Size(204, 20);
+
             this.txtPass.TabIndex = 3;
             // 
             // lbPass
@@ -403,6 +428,26 @@
             this.lbUser.TabIndex = 0;
             this.lbUser.Text = "Tên đăng nhập";
             // 
+
+            // checkEditHienMatKhau
+            // 
+            this.checkEditHienMatKhau.Location = new System.Drawing.Point(454, 87);
+            this.checkEditHienMatKhau.Name = "checkEditHienMatKhau";
+            this.checkEditHienMatKhau.Properties.Caption = "Hiện mật khẩu";
+            this.checkEditHienMatKhau.Size = new System.Drawing.Size(94, 19);
+            this.checkEditHienMatKhau.TabIndex = 6;
+            this.checkEditHienMatKhau.CheckedChanged += new System.EventHandler(this.checkEditHienMatKhau_CheckedChanged);
+            // 
+            // checkEditHienMatKhauNhapLai
+            // 
+            this.checkEditHienMatKhauNhapLai.Location = new System.Drawing.Point(453, 128);
+            this.checkEditHienMatKhauNhapLai.Name = "checkEditHienMatKhauNhapLai";
+            this.checkEditHienMatKhauNhapLai.Properties.Caption = "Hiện mật khẩu nhập lại";
+            this.checkEditHienMatKhauNhapLai.Size = new System.Drawing.Size(132, 19);
+            this.checkEditHienMatKhauNhapLai.TabIndex = 27;
+            this.checkEditHienMatKhauNhapLai.CheckedChanged += new System.EventHandler(this.checkEditHienMatKhauNhapLai_CheckedChanged);
+            // 
+
             // frmDky
             // 
             this.Appearance.BackColor = System.Drawing.Color.Snow;
@@ -429,6 +474,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRePass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditHienMatKhau.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditHienMatKhauNhapLai.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -462,5 +509,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.CheckEdit checkEditHienMatKhauNhapLai;
+        private DevExpress.XtraEditors.CheckEdit checkEditHienMatKhau;
     }
 }
