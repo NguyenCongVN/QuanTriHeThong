@@ -4,6 +4,7 @@ using DXApplication1.Utilizes;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 
 namespace DXApplication1.Admin
@@ -18,11 +19,11 @@ namespace DXApplication1.Admin
         LoaiQuyenSql LoaiQuyenSql;
         QuyenSql QuyenSql;
         ChucvuSql chucvuSql;
+        PhanQuyenSql phanQuyenSql;
+       /// List include checkbox changed list
+       /// 
 
-        /// List include checkbox changed list
-        /// 
-
-        List<ThongTinThayDoiChucVu> removed = new List<ThongTinThayDoiChucVu>();
+       List<ThongTinThayDoiChucVu> removed = new List<ThongTinThayDoiChucVu>();
         List<ThongTinThayDoiChucVu> added = new List<ThongTinThayDoiChucVu>();
 
         ///
@@ -31,6 +32,7 @@ namespace DXApplication1.Admin
         {
             InitializeComponent();
             chucvuSql = new ChucvuSql();
+            phanQuyenSql = new PhanQuyenSql();
             chucvus = chucvuSql.LayCacChucVu();
             foreach (Chucvu chucvu in chucvus)
             {
@@ -61,7 +63,6 @@ namespace DXApplication1.Admin
         private void gridControlDetaiPhanQuyen_Load(object sender, EventArgs e)
         {
             loadData();
-
         }
 
         private void gridViewMain_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
@@ -122,7 +123,31 @@ namespace DXApplication1.Admin
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
+            if(added.Count != 0)
+            {
+                foreach (var item in added)
+                {
+                    phanQuyenSql.ThemQuyenVaoChucVu(item);
+                    (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaQuyens.Add(item.maQuyen);
+                }
+            }
 
+
+            if (removed.Count != 0)
+            {
+                foreach (var item in removed)
+                {
+                    phanQuyenSql.XoaQuyenKhoiChucVu(item);
+                    (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaQuyens.Remove(item.maQuyen);
+                }
+            }
+
+            if(added.Count != 0 || removed.Count != 0)
+            {
+                loadData();
+                added.Clear();
+                removed.Clear();
+            }
         }
 
         #endregion
@@ -175,7 +200,6 @@ namespace DXApplication1.Admin
                     added.Add(item);
                 }
             }
-            
         }
     }
 }
