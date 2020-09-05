@@ -19,6 +19,10 @@ namespace DXApplication1.Models
         string _moTa;
         string _loaiQuyenId;
 
+        /// Check field just make sense when be added to an specified job.Otherwise,It has no meaning.
+        public bool Check { get; set; }
+
+        ///
         public Quyen()
         {
 

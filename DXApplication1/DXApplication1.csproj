@@ -103,6 +103,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Models\ThongTinNguoiDung.cs" />
     <Compile Include="Models\ThongTinNguoiDungSql.cs" />
+    <Compile Include="Utilizes\ComboBoxItemPhanQuyen.cs" />
+    <Compile Include="Utilizes\PhanQuyenHelper.cs" />
+    <Compile Include="Utilizes\ThongTinThayDoiChucVu.cs" />
     <Compile Include="Utilizes\UserUtilizes.cs" />
     <Compile Include="Views\frmDky.cs">
       <SubType>Form</SubType>
