@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace DXApplication1.Models
 {
-    class ConnectionDatabase
+    public class ConnectionDatabase
     {
         SqlConnection connection;
         public ConnectionDatabase()
