@@ -11,6 +11,7 @@ namespace DXApplication1
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
         NguoiDung userLogin;
+        public  int check_CV = 0;
         internal NguoiDung UserLogin { get => userLogin; set => userLogin = value; }
         public frmLogin()
         {
@@ -60,12 +61,14 @@ namespace DXApplication1
                     Program.detail_userSql.Select_Detail(Program.detail_user, userLogin.MaDangNhapNguoiDung);
                     if(Program.detail_user.ChucVu== "Admin")
                     {
+                        check_CV = 1;
                         Program.main_admin = new FrmMain_Admin();
                         Program.main_admin.IsMdiContainer = true;
                         Program.main_admin.Show();
                     }
                     else
                     {
+                        check_CV = 0;
                         Program.main = new FrmMain();
                         Program.main.IsMdiContainer = true;
                         Program.main.Show();
