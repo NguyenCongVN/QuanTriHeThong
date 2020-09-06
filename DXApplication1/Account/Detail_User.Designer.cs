@@ -41,7 +41,7 @@
             this.txtUser = new DevExpress.XtraEditors.TextEdit();
             this.lbUser = new DevExpress.XtraEditors.LabelControl();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.btnRegister = new DevExpress.XtraEditors.SimpleButton();
+            this.btnXacnhan = new DevExpress.XtraEditors.SimpleButton();
             this.grpCtrl1 = new DevExpress.XtraEditors.GroupControl();
             this.dateNgayTao = new DevExpress.XtraEditors.DateEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
@@ -201,7 +201,7 @@
             // 
             this.btnHuy.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.Appearance.Options.UseFont = true;
-            this.btnHuy.Location = new System.Drawing.Point(493, 606);
+            this.btnHuy.Location = new System.Drawing.Point(506, 561);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(92, 30);
@@ -209,17 +209,18 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
-            // btnRegister
+            // btnXacnhan
             // 
-            this.btnRegister.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Appearance.Options.UseFont = true;
-            this.btnRegister.Location = new System.Drawing.Point(292, 606);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(92, 30);
-            this.btnRegister.TabIndex = 7;
-            this.btnRegister.Text = "Xác nhận";
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnXacnhan.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXacnhan.Appearance.Options.UseFont = true;
+            this.btnXacnhan.Location = new System.Drawing.Point(374, 620);
+            this.btnXacnhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXacnhan.Name = "btnXacnhan";
+            this.btnXacnhan.Size = new System.Drawing.Size(159, 30);
+            this.btnXacnhan.TabIndex = 7;
+            this.btnXacnhan.Text = "Xác nhận chỉnh sửa";
+            this.btnXacnhan.Visible = false;
+            this.btnXacnhan.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // grpCtrl1
             // 
@@ -300,7 +301,7 @@
             // 
             this.btnChange.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChange.Appearance.Options.UseFont = true;
-            this.btnChange.Location = new System.Drawing.Point(395, 561);
+            this.btnChange.Location = new System.Drawing.Point(312, 561);
             this.btnChange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(92, 30);
@@ -314,10 +315,10 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 671);
+            this.ClientSize = new System.Drawing.Size(865, 665);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnHuy);
-            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.btnXacnhan);
             this.Controls.Add(this.grpCtrl1);
             this.Name = "Detail_User";
             this.Text = "THÔNG TIN CHI TIẾT";
@@ -353,7 +354,7 @@
         private DevExpress.XtraEditors.TextEdit txtUser;
         private DevExpress.XtraEditors.LabelControl lbUser;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
-        private DevExpress.XtraEditors.SimpleButton btnRegister;
+        private DevExpress.XtraEditors.SimpleButton btnXacnhan;
         private DevExpress.XtraEditors.GroupControl grpCtrl1;
         private DevExpress.XtraEditors.SimpleButton btnChange;
         private DevExpress.XtraEditors.TextEdit txtChucvu;

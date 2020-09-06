@@ -20,14 +20,17 @@ namespace DXApplication1.Account
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            txtChucvu.ReadOnly = false;
             txtDiaChi.ReadOnly = false;
             txtEmail.ReadOnly = false;
             txtHoTen.ReadOnly = false;
             txtSoDienThoai.ReadOnly = false;
             dateNgaySinh.ReadOnly = false;
-
-            
+            btnXacnhan.Visible = true;
+            if (Program.lg.check_CV == 1)
+            {
+                txtChucvu.ReadOnly = false;
+            }
+  
         }
 
         private void grpCtrl1_Paint(object sender, PaintEventArgs e)
