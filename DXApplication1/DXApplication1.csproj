@@ -95,6 +95,7 @@
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\NguoiDungSql.cs" />
     <Compile Include="Models\ConnectionDatabase.cs" />
+    <Compile Include="Models\PhanQuyenSql.cs" />
     <Compile Include="Models\QuanLyNhanVienSql.cs" />
     <Compile Include="Models\Quyen.cs" />
     <Compile Include="Models\QuyenSql.cs" />
