@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraGrid.Views.Grid;
 using DXApplication1.Models;
-using DevExpress.XtraGrid.Views.Grid;
+using DXApplication1.Utilizes;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
+using System.Linq;
+
 namespace DXApplication1.Admin
 
 {
@@ -22,18 +19,28 @@ namespace DXApplication1.Admin
         LoaiQuyenSql LoaiQuyenSql;
         QuyenSql QuyenSql;
         ChucvuSql chucvuSql;
+        PhanQuyenSql phanQuyenSql;
+       /// List include checkbox changed list
+       /// 
+
+       List<ThongTinThayDoiChucVu> removed = new List<ThongTinThayDoiChucVu>();
+        List<ThongTinThayDoiChucVu> added = new List<ThongTinThayDoiChucVu>();
+
+        ///
         #endregion
         public Phanquyen()
         {
             InitializeComponent();
             chucvuSql = new ChucvuSql();
-            chucvus = chucvuSql.GetName();
-            foreach (Chucvu i in chucvus)
+            phanQuyenSql = new PhanQuyenSql();
+            chucvus = chucvuSql.LayCacChucVu();
+            foreach (Chucvu chucvu in chucvus)
             {
-                comboBoxChucVu.Items.Add(i.ChucVu);
-
+                ComboBoxItemPhanQuyen item = new ComboBoxItemPhanQuyen { ChucVu = chucvu };
+                comboBoxChucVu.Items.Add(item);
             }
-
+            gridViewMain.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            gridViewDetail.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
         }
         #region Methods
         private void loadData()
@@ -44,25 +51,18 @@ namespace DXApplication1.Admin
 
             LoaiQuyenSql = new LoaiQuyenSql();
             QuyenSql = new QuyenSql();
-          
 
             loaiQuyens = LoaiQuyenSql.SelectAll();
             quyens = QuyenSql.SelectAll();
-           
-            
-
             gridControlMainPhanQuyen.DataSource = loaiQuyens;
-          //  gridControlChucVu_NguoiDung.DataSource = chucvus;
-            
-          
         }
         #endregion
+
 
         #region Events
         private void gridControlDetaiPhanQuyen_Load(object sender, EventArgs e)
         {
             loadData();
-
         }
 
         private void gridViewMain_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
@@ -84,7 +84,24 @@ namespace DXApplication1.Admin
             LoaiQuyen loaiQuyen = view.GetRow(e.RowHandle) as LoaiQuyen;
             if (loaiQuyen != null)
             {
-                e.ChildList = quyens.Where(x => x.LoaiQuyenId == loaiQuyen.LoaiQuyenId).ToList();
+                if (comboBoxChucVu.SelectedItem != null)
+                {
+                    List<string> maQuyenTheoChucVu =
+               (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaQuyens;
+
+                    quyens.ForEach((quyen) =>
+                    {
+                        if(maQuyenTheoChucVu.Contains(quyen.QuyenId))
+                        {
+                            quyen.Check = true;
+                        }
+                        else
+                        {
+                            quyen.Check = false;
+                        }
+                    });
+                }
+                e.ChildList = quyens;
             }
         }
 
@@ -101,23 +118,88 @@ namespace DXApplication1.Admin
 
         private void comboBoxChucVu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string tenChucVu = comboBoxChucVu.SelectedItem.ToString();
             gridControlDetaiPhanQuyen_Load(sender, e);
-            Quyen_LoaiQuyenSql quyen_LoaiQuyenSql = new Quyen_LoaiQuyenSql();
-            List<Quyen_LoaiQuyen> quyen_LoaiQuyens = new List<Quyen_LoaiQuyen>();
-            quyen_LoaiQuyens = quyen_LoaiQuyenSql.GetQuyen_LoaiQuyen(tenChucVu);
-            foreach(Quyen_LoaiQuyen i in quyen_LoaiQuyens)
-            {
-               // gridViewDetail.OptionsSelection.CheckBoxSelectorField
-            }    
         }
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
+            if(added.Count != 0)
+            {
+                foreach (var item in added)
+                {
+                    phanQuyenSql.ThemQuyenVaoChucVu(item);
+                    (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaQuyens.Add(item.maQuyen);
+                }
+            }
 
+
+            if (removed.Count != 0)
+            {
+                foreach (var item in removed)
+                {
+                    phanQuyenSql.XoaQuyenKhoiChucVu(item);
+                    (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaQuyens.Remove(item.maQuyen);
+                }
+            }
+
+            if(added.Count != 0 || removed.Count != 0)
+            {
+                loadData();
+                added.Clear();
+                removed.Clear();
+            }
         }
+
         #endregion
+        private void gridViewMain_MasterRowExpanded(object sender, CustomMasterRowEventArgs e)
+        {
+            //GridView dView = gridViewMain.GetDetailView(e.RowHandle, (sender as GridView).GetVisibleDetailRelationIndex(e.RowHandle)) as GridView;
+            //string cellValue = dView.GetRowCellValue(0, "QuyenId").ToString();
+            //Console.WriteLine(cellValue);
+            //Console.WriteLine(gridViewMain.GetRowCellDisplayText(e.RowHandle, "MoTa"));
+            //dView.SetRowCellValue(0, "Check", false);
+            //Console.WriteLine(dView.GetRowCellValue(0, "Check"));
+        }
 
+        private void repositoryItemCheckEdit1_CheckedChanged(object sender, EventArgs e)
+        {
+            GridView dView = gridViewMain.GetDetailView(gridViewMain.GetSelectedRows()[0], gridViewMain.GetVisibleDetailRelationIndex(gridViewMain.GetSelectedRows()[0])) as GridView;
+            Quyen quyen = dView.GetFocusedRow() as Quyen;
 
+            string maChucVu = (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaChucVu;
+            string maQuyen = quyen.QuyenId;
+            ThongTinThayDoiChucVu item = new ThongTinThayDoiChucVu { maChucVu = maChucVu, maQuyen = maQuyen };
+
+            if (quyen.Check)
+            {
+                if(added.Contains(item))
+                {
+                    added.Remove(item);
+                }
+
+                if (removed.Contains(item))
+                    return;
+                else
+                {
+                    removed.Add(item);
+                }
+            }
+            else
+            {
+                if(removed.Contains(item))
+                {
+                    removed.Remove(item);
+                }
+                
+                if(added.Contains(item))
+                {
+                    return;
+                }
+                else
+                {
+                    added.Add(item);
+                }
+            }
+        }
     }
 }

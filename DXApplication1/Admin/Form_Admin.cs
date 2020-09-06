@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
 using System;
 using System.Windows.Forms;
+using DXApplication1.Account;
+using DXApplication1.Models;
 
 namespace DXApplication1
 {
@@ -62,7 +64,7 @@ namespace DXApplication1
             phanquyen.Show();
         }
 
-        private void barButtonItemNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        public void barButtonItemNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Admin.QuanLyNhanVien quanLyNhanVien = new Admin.QuanLyNhanVien();
             quanLyNhanVien.TopLevel = false;
@@ -72,6 +74,14 @@ namespace DXApplication1
             quanLyNhanVien.Dock = DockStyle.Fill;
             quanLyNhanVien.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             quanLyNhanVien.Show();
+        }
+
+        private void btnThongTinCaNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Program.detail_user = new ThongTinNguoiDung();
+            Program.detail_userSql.Select_Detail(Program.detail_user, Program.lg.UserLogin.MaDangNhapNguoiDung);
+            Detail_User detail_form = new Detail_User();
+            detail_form.Show();
         }
     }
 }
