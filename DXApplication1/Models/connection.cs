@@ -29,6 +29,31 @@ namespace DXApplication1.Models
             }
             return ds;
         }
+        public int Excute_Sql(string strQuery, CommandType cmdtype, string[] para, object[] values)
+        {
+            Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand(strQuery, Connection);
+            int efftectRecord = 0;
+            sqlCommand.CommandType = cmdtype;
+            SqlParameter sqlpara;
+            for (int i = 0; i < para.Length; i++)
+            {
+                sqlpara = new SqlParameter();
+                sqlpara.ParameterName = para[i];
+                sqlpara.SqlValue = values[i];
+                sqlCommand.Parameters.Add(sqlpara);
+            }
+            try
+            {
+                efftectRecord = sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message);
+            }
+            Connection.Close();
+            return efftectRecord;
+        }
 
 
 

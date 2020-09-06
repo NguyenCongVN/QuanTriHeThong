@@ -6,19 +6,10 @@ namespace DXApplication1.Admin
 {
     public partial class QuanLyNhanVien : DevExpress.XtraEditors.XtraForm
     {
-        public BindingSource bindingSource = new BindingSource();
         public QuanLyNhanVien()
         {
-          //  ThongTinNguoiDung thongTinNguoiDung = Program.detail_user;
             InitializeComponent();
-            //textBoxMaDangNhap.Text = thongTinNguoiDung.MaDangNhapNguoiDung;
-            //textBoxHoTen.Text = thongTinNguoiDung.HoTen;
-            //textBoxEmail.Text = thongTinNguoiDung.Email;
-            //textBoxDiaChi.Text = thongTinNguoiDung.DiaChi;
-            //textBoxSoDienThoai.Text = thongTinNguoiDung.SoDienThoai;
-            //textBoxChucVu.Text = thongTinNguoiDung.ChucVu;
-            //dateEditNgaySinh.DateTime = thongTinNguoiDung.NgaySinh;
-            //dateEditNgayTaoTaiKhoan.DateTime = thongTinNguoiDung.NgayTao;
+           
         }
 
         private void buttonThem_Click(object sender, System.EventArgs e)
@@ -38,21 +29,12 @@ namespace DXApplication1.Admin
         public void QuanLyNhanVien_Load(object sender, System.EventArgs e)
         {
             Program.quanLyNhanVienSql = new QuanLyNhanVienSql();
-            Program.quanLyNhanVienSql.getDataDSNV(dataGridViewDSNV);
-           // int s = dataGridViewDSNV.Rows.Count;
+            Program.quanLyNhanVienSql.getDataDSNV(dataGridViewDSNV, searchLookUpEditDSNV);
+          
         }
-
-        public void update_DatagridDSNV()
-        {
-            
-            //Program.quanLyNhanVienSql = new QuanLyNhanVienSql();
-            //Program.quanLyNhanVienSql.getDataDSNV(dataGridViewDSNV);
-            //int s = dataGridViewDSNV.Rows.Count;
-        }
-
         private void getDataFromDgvIntoTextBox(TextBox tb, int row, string column)
         {
-            tb.Text = dataGridViewDSNV.Rows[row].Cells[column].Value.ToString(); //doi cho nay thanh curren row xem sao 
+            tb.Text = dataGridViewDSNV.Rows[row].Cells[column].Value.ToString();  
         }
 
         private void dataGridViewDSNV_CellEnter(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
@@ -79,9 +61,43 @@ namespace DXApplication1.Admin
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn xoá nhân viên này", "Question Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(dialogResult == DialogResult.Yes)
             {
-
+                Program.quanLyNhanVienSql = new QuanLyNhanVienSql();
+                Program.quanLyNhanVienSql.XoaNhanVien(textBoxMaDangNhap.Text);
             }    
 
+        }
+
+        private void searchLookUpEditDSNV_EditValueChanged(object sender, System.EventArgs e)
+        {
+            searchLookUpEditDSNV.Text = "";
+            var view = searchLookUpEditDSNV.Properties.View;
+            int row = view.FocusedRowHandle;
+            string fieldNamemaNhanVien = "MaDangNhapNguoiDung";
+            string fieldNamehoTen = "HoTen";
+            string fieldNamengaySinh = "NgaySinh";
+            string fieldNamesoDienThoai = "SoDienThoai";
+            string fieldNameEmail = "Email";
+            string fieldNamediaChi = "DiaChi";
+            string fieldNamechucVu = "MaChucVu";
+            string fieldNamengayTao = "NgayTao";
+
+            object valuemaNhanVien = view.GetRowCellValue(row, fieldNamemaNhanVien);
+            object valuehoTen = view.GetRowCellValue(row, fieldNamehoTen);
+            object valuengaySinh = view.GetRowCellValue(row, fieldNamengaySinh);
+            object valuesoDienThoai = view.GetRowCellValue(row, fieldNamesoDienThoai);
+            object valueEmail = view.GetRowCellValue(row, fieldNameEmail);
+            object valuediaChi = view.GetRowCellValue(row, fieldNamediaChi);
+            object valuechucVu = view.GetRowCellValue(row, fieldNamechucVu);
+            object valuengayTao = view.GetRowCellValue(row, fieldNamengayTao);
+
+            textBoxMaDangNhap.Text = valuemaNhanVien.ToString();
+            textBoxHoTen.Text = valuehoTen.ToString();
+            textBoxNgaySinh.Text = valuengaySinh.ToString();
+            textBoxSoDienThoai.Text = valuesoDienThoai.ToString();
+            textBoxEmail.Text = valueEmail.ToString();
+            textBoxDiaChi.Text = valuediaChi.ToString();
+            textBoxChucVu.Text = valuechucVu.ToString();
+            textBoxNgayTao.Text = valuengayTao.ToString();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace DXApplication1
 
     public partial class FrmMain_Admin : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-
+        int chk = 0;
         public FrmMain_Admin()
         {
 
@@ -37,11 +37,18 @@ namespace DXApplication1
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dr;
-            dr = XtraMessageBox.Show("Bạn có muốn thoát ? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.No)
+            if (chk == 0)
             {
-                e.Cancel = true;
+                DialogResult dr;
+                dr = XtraMessageBox.Show("Bạn có muốn thoát ? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Program.lg.Close();
+                }
             }
 
         }
@@ -82,6 +89,26 @@ namespace DXApplication1
             Program.detail_userSql.Select_Detail(Program.detail_user, Program.lg.UserLogin.MaDangNhapNguoiDung);
             Detail_User detail_form = new Detail_User();
             detail_form.Show();
+        }
+
+        private void btnChangePass_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            Program.up_datePass = new UpdatePass();
+            Program.up_datePass.Show();
+        }
+
+        private void btnLogout_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DialogResult dr;
+            dr = XtraMessageBox.Show("Bạn có muốn đăng xuất ? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                chk = 1;
+                Program.lg = new frmLogin();
+                Program.lg.Show();
+                this.Hide();
+            }
         }
     }
 }
