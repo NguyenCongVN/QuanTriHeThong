@@ -31,12 +31,12 @@
             this.labelCapnhat = new System.Windows.Forms.Label();
             this.buttonSua = new System.Windows.Forms.Button();
             this.panelControlHienthitt = new DevExpress.XtraEditors.PanelControl();
-            this.textBoxNgaySinh = new System.Windows.Forms.TextBox();
+            this.textBoxChucVu = new System.Windows.Forms.TextBox();
             this.textBoxNgayTao = new System.Windows.Forms.TextBox();
+            this.textBoxNgaySinh = new System.Windows.Forms.TextBox();
             this.textBoxDiaChi = new System.Windows.Forms.TextBox();
             this.textBoxHoTen = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.textBoxChucVu = new System.Windows.Forms.TextBox();
             this.textBoxSoDienThoai = new System.Windows.Forms.TextBox();
             this.labelnvviet = new System.Windows.Forms.Label();
             this.labelnvketoan = new System.Windows.Forms.Label();
@@ -104,12 +104,12 @@
             // 
             // panelControlHienthitt
             // 
-            this.panelControlHienthitt.Controls.Add(this.textBoxNgaySinh);
+            this.panelControlHienthitt.Controls.Add(this.textBoxChucVu);
             this.panelControlHienthitt.Controls.Add(this.textBoxNgayTao);
+            this.panelControlHienthitt.Controls.Add(this.textBoxNgaySinh);
             this.panelControlHienthitt.Controls.Add(this.textBoxDiaChi);
             this.panelControlHienthitt.Controls.Add(this.textBoxHoTen);
             this.panelControlHienthitt.Controls.Add(this.textBoxEmail);
-            this.panelControlHienthitt.Controls.Add(this.textBoxChucVu);
             this.panelControlHienthitt.Controls.Add(this.textBoxSoDienThoai);
             this.panelControlHienthitt.Controls.Add(this.labelnvviet);
             this.panelControlHienthitt.Controls.Add(this.labelnvketoan);
@@ -129,25 +129,38 @@
             this.panelControlHienthitt.Size = new System.Drawing.Size(1638, 410);
             this.panelControlHienthitt.TabIndex = 4;
             // 
+            // textBoxChucVu
+            // 
+            this.textBoxChucVu.Enabled = false;
+            this.textBoxChucVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxChucVu.Location = new System.Drawing.Point(778, 262);
+            this.textBoxChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxChucVu.Name = "textBoxChucVu";
+            this.textBoxChucVu.ReadOnly = true;
+            this.textBoxChucVu.Size = new System.Drawing.Size(244, 30);
+            this.textBoxChucVu.TabIndex = 29;
+            // 
+            // textBoxNgayTao
+            // 
+            this.textBoxNgayTao.Enabled = false;
+            this.textBoxNgayTao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNgayTao.Location = new System.Drawing.Point(778, 347);
+            this.textBoxNgayTao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxNgayTao.Name = "textBoxNgayTao";
+            this.textBoxNgayTao.ReadOnly = true;
+            this.textBoxNgayTao.Size = new System.Drawing.Size(244, 30);
+            this.textBoxNgayTao.TabIndex = 28;
+            // 
             // textBoxNgaySinh
             // 
+            this.textBoxNgaySinh.Enabled = false;
             this.textBoxNgaySinh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNgaySinh.Location = new System.Drawing.Point(778, 93);
             this.textBoxNgaySinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNgaySinh.Name = "textBoxNgaySinh";
             this.textBoxNgaySinh.ReadOnly = true;
             this.textBoxNgaySinh.Size = new System.Drawing.Size(244, 30);
-            this.textBoxNgaySinh.TabIndex = 26;
-            // 
-            // textBoxNgayTao
-            // 
-            this.textBoxNgayTao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNgayTao.Location = new System.Drawing.Point(778, 345);
-            this.textBoxNgayTao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxNgayTao.Name = "textBoxNgayTao";
-            this.textBoxNgayTao.ReadOnly = true;
-            this.textBoxNgayTao.Size = new System.Drawing.Size(244, 30);
-            this.textBoxNgayTao.TabIndex = 25;
+            this.textBoxNgaySinh.TabIndex = 27;
             // 
             // textBoxDiaChi
             // 
@@ -181,16 +194,6 @@
             this.textBoxEmail.ReadOnly = true;
             this.textBoxEmail.Size = new System.Drawing.Size(244, 30);
             this.textBoxEmail.TabIndex = 20;
-            // 
-            // textBoxChucVu
-            // 
-            this.textBoxChucVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxChucVu.Location = new System.Drawing.Point(778, 261);
-            this.textBoxChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxChucVu.Name = "textBoxChucVu";
-            this.textBoxChucVu.ReadOnly = true;
-            this.textBoxChucVu.Size = new System.Drawing.Size(244, 30);
-            this.textBoxChucVu.TabIndex = 18;
             // 
             // textBoxSoDienThoai
             // 
@@ -528,7 +531,6 @@
         private System.Windows.Forms.Label labelCapnhat;
         private System.Windows.Forms.Button buttonSua;
         private DevExpress.XtraEditors.PanelControl panelControlHienthitt;
-        private System.Windows.Forms.TextBox textBoxChucVu;
         private System.Windows.Forms.Label labelnvviet;
         private System.Windows.Forms.Label labelnvketoan;
         private System.Windows.Forms.Label labelNgaySinh;
@@ -550,8 +552,6 @@
         private System.Windows.Forms.TextBox textBoxSoDienThoai;
         private System.Windows.Forms.Button buttonXoa;
         private System.Windows.Forms.Button buttonThem;
-        private System.Windows.Forms.TextBox textBoxNgaySinh;
-        private System.Windows.Forms.TextBox textBoxNgayTao;
         public System.Windows.Forms.DataGridView dataGridViewDSNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaDangNhapNguoiDung;
@@ -562,5 +562,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaChucVu;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayTao;
+        private System.Windows.Forms.TextBox textBoxChucVu;
+        private System.Windows.Forms.TextBox textBoxNgayTao;
+        private System.Windows.Forms.TextBox textBoxNgaySinh;
     }
 }

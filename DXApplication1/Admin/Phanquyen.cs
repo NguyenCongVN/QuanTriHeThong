@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-
+using System.Windows.Forms;
 namespace DXApplication1.Admin
 
 {
@@ -28,21 +28,38 @@ namespace DXApplication1.Admin
 
         ///
         #endregion
+
+        #region Contructor
         public Phanquyen()
         {
             InitializeComponent();
             chucvuSql = new ChucvuSql();
             phanQuyenSql = new PhanQuyenSql();
+            AddChucVuVaoCombobox();
+            gridViewMain.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            gridViewDetail.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+        }
+        #endregion
+
+        #region Methods
+
+        public void AddChucVuVaoCombobox()
+        {
+            comboBoxChucVu.Text = null;
+            comboBoxChucVu.Items.Clear();
             chucvus = chucvuSql.LayCacChucVu();
             foreach (Chucvu chucvu in chucvus)
             {
                 ComboBoxItemPhanQuyen item = new ComboBoxItemPhanQuyen { ChucVu = chucvu };
                 comboBoxChucVu.Items.Add(item);
             }
-            gridViewMain.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
-            gridViewDetail.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+
+            foreach (object s in comboBoxChucVu.Items)
+            {
+                Console.WriteLine(s.ToString());
+            }    
+            
         }
-        #region Methods
         private void loadData()
         {
             loaiQuyens = new List<LoaiQuyen>();
@@ -57,7 +74,6 @@ namespace DXApplication1.Admin
             gridControlMainPhanQuyen.DataSource = loaiQuyens;
         }
         #endregion
-
 
         #region Events
         private void gridControlDetaiPhanQuyen_Load(object sender, EventArgs e)
@@ -118,39 +134,58 @@ namespace DXApplication1.Admin
 
         private void comboBoxChucVu_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Program.cvu.TenChucVu = comboBoxChucVu.Text;
             gridControlDetaiPhanQuyen_Load(sender, e);
         }
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
-            if(added.Count != 0)
+            if(comboBoxChucVu.SelectedItem == null)
             {
-                foreach (var item in added)
+                MessageBox.Show("Bạn phải chọn chức vụ", "Notice Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }  
+            else
+            {
+                try
                 {
-                    phanQuyenSql.ThemQuyenVaoChucVu(item);
-                    (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaQuyens.Add(item.maQuyen);
+                    if (added.Count != 0)
+                    {
+                        foreach (var item in added)
+                        {
+                            phanQuyenSql.ThemQuyenVaoChucVu(item);
+                            (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaQuyens.Add(item.maQuyen);
+                        }
+                    }
+
+
+                    if (removed.Count != 0)
+                    {
+                        foreach (var item in removed)
+                        {
+                            phanQuyenSql.XoaQuyenKhoiChucVu(item);
+                            (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaQuyens.Remove(item.maQuyen);
+                        }
+                    }
+
+                    if (added.Count != 0 || removed.Count != 0)
+                    {
+                        loadData();
+                        added.Clear();
+                        removed.Clear();
+                    }
+                    MessageBox.Show("Lưu thành công", "Information message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
-            }
-
-
-            if (removed.Count != 0)
-            {
-                foreach (var item in removed)
+                catch (Exception ex)
                 {
-                    phanQuyenSql.XoaQuyenKhoiChucVu(item);
-                    (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaQuyens.Remove(item.maQuyen);
-                }
-            }
+                    throw new Exception("Lưu không thành công", ex);
 
-            if(added.Count != 0 || removed.Count != 0)
-            {
-                loadData();
-                added.Clear();
-                removed.Clear();
-            }
+                }
+            }    
+            
+        
         }
 
-        #endregion
         private void gridViewMain_MasterRowExpanded(object sender, CustomMasterRowEventArgs e)
         {
             //GridView dView = gridViewMain.GetDetailView(e.RowHandle, (sender as GridView).GetVisibleDetailRelationIndex(e.RowHandle)) as GridView;
@@ -172,7 +207,7 @@ namespace DXApplication1.Admin
 
             if (quyen.Check)
             {
-                if(added.Contains(item))
+                if (added.Contains(item))
                 {
                     added.Remove(item);
                 }
@@ -186,18 +221,55 @@ namespace DXApplication1.Admin
             }
             else
             {
-                if(removed.Contains(item))
+                if (removed.Contains(item))
                 {
                     removed.Remove(item);
                 }
-                
-                if(added.Contains(item))
+
+                if (added.Contains(item))
                 {
                     return;
                 }
                 else
                 {
                     added.Add(item);
+                }
+            }
+        }
+
+        #endregion
+
+        private void buttonThemChucVu_Click(object sender, EventArgs e)
+        {
+            AddChucVu chucVuForm = new AddChucVu();
+            chucVuForm.ShowDialog();
+        }
+
+        private void buttonSuaChucVu_Click(object sender, EventArgs e)
+        {
+            if(comboBoxChucVu.SelectedItem == null)
+            {
+                MessageBox.Show("Bạn phải chọn chức vụ cần sửa", "Notice Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }    
+            else
+            {
+                SuaChucVu suaChucVu = new SuaChucVu();
+                suaChucVu.ShowDialog();
+            }    
+        }
+
+        private void buttonXoaChucVu_Click(object sender, EventArgs e)
+        {
+            if (comboBoxChucVu.SelectedItem == null)
+            {
+                MessageBox.Show("Bạn phải chọn chức vụ cần xoá", "Notice Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xoá chức vụ này", "Question message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Program.chucvuSql.XoaChucVu(Program.cvu.TenChucVu);
                 }
             }
         }
