@@ -321,6 +321,7 @@
             this.Controls.Add(this.btnXacnhan);
             this.Controls.Add(this.grpCtrl1);
             this.Name = "Detail_User";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "THÔNG TIN CHI TIẾT";
             this.Load += new System.EventHandler(this.Detail_User_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties.CalendarTimeProperties)).EndInit();

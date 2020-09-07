@@ -20,17 +20,28 @@ namespace DXApplication1.Account
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            txtDiaChi.ReadOnly = false;
-            txtEmail.ReadOnly = false;
-            txtHoTen.ReadOnly = false;
-            txtSoDienThoai.ReadOnly = false;
-            dateNgaySinh.ReadOnly = false;
-            btnXacnhan.Visible = true;
-            if (Program.lg.check_CV == 1)
+            int kt = 0;
+            foreach (var q in Program.lg.List_Q)
             {
-                txtChucvu.ReadOnly = false;
+                if (q.QuyenId == "QNSUANV")
+                {
+                    txtDiaChi.ReadOnly = false;
+                    txtEmail.ReadOnly = false;
+                    txtHoTen.ReadOnly = false;
+                    txtSoDienThoai.ReadOnly = false;
+                    dateNgaySinh.ReadOnly = false;
+                    btnXacnhan.Visible = true;
+                    if (Program.lg.check_CV == 1)
+                    {
+                        txtChucvu.ReadOnly = false;
+                    }
+                    kt = 1;
+                }
             }
-  
+            if (kt == 0)
+                XtraMessageBox.Show("Bạn không có quyền xem thông tin!!!", "Thông báo");
+
+
         }
 
         private void grpCtrl1_Paint(object sender, PaintEventArgs e)

@@ -36,6 +36,7 @@ namespace DXApplication1
             BonusSkins.Register();
             ndSql = new NguoiDungSql();
             detail_userSql = new ThongTinNguoiDungSql();
+            quyenSql = new QuyenSql();
 
             lg = new frmLogin();
             Application.Run(lg);
