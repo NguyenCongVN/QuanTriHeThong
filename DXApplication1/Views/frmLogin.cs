@@ -12,6 +12,8 @@ namespace DXApplication1
     {
         NguoiDung userLogin;
         public  int check_CV = 0;
+         List<Quyen> list_Q = new List<Quyen>();
+        internal List<Quyen> List_Q { get => list_Q; set => list_Q = value; }
         internal NguoiDung UserLogin { get => userLogin; set => userLogin = value; }
         public frmLogin()
         {
@@ -95,6 +97,7 @@ namespace DXApplication1
                     this.userLogin = new NguoiDung();
                     this.userLogin.MaDangNhapNguoiDung = value.MaDangNhapNguoiDung;
                     this.userLogin.MatKhau = UserUtilizes.GetHashString(_pass);
+                    list_Q = Program.quyenSql.Select_Quyen_chucvu(UserLogin.MaDangNhapNguoiDung);
                     break;
                 }
             }

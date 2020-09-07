@@ -50,6 +50,10 @@ namespace DXApplication1
                     Program.lg.Close();
                 }
             }
+            else
+            {
+                Program.lg.Close();
+            }
 
         }
 
@@ -85,10 +89,23 @@ namespace DXApplication1
 
         private void btnThongTinCaNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Program.detail_user = new ThongTinNguoiDung();
-            Program.detail_userSql.Select_Detail(Program.detail_user, Program.lg.UserLogin.MaDangNhapNguoiDung);
-            Detail_User detail_form = new Detail_User();
-            detail_form.Show();
+            int kt = 0;
+            foreach (var q in Program.lg.List_Q)
+            {
+                if (q.QuyenId == "QNXEMNV")
+                {
+                    Program.detail_user = new ThongTinNguoiDung();
+                    Program.detail_userSql.Select_Detail(Program.detail_user, Program.lg.UserLogin.MaDangNhapNguoiDung);
+                    Detail_User detail_form = new Detail_User();
+                    detail_form.Show();
+                    kt = 1;
+                    break;
+                }
+
+            }
+            if (kt == 0)
+                XtraMessageBox.Show("Bạn không có quyền xem thông tin!!!", "Thông báo");
+
         }
 
         private void btnChangePass_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

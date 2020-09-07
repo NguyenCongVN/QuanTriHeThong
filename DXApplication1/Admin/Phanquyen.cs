@@ -1,11 +1,14 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
 using System;
+
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace DXApplication1.Admin
 
@@ -148,6 +151,7 @@ namespace DXApplication1.Admin
                 added.Clear();
                 removed.Clear();
             }
+            XtraMessageBox.Show("Cập nhật thành công!", "Thông báo");
         }
 
         #endregion
