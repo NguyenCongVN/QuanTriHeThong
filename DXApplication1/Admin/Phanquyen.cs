@@ -1,7 +1,9 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
 using System;
+
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -178,12 +180,7 @@ namespace DXApplication1.Admin
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Lưu không thành công", ex);
-
-                }
-            }    
-            
-        
+            XtraMessageBox.Show("Cập nhật không thành công!", "Thông báo");
         }
 
         private void gridViewMain_MasterRowExpanded(object sender, CustomMasterRowEventArgs e)

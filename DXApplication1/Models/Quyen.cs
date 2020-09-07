@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DXApplication1.Models
 {
-    class Quyen:ConnectionDatabase
+     class Quyen:ConnectionDatabase
     {
         public enum QuyenFields
         {

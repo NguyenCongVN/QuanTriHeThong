@@ -41,6 +41,8 @@ namespace DXApplication1
             phanquyen = new Phanquyen();
             chucvuSql = new ChucvuSql();
             cvu = new Chucvu();
+            quyenSql = new QuyenSql();
+
             lg = new frmLogin();
             Application.Run(lg);
         }

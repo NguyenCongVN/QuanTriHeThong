@@ -39,6 +39,36 @@ namespace DXApplication1.Models
             }
 
         }
+
+        //lấy quyền theo chức vụ
+        public List<Quyen> Select_Quyen_chucvu(string ma)
+        {
+            SqlCommand sqlCommand = new SqlCommand("CHECK_CV1", Connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+
+            // Use connection object of base class
+
+            try
+            {
+                sqlCommand.Parameters.Add(new SqlParameter("@maDN", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, ma));
+                Connection.Open();
+
+                IDataReader dataReader = sqlCommand.ExecuteReader();
+
+                return PopulateObjectFromReader(dataReader);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Quyen::Check_CV1::Error occured.", ex);
+            }
+            finally
+            {
+                Connection.Close();
+                sqlCommand.Dispose();
+            }
+
+        }
         #endregion
 
         #region Methods private
