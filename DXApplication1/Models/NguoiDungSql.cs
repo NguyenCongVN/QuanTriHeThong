@@ -19,11 +19,15 @@ namespace DXApplication1.Models
         {
             if(int.Parse(e.Message) == 1)
             {
-                DialogResult result = MessageBox.Show("Them tai khoan thanh cong", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult result = MessageBox.Show("Thêm tài khoản thành công", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if(result == DialogResult.OK)
                 {
                     Program.admin.barButtonItemNhanVien_ItemClick(null, null);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Tài khoản đã tồn tại", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }    
         };
 
@@ -95,8 +99,6 @@ namespace DXApplication1.Models
                 cmd.Parameters.Add(new SqlParameter("@chucVu", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.ChucVu));
                 Connection.Open();
                 Connection.InfoMessage += showResultFromSql;
-                // DialogResult dialogResult = MessageBox.Show(showResultFromSql.ToString(), "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
                 cmd.ExecuteNonQuery();
                 return true;
             }

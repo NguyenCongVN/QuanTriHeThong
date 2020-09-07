@@ -5,11 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace DXApplication1.Models
 {
     class ChucvuSql:ConnectionDatabase
     {
+        SqlInfoMessageEventHandler showResultFromSql = (sender, e) =>
+        {
+            if (int.Parse(e.Message) == 1)
+            {
+                DialogResult result = MessageBox.Show("Thêm chức vụ thành công", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                   // Program.phanquyen = new Admin.Phanquyen();
+                    Program.phanquyen.AddChucVuVaoCombobox();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thông tin không hợp lệ", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }    
+        };
+
         public List<Chucvu> LayCacChucVu()
         {
             SqlCommand sqlCommand = new SqlCommand("LayTatCaMaChucVu", Connection);
@@ -103,12 +121,70 @@ namespace DXApplication1.Models
             return maQuyens;
         }
 
+        public bool ThemChucVu(string maChucVu, string tenChucVu)
+        {
+            SqlCommand cmd = new SqlCommand("ThemChucVu", Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-        //
+            try
+            {
+                cmd.Parameters.Add(new SqlParameter("@maChucVu",  maChucVu));
+                cmd.Parameters.Add(new SqlParameter("@tenChucVu", tenChucVu));
+                Connection.Open();
+                Connection.InfoMessage += showResultFromSql;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra");
+                return false;
+            }
+            finally
+            {
+                Connection.InfoMessage -= showResultFromSql;
+                Connection.Close();
+                cmd.Dispose();
+            }
+        }
 
+        public void SuaTenChucVu(string tenCu, string tenMoi)
+        {
+            string query = "SuaTenChucVu";
+            string[] para = { "@tenChucVu_Cu", "@tenChucVu_Moi" };
+            string[] value = { tenCu, tenMoi };
+            connection connect = new connection();
+            int result = connect.Excute_Sql(query, CommandType.StoredProcedure, para, value);
+            if (result > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Thay đổi tên chức vụ thành công", "Information message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.OK)
+                {
+                    Program.phanquyen.AddChucVuVaoCombobox();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thay đổi không thành công", "Information message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
-        //public 
-       
+        public void XoaChucVu(string tenChucVu)
+        {
+            string query = "XoaChucVu";
+            string[] para = { "@tenChucVu" };
+            string[] value = { tenChucVu };
+            connection connect = new connection();
+            int result = connect.Excute_Sql(query, CommandType.StoredProcedure, para, value);
+            if (result > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Xoá chức vụ thành công", "Information message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.OK)
+                {
+                    Program.phanquyen.AddChucVuVaoCombobox();
+                }
+            }
+        }
 
     }
 }
