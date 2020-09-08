@@ -142,10 +142,10 @@ namespace DXApplication1.Admin
 
         private void buttonLuu_Click(object sender, EventArgs e)
         {
-            if(comboBoxChucVu.SelectedItem == null)
+            if (comboBoxChucVu.SelectedItem == null)
             {
                 MessageBox.Show("Bạn phải chọn chức vụ", "Notice Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }  
+            }
             else
             {
                 try
@@ -180,7 +180,9 @@ namespace DXApplication1.Admin
                 }
                 catch (Exception ex)
                 {
-            XtraMessageBox.Show("Cập nhật không thành công!", "Thông báo");
+                    XtraMessageBox.Show("Cập nhật không thành công!", "Thông báo");
+                }
+            }
         }
 
         private void gridViewMain_MasterRowExpanded(object sender, CustomMasterRowEventArgs e)
