@@ -5,8 +5,6 @@ using DXApplication1.Utilizes;
 using System;
 
 using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 namespace DXApplication1.Admin
@@ -22,13 +20,15 @@ namespace DXApplication1.Admin
         QuyenSql QuyenSql;
         ChucvuSql chucvuSql;
         PhanQuyenSql phanQuyenSql;
-       /// List include checkbox changed list
-       /// 
+        /// List include checkbox changed list
+        /// 
 
-       List<ThongTinThayDoiChucVu> removed = new List<ThongTinThayDoiChucVu>();
+        List<ThongTinThayDoiChucVu> removed = new List<ThongTinThayDoiChucVu>();
         List<ThongTinThayDoiChucVu> added = new List<ThongTinThayDoiChucVu>();
 
         ///
+
+
         #endregion
 
         #region Contructor
@@ -59,8 +59,8 @@ namespace DXApplication1.Admin
             foreach (object s in comboBoxChucVu.Items)
             {
                 Console.WriteLine(s.ToString());
-            }    
-            
+            }
+
         }
         private void loadData()
         {
@@ -74,6 +74,8 @@ namespace DXApplication1.Admin
             loaiQuyens = LoaiQuyenSql.SelectAll();
             quyens = QuyenSql.SelectAll();
             gridControlMainPhanQuyen.DataSource = loaiQuyens;
+
+            gridViewMain.ExpandAllGroups();
         }
         #endregion
 
@@ -100,6 +102,7 @@ namespace DXApplication1.Admin
             // load data đen grid detail
             GridView view = sender as GridView;
             LoaiQuyen loaiQuyen = view.GetRow(e.RowHandle) as LoaiQuyen;
+            List<Quyen> quyensTheoMa = new List<Quyen>();
             if (loaiQuyen != null)
             {
                 if (comboBoxChucVu.SelectedItem != null)
@@ -107,9 +110,17 @@ namespace DXApplication1.Admin
                     List<string> maQuyenTheoChucVu =
                (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaQuyens;
 
-                    quyens.ForEach((quyen) =>
+                    foreach (Quyen quyen in quyens)
                     {
-                        if(maQuyenTheoChucVu.Contains(quyen.QuyenId))
+                        if (quyen.LoaiQuyenId == loaiQuyen.LoaiQuyenId)
+                        {
+                            quyensTheoMa.Add(quyen);
+                        }
+                    }
+
+                    quyensTheoMa.ForEach((quyen) =>
+                    {
+                        if (maQuyenTheoChucVu.Contains(quyen.QuyenId))
                         {
                             quyen.Check = true;
                         }
@@ -119,7 +130,7 @@ namespace DXApplication1.Admin
                         }
                     });
                 }
-                e.ChildList = quyens;
+                e.ChildList = quyensTheoMa;
             }
         }
 
@@ -246,15 +257,15 @@ namespace DXApplication1.Admin
 
         private void buttonSuaChucVu_Click(object sender, EventArgs e)
         {
-            if(comboBoxChucVu.SelectedItem == null)
+            if (comboBoxChucVu.SelectedItem == null)
             {
                 MessageBox.Show("Bạn phải chọn chức vụ cần sửa", "Notice Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }    
+            }
             else
             {
                 SuaChucVu suaChucVu = new SuaChucVu();
                 suaChucVu.ShowDialog();
-            }    
+            }
         }
 
         private void buttonXoaChucVu_Click(object sender, EventArgs e)
