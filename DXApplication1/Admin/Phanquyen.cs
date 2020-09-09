@@ -196,57 +196,77 @@ namespace DXApplication1.Admin
             }
         }
 
-        private void gridViewMain_MasterRowExpanded(object sender, CustomMasterRowEventArgs e)
-        {
-            //GridView dView = gridViewMain.GetDetailView(e.RowHandle, (sender as GridView).GetVisibleDetailRelationIndex(e.RowHandle)) as GridView;
-            //string cellValue = dView.GetRowCellValue(0, "QuyenId").ToString();
-            //Console.WriteLine(cellValue);
-            //Console.WriteLine(gridViewMain.GetRowCellDisplayText(e.RowHandle, "MoTa"));
-            //dView.SetRowCellValue(0, "Check", false);
-            //Console.WriteLine(dView.GetRowCellValue(0, "Check"));
-        }
-
-        private void repositoryItemCheckEdit1_CheckedChanged(object sender, EventArgs e)
-        {
-            GridView dView = gridViewMain.GetDetailView(gridViewMain.GetSelectedRows()[0], gridViewMain.GetVisibleDetailRelationIndex(gridViewMain.GetSelectedRows()[0])) as GridView;
-            Quyen quyen = dView.GetFocusedRow() as Quyen;
-
-            string maChucVu = (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaChucVu;
-            string maQuyen = quyen.QuyenId;
-            ThongTinThayDoiChucVu item = new ThongTinThayDoiChucVu { maChucVu = maChucVu, maQuyen = maQuyen };
-
-            if (quyen.Check)
-            {
-                if (added.Contains(item))
+                private void gridViewMain_MasterRowExpanded(object sender, CustomMasterRowEventArgs e)
                 {
-                    added.Remove(item);
+                    //GridView dView = gridViewMain.GetDetailView(e.RowHandle, (sender as GridView).GetVisibleDetailRelationIndex(e.RowHandle)) as GridView;
+                    //string cellValue = dView.GetRowCellValue(0, "QuyenId").ToString();
+                    //Console.WriteLine(cellValue);
+                    //Console.WriteLine(gridViewMain.GetRowCellDisplayText(e.RowHandle, "MoTa"));
+                    //dView.SetRowCellValue(0, "Check", false);
+                    //Console.WriteLine(dView.GetRowCellValue(0, "Check"));
                 }
 
-                if (removed.Contains(item))
-                    return;
-                else
+                private void repositoryItemCheckEdit1_CheckedChanged(object sender, EventArgs e)
                 {
-                    removed.Add(item);
-                }
-            }
-            else
-            {
-                if (removed.Contains(item))
-                {
-                    removed.Remove(item);
+                    GridView dView = gridViewMain.GetDetailView(gridViewMain.GetSelectedRows()[0], gridViewMain.GetVisibleDetailRelationIndex(gridViewMain.GetSelectedRows()[0])) as GridView;
+                    Quyen quyen = dView.GetFocusedRow() as Quyen;
+
+                    string maChucVu = (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaChucVu;
+                    string maQuyen = quyen.QuyenId;
+                    ThongTinThayDoiChucVu item = new ThongTinThayDoiChucVu { maChucVu = maChucVu, maQuyen = maQuyen };
+
+                    if (quyen.Check)
+                    {
+                        if (added.Contains(item))
+                        {
+                            added.Remove(item);
+                        }
+
+                        if (removed.Contains(item))
+                            return;
+                        else
+                        {
+                            removed.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        if (removed.Contains(item))
+                        {
+                            removed.Remove(item);
+                        }
+
+                        if (added.Contains(item))
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            added.Add(item);
+                        }
+                    }
                 }
 
-                if (added.Contains(item))
-                {
-                    return;
-                }
-                else
-                {
-                    added.Add(item);
-                }
-            }
-        }
+                #endregion
 
+                private void buttonThemChucVu_Click(object sender, EventArgs e)
+                {
+                    AddChucVu chucVuForm = new AddChucVu();
+                    chucVuForm.ShowDialog();
+                }
+
+                private void buttonSuaChucVu_Click(object sender, EventArgs e)
+                {
+                    if (comboBoxChucVu.SelectedItem == null)
+                    {
+                        MessageBox.Show("Bạn phải chọn chức vụ cần sửa", "Notice Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        SuaChucVu suaChucVu = new SuaChucVu();
+                        suaChucVu.ShowDialog();
+                    }
+                }
         #endregion
 
         private void buttonThemChucVu_Click(object sender, EventArgs e)
@@ -278,10 +298,20 @@ namespace DXApplication1.Admin
             {
                 DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xoá chức vụ này", "Question message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
+
                 {
-                    Program.chucvuSql.XoaChucVu(Program.cvu.TenChucVu);
+                    if (comboBoxChucVu.SelectedItem == null)
+                    {
+                        MessageBox.Show("Bạn phải chọn chức vụ cần xoá", "Notice Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xoá chức vụ này", "Question message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            Program.chucvuSql.XoaChucVu(Program.cvu.TenChucVu);
+                        }
+                    }
                 }
             }
         }
-    }
-}

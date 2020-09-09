@@ -36,10 +36,11 @@ namespace DXApplication1.Account
                         txtChucvu.ReadOnly = false;
                     }
                     kt = 1;
+                    break;
                 }
             }
             if (kt == 0)
-                XtraMessageBox.Show("Bạn không có quyền xem thông tin!!!", "Thông báo");
+                XtraMessageBox.Show("Bạn không có quyền sửa thông tin!!!", "Thông báo");
 
 
         }

@@ -73,7 +73,7 @@
             this.dateNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgaySinh.Properties.ReadOnly = true;
-            this.dateNgaySinh.Size = new System.Drawing.Size(107, 22);
+            this.dateNgaySinh.Size = new System.Drawing.Size(236, 22);
             this.dateNgaySinh.TabIndex = 21;
             // 
             // labelControl8
@@ -261,7 +261,7 @@
             this.dateNgayTao.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgayTao.Properties.ReadOnly = true;
-            this.dateNgayTao.Size = new System.Drawing.Size(107, 22);
+            this.dateNgayTao.Size = new System.Drawing.Size(236, 22);
             this.dateNgayTao.TabIndex = 31;
             // 
             // labelControl14
