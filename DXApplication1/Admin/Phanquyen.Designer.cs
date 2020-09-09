@@ -62,7 +62,8 @@
             this.gridColumnCheck,
             this.gridColumnQuyenId,
             this.gridColumnThaoTac});
-            this.gridViewDetail.CustomizationFormBounds = new System.Drawing.Rectangle(1044, 478, 322, 276);
+            this.gridViewDetail.CustomizationFormBounds = new System.Drawing.Rectangle(1044, 202, 276, 224);
+            this.gridViewDetail.DetailHeight = 284;
             this.gridViewDetail.GridControl = this.gridControlMainPhanQuyen;
             this.gridViewDetail.Name = "gridViewDetail";
             this.gridViewDetail.OptionsCustomization.AllowRowSizing = true;
@@ -79,12 +80,12 @@
             this.gridColumnCheck.Caption = "Check";
             this.gridColumnCheck.ColumnEdit = this.repositoryItemCheckEdit1;
             this.gridColumnCheck.FieldName = "Check";
-            this.gridColumnCheck.MinWidth = 24;
+            this.gridColumnCheck.MinWidth = 21;
             this.gridColumnCheck.Name = "gridColumnCheck";
             this.gridColumnCheck.OptionsColumn.FixedWidth = true;
             this.gridColumnCheck.Visible = true;
             this.gridColumnCheck.VisibleIndex = 0;
-            this.gridColumnCheck.Width = 500;
+            this.gridColumnCheck.Width = 429;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -103,13 +104,13 @@
             this.gridColumnQuyenId.AppearanceHeader.Options.UseFont = true;
             this.gridColumnQuyenId.Caption = "QuyenId";
             this.gridColumnQuyenId.FieldName = "QuyenId";
-            this.gridColumnQuyenId.MinWidth = 24;
+            this.gridColumnQuyenId.MinWidth = 21;
             this.gridColumnQuyenId.Name = "gridColumnQuyenId";
             this.gridColumnQuyenId.OptionsColumn.AllowEdit = false;
             this.gridColumnQuyenId.OptionsColumn.FixedWidth = true;
             this.gridColumnQuyenId.Visible = true;
             this.gridColumnQuyenId.VisibleIndex = 1;
-            this.gridColumnQuyenId.Width = 640;
+            this.gridColumnQuyenId.Width = 549;
             // 
             // gridColumnThaoTac
             // 
@@ -119,13 +120,13 @@
             this.gridColumnThaoTac.AppearanceHeader.Options.UseFont = true;
             this.gridColumnThaoTac.Caption = "Mô Tả";
             this.gridColumnThaoTac.FieldName = "MoTa";
-            this.gridColumnThaoTac.MinWidth = 24;
+            this.gridColumnThaoTac.MinWidth = 21;
             this.gridColumnThaoTac.Name = "gridColumnThaoTac";
             this.gridColumnThaoTac.OptionsColumn.AllowEdit = false;
             this.gridColumnThaoTac.OptionsColumn.FixedWidth = true;
             this.gridColumnThaoTac.Visible = true;
             this.gridColumnThaoTac.VisibleIndex = 2;
-            this.gridColumnThaoTac.Width = 800;
+            this.gridColumnThaoTac.Width = 686;
             // 
             // gridControlMainPhanQuyen
             // 
@@ -135,13 +136,13 @@
             gridLevelNode1.RelationName = "Detail";
             this.gridControlMainPhanQuyen.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.gridControlMainPhanQuyen.Location = new System.Drawing.Point(0, 124);
+            this.gridControlMainPhanQuyen.Location = new System.Drawing.Point(0, 140);
             this.gridControlMainPhanQuyen.MainView = this.gridViewMain;
             this.gridControlMainPhanQuyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControlMainPhanQuyen.Name = "gridControlMainPhanQuyen";
             this.gridControlMainPhanQuyen.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gridControlMainPhanQuyen.Size = new System.Drawing.Size(1145, 771);
+            this.gridControlMainPhanQuyen.Size = new System.Drawing.Size(839, 474);
             this.gridControlMainPhanQuyen.TabIndex = 1;
             this.gridControlMainPhanQuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewMain,
@@ -152,6 +153,7 @@
             // 
             this.gridViewMain.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumnQuyen});
+            this.gridViewMain.DetailHeight = 284;
             this.gridViewMain.GridControl = this.gridControlMainPhanQuyen;
             this.gridViewMain.Name = "gridViewMain";
             this.gridViewMain.OptionsCustomization.AllowRowSizing = true;
@@ -174,13 +176,13 @@
             this.gridColumnQuyen.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumnQuyen.Caption = "QUYỀN";
             this.gridColumnQuyen.FieldName = "MoTa";
-            this.gridColumnQuyen.MinWidth = 24;
+            this.gridColumnQuyen.MinWidth = 21;
             this.gridColumnQuyen.Name = "gridColumnQuyen";
             this.gridColumnQuyen.OptionsColumn.AllowEdit = false;
             this.gridColumnQuyen.OptionsColumn.FixedWidth = true;
             this.gridColumnQuyen.Visible = true;
             this.gridColumnQuyen.VisibleIndex = 0;
-            this.gridColumnQuyen.Width = 94;
+            this.gridColumnQuyen.Width = 81;
             // 
             // panelVaitro
             // 
@@ -193,7 +195,7 @@
             this.panelVaitro.Location = new System.Drawing.Point(0, 0);
             this.panelVaitro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelVaitro.Name = "panelVaitro";
-            this.panelVaitro.Size = new System.Drawing.Size(397, 895);
+            this.panelVaitro.Size = new System.Drawing.Size(340, 614);
             this.panelVaitro.TabIndex = 0;
             // 
             // buttonXoaChucVu
@@ -202,10 +204,10 @@
             this.buttonXoaChucVu.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonXoaChucVu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoaChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonXoaChucVu.Location = new System.Drawing.Point(12, 480);
+            this.buttonXoaChucVu.Location = new System.Drawing.Point(10, 390);
             this.buttonXoaChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXoaChucVu.Name = "buttonXoaChucVu";
-            this.buttonXoaChucVu.Size = new System.Drawing.Size(232, 45);
+            this.buttonXoaChucVu.Size = new System.Drawing.Size(199, 37);
             this.buttonXoaChucVu.TabIndex = 9;
             this.buttonXoaChucVu.Text = "Xoá chức vụ";
             this.buttonXoaChucVu.UseVisualStyleBackColor = false;
@@ -217,10 +219,10 @@
             this.buttonSuaChucVu.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonSuaChucVu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSuaChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonSuaChucVu.Location = new System.Drawing.Point(12, 406);
+            this.buttonSuaChucVu.Location = new System.Drawing.Point(10, 330);
             this.buttonSuaChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSuaChucVu.Name = "buttonSuaChucVu";
-            this.buttonSuaChucVu.Size = new System.Drawing.Size(232, 45);
+            this.buttonSuaChucVu.Size = new System.Drawing.Size(199, 37);
             this.buttonSuaChucVu.TabIndex = 8;
             this.buttonSuaChucVu.Text = "Sửa chức vụ";
             this.buttonSuaChucVu.UseVisualStyleBackColor = false;
@@ -232,10 +234,10 @@
             this.buttonThemChucVu.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonThemChucVu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThemChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonThemChucVu.Location = new System.Drawing.Point(12, 330);
+            this.buttonThemChucVu.Location = new System.Drawing.Point(10, 268);
             this.buttonThemChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonThemChucVu.Name = "buttonThemChucVu";
-            this.buttonThemChucVu.Size = new System.Drawing.Size(232, 45);
+            this.buttonThemChucVu.Size = new System.Drawing.Size(199, 37);
             this.buttonThemChucVu.TabIndex = 7;
             this.buttonThemChucVu.Text = "Thêm chức vụ";
             this.buttonThemChucVu.UseVisualStyleBackColor = false;
@@ -245,10 +247,10 @@
             // 
             this.comboBoxChucVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxChucVu.FormattingEnabled = true;
-            this.comboBoxChucVu.Location = new System.Drawing.Point(6, 47);
+            this.comboBoxChucVu.Location = new System.Drawing.Point(5, 38);
             this.comboBoxChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxChucVu.Name = "comboBoxChucVu";
-            this.comboBoxChucVu.Size = new System.Drawing.Size(280, 30);
+            this.comboBoxChucVu.Size = new System.Drawing.Size(241, 27);
             this.comboBoxChucVu.TabIndex = 2;
             this.comboBoxChucVu.SelectedIndexChanged += new System.EventHandler(this.comboBoxChucVu_SelectedIndexChanged);
             // 
@@ -259,7 +261,7 @@
             this.labelVaitro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelVaitro.Location = new System.Drawing.Point(0, 0);
             this.labelVaitro.Name = "labelVaitro";
-            this.labelVaitro.Size = new System.Drawing.Size(397, 32);
+            this.labelVaitro.Size = new System.Drawing.Size(340, 26);
             this.labelVaitro.TabIndex = 0;
             this.labelVaitro.Text = "Chức vụ";
             // 
@@ -268,10 +270,10 @@
             this.panelDetailPhanQuyen.Controls.Add(this.buttonLuu);
             this.panelDetailPhanQuyen.Controls.Add(this.gridControlMainPhanQuyen);
             this.panelDetailPhanQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDetailPhanQuyen.Location = new System.Drawing.Point(397, 0);
+            this.panelDetailPhanQuyen.Location = new System.Drawing.Point(340, 0);
             this.panelDetailPhanQuyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDetailPhanQuyen.Name = "panelDetailPhanQuyen";
-            this.panelDetailPhanQuyen.Size = new System.Drawing.Size(1145, 895);
+            this.panelDetailPhanQuyen.Size = new System.Drawing.Size(839, 614);
             this.panelDetailPhanQuyen.TabIndex = 1;
             // 
             // buttonLuu
@@ -280,10 +282,10 @@
             this.buttonLuu.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonLuu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLuu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonLuu.Location = new System.Drawing.Point(17, 11);
+            this.buttonLuu.Location = new System.Drawing.Point(6, 11);
             this.buttonLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLuu.Name = "buttonLuu";
-            this.buttonLuu.Size = new System.Drawing.Size(151, 45);
+            this.buttonLuu.Size = new System.Drawing.Size(129, 37);
             this.buttonLuu.TabIndex = 6;
             this.buttonLuu.Text = "Lưu";
             this.buttonLuu.UseVisualStyleBackColor = false;
@@ -291,9 +293,9 @@
             // 
             // Phanquyen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1542, 895);
+            this.ClientSize = new System.Drawing.Size(1179, 614);
             this.Controls.Add(this.panelDetailPhanQuyen);
             this.Controls.Add(this.panelVaitro);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

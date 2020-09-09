@@ -5,8 +5,6 @@ using DXApplication1.Utilizes;
 using System;
 
 using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 namespace DXApplication1.Admin
@@ -29,6 +27,8 @@ namespace DXApplication1.Admin
         List<ThongTinThayDoiChucVu> added = new List<ThongTinThayDoiChucVu>();
 
         ///
+
+
         #endregion
 
         #region Contructor
@@ -74,6 +74,8 @@ namespace DXApplication1.Admin
             loaiQuyens = LoaiQuyenSql.SelectAll();
             quyens = QuyenSql.SelectAll();
             gridControlMainPhanQuyen.DataSource = loaiQuyens;
+
+            gridViewMain.ExpandAllGroups();
         }
         #endregion
 
@@ -100,6 +102,7 @@ namespace DXApplication1.Admin
             // load data đen grid detail
             GridView view = sender as GridView;
             LoaiQuyen loaiQuyen = view.GetRow(e.RowHandle) as LoaiQuyen;
+            List<Quyen> quyensTheoMa = new List<Quyen>();
             if (loaiQuyen != null)
             {
                 if (comboBoxChucVu.SelectedItem != null)
@@ -107,7 +110,15 @@ namespace DXApplication1.Admin
                     List<string> maQuyenTheoChucVu =
                (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaQuyens;
 
-                    quyens.ForEach((quyen) =>
+                    foreach (Quyen quyen in quyens)
+                    {
+                        if (quyen.LoaiQuyenId == loaiQuyen.LoaiQuyenId)
+                        {
+                            quyensTheoMa.Add(quyen);
+                        }
+                    }
+
+                    quyensTheoMa.ForEach((quyen) =>
                     {
                         if (maQuyenTheoChucVu.Contains(quyen.QuyenId))
                         {
@@ -119,7 +130,7 @@ namespace DXApplication1.Admin
                         }
                     });
                 }
-                e.ChildList = quyens;
+                e.ChildList = quyensTheoMa;
             }
         }
 
@@ -256,8 +267,38 @@ namespace DXApplication1.Admin
                         suaChucVu.ShowDialog();
                     }
                 }
+        #endregion
 
-                private void buttonXoaChucVu_Click(object sender, EventArgs e)
+        private void buttonThemChucVu_Click(object sender, EventArgs e)
+        {
+            AddChucVu chucVuForm = new AddChucVu();
+            chucVuForm.ShowDialog();
+        }
+
+        private void buttonSuaChucVu_Click(object sender, EventArgs e)
+        {
+            if (comboBoxChucVu.SelectedItem == null)
+            {
+                MessageBox.Show("Bạn phải chọn chức vụ cần sửa", "Notice Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                SuaChucVu suaChucVu = new SuaChucVu();
+                suaChucVu.ShowDialog();
+            }
+        }
+
+        private void buttonXoaChucVu_Click(object sender, EventArgs e)
+        {
+            if (comboBoxChucVu.SelectedItem == null)
+            {
+                MessageBox.Show("Bạn phải chọn chức vụ cần xoá", "Notice Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xoá chức vụ này", "Question message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+
                 {
                     if (comboBoxChucVu.SelectedItem == null)
                     {

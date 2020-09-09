@@ -1,0 +1,12 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROC [dbo].[LayTenChucVuTheoMaChucVu](@maChucVu VARCHAR(50))
+AS
+BEGIN
+SELECT TenChucVu
+FROM dbo.ChucVu
+WHERE MaChucVu = @maChucVu
+END
+GO
