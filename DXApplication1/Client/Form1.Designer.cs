@@ -33,7 +33,7 @@
             this.btnLogin = new DevExpress.XtraBars.BarButtonItem();
             this.btnChangePass = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPhanquyen = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThongTinCaNhan = new DevExpress.XtraBars.BarButtonItem();
             this.btnSaveData = new DevExpress.XtraBars.BarButtonItem();
             this.btnRestore = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
@@ -62,18 +62,19 @@
             this.btnLogin,
             this.btnChangePass,
             this.btnLogout,
-            this.btnPhanquyen,
+            this.btnThongTinCaNhan,
             this.btnSaveData,
             this.btnRestore,
             this.skinRibbonGalleryBarItem1});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 16;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
             this.rbpManage,
             this.rbpHelp});
-            this.ribbonControl1.Size = new System.Drawing.Size(1179, 143);
+            this.ribbonControl1.Size = new System.Drawing.Size(1375, 178);
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // btnLogin
@@ -105,14 +106,14 @@
             this.btnLogout.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
             this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
-            // btnPhanquyen
+            // btnThongTinCaNhan
             // 
-            this.btnPhanquyen.Caption = "Thông tin cá nhân";
-            this.btnPhanquyen.Id = 4;
-            this.btnPhanquyen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhanquyen.ImageOptions.Image")));
-            this.btnPhanquyen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhanquyen.ImageOptions.LargeImage")));
-            this.btnPhanquyen.Name = "btnPhanquyen";
-            this.btnPhanquyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhanquyen_ItemClick);
+            this.btnThongTinCaNhan.Caption = "Thông tin cá nhân";
+            this.btnThongTinCaNhan.Id = 4;
+            this.btnThongTinCaNhan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhanquyen.ImageOptions.Image")));
+            this.btnThongTinCaNhan.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhanquyen.ImageOptions.LargeImage")));
+            this.btnThongTinCaNhan.Name = "btnThongTinCaNhan";
+            this.btnThongTinCaNhan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThongTinCaNhan_ItemClick);
             // 
             // btnSaveData
             // 
@@ -149,7 +150,7 @@
             // 
             this.rbHeThong.ItemLinks.Add(this.btnChangePass);
             this.rbHeThong.ItemLinks.Add(this.btnLogout);
-            this.rbHeThong.ItemLinks.Add(this.btnPhanquyen);
+            this.rbHeThong.ItemLinks.Add(this.btnThongTinCaNhan);
             this.rbHeThong.Name = "rbHeThong";
             this.rbHeThong.Text = "Hệ thống";
             // 
@@ -202,10 +203,10 @@
             // tabHienThi1
             // 
             this.tabHienThi1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabHienThi1.Location = new System.Drawing.Point(0, 143);
+            this.tabHienThi1.Location = new System.Drawing.Point(0, 178);
             this.tabHienThi1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabHienThi1.Name = "tabHienThi1";
-            this.tabHienThi1.Size = new System.Drawing.Size(1179, 368);
+            this.tabHienThi1.Size = new System.Drawing.Size(1375, 451);
             this.tabHienThi1.TabIndex = 1;
             this.tabHienThi1.Click += new System.EventHandler(this.tabHienThi1_Click);
             // 
@@ -220,11 +221,12 @@
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 511);
+            this.ClientSize = new System.Drawing.Size(1375, 629);
             this.Controls.Add(this.tabHienThi1);
             this.Controls.Add(this.ribbonControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMain";
             this.Ribbon = this.ribbonControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -255,7 +257,7 @@
         private DevExpress.XtraBars.BarButtonItem btnLogin;
         private DevExpress.XtraBars.BarButtonItem btnChangePass;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
-        private DevExpress.XtraBars.BarButtonItem btnPhanquyen;
+        private DevExpress.XtraBars.BarButtonItem btnThongTinCaNhan;
         private DevExpress.XtraBars.BarButtonItem btnSaveData;
         private DevExpress.XtraBars.BarButtonItem btnRestore;
         public  DevExpress.XtraTab.XtraTabControl tabHienThi1;

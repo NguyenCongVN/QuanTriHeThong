@@ -65,26 +65,40 @@ namespace DXApplication1
         }
         private void barButtonItemPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Admin.Phanquyen phanquyen = new Admin.Phanquyen();
-            phanquyen.TopLevel = false;
+            
+            Program.phanquyen.TopLevel = false;
             panelMain.Controls.Clear();
             panelMain.Dock = DockStyle.Fill;
-            panelMain.Controls.Add(phanquyen);
-            phanquyen.Dock = DockStyle.Fill;
-            phanquyen.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            phanquyen.Show();
+            panelMain.Controls.Add(Program.phanquyen);
+            Program.phanquyen.Dock = DockStyle.Fill;
+            Program.phanquyen.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Program.phanquyen.Show();
         }
 
         public void barButtonItemNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Admin.QuanLyNhanVien quanLyNhanVien = new Admin.QuanLyNhanVien();
-            quanLyNhanVien.TopLevel = false;
-            panelMain.Controls.Clear();
-            panelMain.Dock = DockStyle.Fill;
-            panelMain.Controls.Add(quanLyNhanVien);
-            quanLyNhanVien.Dock = DockStyle.Fill;
-            quanLyNhanVien.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            quanLyNhanVien.Show();
+            int kt = 0;
+            foreach (var q in Program.lg.List_Q)
+            {
+                if (q.QuyenId == "QNXEMNV")
+                {
+                    kt = 1;
+                    break;
+                }
+            }
+            if (kt == 0)
+                XtraMessageBox.Show("Bạn không có quyền xem thông tin nhân viên!!!", "Thông báo");
+            else
+            {
+                Program.quanLyNhanVien.TopLevel = false;
+                panelMain.Controls.Clear();
+                panelMain.Dock = DockStyle.Fill;
+                panelMain.Controls.Add(Program.quanLyNhanVien);
+                Program.quanLyNhanVien.Dock = DockStyle.Fill;
+                Program.quanLyNhanVien.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                Program.quanLyNhanVien.Show();
+            }    
+           
         }
 
         private void btnThongTinCaNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -92,12 +106,12 @@ namespace DXApplication1
             int kt = 0;
             foreach (var q in Program.lg.List_Q)
             {
-                if (q.QuyenId == "QNXEMNV")
+                if (q.QuyenId == "QNXEMTTCN")
                 {
                     Program.detail_user = new ThongTinNguoiDung();
                     Program.detail_userSql.Select_Detail(Program.detail_user, Program.lg.UserLogin.MaDangNhapNguoiDung);
                     Detail_User detail_form = new Detail_User();
-                    detail_form.Show();
+                    detail_form.ShowDialog();
                     kt = 1;
                     break;
                 }
@@ -110,9 +124,23 @@ namespace DXApplication1
 
         private void btnChangePass_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
-            Program.up_datePass = new UpdatePass();
-            Program.up_datePass.Show();
+            int kt = 0;
+            foreach (var q in Program.lg.List_Q)
+            {
+                if (q.QuyenId == "TDMKCN")
+                {
+                    kt = 1;
+                    break;
+                }
+            }
+            if (kt == 0)
+                XtraMessageBox.Show("Bạn không có quyền thay đổi mật khẩu cá nhân!!!", "Thông báo");
+            else
+            {
+                Program.up_datePass = new UpdatePass();
+                Program.up_datePass.Show();
+            }    
+           
         }
 
         private void btnLogout_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -66,32 +66,48 @@ namespace DXApplication1
 
         }
 
-
-        private void btnPhanquyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnThongTinCaNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             int kt = 0;
             foreach (var q in Program.lg.List_Q)
             {
-                if (q.QuyenId == "QNXEMNV")
-                {
-                    Program.detail_user = new ThongTinNguoiDung();
-                    Program.detail_userSql.Select_Detail(Program.detail_user, Program.lg.UserLogin.MaDangNhapNguoiDung);
-                    Detail_User detail_form = new Detail_User();
-                    detail_form.Show();
+                if (q.QuyenId == "QNXEMTTCN")
+                {                   
+                    kt = 1;
+                    break;
+                }
+            }
+            if (kt == 0)
+                XtraMessageBox.Show("Bạn không có quyền xem thông tin!!!", "Thông báo");
+            else
+            {
+                Program.detail_user = new ThongTinNguoiDung();
+                Program.detail_userSql.Select_Detail(Program.detail_user, Program.lg.UserLogin.MaDangNhapNguoiDung);
+                Detail_User detail_form = new Detail_User();
+                detail_form.ShowDialog();
+            }    
+        }
+
+        private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int kt = 0;
+            foreach (var q in Program.lg.List_Q)
+            {
+                if (q.QuyenId == "TDMKCN")
+                {                   
                     kt = 1;
                     break;
                 }
 
             }
-            if(kt == 0)
+            if (kt == 0)
                 XtraMessageBox.Show("Bạn không có quyền xem thông tin!!!", "Thông báo");
-            
-        }
-
-        private void btnChangePass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Program.up_datePass = new UpdatePass();
-            Program.up_datePass.Show();
+            else
+            {
+                Program.up_datePass = new UpdatePass();
+                Program.up_datePass.ShowDialog();
+            }    
+          
         }
 
         private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -107,5 +123,7 @@ namespace DXApplication1
             }
 
         }
+
+        
     }
 }

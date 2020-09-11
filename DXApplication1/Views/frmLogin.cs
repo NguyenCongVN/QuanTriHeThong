@@ -61,7 +61,8 @@ namespace DXApplication1
                     Program.detail_user = new ThongTinNguoiDung();
 
                     Program.detail_userSql.Select_Detail(Program.detail_user, userLogin.MaDangNhapNguoiDung);
-                    if(Program.detail_user.ChucVu== "Admin")
+                    string maChucVu = Program.chucvuSql.GetIdByName(Program.detail_user.ChucVu);
+                    if(maChucVu == "Admin")
                     {
                         check_CV = 1;
                         Program.main_admin = new FrmMain_Admin();
@@ -116,10 +117,12 @@ namespace DXApplication1
         private void checkEditHienMatKhau_CheckedChanged(object sender, EventArgs e)
         {
             if(checkEditHienMatKhau.Checked == true)
-            txtPass.Properties.PasswordChar = char.MinValue;
+               
+                txtPass.Properties.UseSystemPasswordChar = false;
             else
             {
-                txtPass.Properties.PasswordChar = '*';
+               txtPass.Properties.UseSystemPasswordChar = true;
+              
             }
         }
     }

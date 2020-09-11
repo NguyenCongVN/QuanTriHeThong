@@ -43,9 +43,13 @@
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnXacnhan = new DevExpress.XtraEditors.SimpleButton();
             this.grpCtrl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lbSao = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEditChucVu = new DevExpress.XtraEditors.ComboBoxEdit();
             this.dateNgayTao = new DevExpress.XtraEditors.DateEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.txtChucvu = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnChange = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
@@ -57,15 +61,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpCtrl1)).BeginInit();
             this.grpCtrl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditChucVu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTao.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTao.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChucvu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dateNgaySinh
             // 
             this.dateNgaySinh.EditValue = null;
-            this.dateNgaySinh.Location = new System.Drawing.Point(283, 357);
+            this.dateNgaySinh.Location = new System.Drawing.Point(240, 357);
             this.dateNgaySinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateNgaySinh.Name = "dateNgaySinh";
             this.dateNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -89,7 +93,7 @@
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(283, 297);
+            this.txtDiaChi.Location = new System.Drawing.Point(240, 297);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -100,7 +104,7 @@
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.Location = new System.Drawing.Point(283, 237);
+            this.txtSoDienThoai.Location = new System.Drawing.Point(240, 237);
             this.txtSoDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,7 +115,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(283, 177);
+            this.txtEmail.Location = new System.Drawing.Point(240, 177);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -122,7 +126,7 @@
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(283, 117);
+            this.txtHoTen.Location = new System.Drawing.Point(240, 117);
             this.txtHoTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -177,7 +181,7 @@
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(283, 57);
+            this.txtUser.Location = new System.Drawing.Point(240, 57);
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUser.Name = "txtUser";
             this.txtUser.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -201,7 +205,7 @@
             // 
             this.btnHuy.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.Appearance.Options.UseFont = true;
-            this.btnHuy.Location = new System.Drawing.Point(506, 561);
+            this.btnHuy.Location = new System.Drawing.Point(286, 567);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(92, 30);
@@ -213,22 +217,26 @@
             // 
             this.btnXacnhan.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXacnhan.Appearance.Options.UseFont = true;
-            this.btnXacnhan.Location = new System.Drawing.Point(374, 620);
+            this.btnXacnhan.Location = new System.Drawing.Point(446, 567);
             this.btnXacnhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXacnhan.Name = "btnXacnhan";
             this.btnXacnhan.Size = new System.Drawing.Size(159, 30);
             this.btnXacnhan.TabIndex = 7;
             this.btnXacnhan.Text = "Xác nhận chỉnh sửa";
             this.btnXacnhan.Visible = false;
-            this.btnXacnhan.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnXacnhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // grpCtrl1
             // 
             this.grpCtrl1.Appearance.BackColor = System.Drawing.Color.DodgerBlue;
             this.grpCtrl1.Appearance.Options.UseBackColor = true;
+            this.grpCtrl1.Controls.Add(this.labelControl9);
+            this.grpCtrl1.Controls.Add(this.labelControl3);
+            this.grpCtrl1.Controls.Add(this.labelControl1);
+            this.grpCtrl1.Controls.Add(this.lbSao);
+            this.grpCtrl1.Controls.Add(this.comboBoxEditChucVu);
             this.grpCtrl1.Controls.Add(this.dateNgayTao);
             this.grpCtrl1.Controls.Add(this.labelControl14);
-            this.grpCtrl1.Controls.Add(this.txtChucvu);
             this.grpCtrl1.Controls.Add(this.labelControl2);
             this.grpCtrl1.Controls.Add(this.dateNgaySinh);
             this.grpCtrl1.Controls.Add(this.labelControl8);
@@ -242,18 +250,82 @@
             this.grpCtrl1.Controls.Add(this.labelControl4);
             this.grpCtrl1.Controls.Add(this.txtUser);
             this.grpCtrl1.Controls.Add(this.lbUser);
-            this.grpCtrl1.Location = new System.Drawing.Point(124, 20);
+            this.grpCtrl1.Location = new System.Drawing.Point(77, 23);
             this.grpCtrl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpCtrl1.Name = "grpCtrl1";
-            this.grpCtrl1.Size = new System.Drawing.Size(619, 517);
+            this.grpCtrl1.Size = new System.Drawing.Size(559, 517);
             this.grpCtrl1.TabIndex = 6;
             this.grpCtrl1.Text = "Thông tin chi tiết";
             this.grpCtrl1.Paint += new System.Windows.Forms.PaintEventHandler(this.grpCtrl1_Paint);
             // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Appearance.Options.UseForeColor = true;
+            this.labelControl9.Location = new System.Drawing.Point(208, 240);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(8, 18);
+            this.labelControl9.TabIndex = 10;
+            this.labelControl9.Text = "*";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Appearance.Options.UseForeColor = true;
+            this.labelControl3.Location = new System.Drawing.Point(208, 482);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(8, 18);
+            this.labelControl3.TabIndex = 35;
+            this.labelControl3.Text = "*";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Location = new System.Drawing.Point(208, 120);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(8, 18);
+            this.labelControl1.TabIndex = 34;
+            this.labelControl1.Text = "*";
+            // 
+            // lbSao
+            // 
+            this.lbSao.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSao.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lbSao.Appearance.Options.UseFont = true;
+            this.lbSao.Appearance.Options.UseForeColor = true;
+            this.lbSao.Location = new System.Drawing.Point(208, 60);
+            this.lbSao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbSao.Name = "lbSao";
+            this.lbSao.Size = new System.Drawing.Size(8, 18);
+            this.lbSao.TabIndex = 33;
+            this.lbSao.Text = "*";
+            // 
+            // comboBoxEditChucVu
+            // 
+            this.comboBoxEditChucVu.Location = new System.Drawing.Point(240, 479);
+            this.comboBoxEditChucVu.Name = "comboBoxEditChucVu";
+            this.comboBoxEditChucVu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxEditChucVu.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEditChucVu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEditChucVu.Properties.ReadOnly = true;
+            this.comboBoxEditChucVu.Size = new System.Drawing.Size(238, 24);
+            this.comboBoxEditChucVu.TabIndex = 32;
+            // 
             // dateNgayTao
             // 
             this.dateNgayTao.EditValue = null;
-            this.dateNgayTao.Location = new System.Drawing.Point(283, 415);
+            this.dateNgayTao.Location = new System.Drawing.Point(240, 415);
             this.dateNgayTao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateNgayTao.Name = "dateNgayTao";
             this.dateNgayTao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -275,17 +347,6 @@
             this.labelControl14.TabIndex = 30;
             this.labelControl14.Text = "Ngày tạo";
             // 
-            // txtChucvu
-            // 
-            this.txtChucvu.Location = new System.Drawing.Point(281, 473);
-            this.txtChucvu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtChucvu.Name = "txtChucvu";
-            this.txtChucvu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChucvu.Properties.Appearance.Options.UseFont = true;
-            this.txtChucvu.Properties.ReadOnly = true;
-            this.txtChucvu.Size = new System.Drawing.Size(238, 24);
-            this.txtChucvu.TabIndex = 28;
-            // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -301,7 +362,7 @@
             // 
             this.btnChange.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChange.Appearance.Options.UseFont = true;
-            this.btnChange.Location = new System.Drawing.Point(312, 561);
+            this.btnChange.Location = new System.Drawing.Point(119, 567);
             this.btnChange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(92, 30);
@@ -315,7 +376,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 665);
+            this.ClientSize = new System.Drawing.Size(722, 632);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnXacnhan);
@@ -334,9 +395,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.grpCtrl1)).EndInit();
             this.grpCtrl1.ResumeLayout(false);
             this.grpCtrl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditChucVu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTao.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayTao.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChucvu.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -358,9 +419,13 @@
         private DevExpress.XtraEditors.SimpleButton btnXacnhan;
         private DevExpress.XtraEditors.GroupControl grpCtrl1;
         private DevExpress.XtraEditors.SimpleButton btnChange;
-        private DevExpress.XtraEditors.TextEdit txtChucvu;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.DateEdit dateNgayTao;
         private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditChucVu;
+        private DevExpress.XtraEditors.LabelControl lbSao;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

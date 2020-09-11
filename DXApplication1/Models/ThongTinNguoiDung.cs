@@ -74,7 +74,7 @@ namespace DXApplication1.Models
 
         private string chucVu;
 
-        public string ChucVu
+        public string ChucVu  // ten chuc vu
         {
             get { return chucVu; }
             set { chucVu = value; }

@@ -24,7 +24,6 @@ namespace DXApplication1
         public static Phanquyen phanquyen;
         public static QuyenSql quyenSql;
         public static ThongTinNguoiDung detail_user;
-        public static FrmMain_Admin admin;
         public static QuanLyNhanVien quanLyNhanVien;
         public static QuanLyNhanVienSql quanLyNhanVienSql;
         public static ChucvuSql chucvuSql;
@@ -42,7 +41,7 @@ namespace DXApplication1
             chucvuSql = new ChucvuSql();
             cvu = new Chucvu();
             quyenSql = new QuyenSql();
-
+            quanLyNhanVien = new QuanLyNhanVien();
             lg = new frmLogin();
             Application.Run(lg);
         }

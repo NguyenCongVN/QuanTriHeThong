@@ -49,18 +49,12 @@ namespace DXApplication1.Admin
         {
             comboBoxChucVu.Text = null;
             comboBoxChucVu.Items.Clear();
-            chucvus = chucvuSql.LayCacChucVu();
+            chucvus = chucvuSql.LayCacChucVu("LayTatCaMaChucVu");
             foreach (Chucvu chucvu in chucvus)
             {
                 ComboBoxItemPhanQuyen item = new ComboBoxItemPhanQuyen { ChucVu = chucvu };
                 comboBoxChucVu.Items.Add(item);
             }
-
-            foreach (object s in comboBoxChucVu.Items)
-            {
-                Console.WriteLine(s.ToString());
-            }
-
         }
         private void loadData()
         {
@@ -149,6 +143,7 @@ namespace DXApplication1.Admin
         {
             Program.cvu.TenChucVu = comboBoxChucVu.Text;
             gridControlDetaiPhanQuyen_Load(sender, e);
+           
         }
 
         private void buttonLuu_Click(object sender, EventArgs e)
@@ -187,6 +182,8 @@ namespace DXApplication1.Admin
                         removed.Clear();
                     }
                     MessageBox.Show("Lưu thành công", "Information message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Program.lg.List_Q = new List<Quyen>();
+                    Program.lg.List_Q = Program.quyenSql.Select_Quyen_chucvu(Program.lg.UserLogin.MaDangNhapNguoiDung);
 
                 }
                 catch (Exception ex)
@@ -280,20 +277,14 @@ namespace DXApplication1.Admin
                 DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xoá chức vụ này", "Question message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    if (comboBoxChucVu.SelectedItem == null)
-                    {
-                        MessageBox.Show("Bạn phải chọn chức vụ cần xoá", "Notice Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        DialogResult dialogResult1 = MessageBox.Show("Bạn có chắc chắn muốn xoá chức vụ này", "Question message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (dialogResult1 == DialogResult.Yes)
-                        {
-                            Program.chucvuSql.XoaChucVu(Program.cvu.TenChucVu);
-                        }
-                    }
+                    Program.chucvuSql.XoaChucVu(Program.cvu.TenChucVu);
+
                 }
             }
+        }
+
+        private void Phanquyen_Load(object sender, EventArgs e)
+        {
         }
     }
 }
