@@ -18,7 +18,6 @@ namespace DXApplication1.Models
                 DialogResult result = MessageBox.Show("Thêm chức vụ thành công", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (result == DialogResult.OK)
                 {
-                   // Program.phanquyen = new Admin.Phanquyen();
                     Program.phanquyen.AddChucVuVaoCombobox();
                 }
             }
@@ -28,9 +27,9 @@ namespace DXApplication1.Models
             }    
         };
 
-        public List<Chucvu> LayCacChucVu()
+        public List<Chucvu> LayCacChucVu(string query)
         {
-            SqlCommand sqlCommand = new SqlCommand("LayTatCaMaChucVu", Connection);
+            SqlCommand sqlCommand = new SqlCommand(query, Connection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             List<Chucvu> chucvus = new List<Chucvu>();
             // Use connection object of base class
@@ -69,6 +68,29 @@ namespace DXApplication1.Models
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@maChucVu", Id);
             string name = string.Empty;
+            try
+            {
+                Connection.Open();
+                name = sqlCommand.ExecuteScalar().ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("ChucVu::GetName::Error occured.", ex);
+            }
+            finally
+            {
+                Connection.Close();
+                sqlCommand.Dispose();
+            }
+            return name;
+        }
+
+        public string GetIdByName(string name)
+        {
+            SqlCommand sqlCommand = new SqlCommand("LayMaChucVuTheoTen", Connection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@tenChucVu", name);
+            string id = string.Empty;
             try
             {
                 Connection.Open();

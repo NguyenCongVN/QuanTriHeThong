@@ -42,7 +42,6 @@ namespace DXApplication1.Admin
 
             //// Them chuc vu
             ///
-            Program.chucvuSql = new Models.ChucvuSql();
             Program.chucvuSql.ThemChucVu(textBoxMaChucVu.Text, textBoxTenChucVu.Text);
         }
 

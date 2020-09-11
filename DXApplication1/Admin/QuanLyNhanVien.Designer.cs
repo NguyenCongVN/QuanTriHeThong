@@ -62,7 +62,7 @@
             this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDSNV = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHienthitt)).BeginInit();
@@ -396,7 +396,7 @@
             this.SoDienThoai,
             this.Email,
             this.DiaChi,
-            this.MaChucVu,
+            this.TenChucVu,
             this.NgayTao});
             this.dataGridViewDSNV.Location = new System.Drawing.Point(76, 49);
             this.dataGridViewDSNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -471,14 +471,14 @@
             this.DiaChi.Name = "DiaChi";
             this.DiaChi.ReadOnly = true;
             // 
-            // MaChucVu
+            // TenChucVu
             // 
-            this.MaChucVu.DataPropertyName = "MaChucVu";
-            this.MaChucVu.FillWeight = 89.12591F;
-            this.MaChucVu.HeaderText = "Chức vụ";
-            this.MaChucVu.MinimumWidth = 6;
-            this.MaChucVu.Name = "MaChucVu";
-            this.MaChucVu.ReadOnly = true;
+            this.TenChucVu.DataPropertyName = "TenChucVu";
+            this.TenChucVu.FillWeight = 89.12591F;
+            this.TenChucVu.HeaderText = "Chức vụ";
+            this.TenChucVu.MinimumWidth = 6;
+            this.TenChucVu.Name = "TenChucVu";
+            this.TenChucVu.ReadOnly = true;
             // 
             // NgayTao
             // 
@@ -553,6 +553,9 @@
         private System.Windows.Forms.Button buttonXoa;
         private System.Windows.Forms.Button buttonThem;
         public System.Windows.Forms.DataGridView dataGridViewDSNV;
+        private System.Windows.Forms.TextBox textBoxChucVu;
+        private System.Windows.Forms.TextBox textBoxNgayTao;
+        private System.Windows.Forms.TextBox textBoxNgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaDangNhapNguoiDung;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
@@ -560,10 +563,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaChucVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenChucVu;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayTao;
-        private System.Windows.Forms.TextBox textBoxChucVu;
-        private System.Windows.Forms.TextBox textBoxNgayTao;
-        private System.Windows.Forms.TextBox textBoxNgaySinh;
     }
 }

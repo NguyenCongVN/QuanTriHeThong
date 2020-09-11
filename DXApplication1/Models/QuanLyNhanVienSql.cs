@@ -38,7 +38,7 @@ namespace DXApplication1.Models
                 DialogResult dialogResult = MessageBox.Show("Xoa nhan vien thanh cong", "Information message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.OK)
                 {
-                    Program.admin.barButtonItemNhanVien_ItemClick(null, null);
+                    Program.quanLyNhanVien.QuanLyNhanVien_Load(null,null);
                 }
             }
         }

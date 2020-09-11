@@ -3,14 +3,26 @@ using DXApplication1.Models;
 using DXApplication1.Utilizes;
 using System;
 using DXApplication1.Admin;
+using System.Collections.Generic;
 
 namespace DXApplication1.Views
 {
     public partial class frmDky : DevExpress.XtraEditors.XtraForm
     {
+        
+        List<Chucvu> chucvus = new List<Chucvu>();
+        ChucvuSql chucVuSql = new ChucvuSql();
         public frmDky()
         {
             InitializeComponent();
+            //comboBoxEditChucVu.Text = null;
+            comboBoxEditChucVu.Properties.Items.Clear();
+            chucvus = chucVuSql.LayCacChucVu("LayTatCaMaChucVuTruAdmin");
+            foreach (Chucvu chucvu in chucvus)
+            {
+                ComboBoxItemPhanQuyen item = new ComboBoxItemPhanQuyen { ChucVu = chucvu };
+                comboBoxEditChucVu.Properties.Items.Add(item);
+            }
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -19,12 +31,18 @@ namespace DXApplication1.Views
             // Bắt lỗi nhập thông tin.
             try
             {
-                if (txtUser.Text == "" || txtPass.Text == "" || txtRePass.Text == "" || txtDiaChi.Text == ""
-                    || txtEmail.Text == "" || txtHoTen.Text == "" || txtSoDienThoai.Text == "")
+                if (txtUser.Text == "" || txtPass.Text == "" || txtRePass.Text == ""
+                   || txtHoTen.Text == "" || txtSoDienThoai.Text == "" || comboBoxEditChucVu.Text == "")
                     throw new Exception("Bạn phải nhập đầy đủ thông tin!");
+                if (txtDiaChi.Text == "")
+                    txtDiaChi.Text = null;
+                if (txtEmail.Text == "")
+                    txtEmail.Text = null;
+                if (dateNgaySinh.Text == "")
+                    dateNgaySinh.Text = null;
                 if (txtRePass.Text != txtPass.Text)
                     throw new Exception("Mật khẩu xác nhận không đúng!");
-                if (!UserUtilizes.IsValidEmail(txtEmail.Text))
+                if (!UserUtilizes.IsValidEmail(txtEmail.Text) && txtEmail.Text != "")
                 {
                     throw new Exception("Hãy nhập một email hợp lệ");
                 }
@@ -33,7 +51,7 @@ namespace DXApplication1.Views
                 {
                     throw new Exception("Hãy nhập vào số điện thoại đúng");
                 }
-                if(!UserUtilizes.IsValidDay(dateNgaySinh.DateTime.Date))
+                if (!UserUtilizes.IsValidDay(dateNgaySinh.DateTime.Date) && dateNgaySinh.Text != "")
                 {
                     throw new Exception("Hãy nhập vào ngày sinh đúng");
                 }
@@ -48,15 +66,16 @@ namespace DXApplication1.Views
             ///
 
             DangKy(txtUser.Text, txtPass.Text, txtHoTen.Text,
-                txtEmail.Text, txtSoDienThoai.Text, txtDiaChi.Text, dateNgaySinh.DateTime);
+                txtEmail.Text, txtSoDienThoai.Text, txtDiaChi.Text, dateNgaySinh.DateTime, comboBoxEditChucVu.Text);
             
             
         }
 
 
-        public bool DangKy(string maDangNhap, string matKhau, string hoTen, string email, string soDienThoai, string diaChi, DateTime ngaySinh)
+        public bool DangKy(string maDangNhap, string matKhau, string hoTen, string email, string soDienThoai, string diaChi, DateTime ngaySinh, string chucVu)
         {
             string hashedPassword = Utilizes.UserUtilizes.GetHashString(matKhau);
+            string maChucVu = chucVuSql.GetIdByName(chucVu);
             ThongTinNguoiDung thongTinNguoiDung = new ThongTinNguoiDung
             {
                 MaDangNhapNguoiDung = maDangNhap,
@@ -64,7 +83,7 @@ namespace DXApplication1.Views
                 Email = email,
                 SoDienThoai = soDienThoai,
                 DiaChi = diaChi,
-                ChucVu = "Nhanvien",
+                ChucVu = maChucVu,
                 NgaySinh = ngaySinh
             };
             NguoiDung nguoiDung = new NguoiDung
@@ -89,20 +108,23 @@ namespace DXApplication1.Views
         private void checkEditHienMatKhau_CheckedChanged(object sender, EventArgs e)
         {
             if (checkEditHienMatKhau.Checked == true)
-                txtPass.Properties.PasswordChar = char.MinValue;
+                txtPass.Properties.UseSystemPasswordChar = false;
             else
             {
-                txtPass.Properties.PasswordChar = '*';
+                txtPass.Properties.UseSystemPasswordChar = true;
+           
             }
         }
 
         private void checkEditHienMatKhauNhapLai_CheckedChanged(object sender, EventArgs e)
         {
             if (checkEditHienMatKhauNhapLai.Checked == true)
-                txtRePass.Properties.PasswordChar = char.MinValue;
+               
+                txtRePass.Properties.UseSystemPasswordChar = false;
             else
             {
-                txtRePass.Properties.PasswordChar = '*';
+                txtRePass.Properties.UseSystemPasswordChar = true;
+            
             }
         }
     }
