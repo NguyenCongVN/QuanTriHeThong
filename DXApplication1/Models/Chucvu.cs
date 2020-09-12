@@ -24,6 +24,7 @@ namespace DXApplication1.Models
             MaQuyens = helper.LayCacQuyenBangId(maChucVu);
         }
 
+     
         public Chucvu()
         {
 

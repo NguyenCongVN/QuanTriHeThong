@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROC [dbo].[XoaQuyenKhoiChucVu](@QuyenId VARCHAR(10) , @MaChucVu VARCHAR(50))
+AS
+BEGIN
+DELETE FROM dbo.ThongTinPhanQuyen
+WHERE QuyenId = @QuyenId AND MaChucVu = @MaChucVu 
+end
+GO
