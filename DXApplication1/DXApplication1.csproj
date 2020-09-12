@@ -104,6 +104,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Models\ThongTinNguoiDung.cs" />
     <Compile Include="Models\ThongTinNguoiDungSql.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserPictureBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserPictureBox.Designer.cs">
+      <DependentUpon>UserPictureBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilizes\ComboBoxItemPhanQuyen.cs" />
     <Compile Include="Utilizes\PhanQuyenHelper.cs" />
     <Compile Include="Utilizes\ThongTinThayDoiChucVu.cs" />
@@ -133,6 +144,12 @@
     <Compile Include="Admin\Phanquyen.Designer.cs">
       <DependentUpon>Phanquyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Frm_test1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Frm_test1.Designer.cs">
+      <DependentUpon>Frm_test1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Account\Detail_User.resx">
       <DependentUpon>Detail_User.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +165,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Account\UpdatePass.resx">
       <DependentUpon>UpdatePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserPictureBox.resx">
+      <DependentUpon>UserPictureBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDky.resx">
       <DependentUpon>frmDky.cs</DependentUpon>
@@ -165,6 +189,9 @@
     <EmbeddedResource Include="Admin\Phanquyen.resx">
       <DependentUpon>Phanquyen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Frm_test1.resx">
+      <DependentUpon>Frm_test1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -178,6 +205,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88116067_2742197879232261_3214101542890110976_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrungVo.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

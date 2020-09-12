@@ -36,6 +36,7 @@ namespace DXApplication1.Account
                         txtChucvu.ReadOnly = false;
                     }
                     kt = 1;
+                    break;
                 }
             }
             if (kt == 0)
