@@ -54,7 +54,7 @@ namespace DXApplication1.Views
             //user pic
             up1 = new UserPictureBox();
             up1.Location = new Point(50, 50);
-            Image image = Image.FromFile(@"C:\Users\Dell\Desktop\Working-Lien-Cong\QuanTriHeThong\DXApplication1\Resources\gax1.PNG");
+            Image image = Image.FromFile(@"C:\Users\NguyenCong\Pictures\Annotation 2020-08-28 210516.png");
             up1.init(image, "hihi");
 
 
