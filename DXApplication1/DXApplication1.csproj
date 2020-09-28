@@ -67,6 +67,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="USGS">
+      <HintPath>obj\Debug\USGS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Detail_User.cs">
@@ -128,6 +131,7 @@
       <DependentUpon>UserPictureBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilizes\ComboBoxItemPhanQuyen.cs" />
+    <Compile Include="Utilizes\DrawHelper.cs" />
     <Compile Include="Utilizes\PhanQuyenHelper.cs" />
     <Compile Include="Utilizes\ThongTinThayDoiChucVu.cs" />
     <Compile Include="Utilizes\UserUtilizes.cs" />
@@ -187,7 +191,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UserPictureBox.resx">
       <DependentUpon>UserPictureBox.cs</DependentUpon>
-      </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\SuaChucVu.resx">
       <DependentUpon>SuaChucVu.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TrungVo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2020-09-25 202017.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

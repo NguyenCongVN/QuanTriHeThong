@@ -73,6 +73,16 @@ namespace DXApplication1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2020_09_25_202017 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2020-09-25 202017", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TrungVo {
             get {
                 object obj = ResourceManager.GetObject("TrungVo", resourceCulture);
