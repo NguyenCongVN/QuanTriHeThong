@@ -17,11 +17,11 @@ namespace DXApplication1.Views
 
         static Bitmap bitmapInit1 = new Bitmap(@"C:\Users\NguyenCong\Pictures\Screenshot 2020-09-25 202017.png");
 
-        Bitmap bitmapInit = new Bitmap(bitmapInit1, 5000, 5000);
+        Bitmap bitmapInit = new Bitmap(bitmapInit1, 3000, 3000);
 
         //
 
-        Bitmap bitmapTemp = new Bitmap(bitmapInit1, 5000, 5000);
+        Bitmap bitmapTemp = new Bitmap(bitmapInit1, 3000, 3000);
 
         //
         public static DemDocument _mDem = null;
@@ -59,6 +59,9 @@ namespace DXApplication1.Views
             up1.MoveUser();
             //up1.Location = new Point(up1.Location.X - p3.X, up1.Location.Y - p3.Y);
             up1.pic_click(new EventHandler(User_click));
+
+            
+            pictureBox1.Image = bitmapInit;
 
         }
         public void init()
@@ -158,7 +161,7 @@ namespace DXApplication1.Views
                     {
                         for (int row = 0; row < _mDem.ARecord.northings_rows; row++)
                         {
-                            _mDem.BRecord.elevations[col, row] -= 20;
+                            _mDem.BRecord.elevations[col, row] -= 5;
                         }
                     }
                 }
@@ -225,21 +228,21 @@ namespace DXApplication1.Views
                 {
                     _mDem = new DemDocument();
                     _mDem.Read(dialog.FileName);
-                    //txtOutput.Text = string.Empty;
-                    //txtOutput.Text += "DEM Name: " + new string(_mDem.ARecord.file_name) + Environment.NewLine;
-                    //txtOutput.Text += "SE Coord: " + new string(_mDem.ARecord.SE_geographic_corner_S) + ", " + new string(_mDem.ARecord.SE_geographic_corner_E) + Environment.NewLine;
-                    //txtOutput.Text += "DEM Level Code: " + _mDem.ARecord.dem_level_code + Environment.NewLine;
-                    //txtOutput.Text += "Ground Reference System: " + (GROUND_REF_SYSTEM)_mDem.ARecord.ground_ref_system + Environment.NewLine;
-                    //txtOutput.Text += "Ground Reference Zone: " + _mDem.ARecord.ground_ref_zone + Environment.NewLine;
-                    //txtOutput.Text += "Ground Unit: " + (GROUND_UNIT)_mDem.ARecord.ground_unit + Environment.NewLine;
-                    //txtOutput.Text += "Elevation Unit: " + (ELEVATION_UNIT)_mDem.ARecord.elevation_unit + Environment.NewLine;
-                    //txtOutput.Text += "Ground Resolution (lat, lng, elev): " + _mDem.ARecord.xyz_resolution[0] + ", " + _mDem.ARecord.xyz_resolution[1] + ", " + _mDem.ARecord.xyz_resolution[2] + Environment.NewLine;
-                    //txtOutput.Text += "Elavation Array Szie: " + _mDem.ARecord.northings_rows + " x " + _mDem.ARecord.eastings_cols + Environment.NewLine;
-                    //txtOutput.Text += "Percentage void: " + _mDem.ARecord.percent_void + Environment.NewLine;
-                    //txtOutput.Text += "SW Coord: " + _mDem.ARecord.sw_coord[0] + ", " + _mDem.ARecord.sw_coord[1] + Environment.NewLine;
-                    //txtOutput.Text += "NW Coord: " + _mDem.ARecord.nw_coord[0] + ", " + _mDem.ARecord.nw_coord[1] + Environment.NewLine;
-                    //txtOutput.Text += "NE Coord: " + _mDem.ARecord.ne_coord[0] + ", " + _mDem.ARecord.ne_coord[1] + Environment.NewLine;
-                    //txtOutput.Text += "SE Coord: " + _mDem.ARecord.se_coord[0] + ", " + _mDem.ARecord.se_coord[1] + Environment.NewLine;
+                    txtOutput.Text = string.Empty;
+                    txtOutput.Text += "DEM Name: " + new string(_mDem.ARecord.file_name) + Environment.NewLine;
+                    txtOutput.Text += "SE Coord: " + new string(_mDem.ARecord.SE_geographic_corner_S) + ", " + new string(_mDem.ARecord.SE_geographic_corner_E) + Environment.NewLine;
+                    txtOutput.Text += "DEM Level Code: " + _mDem.ARecord.dem_level_code + Environment.NewLine;
+                    txtOutput.Text += "Ground Reference System: " + (GROUND_REF_SYSTEM)_mDem.ARecord.ground_ref_system + Environment.NewLine;
+                    txtOutput.Text += "Ground Reference Zone: " + _mDem.ARecord.ground_ref_zone + Environment.NewLine;
+                    txtOutput.Text += "Ground Unit: " + (GROUND_UNIT)_mDem.ARecord.ground_unit + Environment.NewLine;
+                    txtOutput.Text += "Elevation Unit: " + (ELEVATION_UNIT)_mDem.ARecord.elevation_unit + Environment.NewLine;
+                    txtOutput.Text += "Ground Resolution (lat, lng, elev): " + _mDem.ARecord.xyz_resolution[0] + ", " + _mDem.ARecord.xyz_resolution[1] + ", " + _mDem.ARecord.xyz_resolution[2] + Environment.NewLine;
+                    txtOutput.Text += "Elavation Array Szie: " + _mDem.ARecord.northings_rows + " x " + _mDem.ARecord.eastings_cols + Environment.NewLine;
+                    txtOutput.Text += "Percentage void: " + _mDem.ARecord.percent_void + Environment.NewLine;
+                    txtOutput.Text += "SW Coord: " + _mDem.ARecord.sw_coord[0] + ", " + _mDem.ARecord.sw_coord[1] + Environment.NewLine;
+                    txtOutput.Text += "NW Coord: " + _mDem.ARecord.nw_coord[0] + ", " + _mDem.ARecord.nw_coord[1] + Environment.NewLine;
+                    txtOutput.Text += "NE Coord: " + _mDem.ARecord.ne_coord[0] + ", " + _mDem.ARecord.ne_coord[1] + Environment.NewLine;
+                    txtOutput.Text += "SE Coord: " + _mDem.ARecord.se_coord[0] + ", " + _mDem.ARecord.se_coord[1] + Environment.NewLine;
                     Thread a = new Thread((() =>
                     {
                         ChangeHeight();

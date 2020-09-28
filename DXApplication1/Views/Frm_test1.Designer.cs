@@ -30,6 +30,7 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtOutput = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -38,30 +39,39 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Image = global::DXApplication1.Properties.Resources.Screenshot_2020_09_25_202017;
+            this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(234, 2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(708, 610);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.Size = new System.Drawing.Size(699, 531);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 36);
+            this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
+            this.button1.Text = "Mở File";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtOutput
+            // 
+            this.txtOutput.Location = new System.Drawing.Point(12, 52);
+            this.txtOutput.Name = "txtOutput";
+            this.txtOutput.Size = new System.Drawing.Size(216, 480);
+            this.txtOutput.TabIndex = 2;
+            this.txtOutput.Text = "";
             // 
             // Frm_test1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(945, 544);
+            this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -69,7 +79,6 @@
             this.Text = "Frm_test1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -77,5 +86,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox txtOutput;
     }
 }
