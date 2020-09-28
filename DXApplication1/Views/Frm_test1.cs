@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.Utils.Extensions;
-using DXApplication1.UserControls;
+
 using DevExpress.XtraPrinting.Export.Pdf;
 
 namespace DXApplication1.Views
@@ -18,9 +18,10 @@ namespace DXApplication1.Views
     {
         Button b1;
         PictureBox p1;
-        UserPictureBox up1;
-        string tt = "aaaa" +
-            "dddd";
+
+        PictureBox[] listPic;
+
+
         
         public Frm_test1()
         {
@@ -28,11 +29,9 @@ namespace DXApplication1.Views
             init();
             MoveButton();
             MovePic();
-            //up1.Usercontrol_click(new System.EventHandler(click));
 
-            up1.MoveUser();
-            //up1.Location = new Point(up1.Location.X - p3.X, up1.Location.Y - p3.Y);
-            up1.pic_click(new EventHandler(User_click));
+            load_Tree();
+            MoveButton(listPic[0]);
 
         }
         public void init()
@@ -51,11 +50,6 @@ namespace DXApplication1.Views
             b1.Visible = true;
             b1.Location = new Point(0, 0);
 
-            //user pic
-            up1 = new UserPictureBox();
-            up1.Location = new Point(50, 50);
-            Image image = Image.FromFile(@"C:\Users\Dell\Desktop\Working-Lien-Cong\QuanTriHeThong\DXApplication1\Resources\gax1.PNG");
-            up1.init(image, "hihi");
 
 
 
@@ -65,7 +59,15 @@ namespace DXApplication1.Views
             //add picturebox
             pictureBox1.AddControl(p1);
 
-            pictureBox1.AddControl(up1);
+            listPic = new PictureBox[10];
+            listPic[0] = new PictureBox();
+            listPic[0].Image = DXApplication1.Properties.Resources.TrungVo;
+            listPic[0].SizeMode = PictureBoxSizeMode.AutoSize;
+            listPic[0].Size = new Size(30, 30);
+            listPic[0].BackColor = System.Drawing.Color.Black;
+
+            listPic[0].Location = new Point(40,40);
+            pictureBox1.AddControl(listPic[0]);
 
         }
         private Point firstPoint = new Point();
@@ -88,6 +90,28 @@ namespace DXApplication1.Views
 
                     firstPoint = temp;
                 }    
+            };
+        }
+
+        public void MoveButton(PictureBox pp)
+        {
+            pp.MouseDown += (ss, ee) =>
+            {
+                if (ee.Button == System.Windows.Forms.MouseButtons.Left)
+                { firstPoint = Control.MousePosition; }
+
+            };
+            pp.MouseMove += (ss, ee) =>
+            {
+                if (ee.Button == System.Windows.Forms.MouseButtons.Left)
+                {
+                    Point temp = Control.MousePosition;
+                    Point res = new Point(firstPoint.X - temp.X, firstPoint.Y - temp.Y);
+
+                    pp.Location = new Point(b1.Location.X - res.X, b1.Location.Y - res.Y);
+
+                    firstPoint = temp;
+                }
             };
         }
         public void MovePic()
@@ -113,13 +137,46 @@ namespace DXApplication1.Views
         }
 
         //move user picturebox
-        public void User_click(object sender, EventArgs e)
+        TreeNode nodee;
+        public void load_Tree()
         {
-            up1.UserClick(tt);
-            //MessageBox.Show("hh");
+             nodee = new TreeNode("Text for node 1");
+            nodee.ImageIndex = 1;
+            treeView1.Nodes.Add(nodee);
+            
+
+            TreeNode node1 = new TreeNode("C#");
+            TreeNode node2 = new TreeNode("VB.NET");
+            TreeNode node3 = new TreeNode("C++");
+            TreeNode[] array = new TreeNode[] { node1, node2, node3 };
+            TreeNode programmingLanguage = new TreeNode("Programming Language", array);
+            programmingLanguage.ImageIndex = 2;
+            treeView1.Nodes.Add(programmingLanguage);
         }
 
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node == nodee)
+            {
+                
+               
+                pictureBox1.AddControl(listPic[0]);
+            }
+        }
 
-        
+        private void treeView1_ItemDrag(object sender, ItemDragEventArgs e)
+        {
+            
+        }
+
+        private void Frm_test1_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            
+        }
     }
 }
