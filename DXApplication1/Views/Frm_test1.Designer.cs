@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node0");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node0");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_test1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.button1 = new System.Windows.Forms.Button();
             this.txtOutput = new System.Windows.Forms.RichTextBox();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,14 +47,15 @@
             // 
             this.panel1.Controls.Add(this.treeList1);
             this.panel1.Controls.Add(this.treeView1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(93, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(358, 645);
+            this.panel1.Size = new System.Drawing.Size(275, 519);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // treeList1
             // 
-            this.treeList1.Location = new System.Drawing.Point(3, 221);
+            this.treeList1.Location = new System.Drawing.Point(29, 298);
             this.treeList1.Name = "treeList1";
             this.treeList1.Size = new System.Drawing.Size(197, 200);
             this.treeList1.TabIndex = 1;
@@ -63,12 +64,12 @@
             // 
             this.treeView1.ImageIndex = 0;
             this.treeView1.ImageList = this.imageList1;
-            this.treeView1.Location = new System.Drawing.Point(3, 3);
+            this.treeView1.Location = new System.Drawing.Point(6, 40);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node0";
-            treeNode1.Text = "Node0";
+            treeNode2.Name = "Node0";
+            treeNode2.Text = "Node0";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeView1.SelectedImageIndex = 0;
             this.treeView1.Size = new System.Drawing.Size(352, 199);
             this.treeView1.TabIndex = 0;
@@ -89,7 +90,6 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(234, 2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

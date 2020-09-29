@@ -79,7 +79,9 @@
     <Compile Include="Account\Detail_User.Designer.cs">
       <DependentUpon>Detail_User.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AddChucVu.cs" />
+    <Compile Include="Admin\AddChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Admin\AddChucVu.Designer.cs">
       <DependentUpon>AddChucVu.cs</DependentUpon>
     </Compile>
@@ -95,7 +97,9 @@
     <Compile Include="Account\UpdatePass.Designer.cs">
       <DependentUpon>UpdatePass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\SuaChucVu.cs" />
+    <Compile Include="Admin\SuaChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Admin\SuaChucVu.Designer.cs">
       <DependentUpon>SuaChucVu.cs</DependentUpon>
     </Compile>
@@ -182,12 +186,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UserPictureBox.resx">
-      <DependentUpon>UserPictureBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\SuaChucVu.resx">
-      <DependentUpon>SuaChucVu.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDky.resx">
       <DependentUpon>frmDky.cs</DependentUpon>
@@ -231,6 +230,9 @@
   <ItemGroup>
     <None Include="Resources\duyen.jpg" />
     <None Include="Resources\Screenshot 2020-09-25 202017.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\gax1.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

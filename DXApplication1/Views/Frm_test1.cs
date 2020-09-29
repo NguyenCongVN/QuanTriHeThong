@@ -2,7 +2,6 @@
 using DevExpress.Utils.Extensions;
 
 using DevExpress.XtraPrinting.Export.Pdf;
-using DXApplication1.UserControls;
 using System;
 using System.Drawing;
 using System.Threading;
@@ -310,6 +309,11 @@ namespace DXApplication1.Views
                     b.Start();
                 }
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
