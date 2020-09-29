@@ -54,6 +54,7 @@
     <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v19.1.Extensions, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
@@ -78,9 +79,7 @@
     <Compile Include="Account\Detail_User.Designer.cs">
       <DependentUpon>Detail_User.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AddChucVu.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Admin\AddChucVu.cs" />
     <Compile Include="Admin\AddChucVu.Designer.cs">
       <DependentUpon>AddChucVu.cs</DependentUpon>
     </Compile>
@@ -96,9 +95,7 @@
     <Compile Include="Account\UpdatePass.Designer.cs">
       <DependentUpon>UpdatePass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\SuaChucVu.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Admin\SuaChucVu.cs" />
     <Compile Include="Admin\SuaChucVu.Designer.cs">
       <DependentUpon>SuaChucVu.cs</DependentUpon>
     </Compile>
@@ -123,12 +120,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UserPictureBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UserPictureBox.Designer.cs">
-      <DependentUpon>UserPictureBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilizes\ComboBoxItemPhanQuyen.cs" />
     <Compile Include="Utilizes\DrawHelper.cs" />
@@ -185,6 +176,9 @@
     <EmbeddedResource Include="Account\UpdatePass.resx">
       <DependentUpon>UpdatePass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\SuaChucVu.resx">
+      <DependentUpon>SuaChucVu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -235,6 +229,7 @@
     <None Include="Resources\TrungVo.PNG" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\duyen.jpg" />
     <None Include="Resources\Screenshot 2020-09-25 202017.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
