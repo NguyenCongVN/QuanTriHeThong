@@ -68,6 +68,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="USGS">
+      <HintPath>obj\Debug\USGS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Detail_User.cs">
@@ -75,6 +78,12 @@
     </Compile>
     <Compile Include="Account\Detail_User.Designer.cs">
       <DependentUpon>Detail_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddChucVu.Designer.cs">
+      <DependentUpon>AddChucVu.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\QuanLyNhanVien.cs">
       <SubType>Form</SubType>
@@ -87,6 +96,12 @@
     </Compile>
     <Compile Include="Account\UpdatePass.Designer.cs">
       <DependentUpon>UpdatePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SuaChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\SuaChucVu.Designer.cs">
+      <DependentUpon>SuaChucVu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Chucvu.cs" />
     <Compile Include="Models\ChucvuSql.cs" />
@@ -111,6 +126,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilizes\ComboBoxItemPhanQuyen.cs" />
+    <Compile Include="Utilizes\DrawHelper.cs" />
     <Compile Include="Utilizes\PhanQuyenHelper.cs" />
     <Compile Include="Utilizes\ThongTinThayDoiChucVu.cs" />
     <Compile Include="Utilizes\UserUtilizes.cs" />
@@ -148,6 +164,9 @@
     <EmbeddedResource Include="Account\Detail_User.resx">
       <DependentUpon>Detail_User.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddChucVu.resx">
+      <DependentUpon>AddChucVu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\QuanLyNhanVien.resx">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,9 +180,13 @@
     <EmbeddedResource Include="Account\UpdatePass.resx">
       <DependentUpon>UpdatePass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\SuaChucVu.resx">
+      <DependentUpon>SuaChucVu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDky.resx">
       <DependentUpon>frmDky.cs</DependentUpon>
@@ -206,6 +229,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\duyen.jpg" />
+    <None Include="Resources\Screenshot 2020-09-25 202017.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\gax1.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
