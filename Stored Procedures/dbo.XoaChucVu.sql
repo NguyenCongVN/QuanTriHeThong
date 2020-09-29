@@ -1,0 +1,13 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROC [dbo].[XoaChucVu](@tenChucVu NVARCHAR(50))
+AS
+BEGIN
+	
+	DELETE FROM dbo.ThongTinNguoiDung WHERE MaChucVu LIKE (SELECT MaChucVu FROM dbo.ChucVu WHERE TenChucVu LIKE @tenChucVu)
+	DELETE FROM dbo.ThongTinPhanQuyen WHERE MaChucVu LIKE (SELECT MaChucVu FROM dbo.ChucVu WHERE TenChucVu LIKE @tenChucVu)
+	DELETE FROM dbo.ChucVu WHERE MaChucVu LIKE (SELECT MaChucVu FROM dbo.ChucVu WHERE TenChucVu LIKE @tenChucVu)
+END
+GO

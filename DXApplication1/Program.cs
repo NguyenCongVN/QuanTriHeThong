@@ -21,12 +21,13 @@ namespace DXApplication1
         public static frmLogin lg;
         public static frmDky dky;
         public static UpdatePass up_datePass;
-        public static LoaiQuyenSql loaiQuyenSql;
+        public static Phanquyen phanquyen;
         public static QuyenSql quyenSql;
         public static ThongTinNguoiDung detail_user;
-        public static FrmMain_Admin admin;
         public static QuanLyNhanVien quanLyNhanVien;
         public static QuanLyNhanVienSql quanLyNhanVienSql;
+        public static ChucvuSql chucvuSql;
+        public static Chucvu cvu;
         [STAThread]
 
         static void Main()
@@ -36,8 +37,11 @@ namespace DXApplication1
             BonusSkins.Register();
             ndSql = new NguoiDungSql();
             detail_userSql = new ThongTinNguoiDungSql();
+            phanquyen = new Phanquyen();
+            chucvuSql = new ChucvuSql();
+            cvu = new Chucvu();
             quyenSql = new QuyenSql();
-
+            quanLyNhanVien = new QuanLyNhanVien();
             lg = new frmLogin();
             Application.Run(new Frm_test1());
         }

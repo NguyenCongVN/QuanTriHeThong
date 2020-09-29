@@ -8,14 +8,37 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DXApplication1.Models;
+using DXApplication1.Utilizes;
 
 namespace DXApplication1.Account
 {
     public partial class Detail_User : DevExpress.XtraEditors.XtraForm
     {
+        List<Chucvu> chucvus = new List<Chucvu>();
+        ChucvuSql chucVuSql = new ChucvuSql();
         public Detail_User()
         {
             InitializeComponent();
+            comboBoxEditChucVu.Properties.Items.Clear();
+            chucvus = chucVuSql.LayCacChucVu("LayTatCaMaChucVuTruAdmin");
+            foreach (Chucvu chucvu in chucvus)
+            {
+                ComboBoxItemPhanQuyen item = new ComboBoxItemPhanQuyen { ChucVu = chucvu };
+                comboBoxEditChucVu.Properties.Items.Add(item);
+            }
+        }
+
+        public void SetQuyenSua()
+        {
+            btnChange.Visible = false;
+            txtDiaChi.ReadOnly = false;
+            txtEmail.ReadOnly = false;
+            txtHoTen.ReadOnly = false;
+            txtSoDienThoai.ReadOnly = false;
+            dateNgaySinh.ReadOnly = false;
+            comboBoxEditChucVu.ReadOnly = false;
+            btnXacnhan.Visible = true;
         }
 
         private void btnChange_Click(object sender, EventArgs e)
@@ -23,7 +46,7 @@ namespace DXApplication1.Account
             int kt = 0;
             foreach (var q in Program.lg.List_Q)
             {
-                if (q.QuyenId == "QNSUANV")
+                if (q.QuyenId == "QNSUATTCN")
                 {
                     txtDiaChi.ReadOnly = false;
                     txtEmail.ReadOnly = false;
@@ -31,18 +54,12 @@ namespace DXApplication1.Account
                     txtSoDienThoai.ReadOnly = false;
                     dateNgaySinh.ReadOnly = false;
                     btnXacnhan.Visible = true;
-                    if (Program.lg.check_CV == 1)
-                    {
-                        txtChucvu.ReadOnly = false;
-                    }
                     kt = 1;
                     break;
                 }
             }
             if (kt == 0)
-                XtraMessageBox.Show("Bạn không có quyền xem thông tin!!!", "Thông báo");
-
-
+                XtraMessageBox.Show("Bạn không có quyền sửa thông tin!!!", "Thông báo");
         }
 
         private void grpCtrl1_Paint(object sender, PaintEventArgs e)
@@ -57,14 +74,19 @@ namespace DXApplication1.Account
             txtEmail.Text = Program.detail_user.Email;
             txtDiaChi.Text = Program.detail_user.DiaChi;
             txtSoDienThoai.Text = Program.detail_user.SoDienThoai;
-            txtChucvu.Text = Program.detail_user.ChucVu;
+            comboBoxEditChucVu.Text = Program.detail_user.ChucVu;
             dateNgaySinh.DateTime = Program.detail_user.NgaySinh;
             dateNgayTao.DateTime = Program.detail_user.NgayTao;
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void btnHuy_Click(object sender, EventArgs e)
         {
-            if (txtHoTen.Text == "" || txtSoDienThoai.Text == "")
+            this.Close();
+        }
+
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+            if (txtHoTen.Text == "" || txtSoDienThoai.Text == ""|| comboBoxEditChucVu.Text == null)
             {
                 MessageBox.Show("Bạn phải nhập đủ họ tên và số điện thoại!!!", "ERROR???");
             }
@@ -76,19 +98,21 @@ namespace DXApplication1.Account
                 Program.detail_user.NgaySinh = dateNgaySinh.DateTime.Date;
                 Program.detail_user.SoDienThoai = txtSoDienThoai.Text;
                 Program.detail_user.DiaChi = txtDiaChi.Text;
-                Program.detail_user.ChucVu = txtChucvu.Text;
+                Program.detail_user.ChucVu = comboBoxEditChucVu.Text;
                 Program.detail_user.NgayTao = dateNgayTao.DateTime;
                 Program.detail_user.Email = txtEmail.Text;
                 if (Program.detail_userSql.Update_Detail(Program.detail_user) == true)
-                    MessageBox.Show("Cập nhật thành công");
+                {
+                    DialogResult result = MessageBox.Show("Cập nhật thành công", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if(result == DialogResult.OK)
+                    {
+                        Program.quanLyNhanVien.QuanLyNhanVien_Load(sender, e);
+                    }
+                }    
+
                 else
                     MessageBox.Show("Thông tin không hợp lệ!!!");
             }
-        }
-
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

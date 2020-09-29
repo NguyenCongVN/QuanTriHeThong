@@ -31,12 +31,12 @@
             this.labelCapnhat = new System.Windows.Forms.Label();
             this.buttonSua = new System.Windows.Forms.Button();
             this.panelControlHienthitt = new DevExpress.XtraEditors.PanelControl();
-            this.textBoxNgaySinh = new System.Windows.Forms.TextBox();
+            this.textBoxChucVu = new System.Windows.Forms.TextBox();
             this.textBoxNgayTao = new System.Windows.Forms.TextBox();
+            this.textBoxNgaySinh = new System.Windows.Forms.TextBox();
             this.textBoxDiaChi = new System.Windows.Forms.TextBox();
             this.textBoxHoTen = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.textBoxChucVu = new System.Windows.Forms.TextBox();
             this.textBoxSoDienThoai = new System.Windows.Forms.TextBox();
             this.labelnvviet = new System.Windows.Forms.Label();
             this.labelnvketoan = new System.Windows.Forms.Label();
@@ -53,11 +53,8 @@
             this.labelHienthitt = new System.Windows.Forms.Label();
             this.labelDSNV = new System.Windows.Forms.Label();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnNext = new System.Windows.Forms.Button();
             this.searchLookUpEditDSNV = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.dataGridViewDSNV = new System.Windows.Forms.DataGridView();
-            this.btnPre = new System.Windows.Forms.Button();
-            this.panelDSNV = new System.Windows.Forms.Panel();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaDangNhapNguoiDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,8 +62,9 @@
             this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelDSNV = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHienthitt)).BeginInit();
             this.panelControlHienthitt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlCapNhat)).BeginInit();
@@ -99,7 +97,6 @@
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.Size = new System.Drawing.Size(204, 69);
-
             this.buttonSua.TabIndex = 5;
             this.buttonSua.Text = "Sửa";
             this.buttonSua.UseVisualStyleBackColor = false;
@@ -107,12 +104,12 @@
             // 
             // panelControlHienthitt
             // 
-            this.panelControlHienthitt.Controls.Add(this.textBoxNgaySinh);
+            this.panelControlHienthitt.Controls.Add(this.textBoxChucVu);
             this.panelControlHienthitt.Controls.Add(this.textBoxNgayTao);
+            this.panelControlHienthitt.Controls.Add(this.textBoxNgaySinh);
             this.panelControlHienthitt.Controls.Add(this.textBoxDiaChi);
             this.panelControlHienthitt.Controls.Add(this.textBoxHoTen);
             this.panelControlHienthitt.Controls.Add(this.textBoxEmail);
-            this.panelControlHienthitt.Controls.Add(this.textBoxChucVu);
             this.panelControlHienthitt.Controls.Add(this.textBoxSoDienThoai);
             this.panelControlHienthitt.Controls.Add(this.labelnvviet);
             this.panelControlHienthitt.Controls.Add(this.labelnvketoan);
@@ -130,36 +127,46 @@
             this.panelControlHienthitt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControlHienthitt.Name = "panelControlHienthitt";
             this.panelControlHienthitt.Size = new System.Drawing.Size(1638, 410);
-
             this.panelControlHienthitt.TabIndex = 4;
+            // 
+            // textBoxChucVu
+            // 
+            this.textBoxChucVu.Enabled = false;
+            this.textBoxChucVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxChucVu.Location = new System.Drawing.Point(778, 262);
+            this.textBoxChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxChucVu.Name = "textBoxChucVu";
+            this.textBoxChucVu.ReadOnly = true;
+            this.textBoxChucVu.Size = new System.Drawing.Size(244, 30);
+            this.textBoxChucVu.TabIndex = 29;
+            // 
+            // textBoxNgayTao
+            // 
+            this.textBoxNgayTao.Enabled = false;
+            this.textBoxNgayTao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNgayTao.Location = new System.Drawing.Point(778, 347);
+            this.textBoxNgayTao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxNgayTao.Name = "textBoxNgayTao";
+            this.textBoxNgayTao.ReadOnly = true;
+            this.textBoxNgayTao.Size = new System.Drawing.Size(244, 30);
+            this.textBoxNgayTao.TabIndex = 28;
             // 
             // textBoxNgaySinh
             // 
+            this.textBoxNgaySinh.Enabled = false;
             this.textBoxNgaySinh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNgaySinh.Location = new System.Drawing.Point(778, 93);
             this.textBoxNgaySinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNgaySinh.Name = "textBoxNgaySinh";
             this.textBoxNgaySinh.ReadOnly = true;
             this.textBoxNgaySinh.Size = new System.Drawing.Size(244, 30);
-            this.textBoxNgaySinh.TabIndex = 26;
-            // 
-            // textBoxNgayTao
-            // 
-            this.textBoxNgayTao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNgayTao.Location = new System.Drawing.Point(778, 345);
-            this.textBoxNgayTao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxNgayTao.Name = "textBoxNgayTao";
-            this.textBoxNgayTao.ReadOnly = true;
-            this.textBoxNgayTao.Size = new System.Drawing.Size(244, 30);
-            this.textBoxNgayTao.TabIndex = 25;
-
+            this.textBoxNgaySinh.TabIndex = 27;
             // 
             // textBoxDiaChi
             // 
             this.textBoxDiaChi.Enabled = false;
             this.textBoxDiaChi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDiaChi.Location = new System.Drawing.Point(778, 183);
-
             this.textBoxDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDiaChi.Name = "textBoxDiaChi";
             this.textBoxDiaChi.ReadOnly = true;
@@ -171,7 +178,6 @@
             this.textBoxHoTen.Enabled = false;
             this.textBoxHoTen.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxHoTen.Location = new System.Drawing.Point(188, 183);
-
             this.textBoxHoTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxHoTen.Name = "textBoxHoTen";
             this.textBoxHoTen.ReadOnly = true;
@@ -183,30 +189,17 @@
             this.textBoxEmail.Enabled = false;
             this.textBoxEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmail.Location = new System.Drawing.Point(188, 265);
-
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.ReadOnly = true;
             this.textBoxEmail.Size = new System.Drawing.Size(244, 30);
             this.textBoxEmail.TabIndex = 20;
             // 
-            // textBoxChucVu
-            // 
-            this.textBoxChucVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxChucVu.Location = new System.Drawing.Point(778, 261);
-
-            this.textBoxChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxChucVu.Name = "textBoxChucVu";
-            this.textBoxChucVu.ReadOnly = true;
-            this.textBoxChucVu.Size = new System.Drawing.Size(244, 30);
-            this.textBoxChucVu.TabIndex = 18;
-            // 
             // textBoxSoDienThoai
             // 
             this.textBoxSoDienThoai.Enabled = false;
             this.textBoxSoDienThoai.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxSoDienThoai.Location = new System.Drawing.Point(188, 345);
-
             this.textBoxSoDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxSoDienThoai.Name = "textBoxSoDienThoai";
             this.textBoxSoDienThoai.ReadOnly = true;
@@ -217,7 +210,6 @@
             // 
             this.labelnvviet.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelnvviet.Location = new System.Drawing.Point(599, 187);
-
             this.labelnvviet.Name = "labelnvviet";
             this.labelnvviet.Size = new System.Drawing.Size(142, 22);
             this.labelnvviet.TabIndex = 17;
@@ -228,7 +220,6 @@
             this.labelnvketoan.AutoSize = true;
             this.labelnvketoan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelnvketoan.Location = new System.Drawing.Point(599, 353);
-
             this.labelnvketoan.Name = "labelnvketoan";
             this.labelnvketoan.Size = new System.Drawing.Size(156, 22);
             this.labelnvketoan.TabIndex = 16;
@@ -239,7 +230,6 @@
             this.labelNgaySinh.AutoSize = true;
             this.labelNgaySinh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNgaySinh.Location = new System.Drawing.Point(599, 101);
-
             this.labelNgaySinh.Name = "labelNgaySinh";
             this.labelNgaySinh.Size = new System.Drawing.Size(91, 22);
             this.labelNgaySinh.TabIndex = 15;
@@ -250,7 +240,6 @@
             this.labelChucVu.AutoSize = true;
             this.labelChucVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelChucVu.Location = new System.Drawing.Point(599, 268);
-
             this.labelChucVu.Name = "labelChucVu";
             this.labelChucVu.Size = new System.Drawing.Size(76, 22);
             this.labelChucVu.TabIndex = 14;
@@ -261,7 +250,6 @@
             this.labelSoDienThoai.AutoSize = true;
             this.labelSoDienThoai.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSoDienThoai.Location = new System.Drawing.Point(10, 350);
-
             this.labelSoDienThoai.Name = "labelSoDienThoai";
             this.labelSoDienThoai.Size = new System.Drawing.Size(114, 22);
             this.labelSoDienThoai.TabIndex = 6;
@@ -272,7 +260,6 @@
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmail.Location = new System.Drawing.Point(10, 265);
-
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(57, 22);
             this.labelEmail.TabIndex = 5;
@@ -283,7 +270,6 @@
             this.labelHoTen.AutoSize = true;
             this.labelHoTen.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHoTen.Location = new System.Drawing.Point(10, 187);
-
             this.labelHoTen.Name = "labelHoTen";
             this.labelHoTen.Size = new System.Drawing.Size(62, 22);
             this.labelHoTen.TabIndex = 4;
@@ -294,7 +280,6 @@
             this.textBoxMaDangNhap.Enabled = false;
             this.textBoxMaDangNhap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMaDangNhap.Location = new System.Drawing.Point(188, 101);
-
             this.textBoxMaDangNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxMaDangNhap.Name = "textBoxMaDangNhap";
             this.textBoxMaDangNhap.ReadOnly = true;
@@ -306,7 +291,6 @@
             this.labelMaDangNhap.AutoSize = true;
             this.labelMaDangNhap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMaDangNhap.Location = new System.Drawing.Point(10, 101);
-
             this.labelMaDangNhap.Name = "labelMaDangNhap";
             this.labelMaDangNhap.Size = new System.Drawing.Size(129, 22);
             this.labelMaDangNhap.TabIndex = 2;
@@ -323,7 +307,6 @@
             this.panelControlCapNhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControlCapNhat.Name = "panelControlCapNhat";
             this.panelControlCapNhat.Size = new System.Drawing.Size(537, 373);
-
             this.panelControlCapNhat.TabIndex = 1;
             // 
             // buttonXoa
@@ -364,7 +347,6 @@
             this.labelHienthitt.Location = new System.Drawing.Point(2, 2);
             this.labelHienthitt.Name = "labelHienthitt";
             this.labelHienthitt.Size = new System.Drawing.Size(1634, 33);
-
             this.labelHienthitt.TabIndex = 0;
             this.labelHienthitt.Text = "Thông Tin Chi Tiết";
             // 
@@ -376,7 +358,6 @@
             this.labelDSNV.Location = new System.Drawing.Point(0, 0);
             this.labelDSNV.Name = "labelDSNV";
             this.labelDSNV.Size = new System.Drawing.Size(1638, 47);
-
             this.labelDSNV.TabIndex = 1;
             this.labelDSNV.Text = "Danh Sách Nhân Viên";
             // 
@@ -386,17 +367,6 @@
             this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // btnNext
-            // 
-            this.btnNext.ForeColor = System.Drawing.Color.Aqua;
-            this.btnNext.Location = new System.Drawing.Point(1491, 162);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(48, 31);
-            this.btnNext.TabIndex = 3;
-            this.btnNext.Text = ">>";
-            this.btnNext.UseVisualStyleBackColor = true;
             // 
             // searchLookUpEditDSNV
             // 
@@ -411,10 +381,11 @@
             this.searchLookUpEditDSNV.Properties.PopupView = this.searchLookUpEdit1View;
             this.searchLookUpEditDSNV.Size = new System.Drawing.Size(385, 28);
             this.searchLookUpEditDSNV.TabIndex = 2;
-
+            this.searchLookUpEditDSNV.EditValueChanged += new System.EventHandler(this.searchLookUpEditDSNV_EditValueChanged);
             // 
             // dataGridViewDSNV
             // 
+            this.dataGridViewDSNV.AllowUserToAddRows = false;
             this.dataGridViewDSNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDSNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDSNV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -425,9 +396,9 @@
             this.SoDienThoai,
             this.Email,
             this.DiaChi,
-            this.MaChucVu,
+            this.TenChucVu,
             this.NgayTao});
-            this.dataGridViewDSNV.Location = new System.Drawing.Point(76, 50);
+            this.dataGridViewDSNV.Location = new System.Drawing.Point(76, 49);
             this.dataGridViewDSNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDSNV.Name = "dataGridViewDSNV";
             this.dataGridViewDSNV.RowHeadersWidth = 51;
@@ -436,34 +407,6 @@
             this.dataGridViewDSNV.TabIndex = 0;
             this.dataGridViewDSNV.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSNV_CellEnter);
             this.dataGridViewDSNV.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewDSNV_RowPrePaint);
-
-            // 
-            // btnPre
-            // 
-            this.btnPre.ForeColor = System.Drawing.Color.Aqua;
-            this.btnPre.Location = new System.Drawing.Point(16, 162);
-            this.btnPre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPre.Name = "btnPre";
-            this.btnPre.Size = new System.Drawing.Size(44, 31);
-            this.btnPre.TabIndex = 4;
-            this.btnPre.Text = "<<";
-            this.btnPre.UseVisualStyleBackColor = true;
-            // 
-            // panelDSNV
-            // 
-            this.panelDSNV.Controls.Add(this.btnPre);
-            this.panelDSNV.Controls.Add(this.btnNext);
-            this.panelDSNV.Controls.Add(this.searchLookUpEditDSNV);
-            this.panelDSNV.Controls.Add(this.labelDSNV);
-            this.panelDSNV.Controls.Add(this.dataGridViewDSNV);
-            this.panelDSNV.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelDSNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDSNV.Location = new System.Drawing.Point(0, 410);
-            this.panelDSNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelDSNV.Name = "panelDSNV";
-            this.panelDSNV.Size = new System.Drawing.Size(1638, 407);
-
-            this.panelDSNV.TabIndex = 3;
             // 
             // STT
             // 
@@ -528,14 +471,14 @@
             this.DiaChi.Name = "DiaChi";
             this.DiaChi.ReadOnly = true;
             // 
-            // MaChucVu
+            // TenChucVu
             // 
-            this.MaChucVu.DataPropertyName = "MaChucVu";
-            this.MaChucVu.FillWeight = 89.12591F;
-            this.MaChucVu.HeaderText = "Chức vụ";
-            this.MaChucVu.MinimumWidth = 6;
-            this.MaChucVu.Name = "MaChucVu";
-            this.MaChucVu.ReadOnly = true;
+            this.TenChucVu.DataPropertyName = "TenChucVu";
+            this.TenChucVu.FillWeight = 89.12591F;
+            this.TenChucVu.HeaderText = "Chức vụ";
+            this.TenChucVu.MinimumWidth = 6;
+            this.TenChucVu.Name = "TenChucVu";
+            this.TenChucVu.ReadOnly = true;
             // 
             // NgayTao
             // 
@@ -545,6 +488,19 @@
             this.NgayTao.MinimumWidth = 6;
             this.NgayTao.Name = "NgayTao";
             this.NgayTao.ReadOnly = true;
+            // 
+            // panelDSNV
+            // 
+            this.panelDSNV.Controls.Add(this.searchLookUpEditDSNV);
+            this.panelDSNV.Controls.Add(this.labelDSNV);
+            this.panelDSNV.Controls.Add(this.dataGridViewDSNV);
+            this.panelDSNV.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelDSNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelDSNV.Location = new System.Drawing.Point(0, 410);
+            this.panelDSNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelDSNV.Name = "panelDSNV";
+            this.panelDSNV.Size = new System.Drawing.Size(1638, 407);
+            this.panelDSNV.TabIndex = 3;
             // 
             // QuanLyNhanVien
             // 
@@ -575,7 +531,6 @@
         private System.Windows.Forms.Label labelCapnhat;
         private System.Windows.Forms.Button buttonSua;
         private DevExpress.XtraEditors.PanelControl panelControlHienthitt;
-        private System.Windows.Forms.TextBox textBoxChucVu;
         private System.Windows.Forms.Label labelnvviet;
         private System.Windows.Forms.Label labelnvketoan;
         private System.Windows.Forms.Label labelNgaySinh;
@@ -589,9 +544,7 @@
         private System.Windows.Forms.Label labelHienthitt;
         private System.Windows.Forms.Label labelDSNV;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
-        private System.Windows.Forms.Button btnNext;
         private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEditDSNV;
-        private System.Windows.Forms.Button btnPre;
         private System.Windows.Forms.Panel panelDSNV;
         private System.Windows.Forms.TextBox textBoxDiaChi;
         private System.Windows.Forms.TextBox textBoxHoTen;
@@ -599,9 +552,10 @@
         private System.Windows.Forms.TextBox textBoxSoDienThoai;
         private System.Windows.Forms.Button buttonXoa;
         private System.Windows.Forms.Button buttonThem;
-        private System.Windows.Forms.TextBox textBoxNgaySinh;
-        private System.Windows.Forms.TextBox textBoxNgayTao;
         public System.Windows.Forms.DataGridView dataGridViewDSNV;
+        private System.Windows.Forms.TextBox textBoxChucVu;
+        private System.Windows.Forms.TextBox textBoxNgayTao;
+        private System.Windows.Forms.TextBox textBoxNgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaDangNhapNguoiDung;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
@@ -609,7 +563,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaChucVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenChucVu;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayTao;
     }
 }

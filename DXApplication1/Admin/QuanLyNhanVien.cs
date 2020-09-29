@@ -1,58 +1,72 @@
 ﻿using DXApplication1.Models;
 using System.Windows.Forms;
 using DXApplication1.Account;
+using DevExpress.XtraEditors;
 
 namespace DXApplication1.Admin
 {
     public partial class QuanLyNhanVien : DevExpress.XtraEditors.XtraForm
     {
-        public BindingSource bindingSource = new BindingSource();
         public QuanLyNhanVien()
         {
-          //  ThongTinNguoiDung thongTinNguoiDung = Program.detail_user;
             InitializeComponent();
-            //textBoxMaDangNhap.Text = thongTinNguoiDung.MaDangNhapNguoiDung;
-            //textBoxHoTen.Text = thongTinNguoiDung.HoTen;
-            //textBoxEmail.Text = thongTinNguoiDung.Email;
-            //textBoxDiaChi.Text = thongTinNguoiDung.DiaChi;
-            //textBoxSoDienThoai.Text = thongTinNguoiDung.SoDienThoai;
-            //textBoxChucVu.Text = thongTinNguoiDung.ChucVu;
-            //dateEditNgaySinh.DateTime = thongTinNguoiDung.NgaySinh;
-            //dateEditNgayTaoTaiKhoan.DateTime = thongTinNguoiDung.NgayTao;
+
+        }
+        public void QuanLyNhanVien_Load(object sender, System.EventArgs e)
+        {
+            Program.quanLyNhanVienSql = new QuanLyNhanVienSql();
+            Program.quanLyNhanVienSql.getDataDSNV(dataGridViewDSNV, searchLookUpEditDSNV);
+
         }
 
         private void buttonThem_Click(object sender, System.EventArgs e)
         {
-            Program.dky = new Views.frmDky();
-            Program.dky.Show();
+            int kt = 0;
+            foreach (var q in Program.lg.List_Q)
+            {
+                if (q.QuyenId == "QNTHEMNV")
+                {
+                    kt = 1;
+                    break;
+                }
+            }
+            if (kt == 0)
+                XtraMessageBox.Show("Bạn không có quyền thêm nhân viên!!!", "Thông báo");
+            else
+            {
+                Program.dky = new Views.frmDky();
+                Program.dky.ShowDialog();
+            }    
+           
         }
 
         private void buttonSua_Click(object sender, System.EventArgs e)
         {
-            Program.detail_user = new ThongTinNguoiDung();
-            Program.detail_userSql.Select_Detail(Program.detail_user, textBoxMaDangNhap.Text);
-            Detail_User detail_form = new Detail_User();
-            detail_form.Show();
+            int kt = 0;
+            foreach (var q in Program.lg.List_Q)
+            {
+                if (q.QuyenId == "QNSUANV")
+                {
+                    kt = 1;
+                    break;
+                }
+            }
+            if (kt == 0)
+                XtraMessageBox.Show("Bạn không có quyền sửa thông tin!!!", "Thông báo");
+            else
+            {
+                Program.detail_user = new ThongTinNguoiDung();
+                Program.detail_userSql.Select_Detail(Program.detail_user, textBoxMaDangNhap.Text);
+                Detail_User detail_form = new Detail_User();
+                detail_form.SetQuyenSua();
+                detail_form.ShowDialog();
+            }    
         }
 
-        public void QuanLyNhanVien_Load(object sender, System.EventArgs e)
-        {
-            Program.quanLyNhanVienSql = new QuanLyNhanVienSql();
-            Program.quanLyNhanVienSql.getDataDSNV(dataGridViewDSNV);
-           // int s = dataGridViewDSNV.Rows.Count;
-        }
-
-        public void update_DatagridDSNV()
-        {
-            
-            //Program.quanLyNhanVienSql = new QuanLyNhanVienSql();
-            //Program.quanLyNhanVienSql.getDataDSNV(dataGridViewDSNV);
-            //int s = dataGridViewDSNV.Rows.Count;
-        }
-
+       
         private void getDataFromDgvIntoTextBox(TextBox tb, int row, string column)
         {
-            tb.Text = dataGridViewDSNV.Rows[row].Cells[column].Value.ToString(); //doi cho nay thanh curren row xem sao 
+            tb.Text = dataGridViewDSNV.Rows[row].Cells[column].Value.ToString();  
         }
 
         private void dataGridViewDSNV_CellEnter(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
@@ -61,11 +75,14 @@ namespace DXApplication1.Admin
             numrow = e.RowIndex;
             getDataFromDgvIntoTextBox(textBoxMaDangNhap, numrow, "MaDangNhapNguoiDung");
             getDataFromDgvIntoTextBox(textBoxHoTen, numrow, "HoTen");
-            getDataFromDgvIntoTextBox(textBoxChucVu, numrow, "MaChucVu");
+            getDataFromDgvIntoTextBox(textBoxChucVu, numrow, "TenChucVu");
             getDataFromDgvIntoTextBox(textBoxDiaChi, numrow, "DiaChi");
             getDataFromDgvIntoTextBox(textBoxEmail, numrow, "Email");
             getDataFromDgvIntoTextBox(textBoxSoDienThoai, numrow, "SoDienThoai");
-            getDataFromDgvIntoTextBox(textBoxNgaySinh, numrow, "NgaySinh");
+            // getDataFromDgvIntoTextBox(textBoxNgaySinh, numrow, "NgaySinh");
+            
+            textBoxNgaySinh.DataBindings.Clear();
+            textBoxNgaySinh.DataBindings.Add("Text", dataGridViewDSNV.DataSource, "NgaySinh");
             getDataFromDgvIntoTextBox(textBoxNgayTao, numrow, "NgayTao");
         }
 
@@ -76,12 +93,60 @@ namespace DXApplication1.Admin
 
         private void buttonXoa_Click(object sender, System.EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn xoá nhân viên này", "Question Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(dialogResult == DialogResult.Yes)
+            int kt = 0;
+            foreach (var q in Program.lg.List_Q)
             {
-
+                if (q.QuyenId == "QNXOANV")
+                {
+                    kt = 1;
+                    break;
+                }
+            }
+            if (kt == 0)
+                XtraMessageBox.Show("Bạn không có quyền xoá nhân viên!!!", "Thông báo");
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn xoá nhân viên này", "Question Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Program.quanLyNhanVienSql = new QuanLyNhanVienSql();
+                    Program.quanLyNhanVienSql.XoaNhanVien(textBoxMaDangNhap.Text);
+                }
             }    
+           
+        }
 
+        private void searchLookUpEditDSNV_EditValueChanged(object sender, System.EventArgs e)
+        {
+            searchLookUpEditDSNV.Text = "";
+            var view = searchLookUpEditDSNV.Properties.View;
+            int row = view.FocusedRowHandle;
+            string fieldNamemaNhanVien = "MaDangNhapNguoiDung";
+            string fieldNamehoTen = "HoTen";
+            string fieldNamengaySinh = "NgaySinh";
+            string fieldNamesoDienThoai = "SoDienThoai";
+            string fieldNameEmail = "Email";
+            string fieldNamediaChi = "DiaChi";
+            string fieldNamechucVu = "TenChucVu";
+            string fieldNamengayTao = "NgayTao";
+
+            object valuemaNhanVien = view.GetRowCellValue(row, fieldNamemaNhanVien);
+            object valuehoTen = view.GetRowCellValue(row, fieldNamehoTen);
+            object valuengaySinh = view.GetRowCellValue(row, fieldNamengaySinh);
+            object valuesoDienThoai = view.GetRowCellValue(row, fieldNamesoDienThoai);
+            object valueEmail = view.GetRowCellValue(row, fieldNameEmail);
+            object valuediaChi = view.GetRowCellValue(row, fieldNamediaChi);
+            object valuechucVu = view.GetRowCellValue(row, fieldNamechucVu);
+            object valuengayTao = view.GetRowCellValue(row, fieldNamengayTao);
+
+            textBoxMaDangNhap.Text = valuemaNhanVien.ToString();
+            textBoxHoTen.Text = valuehoTen.ToString();
+            textBoxNgaySinh.Text = valuengaySinh.ToString();
+            textBoxSoDienThoai.Text = valuesoDienThoai.ToString();
+            textBoxEmail.Text = valueEmail.ToString();
+            textBoxDiaChi.Text = valuediaChi.ToString();
+            textBoxChucVu.Text = valuechucVu.ToString();
+            textBoxNgayTao.Text = valuengayTao.ToString();
         }
     }
 }

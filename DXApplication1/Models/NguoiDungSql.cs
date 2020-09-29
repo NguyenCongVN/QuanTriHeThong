@@ -19,11 +19,15 @@ namespace DXApplication1.Models
         {
             if(int.Parse(e.Message) == 1)
             {
-                DialogResult result = MessageBox.Show("Them tai khoan thanh cong", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult result = MessageBox.Show("Thêm tài khoản thành công", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if(result == DialogResult.OK)
                 {
-                    Program.admin.barButtonItemNhanVien_ItemClick(null, null);
+                    Program.quanLyNhanVien.QuanLyNhanVien_Load(sender, e);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Tài khoản đã tồn tại", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }    
         };
 
@@ -85,18 +89,17 @@ namespace DXApplication1.Models
 
             try
             {
+                
                 cmd.Parameters.Add(new SqlParameter("@maDangNhapNguoiDung", SqlDbType.VarChar, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MaDangNhapNguoiDung));
-                cmd.Parameters.Add(new SqlParameter("@matKhau", user.MatKhau));
+                cmd.Parameters.Add(new SqlParameter("@matKhau", SqlDbType.VarChar, 100, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.MatKhau));
                 cmd.Parameters.Add(new SqlParameter("@soDienThoai", SqlDbType.VarChar, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.SoDienThoai));
-                cmd.Parameters.Add(new SqlParameter("@hoTen", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.HoTen));
+                cmd.Parameters.Add(new SqlParameter("@hoTen", SqlDbType.VarChar, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.HoTen));
                 cmd.Parameters.Add(new SqlParameter("@email", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.Email));
                 cmd.Parameters.Add(new SqlParameter("@diaChi", SqlDbType.NVarChar, 200, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.DiaChi));
-                cmd.Parameters.Add(new SqlParameter("@ngaySinh", user.ThongTinNguoiDung.NgaySinh.Date));
-                cmd.Parameters.Add(new SqlParameter("@chucVu", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.ChucVu));
+                cmd.Parameters.Add(new SqlParameter("@ngaySinh", SqlDbType.Date, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.NgaySinh.Date));
+                cmd.Parameters.Add(new SqlParameter("@maChucVu", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, user.ThongTinNguoiDung.ChucVu));
                 Connection.Open();
                 Connection.InfoMessage += showResultFromSql;
-                // DialogResult dialogResult = MessageBox.Show(showResultFromSql.ToString(), "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
                 cmd.ExecuteNonQuery();
                 return true;
             }
