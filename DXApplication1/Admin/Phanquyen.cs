@@ -202,7 +202,6 @@ namespace DXApplication1.Admin
             //dView.SetRowCellValue(0, "Check", false);
             //Console.WriteLine(dView.GetRowCellValue(0, "Check"));
         }
-<<<<<<< Updated upstream
 
         private void repositoryItemCheckEdit1_CheckedChanged(object sender, EventArgs e)
         {
@@ -213,18 +212,6 @@ namespace DXApplication1.Admin
             string maQuyen = quyen.QuyenId;
             ThongTinThayDoiChucVu item = new ThongTinThayDoiChucVu { maChucVu = maChucVu, maQuyen = maQuyen };
 
-=======
-
-        private void repositoryItemCheckEdit1_CheckedChanged(object sender, EventArgs e)
-        {
-            GridView dView = gridViewMain.GetDetailView(gridViewMain.GetSelectedRows()[0], gridViewMain.GetVisibleDetailRelationIndex(gridViewMain.GetSelectedRows()[0])) as GridView;
-            Quyen quyen = dView.GetFocusedRow() as Quyen;
-
-            string maChucVu = (comboBoxChucVu.SelectedItem as ComboBoxItemPhanQuyen).ChucVu.MaChucVu;
-            string maQuyen = quyen.QuyenId;
-            ThongTinThayDoiChucVu item = new ThongTinThayDoiChucVu { maChucVu = maChucVu, maQuyen = maQuyen };
-
->>>>>>> Stashed changes
             if (quyen.Check)
             {
                 if (added.Contains(item))
@@ -249,44 +236,16 @@ namespace DXApplication1.Admin
                 if (added.Contains(item))
                 {
                     return;
-<<<<<<< Updated upstream
                 }
                 else
                 {
                     added.Add(item);
                 }
-=======
-                }
-                else
-                {
-                    added.Add(item);
-                }
->>>>>>> Stashed changes
             }
         }
 
         #endregion
         
-
-        private void buttonThemChucVu_Click(object sender, EventArgs e)
-        {
-            AddChucVu chucVuForm = new AddChucVu();
-            chucVuForm.ShowDialog();
-        }
-
-        private void buttonSuaChucVu_Click(object sender, EventArgs e)
-        {
-            if (comboBoxChucVu.SelectedItem == null)
-            {
-                MessageBox.Show("Bạn phải chọn chức vụ cần sửa", "Notice Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                SuaChucVu suaChucVu = new SuaChucVu();
-                suaChucVu.ShowDialog();
-            }
-        }
-
 
         private void buttonThemChucVu_Click(object sender, EventArgs e)
         {
@@ -323,12 +282,9 @@ namespace DXApplication1.Admin
                 }
             }
         }
-<<<<<<< Updated upstream
 
         private void Phanquyen_Load(object sender, EventArgs e)
         {
         }
-=======
->>>>>>> Stashed changes
     }
 }
