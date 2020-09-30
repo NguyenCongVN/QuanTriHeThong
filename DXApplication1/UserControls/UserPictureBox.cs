@@ -26,7 +26,6 @@ namespace DXApplication1.UserControls
         public void init(Image im1, string lb1)
         {
             pictureBox1.Image = im1;
-            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             label1.Text = lb1;
             label1.Location = new Point((pictureBox1.Location.X + pictureBox1.Width) / 2, (pictureBox1.Location.Y + pictureBox1.Height + 1));
 

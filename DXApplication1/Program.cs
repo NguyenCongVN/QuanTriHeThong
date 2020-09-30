@@ -43,7 +43,7 @@ namespace DXApplication1
             quyenSql = new QuyenSql();
             quanLyNhanVien = new QuanLyNhanVien();
             lg = new frmLogin();
-            Application.Run(new frmLogin());
+            Application.Run(new Frm_test1());
         }
     }
 }
