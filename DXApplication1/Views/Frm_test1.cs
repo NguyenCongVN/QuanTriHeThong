@@ -54,7 +54,7 @@ namespace DXApplication1.Views
             //user pic
             up1 = new UserPictureBox();
             up1.Location = new Point(50, 50);
-            Image image = Image.FromFile(@"C:\Users\Dell\Desktop\Working-Lien-Cong\QuanTriHeThong\DXApplication1\Resources\gax1.PNG");
+            Image image = Image.FromFile(@"E:\PICTURE\lon.jpg");
             up1.init(image, "hihi");
 
 
@@ -119,7 +119,9 @@ namespace DXApplication1.Views
             //MessageBox.Show("hh");
         }
 
+        private void Frm_test1_Load(object sender, EventArgs e)
+        {
 
-        
+        }
     }
 }

@@ -88,7 +88,7 @@ namespace DXApplication1.Account
         {
             if (txtHoTen.Text == "" || txtSoDienThoai.Text == ""|| comboBoxEditChucVu.Text == null)
             {
-                MessageBox.Show("Bạn phải nhập đủ họ tên và số điện thoại!!!", "ERROR???");
+                MessageBox.Show("Bạn phải nhập đủ thông tin!!!", "ERROR???");
             }
             else
             {
