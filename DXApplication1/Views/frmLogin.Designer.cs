@@ -36,32 +36,35 @@
             this.lbUser = new DevExpress.XtraEditors.LabelControl();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.checkEditNhoMatKhau = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.grpCtrl1)).BeginInit();
             this.grpCtrl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditHienMatKhau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditNhoMatKhau.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // grpCtrl1
             // 
             this.grpCtrl1.Appearance.BackColor = System.Drawing.Color.DodgerBlue;
             this.grpCtrl1.Appearance.Options.UseBackColor = true;
+            this.grpCtrl1.Controls.Add(this.checkEditNhoMatKhau);
             this.grpCtrl1.Controls.Add(this.checkEditHienMatKhau);
             this.grpCtrl1.Controls.Add(this.txtPass);
             this.grpCtrl1.Controls.Add(this.lbPass);
             this.grpCtrl1.Controls.Add(this.txtUser);
             this.grpCtrl1.Controls.Add(this.lbUser);
-            this.grpCtrl1.Location = new System.Drawing.Point(72, 32);
+            this.grpCtrl1.Location = new System.Drawing.Point(12, 25);
             this.grpCtrl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpCtrl1.Name = "grpCtrl1";
-            this.grpCtrl1.Size = new System.Drawing.Size(684, 210);
+            this.grpCtrl1.Size = new System.Drawing.Size(533, 168);
             this.grpCtrl1.TabIndex = 0;
             this.grpCtrl1.Text = "Thông tin đăng nhập";
             // 
             // checkEditHienMatKhau
             // 
-            this.checkEditHienMatKhau.Location = new System.Drawing.Point(558, 124);
+            this.checkEditHienMatKhau.Location = new System.Drawing.Point(412, 101);
             this.checkEditHienMatKhau.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkEditHienMatKhau.Name = "checkEditHienMatKhau";
             this.checkEditHienMatKhau.Properties.Caption = "Hiện mật khẩu";
@@ -71,7 +74,7 @@
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(283, 126);
+            this.txtPass.Location = new System.Drawing.Point(158, 99);
             this.txtPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPass.Name = "txtPass";
             this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -85,7 +88,7 @@
             // 
             this.lbPass.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPass.Appearance.Options.UseFont = true;
-            this.lbPass.Location = new System.Drawing.Point(91, 128);
+            this.lbPass.Location = new System.Drawing.Point(39, 103);
             this.lbPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbPass.Name = "lbPass";
             this.lbPass.Size = new System.Drawing.Size(61, 18);
@@ -94,7 +97,7 @@
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(283, 62);
+            this.txtUser.Location = new System.Drawing.Point(158, 52);
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUser.Name = "txtUser";
             this.txtUser.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,7 +109,7 @@
             // 
             this.lbUser.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUser.Appearance.Options.UseFont = true;
-            this.lbUser.Location = new System.Drawing.Point(91, 63);
+            this.lbUser.Location = new System.Drawing.Point(39, 55);
             this.lbUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbUser.Name = "lbUser";
             this.lbUser.Size = new System.Drawing.Size(101, 18);
@@ -118,7 +121,7 @@
             this.btnOK.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(261, 267);
+            this.btnOK.Location = new System.Drawing.Point(142, 217);
             this.btnOK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 30);
@@ -133,7 +136,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(418, 267);
+            this.btnCancel.Location = new System.Drawing.Point(299, 217);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 30);
@@ -143,13 +146,23 @@
             this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
             this.btnCancel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCancel_MouseMove);
             // 
+            // checkEditNhoMatKhau
+            // 
+            this.checkEditNhoMatKhau.Location = new System.Drawing.Point(48, 141);
+            this.checkEditNhoMatKhau.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.checkEditNhoMatKhau.Name = "checkEditNhoMatKhau";
+            this.checkEditNhoMatKhau.Properties.Caption = "Nhớ mật khẩu";
+            this.checkEditNhoMatKhau.Size = new System.Drawing.Size(110, 21);
+            this.checkEditNhoMatKhau.TabIndex = 5;
+            this.checkEditNhoMatKhau.CheckedChanged += new System.EventHandler(this.checkEditNhoMatKhau_CheckedChanged);
+            // 
             // frmLogin
             // 
             this.Appearance.BackColor = System.Drawing.Color.Snow;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 315);
+            this.ClientSize = new System.Drawing.Size(559, 266);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.grpCtrl1);
@@ -164,6 +177,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkEditHienMatKhau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditNhoMatKhau.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,5 +192,6 @@
         public DevExpress.XtraEditors.TextEdit txtPass;
         public DevExpress.XtraEditors.TextEdit txtUser;
         private DevExpress.XtraEditors.CheckEdit checkEditHienMatKhau;
+        private DevExpress.XtraEditors.CheckEdit checkEditNhoMatKhau;
     }
 }

@@ -57,6 +57,18 @@ namespace DXApplication1
             {
                 if (CheckLogin(txtUser.Text, txtPass.Text) == 1)
                 {
+                    if(checkEditNhoMatKhau.Checked == true)
+                    {
+                        Properties.Settings.Default.UserName = txtUser.Text;
+                        Properties.Settings.Default.Password = txtPass.Text;
+                        Properties.Settings.Default.Save();
+                    }
+                    if (checkEditNhoMatKhau.Checked == false)
+                    {
+                        Properties.Settings.Default.UserName = "";
+                        Properties.Settings.Default.Password = "";
+                        Properties.Settings.Default.Save();
+                    }
                     this.Hide();
                     Program.detail_user = new ThongTinNguoiDung();
 
@@ -106,7 +118,11 @@ namespace DXApplication1
         }
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
+            if(Properties.Settings.Default.UserName != string.Empty)
+            {
+                txtUser.Text = Properties.Settings.Default.UserName;
+                txtPass.Text = Properties.Settings.Default.Password;
+            }    
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -124,6 +140,11 @@ namespace DXApplication1
                txtPass.Properties.UseSystemPasswordChar = true;
               
             }
+        }
+
+        private void checkEditNhoMatKhau_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

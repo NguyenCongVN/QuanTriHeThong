@@ -65,6 +65,7 @@ namespace DXApplication1
         }
         private void barButtonItemPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Program.phanquyen = new Admin.Phanquyen();
             
             Program.phanquyen.TopLevel = false;
             panelMain.Controls.Clear();
@@ -72,6 +73,7 @@ namespace DXApplication1
             panelMain.Controls.Add(Program.phanquyen);
             Program.phanquyen.Dock = DockStyle.Fill;
             Program.phanquyen.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
             Program.phanquyen.Show();
         }
 
@@ -90,6 +92,7 @@ namespace DXApplication1
                 XtraMessageBox.Show("Bạn không có quyền xem thông tin nhân viên!!!", "Thông báo");
             else
             {
+                Program.quanLyNhanVien = new Admin.QuanLyNhanVien();
                 Program.quanLyNhanVien.TopLevel = false;
                 panelMain.Controls.Clear();
                 panelMain.Dock = DockStyle.Fill;

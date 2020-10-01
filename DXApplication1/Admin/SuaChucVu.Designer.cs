@@ -43,7 +43,7 @@
             // 
             this.ButtonHuy.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonHuy.Appearance.Options.UseFont = true;
-            this.ButtonHuy.Location = new System.Drawing.Point(311, 279);
+            this.ButtonHuy.Location = new System.Drawing.Point(276, 242);
             this.ButtonHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonHuy.Name = "ButtonHuy";
             this.ButtonHuy.Size = new System.Drawing.Size(87, 30);
@@ -55,7 +55,7 @@
             // 
             this.buttonLuuthaydoi.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLuuthaydoi.Appearance.Options.UseFont = true;
-            this.buttonLuuthaydoi.Location = new System.Drawing.Point(136, 279);
+            this.buttonLuuthaydoi.Location = new System.Drawing.Point(101, 242);
             this.buttonLuuthaydoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLuuthaydoi.Name = "buttonLuuthaydoi";
             this.buttonLuuthaydoi.Size = new System.Drawing.Size(130, 30);
@@ -71,9 +71,9 @@
             this.groupControlThêmChucVu.Controls.Add(this.labelTenChucVuMoi);
             this.groupControlThêmChucVu.Controls.Add(this.textBoxTenChucVuCu);
             this.groupControlThêmChucVu.Controls.Add(this.textBoxTenChucVuMoi);
-            this.groupControlThêmChucVu.Location = new System.Drawing.Point(47, 30);
+            this.groupControlThêmChucVu.Location = new System.Drawing.Point(12, 30);
             this.groupControlThêmChucVu.Name = "groupControlThêmChucVu";
-            this.groupControlThêmChucVu.Size = new System.Drawing.Size(481, 212);
+            this.groupControlThêmChucVu.Size = new System.Drawing.Size(481, 171);
             this.groupControlThêmChucVu.TabIndex = 11;
             this.groupControlThêmChucVu.Text = "Thông tin chức vụ";
             // 
@@ -92,7 +92,7 @@
             // 
             this.labelTenChucVuMoi.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelTenChucVuMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTenChucVuMoi.Location = new System.Drawing.Point(29, 123);
+            this.labelTenChucVuMoi.Location = new System.Drawing.Point(29, 103);
             this.labelTenChucVuMoi.Name = "labelTenChucVuMoi";
             this.labelTenChucVuMoi.Size = new System.Drawing.Size(158, 25);
             this.labelTenChucVuMoi.TabIndex = 1;
@@ -110,7 +110,7 @@
             // textBoxTenChucVuMoi
             // 
             this.textBoxTenChucVuMoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTenChucVuMoi.Location = new System.Drawing.Point(216, 121);
+            this.textBoxTenChucVuMoi.Location = new System.Drawing.Point(216, 101);
             this.textBoxTenChucVuMoi.Name = "textBoxTenChucVuMoi";
             this.textBoxTenChucVuMoi.Size = new System.Drawing.Size(216, 30);
             this.textBoxTenChucVuMoi.TabIndex = 1;
@@ -119,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 355);
+            this.ClientSize = new System.Drawing.Size(521, 301);
             this.Controls.Add(this.ButtonHuy);
             this.Controls.Add(this.buttonLuuthaydoi);
             this.Controls.Add(this.groupControlThêmChucVu);

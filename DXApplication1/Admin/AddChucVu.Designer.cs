@@ -88,7 +88,7 @@
             this.groupControlThêmChucVu.Controls.Add(this.textBoxTenChucVu);
             this.groupControlThêmChucVu.Location = new System.Drawing.Point(12, 31);
             this.groupControlThêmChucVu.Name = "groupControlThêmChucVu";
-            this.groupControlThêmChucVu.Size = new System.Drawing.Size(481, 212);
+            this.groupControlThêmChucVu.Size = new System.Drawing.Size(468, 212);
             this.groupControlThêmChucVu.TabIndex = 7;
             this.groupControlThêmChucVu.Text = "Thông tin chức vụ";
             // 
