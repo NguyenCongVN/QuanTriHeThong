@@ -225,6 +225,11 @@
     <None Include="Resources\duyen.jpg" />
     <None Include="Resources\Screenshot 2020-09-25 202017.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\88116067_2742197879232261_3214101542890110976_n.jpg" />
+    <Content Include="Resources\gax1.PNG" />
+    <Content Include="Resources\TrungVo.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
