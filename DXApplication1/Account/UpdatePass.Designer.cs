@@ -54,15 +54,15 @@
             this.grpCtrl1.Controls.Add(this.lbPass);
             this.grpCtrl1.Controls.Add(this.txtOldPass);
             this.grpCtrl1.Controls.Add(this.lbUser);
-            this.grpCtrl1.Location = new System.Drawing.Point(82, 32);
+            this.grpCtrl1.Location = new System.Drawing.Point(12, 30);
             this.grpCtrl1.Name = "grpCtrl1";
-            this.grpCtrl1.Size = new System.Drawing.Size(580, 221);
+            this.grpCtrl1.Size = new System.Drawing.Size(429, 177);
             this.grpCtrl1.TabIndex = 0;
             this.grpCtrl1.Text = "Đổi mật khẩu";
             // 
             // txtReNewPass
             // 
-            this.txtReNewPass.Location = new System.Drawing.Point(269, 147);
+            this.txtReNewPass.Location = new System.Drawing.Point(178, 130);
             this.txtReNewPass.Name = "txtReNewPass";
             this.txtReNewPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReNewPass.Properties.Appearance.Options.UseFont = true;
@@ -74,7 +74,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(77, 149);
+            this.labelControl2.Location = new System.Drawing.Point(18, 133);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(156, 18);
             this.labelControl2.TabIndex = 7;
@@ -82,7 +82,7 @@
             // 
             // txtNewPass
             // 
-            this.txtNewPass.Location = new System.Drawing.Point(269, 104);
+            this.txtNewPass.Location = new System.Drawing.Point(178, 87);
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewPass.Properties.Appearance.Options.UseFont = true;
@@ -94,7 +94,7 @@
             // 
             this.lbPass.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPass.Appearance.Options.UseFont = true;
-            this.lbPass.Location = new System.Drawing.Point(76, 106);
+            this.lbPass.Location = new System.Drawing.Point(17, 90);
             this.lbPass.Name = "lbPass";
             this.lbPass.Size = new System.Drawing.Size(99, 18);
             this.lbPass.TabIndex = 2;
@@ -102,7 +102,7 @@
             // 
             // txtOldPass
             // 
-            this.txtOldPass.Location = new System.Drawing.Point(269, 61);
+            this.txtOldPass.Location = new System.Drawing.Point(178, 44);
             this.txtOldPass.Name = "txtOldPass";
             this.txtOldPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOldPass.Properties.Appearance.Options.UseFont = true;
@@ -114,7 +114,7 @@
             // 
             this.lbUser.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUser.Appearance.Options.UseFont = true;
-            this.lbUser.Location = new System.Drawing.Point(76, 63);
+            this.lbUser.Location = new System.Drawing.Point(17, 47);
             this.lbUser.Name = "lbUser";
             this.lbUser.Size = new System.Drawing.Size(91, 18);
             this.lbUser.TabIndex = 0;
@@ -125,7 +125,7 @@
             this.btnOK.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(269, 278);
+            this.btnOK.Location = new System.Drawing.Point(81, 229);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 29);
             this.btnOK.TabIndex = 1;
@@ -137,7 +137,7 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(426, 278);
+            this.btnCancel.Location = new System.Drawing.Point(238, 229);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 29);
             this.btnCancel.TabIndex = 2;
@@ -150,7 +150,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 332);
+            this.ClientSize = new System.Drawing.Size(461, 276);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.grpCtrl1);

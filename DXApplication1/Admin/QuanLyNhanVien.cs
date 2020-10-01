@@ -148,5 +148,10 @@ namespace DXApplication1.Admin
             textBoxChucVu.Text = valuechucVu.ToString();
             textBoxNgayTao.Text = valuengayTao.ToString();
         }
+
+        private void buttonThoat_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace DXApplication1.Views
             try
             {
                 if (txtUser.Text == "" || txtPass.Text == "" || txtRePass.Text == ""
-                   || txtHoTen.Text == "" || txtSoDienThoai.Text == "" || comboBoxEditChucVu.Text == "")
+                   || txtHoTen.Text == "")
                     throw new Exception("Bạn phải nhập đầy đủ thông tin!");
                 if (txtDiaChi.Text == "")
                     txtDiaChi.Text = null;
@@ -40,6 +40,8 @@ namespace DXApplication1.Views
                     txtEmail.Text = null;
                 if (dateNgaySinh.Text == "")
                     dateNgaySinh.Text = null;
+                if (txtSoDienThoai.Text == "")
+                    txtSoDienThoai.Text = null;
                 if (txtRePass.Text != txtPass.Text)
                     throw new Exception("Mật khẩu xác nhận không đúng!");
                 if (!UserUtilizes.IsValidEmail(txtEmail.Text) && txtEmail.Text != "")
@@ -47,7 +49,7 @@ namespace DXApplication1.Views
                     throw new Exception("Hãy nhập một email hợp lệ");
                 }
 
-                if (!UserUtilizes.IsPhoneNumber(txtSoDienThoai.Text))
+                if (!UserUtilizes.IsPhoneNumber(txtSoDienThoai.Text) && txtSoDienThoai.Text != "")
                 {
                     throw new Exception("Hãy nhập vào số điện thoại đúng");
                 }
@@ -126,6 +128,11 @@ namespace DXApplication1.Views
                 txtRePass.Properties.UseSystemPasswordChar = true;
             
             }
+        }
+
+        private void frmDky_Load(object sender, EventArgs e)
+        {
+            comboBoxEditChucVu.SelectedIndex = 0;
         }
     }
 }

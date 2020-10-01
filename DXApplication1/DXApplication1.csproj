@@ -185,8 +185,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDky.resx">
       <DependentUpon>frmDky.cs</DependentUpon>
@@ -222,17 +222,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\88116067_2742197879232261_3214101542890110976_n.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\TrungVo.PNG" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\duyen.jpg" />
     <None Include="Resources\Screenshot 2020-09-25 202017.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\gax1.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

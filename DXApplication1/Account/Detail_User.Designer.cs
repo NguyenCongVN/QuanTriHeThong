@@ -43,8 +43,6 @@
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnXacnhan = new DevExpress.XtraEditors.SimpleButton();
             this.grpCtrl1 = new DevExpress.XtraEditors.GroupControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lbSao = new DevExpress.XtraEditors.LabelControl();
             this.comboBoxEditChucVu = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -69,7 +67,7 @@
             // dateNgaySinh
             // 
             this.dateNgaySinh.EditValue = null;
-            this.dateNgaySinh.Location = new System.Drawing.Point(240, 357);
+            this.dateNgaySinh.Location = new System.Drawing.Point(141, 278);
             this.dateNgaySinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateNgaySinh.Name = "dateNgaySinh";
             this.dateNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -84,7 +82,7 @@
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(99, 358);
+            this.labelControl8.Location = new System.Drawing.Point(18, 279);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(64, 18);
@@ -93,7 +91,7 @@
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(240, 297);
+            this.txtDiaChi.Location = new System.Drawing.Point(141, 229);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -104,7 +102,7 @@
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.Location = new System.Drawing.Point(240, 237);
+            this.txtSoDienThoai.Location = new System.Drawing.Point(141, 186);
             this.txtSoDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,7 +113,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(240, 177);
+            this.txtEmail.Location = new System.Drawing.Point(141, 142);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,7 +124,7 @@
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(240, 117);
+            this.txtHoTen.Location = new System.Drawing.Point(141, 97);
             this.txtHoTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,7 +137,7 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(101, 300);
+            this.labelControl7.Location = new System.Drawing.Point(20, 232);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(42, 18);
@@ -150,7 +148,7 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(99, 240);
+            this.labelControl6.Location = new System.Drawing.Point(18, 189);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(84, 18);
@@ -161,7 +159,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(101, 180);
+            this.labelControl5.Location = new System.Drawing.Point(18, 145);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(33, 18);
@@ -172,7 +170,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(101, 120);
+            this.labelControl4.Location = new System.Drawing.Point(20, 100);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(49, 18);
@@ -181,7 +179,7 @@
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(240, 57);
+            this.txtUser.Location = new System.Drawing.Point(141, 55);
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUser.Name = "txtUser";
             this.txtUser.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -194,7 +192,7 @@
             // 
             this.lbUser.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUser.Appearance.Options.UseFont = true;
-            this.lbUser.Location = new System.Drawing.Point(101, 60);
+            this.lbUser.Location = new System.Drawing.Point(20, 58);
             this.lbUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbUser.Name = "lbUser";
             this.lbUser.Size = new System.Drawing.Size(101, 18);
@@ -205,10 +203,10 @@
             // 
             this.btnHuy.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.Appearance.Options.UseFont = true;
-            this.btnHuy.Location = new System.Drawing.Point(286, 567);
+            this.btnHuy.Location = new System.Drawing.Point(138, 472);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(92, 30);
+            this.btnHuy.Size = new System.Drawing.Size(97, 30);
             this.btnHuy.TabIndex = 8;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -217,10 +215,10 @@
             // 
             this.btnXacnhan.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXacnhan.Appearance.Options.UseFont = true;
-            this.btnXacnhan.Location = new System.Drawing.Point(446, 567);
+            this.btnXacnhan.Location = new System.Drawing.Point(267, 472);
             this.btnXacnhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXacnhan.Name = "btnXacnhan";
-            this.btnXacnhan.Size = new System.Drawing.Size(159, 30);
+            this.btnXacnhan.Size = new System.Drawing.Size(164, 30);
             this.btnXacnhan.TabIndex = 7;
             this.btnXacnhan.Text = "Xác nhận chỉnh sửa";
             this.btnXacnhan.Visible = false;
@@ -230,8 +228,6 @@
             // 
             this.grpCtrl1.Appearance.BackColor = System.Drawing.Color.DodgerBlue;
             this.grpCtrl1.Appearance.Options.UseBackColor = true;
-            this.grpCtrl1.Controls.Add(this.labelControl9);
-            this.grpCtrl1.Controls.Add(this.labelControl3);
             this.grpCtrl1.Controls.Add(this.labelControl1);
             this.grpCtrl1.Controls.Add(this.lbSao);
             this.grpCtrl1.Controls.Add(this.comboBoxEditChucVu);
@@ -250,39 +246,13 @@
             this.grpCtrl1.Controls.Add(this.labelControl4);
             this.grpCtrl1.Controls.Add(this.txtUser);
             this.grpCtrl1.Controls.Add(this.lbUser);
-            this.grpCtrl1.Location = new System.Drawing.Point(77, 23);
+            this.grpCtrl1.Location = new System.Drawing.Point(25, 27);
             this.grpCtrl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpCtrl1.Name = "grpCtrl1";
-            this.grpCtrl1.Size = new System.Drawing.Size(559, 517);
+            this.grpCtrl1.Size = new System.Drawing.Size(406, 414);
             this.grpCtrl1.TabIndex = 6;
             this.grpCtrl1.Text = "Thông tin chi tiết";
             this.grpCtrl1.Paint += new System.Windows.Forms.PaintEventHandler(this.grpCtrl1_Paint);
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Appearance.Options.UseForeColor = true;
-            this.labelControl9.Location = new System.Drawing.Point(208, 240);
-            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(8, 18);
-            this.labelControl9.TabIndex = 10;
-            this.labelControl9.Text = "*";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(208, 482);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(8, 18);
-            this.labelControl3.TabIndex = 35;
-            this.labelControl3.Text = "*";
             // 
             // labelControl1
             // 
@@ -290,7 +260,7 @@
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(208, 120);
+            this.labelControl1.Location = new System.Drawing.Point(127, 100);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(8, 18);
@@ -303,7 +273,7 @@
             this.lbSao.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lbSao.Appearance.Options.UseFont = true;
             this.lbSao.Appearance.Options.UseForeColor = true;
-            this.lbSao.Location = new System.Drawing.Point(208, 60);
+            this.lbSao.Location = new System.Drawing.Point(127, 58);
             this.lbSao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbSao.Name = "lbSao";
             this.lbSao.Size = new System.Drawing.Size(8, 18);
@@ -312,20 +282,19 @@
             // 
             // comboBoxEditChucVu
             // 
-            this.comboBoxEditChucVu.Location = new System.Drawing.Point(240, 479);
+            this.comboBoxEditChucVu.Location = new System.Drawing.Point(141, 364);
             this.comboBoxEditChucVu.Name = "comboBoxEditChucVu";
             this.comboBoxEditChucVu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxEditChucVu.Properties.Appearance.Options.UseFont = true;
             this.comboBoxEditChucVu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditChucVu.Properties.ReadOnly = true;
             this.comboBoxEditChucVu.Size = new System.Drawing.Size(238, 24);
             this.comboBoxEditChucVu.TabIndex = 32;
             // 
             // dateNgayTao
             // 
             this.dateNgayTao.EditValue = null;
-            this.dateNgayTao.Location = new System.Drawing.Point(240, 415);
+            this.dateNgayTao.Location = new System.Drawing.Point(141, 320);
             this.dateNgayTao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateNgayTao.Name = "dateNgayTao";
             this.dateNgayTao.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -340,7 +309,7 @@
             // 
             this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl14.Appearance.Options.UseFont = true;
-            this.labelControl14.Location = new System.Drawing.Point(101, 416);
+            this.labelControl14.Location = new System.Drawing.Point(20, 321);
             this.labelControl14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(60, 18);
@@ -351,7 +320,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(99, 482);
+            this.labelControl2.Location = new System.Drawing.Point(18, 367);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(54, 18);
@@ -362,10 +331,10 @@
             // 
             this.btnChange.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChange.Appearance.Options.UseFont = true;
-            this.btnChange.Location = new System.Drawing.Point(119, 567);
+            this.btnChange.Location = new System.Drawing.Point(15, 472);
             this.btnChange.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(92, 30);
+            this.btnChange.Size = new System.Drawing.Size(97, 30);
             this.btnChange.TabIndex = 9;
             this.btnChange.Text = "Chỉnh Sửa";
             this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
@@ -376,7 +345,7 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 632);
+            this.ClientSize = new System.Drawing.Size(454, 519);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnXacnhan);
@@ -424,8 +393,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEditChucVu;
         private DevExpress.XtraEditors.LabelControl lbSao;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }
