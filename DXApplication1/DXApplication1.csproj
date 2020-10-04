@@ -106,6 +106,9 @@
     <Compile Include="Models\Chucvu.cs" />
     <Compile Include="Models\ChucvuSql.cs" />
     <Compile Include="Models\connection.cs" />
+    <Compile Include="Models\DoiTuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Models\LoaiQuyen.cs" />
     <Compile Include="Models\LoaiQuyenSql.cs" />
     <Compile Include="Models\NguoiDung.cs" />

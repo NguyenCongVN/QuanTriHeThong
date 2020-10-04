@@ -6,7 +6,9 @@ using System;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using DXApplication1.Models;
 using DXApplication1.Utilizes;
+using DevExpress.Office.Drawing;
 
 namespace DXApplication1.Views
 {
@@ -16,7 +18,7 @@ namespace DXApplication1.Views
         /// 
         /// </summary>
 
-        static Bitmap bitmapInit1 = new Bitmap(@"C:\Users\NguyenCong\Pictures\Screenshot 2020-09-25 202017.png");
+        static Bitmap bitmapInit1 = new Bitmap(@"C:\Users\Dell\Pictures\lien_hoan_Que\49419090226_cc2cb04df2_b.jpg");
 
         Bitmap bitmapInit = new Bitmap(bitmapInit1, 3000, 3000);
 
@@ -41,25 +43,33 @@ namespace DXApplication1.Views
 
 
 
-
-
+        int check = 0;
+        int opted = 0;
         Button b1;
         PictureBox p1;
-
-        PictureBox[] listPic;
+        DoiTuong[] listPic;
+        DoiTuong[] selected = new DoiTuong[100];
+        Image[] images;
         public Frm_test1()
         {
             InitializeComponent();
+            initImage();
             init();
             MoveButton();
             MovePic();
-
+            
             load_Tree();
-            MoveButton(listPic[0]);
-
             
             pictureBox1.Image = bitmapInit;
 
+        }
+        public void initImage()
+        {
+            images = new Image[10];
+            for(int i = 1; i <= 6; i++ )
+            {
+                images[i] = Image.FromFile(@"C:\Users\Dell\Desktop\Working-Lien-Cong\QuanTriHeThong\Images\" + i +".PNG");
+            }    
         }
         public void init()
         {
@@ -81,17 +91,29 @@ namespace DXApplication1.Views
             pictureBox1.AddControl(b1);
 
             //add picturebox
-            pictureBox1.AddControl(p1);
+           // pictureBox1.AddControl(p1);
 
-            listPic = new PictureBox[10];
-            listPic[0] = new PictureBox();
-            listPic[0].Image = DXApplication1.Properties.Resources.TrungVo;
-            listPic[0].SizeMode = PictureBoxSizeMode.AutoSize;
-            listPic[0].Size = new Size(30, 30);
-            listPic[0].BackColor = System.Drawing.Color.Black;
+            listPic = new DoiTuong[10];
+            for(int i = 1; i <= 6; i++)
+            {
+                listPic[i] = new DoiTuong();
+                listPic[i].Picture.Image = images[i];
+            }
+            //PictureBox a = new PictureBox();
+            //a.Image = images[1];
+            //a.Location = new Point(10, 10);
+            //a.Name = "1";
+            //pictureBox1.AddControl(a);
 
-            listPic[0].Location = new Point(40,40);
-            pictureBox1.AddControl(listPic[0]);
+            //PictureBox b = new PictureBox();
+            //b.Image = images[1];
+            //b.Location = new Point(100, 100);
+            //b.Name = "2";
+            //pictureBox1.AddControl(b);
+
+
+
+
 
         }
         private Point firstPoint = new Point();
@@ -132,7 +154,7 @@ namespace DXApplication1.Views
                     Point temp = Control.MousePosition;
                     Point res = new Point(firstPoint.X - temp.X, firstPoint.Y - temp.Y);
 
-                    pp.Location = new Point(b1.Location.X - res.X, b1.Location.Y - res.Y);
+                    pp.Location = new Point(pp.Location.X - res.X, pp.Location.Y - res.Y);
 
                     firstPoint = temp;
                 }
@@ -160,32 +182,27 @@ namespace DXApplication1.Views
             };
         }
 
-        //move user picturebox
-        TreeNode nodee;
+        public void deletePic(PictureBox pic)
+        {
+            pic.Click += (ss, ee) =>
+            {
+
+                if (Control.ModifierKeys == Keys.Delete)
+                {
+                    MessageBox.Show("delete");
+                }    
+            };
+        }
         public void load_Tree()
         {
-             nodee = new TreeNode("Text for node 1");
-            nodee.ImageIndex = 1;
-            treeView1.Nodes.Add(nodee);
-            
-
-            TreeNode node1 = new TreeNode("C#");
-            TreeNode node2 = new TreeNode("VB.NET");
-            TreeNode node3 = new TreeNode("C++");
-            TreeNode[] array = new TreeNode[] { node1, node2, node3 };
-            TreeNode programmingLanguage = new TreeNode("Programming Language", array);
-            programmingLanguage.ImageIndex = 2;
-            treeView1.Nodes.Add(programmingLanguage);
+            treeView1.ImageList = imageList1;
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (e.Node == nodee)
-            {
-                
-               
-                pictureBox1.AddControl(listPic[0]);
-            }
+            
+            
+
         }
 
         private void treeView1_ItemDrag(object sender, ItemDragEventArgs e)
@@ -200,8 +217,65 @@ namespace DXApplication1.Views
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            if (e.Node.ImageIndex == 1)
+            {
+                selected[opted] = new DoiTuong();
+                selected[opted].Picture.Image = images[1];
+                selected[opted].Detail = "detail" + opted;
+                selected[opted].Picture.Location = new Point(10, 10);
+                pictureBox1.AddControl(selected[opted].Picture);
+                MoveButton(selected[opted].Picture);
+                deletePic(selected[opted].Picture);
+                opted++;
+
+            }
+            if (e.Node.ImageIndex == 2)
+            {
+                selected[opted] = new DoiTuong();
+                selected[opted].Picture.Image = images[2];
+                selected[opted].Detail = "detail" + opted;
+                selected[opted].Picture.Location = new Point(10, 10);
+                pictureBox1.AddControl(selected[opted].Picture);
+                MoveButton(selected[opted].Picture);
+                opted++;
+            }
+            if (e.Node.ImageIndex == 3)
+            {
+                selected[opted] = new DoiTuong();
+                selected[opted].Picture.Image = images[3];
+                selected[opted].Detail = "detail" + opted;
+                selected[opted].Picture.Location = new Point(10, 10);
+                pictureBox1.AddControl(selected[opted].Picture);
+                MoveButton(selected[opted].Picture);
+                opted++;
+
+            }
+            if (e.Node.ImageIndex == 4)
+            {
+                selected[opted] = new DoiTuong();
+                selected[opted].Picture.Image = images[4];
+                selected[opted].Detail = "detail" + opted;
+                selected[opted].Picture.Location = new Point(10, 10);
+                pictureBox1.AddControl(selected[opted].Picture);
+                MoveButton(selected[opted].Picture);
+                opted++;
+
+            }
+            if (e.Node.ImageIndex == 5)
+            {
+                selected[opted] = new DoiTuong();
+                selected[opted].Picture.Image = images[5];
+                selected[opted].Detail = "detail" + opted;
+                selected[opted].Picture.Location = new Point(10, 10);
+                pictureBox1.AddControl(selected[opted].Picture);
+                MoveButton(selected[opted].Picture);
+                opted++;
+
+            }
+
         }
-            
+
+ //===============================================================================================           
 
         public static void ChangeHeight()
         {
