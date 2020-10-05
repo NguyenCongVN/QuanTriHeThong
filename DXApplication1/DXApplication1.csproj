@@ -54,6 +54,7 @@
     <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v19.1.Extensions, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
@@ -67,6 +68,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="USGS">
+      <HintPath>obj\Debug\USGS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Detail_User.cs">
@@ -102,6 +106,9 @@
     <Compile Include="Models\Chucvu.cs" />
     <Compile Include="Models\ChucvuSql.cs" />
     <Compile Include="Models\connection.cs" />
+    <Compile Include="Models\DoiTuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Models\LoaiQuyen.cs" />
     <Compile Include="Models\LoaiQuyenSql.cs" />
     <Compile Include="Models\NguoiDung.cs" />
@@ -116,7 +123,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="Models\ThongTinNguoiDung.cs" />
     <Compile Include="Models\ThongTinNguoiDungSql.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utilizes\ComboBoxItemPhanQuyen.cs" />
+    <Compile Include="Utilizes\DrawHelper.cs" />
     <Compile Include="Utilizes\PhanQuyenHelper.cs" />
     <Compile Include="Utilizes\ThongTinThayDoiChucVu.cs" />
     <Compile Include="Utilizes\UserUtilizes.cs" />
@@ -145,6 +158,12 @@
     <Compile Include="Admin\Phanquyen.Designer.cs">
       <DependentUpon>Phanquyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Frm_test1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Frm_test1.Designer.cs">
+      <DependentUpon>Frm_test1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Account\Detail_User.resx">
       <DependentUpon>Detail_User.cs</DependentUpon>
     </EmbeddedResource>
@@ -167,6 +186,11 @@
     <EmbeddedResource Include="Admin\SuaChucVu.resx">
       <DependentUpon>SuaChucVu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDky.resx">
       <DependentUpon>frmDky.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +207,9 @@
     <EmbeddedResource Include="Admin\Phanquyen.resx">
       <DependentUpon>Phanquyen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Frm_test1.resx">
+      <DependentUpon>Frm_test1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -196,6 +223,21 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duyen.jpg" />
+    <None Include="Resources\Screenshot 2020-09-25 202017.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.PNG" />
+    <None Include="Resources\5.PNG" />
+    <None Include="Resources\6.PNG" />
+    <None Include="Resources\1.PNG" />
+    <None Include="Resources\2.PNG" />
+    <None Include="Resources\3.PNG" />
+    <Content Include="Resources\88116067_2742197879232261_3214101542890110976_n.jpg" />
+    <Content Include="Resources\gax1.PNG" />
+    <Content Include="Resources\TrungVo.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
