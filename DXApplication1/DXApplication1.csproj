@@ -229,6 +229,12 @@
     <None Include="Resources\Screenshot 2020-09-25 202017.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\4.PNG" />
+    <None Include="Resources\5.PNG" />
+    <None Include="Resources\6.PNG" />
+    <None Include="Resources\1.PNG" />
+    <None Include="Resources\2.PNG" />
+    <None Include="Resources\3.PNG" />
     <Content Include="Resources\88116067_2742197879232261_3214101542890110976_n.jpg" />
     <Content Include="Resources\gax1.PNG" />
     <Content Include="Resources\TrungVo.PNG" />
