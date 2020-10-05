@@ -86,9 +86,9 @@ namespace DXApplication1.Account
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if (txtHoTen.Text == "" || txtSoDienThoai.Text == ""|| comboBoxEditChucVu.Text == null)
+            if (txtHoTen.Text == "" || comboBoxEditChucVu.Text == null)
             {
-                MessageBox.Show("Bạn phải nhập đủ họ tên và số điện thoại!!!", "ERROR???");
+                MessageBox.Show("Bạn phải nhập đủ họ tên !!!", "ERROR???");
             }
             else
             {

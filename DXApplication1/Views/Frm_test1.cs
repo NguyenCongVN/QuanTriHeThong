@@ -1,15 +1,11 @@
 ﻿using Braincase.USGS.DEM;
 using DevExpress.Utils.Extensions;
-
-using DevExpress.XtraPrinting.Export.Pdf;
 using System;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
-using DevExpress.Office.Drawing;
-
 namespace DXApplication1.Views
 {
     public partial class Frm_test1 : DevExpress.XtraEditors.XtraForm
@@ -18,13 +14,13 @@ namespace DXApplication1.Views
         /// 
         /// </summary>
 
-        static Bitmap bitmapInit1 = new Bitmap(@"C:\Users\Dell\Pictures\lien_hoan_Que\49419090226_cc2cb04df2_b.jpg");
+        static Bitmap bitmapInit1 = new Bitmap(Properties.Resources.Screenshot_2020_09_25_202017);
 
-        Bitmap bitmapInit = new Bitmap(bitmapInit1, 3000, 3000);
+        Bitmap bitmapInit = new Bitmap(bitmapInit1, 1201, 1201);
 
         //
 
-        Bitmap bitmapTemp = new Bitmap(bitmapInit1, 3000, 3000);
+        Bitmap bitmapTemp = new Bitmap(bitmapInit1, 1201, 1201);
 
         //
         public static DemDocument _mDem = null;
@@ -57,9 +53,7 @@ namespace DXApplication1.Views
             init();
             MoveButton();
             MovePic();
-            
             load_Tree();
-            
             pictureBox1.Image = bitmapInit;
 
         }
@@ -68,7 +62,7 @@ namespace DXApplication1.Views
             images = new Image[10];
             for(int i = 1; i <= 6; i++ )
             {
-                images[i] = Image.FromFile(@"C:\Users\Dell\Desktop\Working-Lien-Cong\QuanTriHeThong\Images\" + i +".PNG");
+                images[i] = Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + i + ".png");
             }    
         }
         public void init()
@@ -110,13 +104,9 @@ namespace DXApplication1.Views
             //b.Location = new Point(100, 100);
             //b.Name = "2";
             //pictureBox1.AddControl(b);
-
-
-
-
-
         }
-        private Point firstPoint = new Point();
+
+        private Point firstPoint;
         public void MoveButton()
         {
             b1.MouseDown += (ss, ee) =>
@@ -145,7 +135,6 @@ namespace DXApplication1.Views
             {
                 if (ee.Button == System.Windows.Forms.MouseButtons.Left)
                 { firstPoint = Control.MousePosition; }
-
             };
             pp.MouseMove += (ss, ee) =>
             {
@@ -318,6 +307,7 @@ namespace DXApplication1.Views
                                 double height = _mDem.BRecord.elevations[col, row] * _mDem.ARecord.xyz_resolution[2];
                                 var min = _mDem.ARecord.elevation_min;
                                 var max = _mDem.ARecord.elevation_max;
+                                if(row % 5 == 0)
                                 if (height >= min)
                                 {
                                     //int ratio = (int)(((height - min) / (max - min)) * 255f);
