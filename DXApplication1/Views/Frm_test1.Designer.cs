@@ -34,6 +34,20 @@
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node2", 2, 2);
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node3", 3, 3);
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node4", 4, 4);
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("con1");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("con2");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("con3");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("cha1", -2, -2, new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode7,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("con1");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("con2");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("con3");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("cha2", -2, -2, new System.Windows.Forms.TreeNode[] {
+            treeNode10,
+            treeNode11,
+            treeNode12});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_test1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -84,6 +98,24 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Danh Sách ";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(62, 309);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Xóa";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(49, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 28);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Danh Sách ";
+            // 
             // treeView1
             // 
             this.treeView1.ImageIndex = 0;
@@ -110,14 +142,36 @@
             treeNode5.Name = "Node4";
             treeNode5.SelectedImageIndex = 4;
             treeNode5.Text = "Node4";
+            treeNode6.Name = "Node1";
+            treeNode6.Text = "con1";
+            treeNode7.Name = "Node2";
+            treeNode7.Text = "con2";
+            treeNode8.Name = "Node3";
+            treeNode8.Text = "con3";
+            treeNode9.ImageIndex = -2;
+            treeNode9.Name = "Node5";
+            treeNode9.SelectedImageIndex = -2;
+            treeNode9.Text = "cha1";
+            treeNode10.Name = "Node5";
+            treeNode10.Text = "con1";
+            treeNode11.Name = "Node6";
+            treeNode11.Text = "con2";
+            treeNode12.Name = "Node7";
+            treeNode12.Text = "con3";
+            treeNode13.ImageIndex = -2;
+            treeNode13.Name = "Node4";
+            treeNode13.SelectedImageIndex = -2;
+            treeNode13.Text = "cha2";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3,
             treeNode4,
-            treeNode5});
+            treeNode5,
+            treeNode9,
+            treeNode13});
             this.treeView1.SelectedImageIndex = 0;
-            this.treeView1.Size = new System.Drawing.Size(198, 158);
+            this.treeView1.Size = new System.Drawing.Size(230, 297);
             this.treeView1.TabIndex = 0;
             this.treeView1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.treeView1_ItemDrag);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -230,7 +284,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Frm_test1";
-            this.Text = "Frm_test1";
+            this.Text = resources.GetString("$this.Text");
             this.Load += new System.EventHandler(this.Frm_test1_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).EndInit();
