@@ -1,19 +1,17 @@
 ﻿using Braincase.USGS.DEM;
-using DevExpress.Utils.Extensions;
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data;
-using System.Configuration;
 
 namespace DXApplication1.Views
 {
     public partial class Frm_test1 : DevExpress.XtraEditors.XtraForm
     {
+
         /// <summary>
         /// 
         /// </summary>
@@ -79,19 +77,20 @@ namespace DXApplication1.Views
 
         int check = 0;
         int opted = 0;
-        Button b1;
+
         PictureBox p1;
         DoiTuong[] listPic;
         DoiTuong[] selected = new DoiTuong[100];
         Image[] images;
 
+
         NodeOnMap nodeOnMap;
+
         public Frm_test1()
         {
             InitializeComponent();
             initImageOfNode();
             init();
-            MoveButton();
             MovePic();
             pictureBox1.Image = bitmapInit;
         }
@@ -112,6 +111,7 @@ namespace DXApplication1.Views
         }
         public void init()
         {
+
             //picture
             p1 = new PictureBox();
             p1.Size = new Size(13, 20);
@@ -119,18 +119,6 @@ namespace DXApplication1.Views
             p1.SizeMode = PictureBoxSizeMode.AutoSize;
             p1.Location = new Point(20, 20);
 
-            //button
-            b1 = new Button();
-            b1.AutoSize = true;
-            b1.Text = "b1";
-            b1.Visible = true;
-            b1.Location = new Point(0, 0);
-
-            //add button
-            pictureBox1.AddControl(b1);
-
-            //add picturebox
-            // pictureBox1.AddControl(p1);
 
             listPic = new DoiTuong[10];
             for (int i = 1; i <= 6; i++)
@@ -138,41 +126,11 @@ namespace DXApplication1.Views
                 //listPic[i] = new DoiTuong();
                 //listPic[i].Picture.Image = images[i];
             }
-            //PictureBox a = new PictureBox();
-            //a.Image = images[1];
-            //a.Location = new Point(10, 10);
-            //a.Name = "1";
-            //pictureBox1.AddControl(a);
 
-            //PictureBox b = new PictureBox();
-            //b.Image = images[1];
-            //b.Location = new Point(100, 100);
-            //b.Name = "2";
-            //pictureBox1.AddControl(b);
         }
 
         private Point firstPoint;
-        public void MoveButton()
-        {
-            b1.MouseDown += (ss, ee) =>
-            {
-                if (ee.Button == System.Windows.Forms.MouseButtons.Left)
-                { firstPoint = Control.MousePosition; }
 
-            };
-            b1.MouseMove += (ss, ee) =>
-            {
-                if (ee.Button == System.Windows.Forms.MouseButtons.Left)
-                {
-                    Point temp = Control.MousePosition;
-                    Point res = new Point(firstPoint.X - temp.X, firstPoint.Y - temp.Y);
-
-                    b1.Location = new Point(b1.Location.X - res.X, b1.Location.Y - res.Y);
-
-                    firstPoint = temp;
-                }
-            };
-        }
 
         public void MoveButton(PictureBox pp)
         {
@@ -239,7 +197,7 @@ namespace DXApplication1.Views
             //int i = 0;
             foreach (DataRow dr in PicSet.Tables[0].Rows)
             {
-                imageListChild.Images.Add(dr["MaDonVi"].ToString(),Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
+                imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
             }
             int count = imageListChild.Images.Count;
             treeView1.ImageList = imageListChild;
@@ -247,17 +205,17 @@ namespace DXApplication1.Views
             DataSet PrSet = nodeOnMap.getDataParentNode();
             treeView1.Nodes.Clear();
             int i = 0;
-            foreach(DataRow dr in PrSet.Tables[0].Rows)
+            foreach (DataRow dr in PrSet.Tables[0].Rows)
             {
-                treeView1.Nodes.Add(dr["MaBinhChung"].ToString(),dr["TenBinhChung"].ToString(),count + 1, count + 2);
+                treeView1.Nodes.Add(dr["MaBinhChung"].ToString(), dr["TenBinhChung"].ToString(), count + 1, count + 2);
                 DataSet chSet = nodeOnMap.getDataChildNode(dr["MaBinhChung"].ToString());
-                foreach(DataRow drch in chSet.Tables[0].Rows)
+                foreach (DataRow drch in chSet.Tables[0].Rows)
                 {
                     int index = imageListChild.Images.IndexOfKey(drch["MaDonVi"].ToString());
                     treeView1.Nodes[i].Nodes.Add(drch["MaDonVi"].ToString(), drch["TenDonVi"].ToString(), index, index);
                 }
                 i++;
-            }    
+            }
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -276,6 +234,9 @@ namespace DXApplication1.Views
         {
             load_Tree();
         }
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern IntPtr LoadCursorFromFile(string fileName);
+        Cursor myCursor;
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -336,7 +297,7 @@ namespace DXApplication1.Views
             //}
 
         }
-
+        //nhap chuot phai hien thong tin, chuot trai cho phep sua thong tin
         //===============================================================================================           
 
         public static void ChangeHeight()
@@ -377,7 +338,6 @@ namespace DXApplication1.Views
                         Monitor.TryEnter(speedLock, ref tryToLockSpeed);
                         if (tryToLockSpeed)
                         {
-
                             for (int col = 0; col < _mDem.ARecord.eastings_cols; col++)
                             {
                                 for (int row = 0; row < _mDem.ARecord.northings_rows; row++)
@@ -387,8 +347,6 @@ namespace DXApplication1.Views
                             }
                             Monitor.Exit(speedLock);
                             break;
-                          //  _mDem.BRecord.elevations[col, row] -= 2;
-
                         }
                     }
                 }
@@ -565,5 +523,83 @@ namespace DXApplication1.Views
             _mDem.Read(path);
             pictureBox1.Image = bitmapInit;
         }
+
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+            if (check == 1)
+            {
+                selected[opted - 1].Picture.Location = new Point(Control.MousePosition.X - pictureBox1.Location.X - 20, Control.MousePosition.Y - pictureBox1.Location.Y - 20);
+
+                selected[opted - 1].Picture.Visible = true;
+                check = 0;
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void item1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            dialog.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (System.IO.File.Exists(dialog.FileName))
+                {
+                    path = dialog.FileName;
+                    _mDem = new DemDocument();
+                    _mDem.Read(dialog.FileName);
+                    txtOutput.Text = string.Empty;
+                    txtOutput.Text += "DEM Name: " + new string(_mDem.ARecord.file_name) + Environment.NewLine;
+                    txtOutput.Text += "SE Coord: " + new string(_mDem.ARecord.SE_geographic_corner_S) + ", " +
+                                      new string(_mDem.ARecord.SE_geographic_corner_E) + Environment.NewLine;
+                    txtOutput.Text += "DEM Level Code: " + _mDem.ARecord.dem_level_code + Environment.NewLine;
+                    txtOutput.Text += "Ground Reference System: " +
+                                      (GROUND_REF_SYSTEM)_mDem.ARecord.ground_ref_system + Environment.NewLine;
+                    txtOutput.Text += "Ground Reference Zone: " + _mDem.ARecord.ground_ref_zone + Environment.NewLine;
+                    txtOutput.Text += "Ground Unit: " + (GROUND_UNIT)_mDem.ARecord.ground_unit + Environment.NewLine;
+                    txtOutput.Text += "Elevation Unit: " + (ELEVATION_UNIT)_mDem.ARecord.elevation_unit +
+                                      Environment.NewLine;
+                    txtOutput.Text += "Ground Resolution (lat, lng, elev): " + _mDem.ARecord.xyz_resolution[0] + ", " +
+                                      _mDem.ARecord.xyz_resolution[1] + ", " + _mDem.ARecord.xyz_resolution[2] +
+                                      Environment.NewLine;
+                    txtOutput.Text += "Elavation Array Szie: " + _mDem.ARecord.northings_rows + " x " +
+                                      _mDem.ARecord.eastings_cols + Environment.NewLine;
+                    txtOutput.Text += "Percentage void: " + _mDem.ARecord.percent_void + Environment.NewLine;
+                    txtOutput.Text += "SW Coord: " + _mDem.ARecord.sw_coord[0] + ", " + _mDem.ARecord.sw_coord[1] +
+                                      Environment.NewLine;
+                    txtOutput.Text += "NW Coord: " + _mDem.ARecord.nw_coord[0] + ", " + _mDem.ARecord.nw_coord[1] +
+                                      Environment.NewLine;
+                    txtOutput.Text += "NE Coord: " + _mDem.ARecord.ne_coord[0] + ", " + _mDem.ARecord.ne_coord[1] +
+                                      Environment.NewLine;
+                    txtOutput.Text += "SE Coord: " + _mDem.ARecord.se_coord[0] + ", " + _mDem.ARecord.se_coord[1] +
+                                      Environment.NewLine;
+
+                }
+            }
+        }
+
+        private void treeView1_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            //if (e.Node.ImageIndex >= e.Node.TreeView.ImageList.Images.Count) // if there is no image 
+            //{
+            //    int imagewidths = e.Node.TreeView.ImageList.ImageSize.Width;
+            //    int textheight = TextRenderer.MeasureText(e.Node.Text, e.Node.NodeFont).Height;
+            //    int x = e.Node.Bounds.Left - 3 - imagewidths / 2;
+            //    int y = (e.Bounds.Top + e.Bounds.Bottom) / 2 + 1;
+
+            //    Point point = new Point(x - imagewidths / 2, y - textheight / 2); // the new location for the text to be drawn 
+
+            //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.NodeFont, point, e.Node.ForeColor.);
+            //}
+            //else // drawn at the default location 
+            //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Bounds, default);
+        }
+
     }
 }

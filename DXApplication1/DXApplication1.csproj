@@ -122,7 +122,6 @@
     <Compile Include="Models\Quyen_LoaiQuyen.cs" />
     <Compile Include="Models\Quyen_LoaiQuyenSql.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
-    <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Models\ThongTinNguoiDung.cs" />
     <Compile Include="Models\ThongTinNguoiDungSql.cs" />
@@ -136,6 +135,12 @@
     <Compile Include="Utilizes\PhanQuyenHelper.cs" />
     <Compile Include="Utilizes\ThongTinThayDoiChucVu.cs" />
     <Compile Include="Utilizes\UserUtilizes.cs" />
+    <Compile Include="Views\ChinhSuaTT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ChinhSuaTT.Designer.cs">
+      <DependentUpon>ChinhSuaTT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmDky.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +194,9 @@
     <EmbeddedResource Include="Admin\SuaChucVu.resx">
       <DependentUpon>SuaChucVu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Models\DoiTuong.resx">
+      <DependentUpon>DoiTuong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\DXApplication1.Account.Detail_User.resources" />
     <EmbeddedResource Include="obj\Debug\DXApplication1.Account.UpdatePass.resources" />
     <EmbeddedResource Include="obj\Debug\DXApplication1.Admin.AddChucVu.resources" />
@@ -205,6 +213,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ChinhSuaTT.resx">
+      <DependentUpon>ChinhSuaTT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDky.resx">
       <DependentUpon>frmDky.cs</DependentUpon>
@@ -224,6 +235,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Frm_test1.resx">
       <DependentUpon>Frm_test1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
@@ -244,6 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="obj\Release\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="obj\Debug\DXApplication1.csproj.FileListAbsolute.txt" />
@@ -272,6 +285,12 @@
     <Content Include="Resources\duyen.jpg" />
     <Content Include="Resources\Filter_32x32.png" />
     <Content Include="Resources\gax1.PNG" />
+    <None Include="Resources\pause-16.png" />
+    <None Include="Resources\start-16.png" />
+    <None Include="Resources\iconPro.jpg" />
+    <None Include="Resources\iconDelete.jpg" />
+    <None Include="Resources\iconChinhsua.png" />
+    <Content Include="Resources\square.cur" />
     <Content Include="Resources\pause-16.png" />
     <Content Include="Resources\Screenshot 2020-09-25 202017.png" />
     <Content Include="Resources\start-16.png" />

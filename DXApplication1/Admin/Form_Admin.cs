@@ -25,6 +25,11 @@ namespace DXApplication1
             themes.LookAndFeel.SkinName = "Whiteprint";       //tên giao diện set mặc định
         }
 
+        private void ribbonControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void FrmMain_Load(object sender, EventArgs e)
         {
             Skins();
