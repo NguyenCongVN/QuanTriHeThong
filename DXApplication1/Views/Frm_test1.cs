@@ -6,9 +6,9 @@ using System;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-
-using DXApplication1.Models;
-using DXApplication1.Utilizes;
+using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
 
 namespace DXApplication1.Views
 {
@@ -84,23 +84,30 @@ namespace DXApplication1.Views
         DoiTuong[] listPic;
         DoiTuong[] selected = new DoiTuong[100];
         Image[] images;
+
+        NodeOnMap nodeOnMap;
         public Frm_test1()
         {
             InitializeComponent();
-            initImage();
+            initImageOfNode();
             init();
             MoveButton();
             MovePic();
-            load_Tree();
             pictureBox1.Image = bitmapInit;
-
         }
-        public void initImage()
+        public void initImageOfNode()
         {
-            images = new Image[10];
-            for (int i = 1; i <= 6; i++)
+            nodeOnMap = new NodeOnMap();
+            DataSet PicSet = nodeOnMap.getIconChild();
+            //images = new Image[1000];
+            ////for (int i = 1; i <= 6; i++)
+            ////{
+            ////    images[i] = Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + i + ".png");
+            ////}
+            //int i = 0;
+            foreach (DataRow dr in PicSet.Tables[0].Rows)
             {
-                images[i] = Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + i + ".png");
+                imageListChild.Images.Add(Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
             }
         }
         public void init()
@@ -128,8 +135,8 @@ namespace DXApplication1.Views
             listPic = new DoiTuong[10];
             for (int i = 1; i <= 6; i++)
             {
-                listPic[i] = new DoiTuong();
-                listPic[i].Picture.Image = images[i];
+                //listPic[i] = new DoiTuong();
+                //listPic[i].Picture.Image = images[i];
             }
             //PictureBox a = new PictureBox();
             //a.Image = images[1];
@@ -222,7 +229,35 @@ namespace DXApplication1.Views
         }
         public void load_Tree()
         {
-            treeView1.ImageList = imageList1;
+            nodeOnMap = new NodeOnMap();
+            DataSet PicSet = nodeOnMap.getIconChild();
+            //images = new Image[1000];
+            ////for (int i = 1; i <= 6; i++)
+            ////{
+            ////    images[i] = Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + i + ".png");
+            ////}
+            //int i = 0;
+            foreach (DataRow dr in PicSet.Tables[0].Rows)
+            {
+                imageListChild.Images.Add(dr["MaDonVi"].ToString(),Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
+            }
+            int count = imageListChild.Images.Count;
+            treeView1.ImageList = imageListChild;
+            nodeOnMap = new NodeOnMap();
+            DataSet PrSet = nodeOnMap.getDataParentNode();
+            treeView1.Nodes.Clear();
+            int i = 0;
+            foreach(DataRow dr in PrSet.Tables[0].Rows)
+            {
+                treeView1.Nodes.Add(dr["MaBinhChung"].ToString(),dr["TenBinhChung"].ToString(),count + 1, count + 2);
+                DataSet chSet = nodeOnMap.getDataChildNode(dr["MaBinhChung"].ToString());
+                foreach(DataRow drch in chSet.Tables[0].Rows)
+                {
+                    int index = imageListChild.Images.IndexOfKey(drch["MaDonVi"].ToString());
+                    treeView1.Nodes[i].Nodes.Add(drch["MaDonVi"].ToString(), drch["TenDonVi"].ToString(), index, index);
+                }
+                i++;
+            }    
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -239,66 +274,66 @@ namespace DXApplication1.Views
 
         private void Frm_test1_Load(object sender, EventArgs e)
         {
-
+            load_Tree();
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (e.Node.ImageIndex == 1)
-            {
-                selected[opted] = new DoiTuong();
-                selected[opted].Picture.Image = images[1];
-                selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Location = new Point(10, 10);
-                pictureBox1.AddControl(selected[opted].Picture);
-                MoveButton(selected[opted].Picture);
-                deletePic(selected[opted].Picture);
-                opted++;
+            //if (e.Node.ImageIndex == 1)
+            //{
+            //    selected[opted] = new DoiTuong();
+            //    selected[opted].Picture.Image = images[1];
+            //    selected[opted].Detail = "detail" + opted;
+            //    selected[opted].Picture.Location = new Point(10, 10);
+            //    pictureBox1.AddControl(selected[opted].Picture);
+            //    MoveButton(selected[opted].Picture);
+            //    deletePic(selected[opted].Picture);
+            //    opted++;
 
-            }
-            if (e.Node.ImageIndex == 2)
-            {
-                selected[opted] = new DoiTuong();
-                selected[opted].Picture.Image = images[2];
-                selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Location = new Point(10, 10);
-                pictureBox1.AddControl(selected[opted].Picture);
-                MoveButton(selected[opted].Picture);
-                opted++;
-            }
-            if (e.Node.ImageIndex == 3)
-            {
-                selected[opted] = new DoiTuong();
-                selected[opted].Picture.Image = images[3];
-                selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Location = new Point(10, 10);
-                pictureBox1.AddControl(selected[opted].Picture);
-                MoveButton(selected[opted].Picture);
-                opted++;
+            //}
+            //if (e.Node.ImageIndex == 2)
+            //{
+            //    selected[opted] = new DoiTuong();
+            //    selected[opted].Picture.Image = images[2];
+            //    selected[opted].Detail = "detail" + opted;
+            //    selected[opted].Picture.Location = new Point(10, 10);
+            //    pictureBox1.AddControl(selected[opted].Picture);
+            //    MoveButton(selected[opted].Picture);
+            //    opted++;
+            //}
+            //if (e.Node.ImageIndex == 3)
+            //{
+            //    selected[opted] = new DoiTuong();
+            //    selected[opted].Picture.Image = images[3];
+            //    selected[opted].Detail = "detail" + opted;
+            //    selected[opted].Picture.Location = new Point(10, 10);
+            //    pictureBox1.AddControl(selected[opted].Picture);
+            //    MoveButton(selected[opted].Picture);
+            //    opted++;
 
-            }
-            if (e.Node.ImageIndex == 4)
-            {
-                selected[opted] = new DoiTuong();
-                selected[opted].Picture.Image = images[4];
-                selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Location = new Point(10, 10);
-                pictureBox1.AddControl(selected[opted].Picture);
-                MoveButton(selected[opted].Picture);
-                opted++;
+            //}
+            //if (e.Node.ImageIndex == 4)
+            //{
+            //    selected[opted] = new DoiTuong();
+            //    selected[opted].Picture.Image = images[4];
+            //    selected[opted].Detail = "detail" + opted;
+            //    selected[opted].Picture.Location = new Point(10, 10);
+            //    pictureBox1.AddControl(selected[opted].Picture);
+            //    MoveButton(selected[opted].Picture);
+            //    opted++;
 
-            }
-            if (e.Node.ImageIndex == 5)
-            {
-                selected[opted] = new DoiTuong();
-                selected[opted].Picture.Image = images[5];
-                selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Location = new Point(10, 10);
-                pictureBox1.AddControl(selected[opted].Picture);
-                MoveButton(selected[opted].Picture);
-                opted++;
+            //}
+            //if (e.Node.ImageIndex == 5)
+            //{
+            //    selected[opted] = new DoiTuong();
+            //    selected[opted].Picture.Image = images[5];
+            //    selected[opted].Detail = "detail" + opted;
+            //    selected[opted].Picture.Location = new Point(10, 10);
+            //    pictureBox1.AddControl(selected[opted].Picture);
+            //    MoveButton(selected[opted].Picture);
+            //    opted++;
 
-            }
+            //}
 
         }
 
@@ -352,7 +387,7 @@ namespace DXApplication1.Views
                             }
                             Monitor.Exit(speedLock);
                             break;
-                            _mDem.BRecord.elevations[col, row] -= 2;
+                          //  _mDem.BRecord.elevations[col, row] -= 2;
 
                         }
                     }
@@ -529,6 +564,23 @@ namespace DXApplication1.Views
             b.Abort();
             _mDem.Read(path);
             pictureBox1.Image = bitmapInit;
+        }
+
+        private void treeView1_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            //if (e.Node.ImageIndex >= e.Node.TreeView.ImageList.Images.Count) // if there is no image 
+            //{
+            //    int imagewidths = e.Node.TreeView.ImageList.ImageSize.Width;
+            //    int textheight = TextRenderer.MeasureText(e.Node.Text, e.Node.NodeFont).Height;
+            //    int x = e.Node.Bounds.Left - 3 - imagewidths / 2;
+            //    int y = (e.Bounds.Top + e.Bounds.Bottom) / 2 + 1;
+
+            //    Point point = new Point(x - imagewidths / 2, y - textheight / 2); // the new location for the text to be drawn 
+
+            //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.NodeFont, point, e.Node.ForeColor.);
+            //}
+            //else // drawn at the default location 
+            //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Bounds, default);
         }
     }
 }

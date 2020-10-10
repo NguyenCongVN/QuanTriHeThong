@@ -47,6 +47,7 @@
             this.textBoxMaDangNhap = new System.Windows.Forms.TextBox();
             this.labelMaDangNhap = new System.Windows.Forms.Label();
             this.panelControlCapNhat = new DevExpress.XtraEditors.PanelControl();
+            this.buttonThoat = new System.Windows.Forms.Button();
             this.buttonXoa = new System.Windows.Forms.Button();
             this.buttonThem = new System.Windows.Forms.Button();
             this.labelHienthitt = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.TenChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDSNV = new System.Windows.Forms.Panel();
-            this.buttonThoat = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlHienthitt)).BeginInit();
             this.panelControlHienthitt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlCapNhat)).BeginInit();
@@ -81,7 +81,7 @@
             this.buttonSua.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonSua.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonSua.Location = new System.Drawing.Point(36, 124);
+            this.buttonSua.Location = new System.Drawing.Point(31, 89);
             this.buttonSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSua.Name = "buttonSua";
             this.buttonSua.Size = new System.Drawing.Size(204, 49);
@@ -114,14 +114,14 @@
             this.panelControlHienthitt.Location = new System.Drawing.Point(0, 0);
             this.panelControlHienthitt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControlHienthitt.Name = "panelControlHienthitt";
-            this.panelControlHienthitt.Size = new System.Drawing.Size(1736, 410);
+            this.panelControlHienthitt.Size = new System.Drawing.Size(1736, 414);
             this.panelControlHienthitt.TabIndex = 4;
             // 
             // textBoxChucVu
             // 
             this.textBoxChucVu.Enabled = false;
             this.textBoxChucVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxChucVu.Location = new System.Drawing.Point(859, 245);
+            this.textBoxChucVu.Location = new System.Drawing.Point(859, 286);
             this.textBoxChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxChucVu.Name = "textBoxChucVu";
             this.textBoxChucVu.ReadOnly = true;
@@ -132,7 +132,7 @@
             // 
             this.textBoxNgayTao.Enabled = false;
             this.textBoxNgayTao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNgayTao.Location = new System.Drawing.Point(859, 330);
+            this.textBoxNgayTao.Location = new System.Drawing.Point(859, 345);
             this.textBoxNgayTao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNgayTao.Name = "textBoxNgayTao";
             this.textBoxNgayTao.ReadOnly = true;
@@ -143,7 +143,7 @@
             // 
             this.textBoxNgaySinh.Enabled = false;
             this.textBoxNgaySinh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNgaySinh.Location = new System.Drawing.Point(859, 76);
+            this.textBoxNgaySinh.Location = new System.Drawing.Point(859, 184);
             this.textBoxNgaySinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNgaySinh.Name = "textBoxNgaySinh";
             this.textBoxNgaySinh.ReadOnly = true;
@@ -154,7 +154,7 @@
             // 
             this.textBoxDiaChi.Enabled = false;
             this.textBoxDiaChi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDiaChi.Location = new System.Drawing.Point(859, 166);
+            this.textBoxDiaChi.Location = new System.Drawing.Point(859, 236);
             this.textBoxDiaChi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxDiaChi.Name = "textBoxDiaChi";
             this.textBoxDiaChi.ReadOnly = true;
@@ -165,7 +165,7 @@
             // 
             this.textBoxHoTen.Enabled = false;
             this.textBoxHoTen.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxHoTen.Location = new System.Drawing.Point(418, 166);
+            this.textBoxHoTen.Location = new System.Drawing.Point(418, 236);
             this.textBoxHoTen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxHoTen.Name = "textBoxHoTen";
             this.textBoxHoTen.ReadOnly = true;
@@ -176,7 +176,7 @@
             // 
             this.textBoxEmail.Enabled = false;
             this.textBoxEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(418, 248);
+            this.textBoxEmail.Location = new System.Drawing.Point(418, 289);
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.ReadOnly = true;
@@ -187,7 +187,7 @@
             // 
             this.textBoxSoDienThoai.Enabled = false;
             this.textBoxSoDienThoai.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSoDienThoai.Location = new System.Drawing.Point(418, 328);
+            this.textBoxSoDienThoai.Location = new System.Drawing.Point(418, 343);
             this.textBoxSoDienThoai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxSoDienThoai.Name = "textBoxSoDienThoai";
             this.textBoxSoDienThoai.ReadOnly = true;
@@ -197,7 +197,7 @@
             // labelnvviet
             // 
             this.labelnvviet.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelnvviet.Location = new System.Drawing.Point(697, 170);
+            this.labelnvviet.Location = new System.Drawing.Point(697, 240);
             this.labelnvviet.Name = "labelnvviet";
             this.labelnvviet.Size = new System.Drawing.Size(142, 22);
             this.labelnvviet.TabIndex = 17;
@@ -207,7 +207,7 @@
             // 
             this.labelnvketoan.AutoSize = true;
             this.labelnvketoan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelnvketoan.Location = new System.Drawing.Point(697, 336);
+            this.labelnvketoan.Location = new System.Drawing.Point(697, 351);
             this.labelnvketoan.Name = "labelnvketoan";
             this.labelnvketoan.Size = new System.Drawing.Size(156, 22);
             this.labelnvketoan.TabIndex = 16;
@@ -217,7 +217,7 @@
             // 
             this.labelNgaySinh.AutoSize = true;
             this.labelNgaySinh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNgaySinh.Location = new System.Drawing.Point(697, 84);
+            this.labelNgaySinh.Location = new System.Drawing.Point(697, 192);
             this.labelNgaySinh.Name = "labelNgaySinh";
             this.labelNgaySinh.Size = new System.Drawing.Size(91, 22);
             this.labelNgaySinh.TabIndex = 15;
@@ -227,7 +227,7 @@
             // 
             this.labelChucVu.AutoSize = true;
             this.labelChucVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelChucVu.Location = new System.Drawing.Point(697, 251);
+            this.labelChucVu.Location = new System.Drawing.Point(697, 292);
             this.labelChucVu.Name = "labelChucVu";
             this.labelChucVu.Size = new System.Drawing.Size(76, 22);
             this.labelChucVu.TabIndex = 14;
@@ -237,7 +237,7 @@
             // 
             this.labelSoDienThoai.AutoSize = true;
             this.labelSoDienThoai.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSoDienThoai.Location = new System.Drawing.Point(283, 333);
+            this.labelSoDienThoai.Location = new System.Drawing.Point(283, 348);
             this.labelSoDienThoai.Name = "labelSoDienThoai";
             this.labelSoDienThoai.Size = new System.Drawing.Size(114, 22);
             this.labelSoDienThoai.TabIndex = 6;
@@ -247,7 +247,7 @@
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.Location = new System.Drawing.Point(283, 248);
+            this.labelEmail.Location = new System.Drawing.Point(283, 289);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(57, 22);
             this.labelEmail.TabIndex = 5;
@@ -257,7 +257,7 @@
             // 
             this.labelHoTen.AutoSize = true;
             this.labelHoTen.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHoTen.Location = new System.Drawing.Point(283, 170);
+            this.labelHoTen.Location = new System.Drawing.Point(283, 240);
             this.labelHoTen.Name = "labelHoTen";
             this.labelHoTen.Size = new System.Drawing.Size(62, 22);
             this.labelHoTen.TabIndex = 4;
@@ -267,7 +267,7 @@
             // 
             this.textBoxMaDangNhap.Enabled = false;
             this.textBoxMaDangNhap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMaDangNhap.Location = new System.Drawing.Point(418, 84);
+            this.textBoxMaDangNhap.Location = new System.Drawing.Point(418, 185);
             this.textBoxMaDangNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxMaDangNhap.Name = "textBoxMaDangNhap";
             this.textBoxMaDangNhap.ReadOnly = true;
@@ -278,7 +278,7 @@
             // 
             this.labelMaDangNhap.AutoSize = true;
             this.labelMaDangNhap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMaDangNhap.Location = new System.Drawing.Point(283, 84);
+            this.labelMaDangNhap.Location = new System.Drawing.Point(283, 185);
             this.labelMaDangNhap.Name = "labelMaDangNhap";
             this.labelMaDangNhap.Size = new System.Drawing.Size(129, 22);
             this.labelMaDangNhap.TabIndex = 2;
@@ -290,11 +290,26 @@
             this.panelControlCapNhat.Controls.Add(this.buttonXoa);
             this.panelControlCapNhat.Controls.Add(this.buttonThem);
             this.panelControlCapNhat.Controls.Add(this.buttonSua);
-            this.panelControlCapNhat.Location = new System.Drawing.Point(1191, 23);
+            this.panelControlCapNhat.Location = new System.Drawing.Point(1159, 90);
             this.panelControlCapNhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControlCapNhat.Name = "panelControlCapNhat";
-            this.panelControlCapNhat.Size = new System.Drawing.Size(259, 373);
+            this.panelControlCapNhat.Size = new System.Drawing.Size(259, 304);
             this.panelControlCapNhat.TabIndex = 1;
+            // 
+            // buttonThoat
+            // 
+            this.buttonThoat.AutoSize = true;
+            this.buttonThoat.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonThoat.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonThoat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonThoat.Location = new System.Drawing.Point(31, 245);
+            this.buttonThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonThoat.Name = "buttonThoat";
+            this.buttonThoat.Size = new System.Drawing.Size(204, 45);
+            this.buttonThoat.TabIndex = 9;
+            this.buttonThoat.Text = "Thoát";
+            this.buttonThoat.UseVisualStyleBackColor = false;
+            this.buttonThoat.Click += new System.EventHandler(this.buttonThoat_Click);
             // 
             // buttonXoa
             // 
@@ -302,7 +317,7 @@
             this.buttonXoa.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonXoa.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonXoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonXoa.Location = new System.Drawing.Point(36, 200);
+            this.buttonXoa.Location = new System.Drawing.Point(31, 165);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXoa.Name = "buttonXoa";
             this.buttonXoa.Size = new System.Drawing.Size(204, 47);
@@ -317,7 +332,7 @@
             this.buttonThem.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonThem.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonThem.Location = new System.Drawing.Point(36, 39);
+            this.buttonThem.Location = new System.Drawing.Point(31, 22);
             this.buttonThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonThem.Name = "buttonThem";
             this.buttonThem.Size = new System.Drawing.Size(204, 49);
@@ -330,7 +345,7 @@
             // 
             this.labelHienthitt.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHienthitt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelHienthitt.Location = new System.Drawing.Point(282, 2);
+            this.labelHienthitt.Location = new System.Drawing.Point(282, 110);
             this.labelHienthitt.Name = "labelHienthitt";
             this.labelHienthitt.Size = new System.Drawing.Size(819, 33);
             this.labelHienthitt.TabIndex = 0;
@@ -481,26 +496,11 @@
             this.panelDSNV.Controls.Add(this.dataGridViewDSNV);
             this.panelDSNV.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelDSNV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDSNV.Location = new System.Drawing.Point(0, 410);
+            this.panelDSNV.Location = new System.Drawing.Point(0, 414);
             this.panelDSNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDSNV.Name = "panelDSNV";
-            this.panelDSNV.Size = new System.Drawing.Size(1736, 407);
+            this.panelDSNV.Size = new System.Drawing.Size(1736, 403);
             this.panelDSNV.TabIndex = 3;
-            // 
-            // buttonThoat
-            // 
-            this.buttonThoat.AutoSize = true;
-            this.buttonThoat.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.buttonThoat.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThoat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonThoat.Location = new System.Drawing.Point(36, 280);
-            this.buttonThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonThoat.Name = "buttonThoat";
-            this.buttonThoat.Size = new System.Drawing.Size(204, 45);
-            this.buttonThoat.TabIndex = 9;
-            this.buttonThoat.Text = "Thoát";
-            this.buttonThoat.UseVisualStyleBackColor = false;
-            this.buttonThoat.Click += new System.EventHandler(this.buttonThoat_Click);
             // 
             // QuanLyNhanVien
             // 
