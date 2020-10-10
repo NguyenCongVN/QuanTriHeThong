@@ -86,18 +86,17 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.treeView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1120, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Location = new System.Drawing.Point(1004, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(230, 756);
+            this.panel1.Size = new System.Drawing.Size(153, 614);
             this.panel1.TabIndex = 1;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(72, 380);
+            this.button2.Location = new System.Drawing.Point(62, 309);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 28);
+            this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
             this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = true;
@@ -105,9 +104,9 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 0);
+            this.label1.Location = new System.Drawing.Point(39, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 34);
+            this.label1.Size = new System.Drawing.Size(123, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "Danh Sách ";
             // 
@@ -115,8 +114,7 @@
             // 
             this.treeView1.ImageIndex = 0;
             this.treeView1.ImageList = this.imageList1;
-            this.treeView1.Location = new System.Drawing.Point(0, 38);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.treeView1.Location = new System.Drawing.Point(0, 31);
             this.treeView1.Name = "treeView1";
             treeNode1.ImageIndex = 1;
             treeNode1.Name = "Node0";
@@ -167,7 +165,7 @@
             treeNode9,
             treeNode13});
             this.treeView1.SelectedImageIndex = 0;
-            this.treeView1.Size = new System.Drawing.Size(227, 474);
+            this.treeView1.Size = new System.Drawing.Size(195, 386);
             this.treeView1.TabIndex = 0;
             this.treeView1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.treeView1_ItemDrag);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -187,9 +185,8 @@
             // 
             this.txtOutput.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtOutput.Location = new System.Drawing.Point(0, 0);
-            this.txtOutput.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(251, 756);
+            this.txtOutput.Size = new System.Drawing.Size(216, 614);
             this.txtOutput.TabIndex = 2;
             this.txtOutput.Text = "";
             // 
@@ -200,13 +197,13 @@
             this.item1ToolStripMenuItem,
             this.item2ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(146, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 56);
             // 
             // item1ToolStripMenuItem
             // 
             this.item1ToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconPro;
             this.item1ToolStripMenuItem.Name = "item1ToolStripMenuItem";
-            this.item1ToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.item1ToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
             this.item1ToolStripMenuItem.Text = "Thông tin";
             this.item1ToolStripMenuItem.Click += new System.EventHandler(this.item1ToolStripMenuItem_Click);
             // 
@@ -215,7 +212,7 @@
             this.item2ToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.item2ToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconDelete;
             this.item2ToolStripMenuItem.Name = "item2ToolStripMenuItem";
-            this.item2ToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.item2ToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
             this.item2ToolStripMenuItem.Text = "Delete";
             // 
             // menuStrip1
@@ -223,9 +220,10 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(251, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(216, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(869, 30);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(788, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -237,14 +235,14 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(47, 26);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -252,14 +250,14 @@
             // 
             this.saveToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // pictureBox1
@@ -272,7 +270,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1350, 756);
+            this.pictureBox1.Size = new System.Drawing.Size(1157, 614);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -286,65 +284,65 @@
             this.panel2.Controls.Add(this.checkButtonTamDung);
             this.panel2.Controls.Add(this.trackBarTocDo);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(251, 30);
+            this.panel2.Location = new System.Drawing.Point(216, 24);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(869, 65);
+            this.panel2.Size = new System.Drawing.Size(788, 53);
             this.panel2.TabIndex = 9;
             // 
             // simpleButtonBatDau
             // 
             this.simpleButtonBatDau.ImageOptions.Image = global::DXApplication1.Properties.Resources.start_16;
-            this.simpleButtonBatDau.Location = new System.Drawing.Point(688, 2);
-            this.simpleButtonBatDau.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonBatDau.Location = new System.Drawing.Point(590, 2);
             this.simpleButtonBatDau.Name = "simpleButtonBatDau";
-            this.simpleButtonBatDau.Size = new System.Drawing.Size(87, 33);
+            this.simpleButtonBatDau.Size = new System.Drawing.Size(75, 27);
             this.simpleButtonBatDau.TabIndex = 12;
             this.simpleButtonBatDau.Text = "Bắt Đầu";
+            this.simpleButtonBatDau.Click += new System.EventHandler(this.simpleButtonBatDau_Click);
             // 
             // labeTocDo
             // 
             this.labeTocDo.AutoSize = true;
-            this.labeTocDo.Location = new System.Drawing.Point(461, 46);
+            this.labeTocDo.Location = new System.Drawing.Point(395, 37);
             this.labeTocDo.Name = "labeTocDo";
-            this.labeTocDo.Size = new System.Drawing.Size(80, 17);
+            this.labeTocDo.Size = new System.Drawing.Size(61, 13);
             this.labeTocDo.TabIndex = 11;
             this.labeTocDo.Text = "Tốc độ : X1";
             // 
             // simpleButtonDatLai
             // 
-            this.simpleButtonDatLai.Location = new System.Drawing.Point(940, 3);
-            this.simpleButtonDatLai.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonDatLai.Location = new System.Drawing.Point(806, 2);
             this.simpleButtonDatLai.Name = "simpleButtonDatLai";
-            this.simpleButtonDatLai.Size = new System.Drawing.Size(60, 33);
+            this.simpleButtonDatLai.Size = new System.Drawing.Size(51, 27);
             this.simpleButtonDatLai.TabIndex = 10;
             this.simpleButtonDatLai.Text = "Đặt Lại";
+            this.simpleButtonDatLai.Click += new System.EventHandler(this.simpleButtonDatLai_Click);
             // 
             // checkButtonTamDung
             // 
             this.checkButtonTamDung.ImageOptions.Image = global::DXApplication1.Properties.Resources.pause_16;
-            this.checkButtonTamDung.Location = new System.Drawing.Point(809, 1);
-            this.checkButtonTamDung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.checkButtonTamDung.Location = new System.Drawing.Point(693, 1);
             this.checkButtonTamDung.Name = "checkButtonTamDung";
-            this.checkButtonTamDung.Size = new System.Drawing.Size(104, 34);
+            this.checkButtonTamDung.Size = new System.Drawing.Size(89, 28);
             this.checkButtonTamDung.TabIndex = 9;
             this.checkButtonTamDung.Text = "Tạm Dừng";
+            this.checkButtonTamDung.CheckedChanged += new System.EventHandler(this.checkButtonTamDung_CheckedChanged);
             // 
             // trackBarTocDo
             // 
-            this.trackBarTocDo.Location = new System.Drawing.Point(327, 3);
-            this.trackBarTocDo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.trackBarTocDo.Location = new System.Drawing.Point(280, 2);
             this.trackBarTocDo.Maximum = 7;
             this.trackBarTocDo.Minimum = 1;
             this.trackBarTocDo.Name = "trackBarTocDo";
-            this.trackBarTocDo.Size = new System.Drawing.Size(320, 56);
+            this.trackBarTocDo.Size = new System.Drawing.Size(274, 45);
             this.trackBarTocDo.TabIndex = 8;
             this.trackBarTocDo.Value = 4;
             // 
             // Frm_test1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 756);
+            this.ClientSize = new System.Drawing.Size(1157, 614);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
