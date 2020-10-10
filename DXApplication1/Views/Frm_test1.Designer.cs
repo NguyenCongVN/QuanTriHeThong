@@ -50,14 +50,26 @@
             treeNode12});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_test1));
             this.panel1 = new System.Windows.Forms.Panel();
+
             this.button2 = new System.Windows.Forms.Button();
+
+
             this.label1 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.txtOutput = new System.Windows.Forms.RichTextBox();
+
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.item1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.item2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+
+
+            this.trackBarTocDo = new System.Windows.Forms.TrackBar();
+            this.simpleButtonDatLai = new DevExpress.XtraEditors.SimpleButton();
+            this.labeTocDo = new System.Windows.Forms.Label();
+            this.checkButtonTamDung = new DevExpress.XtraEditors.CheckButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,10 +79,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.simpleButtonBatDau = new DevExpress.XtraEditors.SimpleButton();
+
             this.labeTocDo = new System.Windows.Forms.Label();
             this.simpleButtonDatLai = new DevExpress.XtraEditors.SimpleButton();
             this.checkButtonTamDung = new DevExpress.XtraEditors.CheckButton();
             this.trackBarTocDo = new System.Windows.Forms.TrackBar();
+
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -82,7 +96,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.treeView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -108,6 +121,15 @@
             this.label1.Location = new System.Drawing.Point(46, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 34);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Danh Sách ";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(49, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "Danh Sách ";
             // 
@@ -193,7 +215,11 @@
             this.txtOutput.TabIndex = 2;
             this.txtOutput.Text = "";
             // 
+
             // contextMenuStrip1
+
+
+
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -375,7 +401,6 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.RichTextBox txtOutput;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.ToolStripMenuItem item1ToolStripMenuItem;
