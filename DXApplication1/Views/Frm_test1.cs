@@ -7,10 +7,6 @@ using System.Drawing;
 using System.Runtime.Remoting.Contexts;
 using System.Threading;
 using System.Windows.Forms;
-
-using DXApplication1.Models;
-using DXApplication1.Utilizes;
-
 namespace DXApplication1.Views
 {
     public partial class Frm_test1 : DevExpress.XtraEditors.XtraForm
@@ -317,7 +313,6 @@ namespace DXApplication1.Views
                         Monitor.TryEnter(speedLock, ref tryToLockSpeed);
                         if (tryToLockSpeed)
                         {
-
                             for (int col = 0; col < _mDem.ARecord.eastings_cols; col++)
                             {
                                 for (int row = 0; row < _mDem.ARecord.northings_rows; row++)
@@ -327,8 +322,6 @@ namespace DXApplication1.Views
                             }
                             Monitor.Exit(speedLock);
                             break;
-                            _mDem.BRecord.elevations[col, row] -= 2;
-
                         }
                     }
                 }
