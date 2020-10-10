@@ -524,6 +524,7 @@ namespace DXApplication1.Views
             pictureBox1.Image = bitmapInit;
         }
 
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -599,5 +600,6 @@ namespace DXApplication1.Views
             //else // drawn at the default location 
             //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Bounds, default);
         }
+
     }
 }
