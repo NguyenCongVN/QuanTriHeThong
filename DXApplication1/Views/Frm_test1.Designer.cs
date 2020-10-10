@@ -78,7 +78,6 @@
             this.treeView1.SelectedImageIndex = 0;
             this.treeView1.Size = new System.Drawing.Size(230, 365);
             this.treeView1.TabIndex = 0;
-            this.treeView1.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.treeView1_DrawNode);
             // 
             // imageListChild
             // 
