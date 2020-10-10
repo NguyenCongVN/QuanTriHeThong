@@ -288,6 +288,7 @@
             this.comboBoxEditChucVu.Properties.Appearance.Options.UseFont = true;
             this.comboBoxEditChucVu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEditChucVu.Properties.ReadOnly = true;
             this.comboBoxEditChucVu.Size = new System.Drawing.Size(238, 24);
             this.comboBoxEditChucVu.TabIndex = 32;
             // 

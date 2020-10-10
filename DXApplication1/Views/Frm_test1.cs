@@ -6,6 +6,8 @@ using System.Threading;
 using System.Windows.Forms;
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
+
+
 namespace DXApplication1.Views
 {
     public partial class Frm_test1 : DevExpress.XtraEditors.XtraForm
@@ -277,7 +279,7 @@ namespace DXApplication1.Views
                     {
                         for (int row = 0; row < _mDem.ARecord.northings_rows; row++)
                         {
-                            _mDem.BRecord.elevations[col, row] -= 5;
+                            _mDem.BRecord.elevations[col, row] -= 2;
                         }
                     }
                 }
