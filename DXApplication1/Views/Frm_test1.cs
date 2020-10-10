@@ -4,12 +4,14 @@ using DXApplication1.Models;
 using DXApplication1.Utilizes;
 using System;
 using System.Drawing;
+using System.Runtime.Remoting.Contexts;
 using System.Threading;
 using System.Windows.Forms;
 namespace DXApplication1.Views
 {
     public partial class Frm_test1 : DevExpress.XtraEditors.XtraForm
     {
+
         /// <summary>
         /// 
         /// </summary>
@@ -75,17 +77,18 @@ namespace DXApplication1.Views
 
         int check = 0;
         int opted = 0;
-        Button b1;
+  
         PictureBox p1;
         DoiTuong[] listPic;
         DoiTuong[] selected = new DoiTuong[100];
         Image[] images;
+        
+        
         public Frm_test1()
         {
             InitializeComponent();
             initImage();
             init();
-            MoveButton();
             MovePic();
             load_Tree();
             pictureBox1.Image = bitmapInit;
@@ -101,6 +104,7 @@ namespace DXApplication1.Views
         }
         public void init()
         {
+            
             //picture
             p1 = new PictureBox();
             p1.Size = new Size(13, 20);
@@ -108,60 +112,18 @@ namespace DXApplication1.Views
             p1.SizeMode = PictureBoxSizeMode.AutoSize;
             p1.Location = new Point(20, 20);
 
-            //button
-            b1 = new Button();
-            b1.AutoSize = true;
-            b1.Text = "b1";
-            b1.Visible = true;
-            b1.Location = new Point(0, 0);
-
-            //add button
-            pictureBox1.AddControl(b1);
-
-            //add picturebox
-            // pictureBox1.AddControl(p1);
 
             listPic = new DoiTuong[10];
             for (int i = 1; i <= 6; i++)
             {
-                listPic[i] = new DoiTuong();
+                listPic[i] = new DoiTuong(contextMenuStrip1);
                 listPic[i].Picture.Image = images[i];
             }
-            //PictureBox a = new PictureBox();
-            //a.Image = images[1];
-            //a.Location = new Point(10, 10);
-            //a.Name = "1";
-            //pictureBox1.AddControl(a);
 
-            //PictureBox b = new PictureBox();
-            //b.Image = images[1];
-            //b.Location = new Point(100, 100);
-            //b.Name = "2";
-            //pictureBox1.AddControl(b);
         }
 
         private Point firstPoint;
-        public void MoveButton()
-        {
-            b1.MouseDown += (ss, ee) =>
-            {
-                if (ee.Button == System.Windows.Forms.MouseButtons.Left)
-                { firstPoint = Control.MousePosition; }
-
-            };
-            b1.MouseMove += (ss, ee) =>
-            {
-                if (ee.Button == System.Windows.Forms.MouseButtons.Left)
-                {
-                    Point temp = Control.MousePosition;
-                    Point res = new Point(firstPoint.X - temp.X, firstPoint.Y - temp.Y);
-
-                    b1.Location = new Point(b1.Location.X - res.X, b1.Location.Y - res.Y);
-
-                    firstPoint = temp;
-                }
-            };
-        }
+        
 
         public void MoveButton(PictureBox pp)
         {
@@ -237,67 +199,80 @@ namespace DXApplication1.Views
         {
 
         }
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern IntPtr LoadCursorFromFile(string fileName);
+        Cursor myCursor;
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             if (e.Node.ImageIndex == 1)
             {
-                selected[opted] = new DoiTuong();
+                selected[opted] = new DoiTuong(contextMenuStrip1);
                 selected[opted].Picture.Image = images[1];
                 selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Location = new Point(10, 10);
+                
+                selected[opted].Picture.Visible = false;
                 pictureBox1.AddControl(selected[opted].Picture);
                 MoveButton(selected[opted].Picture);
-                deletePic(selected[opted].Picture);
+                check = 1;
+                this.Cursor = Cursors.NoMove2D;
                 opted++;
 
             }
             if (e.Node.ImageIndex == 2)
             {
-                selected[opted] = new DoiTuong();
+                selected[opted] = new DoiTuong(contextMenuStrip1);
                 selected[opted].Picture.Image = images[2];
                 selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Location = new Point(10, 10);
+                selected[opted].Picture.Visible = false;
                 pictureBox1.AddControl(selected[opted].Picture);
                 MoveButton(selected[opted].Picture);
+                check = 1;
+                this.Cursor = Cursors.NoMove2D;
                 opted++;
             }
             if (e.Node.ImageIndex == 3)
             {
-                selected[opted] = new DoiTuong();
+                selected[opted] = new DoiTuong(contextMenuStrip1);
                 selected[opted].Picture.Image = images[3];
                 selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Location = new Point(10, 10);
+                selected[opted].Picture.Visible = false;
                 pictureBox1.AddControl(selected[opted].Picture);
                 MoveButton(selected[opted].Picture);
+                this.Cursor = Cursors.NoMove2D;
+                check = 1;
                 opted++;
 
             }
             if (e.Node.ImageIndex == 4)
             {
-                selected[opted] = new DoiTuong();
+                selected[opted] = new DoiTuong(contextMenuStrip1);
                 selected[opted].Picture.Image = images[4];
                 selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Location = new Point(10, 10);
+                selected[opted].Picture.Visible = false;
                 pictureBox1.AddControl(selected[opted].Picture);
                 MoveButton(selected[opted].Picture);
+                this.Cursor = Cursors.NoMove2D;
+                check = 1;
                 opted++;
 
             }
             if (e.Node.ImageIndex == 5)
             {
-                selected[opted] = new DoiTuong();
+                selected[opted] = new DoiTuong(contextMenuStrip1);
                 selected[opted].Picture.Image = images[5];
                 selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Location = new Point(10, 10);
+                selected[opted].Picture.Visible = false;
                 pictureBox1.AddControl(selected[opted].Picture);
                 MoveButton(selected[opted].Picture);
+                check = 1;
+                this.Cursor = Cursors.NoMove2D;
                 opted++;
 
             }
 
         }
-
+        //nhap chuot phai hien thong tin, chuot trai cho phep sua thong tin
         //===============================================================================================           
 
         public static void ChangeHeight()
@@ -522,6 +497,55 @@ namespace DXApplication1.Views
             b.Abort();
             _mDem.Read(path);
             pictureBox1.Image = bitmapInit;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+            if(check == 1)
+            {
+                selected[opted - 1].Picture.Location = new Point(Control.MousePosition.X - pictureBox1.Location.X - 20, Control.MousePosition.Y  - pictureBox1.Location.Y - 20);
+
+                selected[opted- 1].Picture.Visible = true;
+                check = 0;
+                this.Cursor = Cursors.Default;
+            }    
+        }
+
+        private void item1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            dialog.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (System.IO.File.Exists(dialog.FileName))
+                {
+                    path = dialog.FileName;
+                    _mDem = new DemDocument();
+                    _mDem.Read(dialog.FileName);
+                    txtOutput.Text = string.Empty;
+                    txtOutput.Text += "DEM Name: " + new string(_mDem.ARecord.file_name) + Environment.NewLine;
+                    txtOutput.Text += "SE Coord: " + new string(_mDem.ARecord.SE_geographic_corner_S) + ", " + new string(_mDem.ARecord.SE_geographic_corner_E) + Environment.NewLine;
+                    txtOutput.Text += "DEM Level Code: " + _mDem.ARecord.dem_level_code + Environment.NewLine;
+                    txtOutput.Text += "Ground Reference System: " + (GROUND_REF_SYSTEM)_mDem.ARecord.ground_ref_system + Environment.NewLine;
+                    txtOutput.Text += "Ground Reference Zone: " + _mDem.ARecord.ground_ref_zone + Environment.NewLine;
+                    txtOutput.Text += "Ground Unit: " + (GROUND_UNIT)_mDem.ARecord.ground_unit + Environment.NewLine;
+                    txtOutput.Text += "Elevation Unit: " + (ELEVATION_UNIT)_mDem.ARecord.elevation_unit + Environment.NewLine;
+                    txtOutput.Text += "Ground Resolution (lat, lng, elev): " + _mDem.ARecord.xyz_resolution[0] + ", " + _mDem.ARecord.xyz_resolution[1] + ", " + _mDem.ARecord.xyz_resolution[2] + Environment.NewLine;
+                    txtOutput.Text += "Elavation Array Szie: " + _mDem.ARecord.northings_rows + " x " + _mDem.ARecord.eastings_cols + Environment.NewLine;
+                    txtOutput.Text += "Percentage void: " + _mDem.ARecord.percent_void + Environment.NewLine;
+                    txtOutput.Text += "SW Coord: " + _mDem.ARecord.sw_coord[0] + ", " + _mDem.ARecord.sw_coord[1] + Environment.NewLine;
+                    txtOutput.Text += "NW Coord: " + _mDem.ARecord.nw_coord[0] + ", " + _mDem.ARecord.nw_coord[1] + Environment.NewLine;
+                    txtOutput.Text += "NE Coord: " + _mDem.ARecord.ne_coord[0] + ", " + _mDem.ARecord.ne_coord[1] + Environment.NewLine;
+                    txtOutput.Text += "SE Coord: " + _mDem.ARecord.se_coord[0] + ", " + _mDem.ARecord.se_coord[1] + Environment.NewLine;
+
+                }
+            }
         }
     }
 }

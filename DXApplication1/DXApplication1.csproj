@@ -133,6 +133,12 @@
     <Compile Include="Utilizes\PhanQuyenHelper.cs" />
     <Compile Include="Utilizes\ThongTinThayDoiChucVu.cs" />
     <Compile Include="Utilizes\UserUtilizes.cs" />
+    <Compile Include="Views\ChinhSuaTT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ChinhSuaTT.Designer.cs">
+      <DependentUpon>ChinhSuaTT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmDky.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,10 +192,16 @@
     <EmbeddedResource Include="Admin\SuaChucVu.resx">
       <DependentUpon>SuaChucVu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Models\DoiTuong.resx">
+      <DependentUpon>DoiTuong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ChinhSuaTT.resx">
+      <DependentUpon>ChinhSuaTT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDky.resx">
       <DependentUpon>frmDky.cs</DependentUpon>
@@ -239,6 +251,10 @@
     <Content Include="Resources\gax1.PNG" />
     <None Include="Resources\pause-16.png" />
     <None Include="Resources\start-16.png" />
+    <None Include="Resources\iconPro.jpg" />
+    <None Include="Resources\iconDelete.jpg" />
+    <None Include="Resources\iconChinhsua.png" />
+    <Content Include="Resources\square.cur" />
     <Content Include="Resources\TrungVo.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
