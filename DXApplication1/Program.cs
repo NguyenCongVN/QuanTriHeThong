@@ -28,7 +28,7 @@ namespace DXApplication1
         public static QuanLyNhanVienSql quanLyNhanVienSql;
         public static ChucvuSql chucvuSql;
         public static Chucvu cvu;
-        public static Frm_test1 frm1;
+        public static Frm_test1 frm_Map;
         [STAThread]
 
         static void Main()
@@ -44,9 +44,9 @@ namespace DXApplication1
             quyenSql = new QuyenSql();
             quanLyNhanVien = new QuanLyNhanVien();
             lg = new frmLogin();
-            frm1 = new Frm_test1();
+            frm_Map = new Frm_test1();
             
-            Application.Run(frm1);
+            Application.Run(lg);
         }
     }
 }

@@ -124,6 +124,16 @@ namespace DXApplication1
 
         }
 
-        
+        private void barButtonItemBanDo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Program.frm_Map = new Views.Frm_test1();
+            Program.frm_Map.TopLevel = false;
+            panelMain.Controls.Clear();
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(Program.frm_Map);
+            Program.frm_Map.Dock = DockStyle.Fill;
+            Program.frm_Map.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Program.frm_Map.Show();
+        }
     }
 }
