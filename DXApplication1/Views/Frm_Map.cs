@@ -11,6 +11,11 @@ namespace DXApplication1.Views
 {
     public partial class Frm_test1 : DevExpress.XtraEditors.XtraForm
     {
+        int panelWidth;
+        int panelWidthFile;
+        bool hided;
+        bool hidedFile;
+
 
         /// <summary>
         /// 
@@ -92,7 +97,11 @@ namespace DXApplication1.Views
             initImageOfNode();
             init();
             MovePic();
-            pictureBox1.Image = bitmapInit;
+            pictureBoxMap.Image = bitmapInit;
+            panelWidth = panelNode.Width;
+            panelWidthFile = txtOutput.Width;
+            hided = false;
+            hidedFile = false;
         }
         public void initImageOfNode()
         {
@@ -510,7 +519,7 @@ namespace DXApplication1.Views
             a.Start();
             b = new Thread(() =>
             {
-                DrawImage(pictureBox1);
+                DrawImage(pictureBoxMap);
             });
             b.Start();
             b.IsBackground = true;
@@ -521,7 +530,7 @@ namespace DXApplication1.Views
             a.Abort();
             b.Abort();
             _mDem.Read(path);
-            pictureBox1.Image = bitmapInit;
+            pictureBoxMap.Image = bitmapInit;
         }
 
 
@@ -530,7 +539,7 @@ namespace DXApplication1.Views
 
             if (check == 1)
             {
-                selected[opted - 1].Picture.Location = new Point(Control.MousePosition.X - pictureBox1.Location.X - 20, Control.MousePosition.Y - pictureBox1.Location.Y - 20);
+                selected[opted - 1].Picture.Location = new Point(Control.MousePosition.X - pictureBoxMap.Location.X - 20, Control.MousePosition.Y - pictureBoxMap.Location.Y - 20);
 
                 selected[opted - 1].Picture.Visible = true;
                 check = 0;
@@ -601,5 +610,83 @@ namespace DXApplication1.Views
             //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Bounds, default);
         }
 
+        private void buttonAnHien_Click(object sender, EventArgs e)
+        {
+            if (hided)
+                buttonAnHien.Text = "H\ni\nd\ne";
+            else
+                buttonAnHien.Text = "S\nh\no\nw";
+            timerAnHien.Start();
+        }
+
+        private void timerAnHien_Tick(object sender, EventArgs e)
+        {
+            if(hided) // true là an
+            {
+                panelNode.Width = panelNode.Width + 20;
+                panelMap.Width = panelMap.Width - 20;
+                if(panelNode.Width >= panelWidth)
+                {
+                    timerAnHien.Stop();
+                    hided = false;
+                //    panelMap.Width = panelMap.Width + 20;
+                    this.Refresh();
+                }    
+            }   
+            else // hien 
+            {
+                panelNode.Width = panelNode.Width - 20;
+                panelMap.Width = panelMap.Width + 20;
+                if(panelNode.Width <= 0)
+                {
+                    timerAnHien.Stop();
+                    hided = true;
+                //    panelMap.Width = panelMap.Width + 20;
+                    this.Refresh();
+                }    
+            }    
+        }
+
+        private void buttonXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAnHienChiTietFile_Click(object sender, EventArgs e)
+        {
+            if (hidedFile)
+                buttonAnHienChiTietFile.Text = "H\ni\nd\ne";
+            else
+                buttonAnHienChiTietFile.Text = "S\nh\no\nw";
+            timerAnHienFile.Start();
+        }
+
+        private void timerAnHienFile_Tick(object sender, EventArgs e)
+        {
+            if (hidedFile)
+            {
+                txtOutput.Width = txtOutput.Width + 20;
+              //  panelMap.Left = panelMap.Left-20;
+                //panelMap.Width = panelMap.Width - 20;
+                if (txtOutput.Width >= panelWidthFile)
+                {
+                    timerAnHienFile.Stop();
+                    hidedFile = false;
+                    this.Refresh();
+                }
+            }
+            else
+            {
+                txtOutput.Width = txtOutput.Width - 20;
+               // panelMap.RightToLeft = 9;// panelMap.Left + 20;
+                if (txtOutput.Width <= 0)
+                {
+                    timerAnHienFile.Stop();
+                    hidedFile = true;
+                    
+                    this.Refresh();
+                }
+            }
+        }
     }
 }
