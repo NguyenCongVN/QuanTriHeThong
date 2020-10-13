@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace DXApplication1.Views
 {
@@ -102,7 +103,43 @@ namespace DXApplication1.Views
             panelWidthFile = txtOutput.Width;
             hided = false;
             hidedFile = false;
+            this.pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
         }
+
+        public Image resizeImage(Image img, int width, int height)
+        {
+            Bitmap b = new Bitmap(width, height);
+            Graphics g = Graphics.FromImage((Image)b);
+            g.InterpolationMode = InterpolationMode.Bicubic;
+            g.DrawImage(img, 0, 0, width, height);
+            g.Dispose();
+
+            return (Image)b;
+        }
+
+        private void PictureBoxMap_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if(e.Delta >0)
+            {
+                int w = pictureBoxMap.Image.Width;
+                int h = pictureBoxMap.Image.Height;
+                w = w + 50;
+                h = h + 50;
+                pictureBoxMap.Image = resizeImage(pictureBoxMap.Image, w, h);
+            
+            }
+            else
+            {
+
+                int w = pictureBoxMap.Image.Width;
+                int h = pictureBoxMap.Image.Height;
+                w = w - 50;
+                h = h - 50;
+                pictureBoxMap.Image = resizeImage(pictureBoxMap.Image, w, h);
+              
+            }    
+        }
+
         public void initImageOfNode()
         {
             nodeOnMap = new NodeOnMap();
