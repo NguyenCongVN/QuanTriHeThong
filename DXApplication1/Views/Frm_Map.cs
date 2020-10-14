@@ -6,7 +6,10 @@ using System.Data;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
+using System.Windows.Input;
+using Cursor = System.Windows.Forms.Cursor;
+using Cursors = System.Windows.Forms.Cursors;
+using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 
 namespace DXApplication1.Views
 {
@@ -16,7 +19,6 @@ namespace DXApplication1.Views
         int panelWidthFile;
         bool hided;
         bool hidedFile;
-
 
         /// <summary>
         /// 
@@ -59,11 +61,21 @@ namespace DXApplication1.Views
 
         static Bitmap bitmapInit1 = new Bitmap(Properties.Resources.Screenshot_2020_09_25_202017);
 
+        // Resize bitmap background
         Bitmap bitmapInit = new Bitmap(bitmapInit1, 1201, 1201);
 
-        //
 
+        // Bitmap Temp to be used in virtualization
         Bitmap bitmapTemp = new Bitmap(bitmapInit1, 1201, 1201);
+
+        // Bitmap to be used in resize mode
+        Bitmap bitmapResize = new Bitmap(bitmapInit1, 1201, 1201);
+
+        // Resize information
+        private int widthResize = 0;
+
+        private int heightResize = 0;
+        //
 
         //
         public static DemDocument _mDem = null;
@@ -106,38 +118,31 @@ namespace DXApplication1.Views
             this.pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
         }
 
-        public Image resizeImage(Image img, int width, int height)
-        {
-            Bitmap b = new Bitmap(width, height);
-            Graphics g = Graphics.FromImage((Image)b);
-            g.InterpolationMode = InterpolationMode.Bicubic;
-            g.DrawImage(img, 0, 0, width, height);
-            g.Dispose();
-
-            return (Image)b;
-        }
-
         private void PictureBoxMap_MouseWheel(object sender, MouseEventArgs e)
         {
-            if(e.Delta >0)
+            if (Keyboard.GetKeyStates(Key.LeftCtrl) == KeyStates.Down)
             {
-                int w = pictureBoxMap.Image.Width;
-                int h = pictureBoxMap.Image.Height;
-                w = w + 50;
-                h = h + 50;
-                pictureBoxMap.Image = resizeImage(pictureBoxMap.Image, w, h);
-            
-            }
-            else
-            {
+                if (e.Delta > 0)
+                {
+                    widthResize = widthResize + 50;
+                    heightResize = heightResize + 50;
 
-                int w = pictureBoxMap.Image.Width;
-                int h = pictureBoxMap.Image.Height;
-                w = w - 50;
-                h = h - 50;
-                pictureBoxMap.Image = resizeImage(pictureBoxMap.Image, w, h);
-              
-            }    
+                }
+                else
+                {
+                    //if (widthResize >= 50 && heightResize >= 50)
+                    {
+                        widthResize = widthResize - 50;
+                        heightResize = heightResize - 50;
+                    }
+                }
+                var bitmap = new Bitmap(bitmapResize, pictureBoxMap.Width + widthResize,
+                    pictureBoxMap.Height + heightResize);
+                pictureBoxMap.Image = bitmap;
+                pictureBoxMap.Refresh();
+                widthResize = 0;
+                heightResize = 0;
+            }
         }
 
         public void initImageOfNode()
@@ -157,7 +162,6 @@ namespace DXApplication1.Views
         }
         public void init()
         {
-
             //picture
             p1 = new PictureBox();
             p1.Size = new Size(13, 20);
@@ -436,7 +440,7 @@ namespace DXApplication1.Views
                     if (_mDem != null)
                     {
                         //var bitmap = new Bitmap(_mDem.ARecord.northings_rows, _mDem.ARecord.eastings_cols);
-                        var bitmap = new Bitmap(bitmapTemp);
+                        bitmapTemp = new Bitmap(bitmapInit1, 1201, 1201);
 
                         for (int col = 0; col < _mDem.ARecord.eastings_cols; col++)
                         {
@@ -449,22 +453,24 @@ namespace DXApplication1.Views
                                     if (height >= min)
                                     {
                                         //int ratio = (int)(((height - min) / (max - min)) * 255f);
-                                        bitmap.SetPixel(row, col, DrawHelper.GetGreenYellowRedByPropotion(height - min, max - min));
+                                        bitmapTemp.SetPixel(row, col, DrawHelper.GetGreenYellowRedByPropotion(height - min, max - min));
                                         // Or this, as suggested by thanaphan4 for fixing bitmap x/y orientation
                                         //bitmap.SetPixel(col, _mDem.ARecord.northings_rows - row - 1, Color.FromArgb(128, 128, ratio));
                                     }
                                     else
                                     {
-                                        bitmap.SetPixel(row, col, DrawHelper.GetGreenYellowRedByPropotion(0, max - min));
+                                        bitmapTemp.SetPixel(row, col, DrawHelper.GetGreenYellowRedByPropotion(0, max - min));
                                         //bitmap.SetPixel(col, _mDem.ARecord.northings_rows - row - 1, Color.FromArgb(128, 128, 0));
                                     }
                             }
                         }
+                        bitmapResize = new Bitmap(bitmapTemp, pictureBoxMap.Width + widthResize,
+                            pictureBoxMap.Height + heightResize);
 
                         _mPictureBox.Invoke((MethodInvoker)delegate
                        {
                            // Running on the UI thread
-                           _mPictureBox.Image = bitmap;
+                           _mPictureBox.Image = bitmapResize;
                        });
                     }
                 }
@@ -568,12 +574,12 @@ namespace DXApplication1.Views
             b.Abort();
             _mDem.Read(path);
             pictureBoxMap.Image = bitmapInit;
+            bitmapResize = new Bitmap(bitmapInit1 , 1201 ,1201);
         }
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
             if (check == 1)
             {
                 selected[opted - 1].Picture.Location = new Point(Control.MousePosition.X - pictureBoxMap.Location.X - 20, Control.MousePosition.Y - pictureBoxMap.Location.Y - 20);
@@ -658,30 +664,30 @@ namespace DXApplication1.Views
 
         private void timerAnHien_Tick(object sender, EventArgs e)
         {
-            if(hided) // true là an
+            if (hided) // true là an
             {
                 panelNode.Width = panelNode.Width + 20;
                 panelMap.Width = panelMap.Width - 20;
-                if(panelNode.Width >= panelWidth)
+                if (panelNode.Width >= panelWidth)
                 {
                     timerAnHien.Stop();
                     hided = false;
-                //    panelMap.Width = panelMap.Width + 20;
+                    //    panelMap.Width = panelMap.Width + 20;
                     this.Refresh();
-                }    
-            }   
+                }
+            }
             else // hien 
             {
                 panelNode.Width = panelNode.Width - 20;
                 panelMap.Width = panelMap.Width + 20;
-                if(panelNode.Width <= 0)
+                if (panelNode.Width <= 0)
                 {
                     timerAnHien.Stop();
                     hided = true;
-                //    panelMap.Width = panelMap.Width + 20;
+                    //    panelMap.Width = panelMap.Width + 20;
                     this.Refresh();
-                }    
-            }    
+                }
+            }
         }
 
         private void buttonXoa_Click(object sender, EventArgs e)
@@ -703,7 +709,7 @@ namespace DXApplication1.Views
             if (hidedFile)
             {
                 txtOutput.Width = txtOutput.Width + 20;
-              //  panelMap.Left = panelMap.Left-20;
+                //  panelMap.Left = panelMap.Left-20;
                 //panelMap.Width = panelMap.Width - 20;
                 if (txtOutput.Width >= panelWidthFile)
                 {
@@ -715,12 +721,12 @@ namespace DXApplication1.Views
             else
             {
                 txtOutput.Width = txtOutput.Width - 20;
-               // panelMap.RightToLeft = 9;// panelMap.Left + 20;
+                // panelMap.RightToLeft = 9;// panelMap.Left + 20;
                 if (txtOutput.Width <= 0)
                 {
                     timerAnHienFile.Stop();
                     hidedFile = true;
-                    
+
                     this.Refresh();
                 }
             }
