@@ -27,7 +27,7 @@ namespace DXApplication1.Models
         public  string Detail { get => detail; set => detail = value; }
 
 
-        public DoiTuong(ContextMenuStrip context)
+        public DoiTuong()
         {
             InitializeComponent();
             picture = new PictureBox();
