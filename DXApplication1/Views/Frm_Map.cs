@@ -113,7 +113,7 @@ namespace DXApplication1.Views
         {
             InitializeComponent();
             initImageOfNode();
-            pictureBoxMap.Image = bitmapInit;
+            pictureBoxMap.Image = bitmapResize;
             panelWidth = panelNode.Width;
             panelWidthFile = txtOutput.Width;
             hided = false;
@@ -127,21 +127,28 @@ namespace DXApplication1.Views
             {
                 if (e.Delta > 0)
                 {
-                    widthResize = widthResize + 50;
-                    heightResize = heightResize + 50;
-
+                    widthResize = widthResize + 100;
+                    heightResize = heightResize + 100;
                 }
                 else
                 {
                     //if (widthResize >= 50 && heightResize >= 50)
                     {
-                        widthResize = widthResize - 50;
-                        heightResize = heightResize - 50;
+                        widthResize = widthResize - 100;
+                        heightResize = heightResize - 100;
                     }
                 }
                 var bitmap = new Bitmap(bitmapResize, pictureBoxMap.Width + widthResize,
                     pictureBoxMap.Height + heightResize);
                 pictureBoxMap.Image = bitmap;
+                if (opted != 0)
+                {
+                    for(int i = 0; i < opted; i++)
+                    {
+                        selected[i].Picture.Location =
+                            DrawHelper.ScaleImage( selected[i].LocationInImage , selected[i].initSizePicture, pictureBoxMap);
+                    }
+                }
                 pictureBoxMap.Refresh();
                 widthResize = 0;
                 heightResize = 0;
@@ -252,8 +259,6 @@ namespace DXApplication1.Views
             {
                 if (e.Node.ImageIndex == i)
                 {
-
-
                     selected[opted] = new DoiTuong();
                     selected[opted].Picture.Image = imageListChild.Images[i];
                     selected[opted].Detail = e.Node.Text;
@@ -266,7 +271,6 @@ namespace DXApplication1.Views
                     this.Cursor = Cursors.NoMove2D;
                     deletePic(selected[opted].Picture);
                     opted++;
-
                 }
             }    
             
@@ -508,6 +512,8 @@ namespace DXApplication1.Views
             {
                 //selected[opted - 1].Picture.Location = new Point(10, 10);
                 selected[opted - 1].Picture.Location = new Point(Control.MousePosition.X - 240, Control.MousePosition.Y - 270);
+                selected[opted - 1].LocationInImage = selected[opted - 1].Picture.Location;
+                selected[opted - 1].initSizePicture = pictureBoxMap.Size;
                 selected[opted - 1].Picture.Visible = true;
                 check = 0;
                 this.Cursor = Cursors.Default;

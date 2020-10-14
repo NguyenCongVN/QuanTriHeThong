@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DXApplication1.Utilizes
 {
@@ -21,6 +22,13 @@ namespace DXApplication1.Utilizes
             {
                 return Color.FromArgb(255, (int)(propotion * Space) - 255, 0);
             }
+        }
+
+        public static Point ScaleImage(Point point , Size initSize , PictureBox pictureBox)
+        {
+            int y =(int)(((float)point.Y / initSize.Height) * pictureBox.Height);
+            int x = (int)(((float)point.X / initSize.Width) * pictureBox.Width);
+            return  new Point(x, y);
         }
     }
 }
