@@ -25,6 +25,11 @@ namespace DXApplication1
             themes.LookAndFeel.SkinName = "Whiteprint";       //tên giao diện set mặc định
         }
 
+        private void ribbonControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void FrmMain_Load(object sender, EventArgs e)
         {
             Skins();
@@ -152,6 +157,18 @@ namespace DXApplication1
                 Program.lg.Show();
                 this.Hide();
             }
+        }
+
+        private void barButtonItemBanDo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Program.frm_Map = new Views.Frm_test1();
+            Program.frm_Map.TopLevel = false;
+            panelMain.Controls.Clear();
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(Program.frm_Map);
+            Program.frm_Map.Dock = DockStyle.Fill;
+            Program.frm_Map.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            Program.frm_Map.Show();
         }
     }
 }

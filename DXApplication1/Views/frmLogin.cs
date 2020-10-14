@@ -127,7 +127,7 @@ namespace DXApplication1
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Program.lg.Close();
+            this.Close();
         }
 
         private void checkEditHienMatKhau_CheckedChanged(object sender, EventArgs e)

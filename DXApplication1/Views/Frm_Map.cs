@@ -1,20 +1,22 @@
 ﻿using Braincase.USGS.DEM;
-using DevExpress.Utils.Extensions;
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
 using System;
+using System.Data;
 using System.Drawing;
-using System.Runtime.Remoting.Contexts;
 using System.Threading;
 using System.Windows.Forms;
-
-using DXApplication1.Models;
-using DXApplication1.Utilizes;
+using System.Drawing.Drawing2D;
 
 namespace DXApplication1.Views
 {
     public partial class Frm_test1 : DevExpress.XtraEditors.XtraForm
     {
+        int panelWidth;
+        int panelWidthFile;
+        bool hided;
+        bool hidedFile;
+
 
         /// <summary>
         /// 
@@ -81,34 +83,81 @@ namespace DXApplication1.Views
 
         int check = 0;
         int opted = 0;
-  
+
         PictureBox p1;
         DoiTuong[] listPic;
         DoiTuong[] selected = new DoiTuong[100];
         Image[] images;
-        
-        
+
+
+        NodeOnMap nodeOnMap;
+
         public Frm_test1()
         {
             InitializeComponent();
-            initImage();
+            initImageOfNode();
             init();
             MovePic();
-            load_Tree();
-            pictureBox1.Image = bitmapInit;
-
+            pictureBoxMap.Image = bitmapInit;
+            panelWidth = panelNode.Width;
+            panelWidthFile = txtOutput.Width;
+            hided = false;
+            hidedFile = false;
+            this.pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
         }
-        public void initImage()
+
+        public Image resizeImage(Image img, int width, int height)
         {
-            images = new Image[10];
-            for (int i = 1; i <= 6; i++)
+            Bitmap b = new Bitmap(width, height);
+            Graphics g = Graphics.FromImage((Image)b);
+            g.InterpolationMode = InterpolationMode.Bicubic;
+            g.DrawImage(img, 0, 0, width, height);
+            g.Dispose();
+
+            return (Image)b;
+        }
+
+        private void PictureBoxMap_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if(e.Delta >0)
             {
-                images[i] = Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + i + ".png");
+                int w = pictureBoxMap.Image.Width;
+                int h = pictureBoxMap.Image.Height;
+                w = w + 50;
+                h = h + 50;
+                pictureBoxMap.Image = resizeImage(pictureBoxMap.Image, w, h);
+            
+            }
+            else
+            {
+
+                int w = pictureBoxMap.Image.Width;
+                int h = pictureBoxMap.Image.Height;
+                w = w - 50;
+                h = h - 50;
+                pictureBoxMap.Image = resizeImage(pictureBoxMap.Image, w, h);
+              
+            }    
+        }
+
+        public void initImageOfNode()
+        {
+            nodeOnMap = new NodeOnMap();
+            DataSet PicSet = nodeOnMap.getIconChild();
+            //images = new Image[1000];
+            ////for (int i = 1; i <= 6; i++)
+            ////{
+            ////    images[i] = Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + i + ".png");
+            ////}
+            //int i = 0;
+            foreach (DataRow dr in PicSet.Tables[0].Rows)
+            {
+                imageListChild.Images.Add(Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
             }
         }
         public void init()
         {
-            
+
             //picture
             p1 = new PictureBox();
             p1.Size = new Size(13, 20);
@@ -120,14 +169,14 @@ namespace DXApplication1.Views
             listPic = new DoiTuong[10];
             for (int i = 1; i <= 6; i++)
             {
-                listPic[i] = new DoiTuong(contextMenuStrip1);
-                listPic[i].Picture.Image = images[i];
+                //listPic[i] = new DoiTuong();
+                //listPic[i].Picture.Image = images[i];
             }
 
         }
 
         private Point firstPoint;
-        
+
 
         public void MoveButton(PictureBox pp)
         {
@@ -184,7 +233,35 @@ namespace DXApplication1.Views
         }
         public void load_Tree()
         {
-            treeView1.ImageList = imageList1;
+            nodeOnMap = new NodeOnMap();
+            DataSet PicSet = nodeOnMap.getIconChild();
+            //images = new Image[1000];
+            ////for (int i = 1; i <= 6; i++)
+            ////{
+            ////    images[i] = Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + i + ".png");
+            ////}
+            //int i = 0;
+            foreach (DataRow dr in PicSet.Tables[0].Rows)
+            {
+                imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
+            }
+            int count = imageListChild.Images.Count;
+            treeView1.ImageList = imageListChild;
+            nodeOnMap = new NodeOnMap();
+            DataSet PrSet = nodeOnMap.getDataParentNode();
+            treeView1.Nodes.Clear();
+            int i = 0;
+            foreach (DataRow dr in PrSet.Tables[0].Rows)
+            {
+                treeView1.Nodes.Add(dr["MaBinhChung"].ToString(), dr["TenBinhChung"].ToString(), count + 1, count + 2);
+                DataSet chSet = nodeOnMap.getDataChildNode(dr["MaBinhChung"].ToString());
+                foreach (DataRow drch in chSet.Tables[0].Rows)
+                {
+                    int index = imageListChild.Images.IndexOfKey(drch["MaDonVi"].ToString());
+                    treeView1.Nodes[i].Nodes.Add(drch["MaDonVi"].ToString(), drch["TenDonVi"].ToString(), index, index);
+                }
+                i++;
+            }
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -201,7 +278,7 @@ namespace DXApplication1.Views
 
         private void Frm_test1_Load(object sender, EventArgs e)
         {
-
+            load_Tree();
         }
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern IntPtr LoadCursorFromFile(string fileName);
@@ -209,71 +286,61 @@ namespace DXApplication1.Views
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (e.Node.ImageIndex == 1)
-            {
-                selected[opted] = new DoiTuong(contextMenuStrip1);
-                selected[opted].Picture.Image = images[1];
-                selected[opted].Detail = "detail" + opted;
-                
-                selected[opted].Picture.Visible = false;
-                pictureBox1.AddControl(selected[opted].Picture);
-                MoveButton(selected[opted].Picture);
-                check = 1;
-                this.Cursor = Cursors.NoMove2D;
-                opted++;
+            //if (e.Node.ImageIndex == 1)
+            //{
+            //    selected[opted] = new DoiTuong();
+            //    selected[opted].Picture.Image = images[1];
+            //    selected[opted].Detail = "detail" + opted;
+            //    selected[opted].Picture.Location = new Point(10, 10);
+            //    pictureBox1.AddControl(selected[opted].Picture);
+            //    MoveButton(selected[opted].Picture);
+            //    deletePic(selected[opted].Picture);
+            //    opted++;
 
-            }
-            if (e.Node.ImageIndex == 2)
-            {
-                selected[opted] = new DoiTuong(contextMenuStrip1);
-                selected[opted].Picture.Image = images[2];
-                selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Visible = false;
-                pictureBox1.AddControl(selected[opted].Picture);
-                MoveButton(selected[opted].Picture);
-                check = 1;
-                this.Cursor = Cursors.NoMove2D;
-                opted++;
-            }
-            if (e.Node.ImageIndex == 3)
-            {
-                selected[opted] = new DoiTuong(contextMenuStrip1);
-                selected[opted].Picture.Image = images[3];
-                selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Visible = false;
-                pictureBox1.AddControl(selected[opted].Picture);
-                MoveButton(selected[opted].Picture);
-                this.Cursor = Cursors.NoMove2D;
-                check = 1;
-                opted++;
+            //}
+            //if (e.Node.ImageIndex == 2)
+            //{
+            //    selected[opted] = new DoiTuong();
+            //    selected[opted].Picture.Image = images[2];
+            //    selected[opted].Detail = "detail" + opted;
+            //    selected[opted].Picture.Location = new Point(10, 10);
+            //    pictureBox1.AddControl(selected[opted].Picture);
+            //    MoveButton(selected[opted].Picture);
+            //    opted++;
+            //}
+            //if (e.Node.ImageIndex == 3)
+            //{
+            //    selected[opted] = new DoiTuong();
+            //    selected[opted].Picture.Image = images[3];
+            //    selected[opted].Detail = "detail" + opted;
+            //    selected[opted].Picture.Location = new Point(10, 10);
+            //    pictureBox1.AddControl(selected[opted].Picture);
+            //    MoveButton(selected[opted].Picture);
+            //    opted++;
 
-            }
-            if (e.Node.ImageIndex == 4)
-            {
-                selected[opted] = new DoiTuong(contextMenuStrip1);
-                selected[opted].Picture.Image = images[4];
-                selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Visible = false;
-                pictureBox1.AddControl(selected[opted].Picture);
-                MoveButton(selected[opted].Picture);
-                this.Cursor = Cursors.NoMove2D;
-                check = 1;
-                opted++;
+            //}
+            //if (e.Node.ImageIndex == 4)
+            //{
+            //    selected[opted] = new DoiTuong();
+            //    selected[opted].Picture.Image = images[4];
+            //    selected[opted].Detail = "detail" + opted;
+            //    selected[opted].Picture.Location = new Point(10, 10);
+            //    pictureBox1.AddControl(selected[opted].Picture);
+            //    MoveButton(selected[opted].Picture);
+            //    opted++;
 
-            }
-            if (e.Node.ImageIndex == 5)
-            {
-                selected[opted] = new DoiTuong(contextMenuStrip1);
-                selected[opted].Picture.Image = images[5];
-                selected[opted].Detail = "detail" + opted;
-                selected[opted].Picture.Visible = false;
-                pictureBox1.AddControl(selected[opted].Picture);
-                MoveButton(selected[opted].Picture);
-                check = 1;
-                this.Cursor = Cursors.NoMove2D;
-                opted++;
+            //}
+            //if (e.Node.ImageIndex == 5)
+            //{
+            //    selected[opted] = new DoiTuong();
+            //    selected[opted].Picture.Image = images[5];
+            //    selected[opted].Detail = "detail" + opted;
+            //    selected[opted].Picture.Location = new Point(10, 10);
+            //    pictureBox1.AddControl(selected[opted].Picture);
+            //    MoveButton(selected[opted].Picture);
+            //    opted++;
 
-            }
+            //}
 
         }
         //nhap chuot phai hien thong tin, chuot trai cho phep sua thong tin
@@ -317,7 +384,6 @@ namespace DXApplication1.Views
                         Monitor.TryEnter(speedLock, ref tryToLockSpeed);
                         if (tryToLockSpeed)
                         {
-
                             for (int col = 0; col < _mDem.ARecord.eastings_cols; col++)
                             {
                                 for (int row = 0; row < _mDem.ARecord.northings_rows; row++)
@@ -327,8 +393,6 @@ namespace DXApplication1.Views
                             }
                             Monitor.Exit(speedLock);
                             break;
-                            _mDem.BRecord.elevations[col, row] -= 2;
-
                         }
                     }
                 }
@@ -492,7 +556,7 @@ namespace DXApplication1.Views
             a.Start();
             b = new Thread(() =>
             {
-                DrawImage(pictureBox1);
+                DrawImage(pictureBoxMap);
             });
             b.Start();
             b.IsBackground = true;
@@ -503,20 +567,21 @@ namespace DXApplication1.Views
             a.Abort();
             b.Abort();
             _mDem.Read(path);
-            pictureBox1.Image = bitmapInit;
+            pictureBoxMap.Image = bitmapInit;
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
-            if(check == 1)
-            {
-                selected[opted - 1].Picture.Location = new Point(Control.MousePosition.X - pictureBox1.Location.X - 20, Control.MousePosition.Y  - pictureBox1.Location.Y - 20);
 
-                selected[opted- 1].Picture.Visible = true;
+            if (check == 1)
+            {
+                selected[opted - 1].Picture.Location = new Point(Control.MousePosition.X - pictureBoxMap.Location.X - 20, Control.MousePosition.Y - pictureBoxMap.Location.Y - 20);
+
+                selected[opted - 1].Picture.Visible = true;
                 check = 0;
                 this.Cursor = Cursors.Default;
-            }    
+            }
         }
 
         private void item1ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -537,20 +602,126 @@ namespace DXApplication1.Views
                     _mDem.Read(dialog.FileName);
                     txtOutput.Text = string.Empty;
                     txtOutput.Text += "DEM Name: " + new string(_mDem.ARecord.file_name) + Environment.NewLine;
-                    txtOutput.Text += "SE Coord: " + new string(_mDem.ARecord.SE_geographic_corner_S) + ", " + new string(_mDem.ARecord.SE_geographic_corner_E) + Environment.NewLine;
+                    txtOutput.Text += "SE Coord: " + new string(_mDem.ARecord.SE_geographic_corner_S) + ", " +
+                                      new string(_mDem.ARecord.SE_geographic_corner_E) + Environment.NewLine;
                     txtOutput.Text += "DEM Level Code: " + _mDem.ARecord.dem_level_code + Environment.NewLine;
-                    txtOutput.Text += "Ground Reference System: " + (GROUND_REF_SYSTEM)_mDem.ARecord.ground_ref_system + Environment.NewLine;
+                    txtOutput.Text += "Ground Reference System: " +
+                                      (GROUND_REF_SYSTEM)_mDem.ARecord.ground_ref_system + Environment.NewLine;
                     txtOutput.Text += "Ground Reference Zone: " + _mDem.ARecord.ground_ref_zone + Environment.NewLine;
                     txtOutput.Text += "Ground Unit: " + (GROUND_UNIT)_mDem.ARecord.ground_unit + Environment.NewLine;
-                    txtOutput.Text += "Elevation Unit: " + (ELEVATION_UNIT)_mDem.ARecord.elevation_unit + Environment.NewLine;
-                    txtOutput.Text += "Ground Resolution (lat, lng, elev): " + _mDem.ARecord.xyz_resolution[0] + ", " + _mDem.ARecord.xyz_resolution[1] + ", " + _mDem.ARecord.xyz_resolution[2] + Environment.NewLine;
-                    txtOutput.Text += "Elavation Array Szie: " + _mDem.ARecord.northings_rows + " x " + _mDem.ARecord.eastings_cols + Environment.NewLine;
+                    txtOutput.Text += "Elevation Unit: " + (ELEVATION_UNIT)_mDem.ARecord.elevation_unit +
+                                      Environment.NewLine;
+                    txtOutput.Text += "Ground Resolution (lat, lng, elev): " + _mDem.ARecord.xyz_resolution[0] + ", " +
+                                      _mDem.ARecord.xyz_resolution[1] + ", " + _mDem.ARecord.xyz_resolution[2] +
+                                      Environment.NewLine;
+                    txtOutput.Text += "Elavation Array Szie: " + _mDem.ARecord.northings_rows + " x " +
+                                      _mDem.ARecord.eastings_cols + Environment.NewLine;
                     txtOutput.Text += "Percentage void: " + _mDem.ARecord.percent_void + Environment.NewLine;
-                    txtOutput.Text += "SW Coord: " + _mDem.ARecord.sw_coord[0] + ", " + _mDem.ARecord.sw_coord[1] + Environment.NewLine;
-                    txtOutput.Text += "NW Coord: " + _mDem.ARecord.nw_coord[0] + ", " + _mDem.ARecord.nw_coord[1] + Environment.NewLine;
-                    txtOutput.Text += "NE Coord: " + _mDem.ARecord.ne_coord[0] + ", " + _mDem.ARecord.ne_coord[1] + Environment.NewLine;
-                    txtOutput.Text += "SE Coord: " + _mDem.ARecord.se_coord[0] + ", " + _mDem.ARecord.se_coord[1] + Environment.NewLine;
+                    txtOutput.Text += "SW Coord: " + _mDem.ARecord.sw_coord[0] + ", " + _mDem.ARecord.sw_coord[1] +
+                                      Environment.NewLine;
+                    txtOutput.Text += "NW Coord: " + _mDem.ARecord.nw_coord[0] + ", " + _mDem.ARecord.nw_coord[1] +
+                                      Environment.NewLine;
+                    txtOutput.Text += "NE Coord: " + _mDem.ARecord.ne_coord[0] + ", " + _mDem.ARecord.ne_coord[1] +
+                                      Environment.NewLine;
+                    txtOutput.Text += "SE Coord: " + _mDem.ARecord.se_coord[0] + ", " + _mDem.ARecord.se_coord[1] +
+                                      Environment.NewLine;
 
+                }
+            }
+        }
+
+        private void treeView1_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            //if (e.Node.ImageIndex >= e.Node.TreeView.ImageList.Images.Count) // if there is no image 
+            //{
+            //    int imagewidths = e.Node.TreeView.ImageList.ImageSize.Width;
+            //    int textheight = TextRenderer.MeasureText(e.Node.Text, e.Node.NodeFont).Height;
+            //    int x = e.Node.Bounds.Left - 3 - imagewidths / 2;
+            //    int y = (e.Bounds.Top + e.Bounds.Bottom) / 2 + 1;
+
+            //    Point point = new Point(x - imagewidths / 2, y - textheight / 2); // the new location for the text to be drawn 
+
+            //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.NodeFont, point, e.Node.ForeColor.);
+            //}
+            //else // drawn at the default location 
+            //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Bounds, default);
+        }
+
+        private void buttonAnHien_Click(object sender, EventArgs e)
+        {
+            if (hided)
+                buttonAnHien.Text = "H\ni\nd\ne";
+            else
+                buttonAnHien.Text = "S\nh\no\nw";
+            timerAnHien.Start();
+        }
+
+        private void timerAnHien_Tick(object sender, EventArgs e)
+        {
+            if(hided) // true là an
+            {
+                panelNode.Width = panelNode.Width + 20;
+                panelMap.Width = panelMap.Width - 20;
+                if(panelNode.Width >= panelWidth)
+                {
+                    timerAnHien.Stop();
+                    hided = false;
+                //    panelMap.Width = panelMap.Width + 20;
+                    this.Refresh();
+                }    
+            }   
+            else // hien 
+            {
+                panelNode.Width = panelNode.Width - 20;
+                panelMap.Width = panelMap.Width + 20;
+                if(panelNode.Width <= 0)
+                {
+                    timerAnHien.Stop();
+                    hided = true;
+                //    panelMap.Width = panelMap.Width + 20;
+                    this.Refresh();
+                }    
+            }    
+        }
+
+        private void buttonXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAnHienChiTietFile_Click(object sender, EventArgs e)
+        {
+            if (hidedFile)
+                buttonAnHienChiTietFile.Text = "H\ni\nd\ne";
+            else
+                buttonAnHienChiTietFile.Text = "S\nh\no\nw";
+            timerAnHienFile.Start();
+        }
+
+        private void timerAnHienFile_Tick(object sender, EventArgs e)
+        {
+            if (hidedFile)
+            {
+                txtOutput.Width = txtOutput.Width + 20;
+              //  panelMap.Left = panelMap.Left-20;
+                //panelMap.Width = panelMap.Width - 20;
+                if (txtOutput.Width >= panelWidthFile)
+                {
+                    timerAnHienFile.Stop();
+                    hidedFile = false;
+                    this.Refresh();
+                }
+            }
+            else
+            {
+                txtOutput.Width = txtOutput.Width - 20;
+               // panelMap.RightToLeft = 9;// panelMap.Left + 20;
+                if (txtOutput.Width <= 0)
+                {
+                    timerAnHienFile.Stop();
+                    hidedFile = true;
+                    
+                    this.Refresh();
                 }
             }
         }

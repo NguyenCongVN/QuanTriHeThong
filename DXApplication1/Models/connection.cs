@@ -55,6 +55,38 @@ namespace DXApplication1.Models
             return efftectRecord;
         }
 
+        public DataSet FillDataSet(string strQuery, CommandType cmdtype, string[] para, object[] values)
+        {
+            DataSet ds = new DataSet();
+            SqlCommand sqlCommand = new SqlCommand(strQuery,Connection);
+            sqlCommand.CommandType = cmdtype;
+
+            try
+            {
+                SqlParameter sqlpara;
+                for (int i = 0; i < para.Length; i++)
+                {
+                    sqlpara = new SqlParameter();
+                    sqlpara.ParameterName = para[i];
+                    sqlpara.SqlValue = values[i];
+
+                    sqlCommand.Parameters.Add(sqlpara);
+                }
+
+                SqlDataAdapter sqlda = new SqlDataAdapter(sqlCommand);
+                sqlda.Fill(ds);
+                sqlda.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            return ds;
+        }
+
+
+
+
 
 
     }
