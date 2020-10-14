@@ -85,7 +85,7 @@ namespace DXApplication1.Views
             // 
             this.item1ToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconPro;
             this.item1ToolStripMenuItem.Name = "item1ToolStripMenuItem";
-            this.item1ToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.item1ToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
             this.item1ToolStripMenuItem.Text = "Thông tin";
             this.item1ToolStripMenuItem.Click += new System.EventHandler(this.item1ToolStripMenuItem_Click);
             // 
@@ -94,38 +94,38 @@ namespace DXApplication1.Views
             this.item2ToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.item2ToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconDelete;
             this.item2ToolStripMenuItem.Name = "item2ToolStripMenuItem";
-            this.item2ToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.item2ToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
             this.item2ToolStripMenuItem.Text = "Delete";
             // 
             // txtOutput
             // 
             this.txtOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtOutput.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtOutput.Location = new System.Drawing.Point(37, 28);
+            this.txtOutput.Location = new System.Drawing.Point(32, 24);
             this.txtOutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(187, 775);
+            this.txtOutput.Size = new System.Drawing.Size(161, 590);
             this.txtOutput.TabIndex = 2;
             this.txtOutput.Text = "";
             // 
             // trackBarTocDo
             // 
-            this.trackBarTocDo.Location = new System.Drawing.Point(280, 2);
+            this.trackBarTocDo.Location = new System.Drawing.Point(240, 2);
             this.trackBarTocDo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.trackBarTocDo.Maximum = 7;
             this.trackBarTocDo.Minimum = 1;
             this.trackBarTocDo.Name = "trackBarTocDo";
-            this.trackBarTocDo.Size = new System.Drawing.Size(274, 56);
+            this.trackBarTocDo.Size = new System.Drawing.Size(235, 45);
             this.trackBarTocDo.TabIndex = 8;
             this.trackBarTocDo.Value = 4;
             this.trackBarTocDo.ValueChanged += new System.EventHandler(this.trackBarTocDo_ValueChanged);
             // 
             // simpleButtonDatLai
             // 
-            this.simpleButtonDatLai.Location = new System.Drawing.Point(806, 2);
+            this.simpleButtonDatLai.Location = new System.Drawing.Point(691, 2);
             this.simpleButtonDatLai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButtonDatLai.Name = "simpleButtonDatLai";
-            this.simpleButtonDatLai.Size = new System.Drawing.Size(51, 27);
+            this.simpleButtonDatLai.Size = new System.Drawing.Size(44, 22);
             this.simpleButtonDatLai.TabIndex = 10;
             this.simpleButtonDatLai.Text = "Đặt Lại";
             this.simpleButtonDatLai.Click += new System.EventHandler(this.simpleButtonDatLai_Click);
@@ -133,19 +133,19 @@ namespace DXApplication1.Views
             // labeTocDo
             // 
             this.labeTocDo.AutoSize = true;
-            this.labeTocDo.Location = new System.Drawing.Point(395, 37);
+            this.labeTocDo.Location = new System.Drawing.Point(339, 30);
             this.labeTocDo.Name = "labeTocDo";
-            this.labeTocDo.Size = new System.Drawing.Size(80, 17);
+            this.labeTocDo.Size = new System.Drawing.Size(61, 13);
             this.labeTocDo.TabIndex = 11;
             this.labeTocDo.Text = "Tốc độ : X1";
             // 
             // checkButtonTamDung
             // 
             this.checkButtonTamDung.ImageOptions.Image = global::DXApplication1.Properties.Resources.pause_16;
-            this.checkButtonTamDung.Location = new System.Drawing.Point(693, 1);
+            this.checkButtonTamDung.Location = new System.Drawing.Point(594, 1);
             this.checkButtonTamDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkButtonTamDung.Name = "checkButtonTamDung";
-            this.checkButtonTamDung.Size = new System.Drawing.Size(89, 28);
+            this.checkButtonTamDung.Size = new System.Drawing.Size(76, 23);
             this.checkButtonTamDung.TabIndex = 9;
             this.checkButtonTamDung.Text = "Tạm Dừng";
             this.checkButtonTamDung.CheckedChanged += new System.EventHandler(this.checkButtonTamDung_CheckedChanged);
@@ -156,7 +156,7 @@ namespace DXApplication1.Views
             this.pictureBoxMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxMap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxMap.InitialImage = null;
-            this.pictureBoxMap.Location = new System.Drawing.Point(6, 16);
+            this.pictureBoxMap.Location = new System.Drawing.Point(5, 13);
             this.pictureBoxMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxMap.Name = "pictureBoxMap";
             this.pictureBoxMap.Size = new System.Drawing.Size(861, 249);
@@ -172,8 +172,8 @@ namespace DXApplication1.Views
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1799, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1179, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -185,14 +185,14 @@ namespace DXApplication1.Views
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -200,14 +200,14 @@ namespace DXApplication1.Views
             // 
             this.saveToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(128, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // contextMenuStrip1
@@ -217,7 +217,7 @@ namespace DXApplication1.Views
             this.item1ToolStripMenuItem,
             this.item2ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(146, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 56);
             // 
             // panel2
             // 
@@ -226,19 +226,19 @@ namespace DXApplication1.Views
             this.panel2.Controls.Add(this.simpleButtonDatLai);
             this.panel2.Controls.Add(this.checkButtonTamDung);
             this.panel2.Controls.Add(this.trackBarTocDo);
-            this.panel2.Location = new System.Drawing.Point(283, 30);
+            this.panel2.Location = new System.Drawing.Point(243, 24);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1244, 53);
+            this.panel2.Size = new System.Drawing.Size(1066, 43);
             this.panel2.TabIndex = 9;
             // 
             // simpleButtonBatDau
             // 
             this.simpleButtonBatDau.ImageOptions.Image = global::DXApplication1.Properties.Resources.start_16;
-            this.simpleButtonBatDau.Location = new System.Drawing.Point(590, 2);
+            this.simpleButtonBatDau.Location = new System.Drawing.Point(506, 2);
             this.simpleButtonBatDau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButtonBatDau.Name = "simpleButtonBatDau";
-            this.simpleButtonBatDau.Size = new System.Drawing.Size(75, 27);
+            this.simpleButtonBatDau.Size = new System.Drawing.Size(64, 22);
             this.simpleButtonBatDau.TabIndex = 12;
             this.simpleButtonBatDau.Text = "Bắt Đầu";
             this.simpleButtonBatDau.Click += new System.EventHandler(this.simpleButtonBatDau_Click);
@@ -247,9 +247,10 @@ namespace DXApplication1.Views
             // 
             this.panelMap.AutoScroll = true;
             this.panelMap.Controls.Add(this.pictureBoxMap);
-            this.panelMap.Location = new System.Drawing.Point(230, 87);
+            this.panelMap.Location = new System.Drawing.Point(197, 71);
+            this.panelMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMap.Name = "panelMap";
-            this.panelMap.Size = new System.Drawing.Size(1194, 607);
+            this.panelMap.Size = new System.Drawing.Size(1023, 493);
             this.panelMap.TabIndex = 10;
             // 
             // panelSideBar
@@ -257,17 +258,19 @@ namespace DXApplication1.Views
             this.panelSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.panelSideBar.Controls.Add(this.buttonAnHien);
             this.panelSideBar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelSideBar.Location = new System.Drawing.Point(1762, 28);
+            this.panelSideBar.Location = new System.Drawing.Point(1147, 24);
+            this.panelSideBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSideBar.Name = "panelSideBar";
-            this.panelSideBar.Size = new System.Drawing.Size(37, 775);
+            this.panelSideBar.Size = new System.Drawing.Size(32, 590);
             this.panelSideBar.TabIndex = 0;
             // 
             // buttonAnHien
             // 
             this.buttonAnHien.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonAnHien.Location = new System.Drawing.Point(0, 0);
+            this.buttonAnHien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAnHien.Name = "buttonAnHien";
-            this.buttonAnHien.Size = new System.Drawing.Size(37, 97);
+            this.buttonAnHien.Size = new System.Drawing.Size(32, 79);
             this.buttonAnHien.TabIndex = 1;
             this.buttonAnHien.Text = "H\r\ni\r\nd\r\ne";
             this.buttonAnHien.UseVisualStyleBackColor = true;
@@ -284,18 +287,18 @@ namespace DXApplication1.Views
             this.panelNode.Controls.Add(this.label1);
             this.panelNode.Controls.Add(this.treeView1);
             this.panelNode.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelNode.Location = new System.Drawing.Point(1487, 28);
+            this.panelNode.Location = new System.Drawing.Point(911, 24);
             this.panelNode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelNode.Name = "panelNode";
-            this.panelNode.Size = new System.Drawing.Size(275, 775);
+            this.panelNode.Size = new System.Drawing.Size(236, 590);
             this.panelNode.TabIndex = 11;
             // 
             // buttonXoa
             // 
-            this.buttonXoa.Location = new System.Drawing.Point(93, 419);
+            this.buttonXoa.Location = new System.Drawing.Point(80, 340);
             this.buttonXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXoa.Name = "buttonXoa";
-            this.buttonXoa.Size = new System.Drawing.Size(75, 23);
+            this.buttonXoa.Size = new System.Drawing.Size(64, 19);
             this.buttonXoa.TabIndex = 2;
             this.buttonXoa.Text = "Xóa";
             this.buttonXoa.UseVisualStyleBackColor = true;
@@ -303,9 +306,9 @@ namespace DXApplication1.Views
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 5);
+            this.label1.Location = new System.Drawing.Point(61, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 28);
+            this.label1.Size = new System.Drawing.Size(105, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Danh Sách ";
             // 
@@ -313,11 +316,10 @@ namespace DXApplication1.Views
             // 
             this.treeView1.ImageIndex = 0;
             this.treeView1.ImageList = this.imageListChild;
-            this.treeView1.Location = new System.Drawing.Point(0, 52);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.treeView1.Location = new System.Drawing.Point(0, 42);
             this.treeView1.Name = "treeView1";
             this.treeView1.SelectedImageIndex = 0;
-            this.treeView1.Size = new System.Drawing.Size(272, 444);
+            this.treeView1.Size = new System.Drawing.Size(234, 362);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             // 
@@ -326,17 +328,19 @@ namespace DXApplication1.Views
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.panel1.Controls.Add(this.buttonAnHienChiTietFile);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(37, 775);
+            this.panel1.Size = new System.Drawing.Size(32, 590);
             this.panel1.TabIndex = 1;
             // 
             // buttonAnHienChiTietFile
             // 
             this.buttonAnHienChiTietFile.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonAnHienChiTietFile.Location = new System.Drawing.Point(0, 0);
+            this.buttonAnHienChiTietFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAnHienChiTietFile.Name = "buttonAnHienChiTietFile";
-            this.buttonAnHienChiTietFile.Size = new System.Drawing.Size(37, 97);
+            this.buttonAnHienChiTietFile.Size = new System.Drawing.Size(32, 79);
             this.buttonAnHienChiTietFile.TabIndex = 1;
             this.buttonAnHienChiTietFile.Text = "H\r\ni\r\nd\r\ne";
             this.buttonAnHienChiTietFile.UseVisualStyleBackColor = true;
@@ -348,9 +352,9 @@ namespace DXApplication1.Views
             // 
             // Frm_test1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1799, 803);
+            this.ClientSize = new System.Drawing.Size(1179, 614);
             this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelNode);
