@@ -1,4 +1,5 @@
 ﻿using Braincase.USGS.DEM;
+using DevExpress.Utils.Extensions;
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
 using System;
@@ -6,12 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
-
-using System.Drawing.Drawing2D;
-using DevExpress.Utils.Extensions;
-
 using System.Windows.Input;
-using Cursor = System.Windows.Forms.Cursor;
 using Cursors = System.Windows.Forms.Cursors;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 
@@ -24,6 +20,9 @@ namespace DXApplication1.Views
         int panelWidthFile;
         bool hided;
         bool hidedFile;
+
+
+        private bool pictureBoxDoiTuongIsMoved = false;
 
         /// <summary>
         /// 
@@ -127,26 +126,23 @@ namespace DXApplication1.Views
             {
                 if (e.Delta > 0)
                 {
-                    widthResize = widthResize + 100;
-                    heightResize = heightResize + 100;
+                    widthResize = widthResize + 50;
+                    heightResize = heightResize + 50;
                 }
                 else
                 {
-                    //if (widthResize >= 50 && heightResize >= 50)
-                    {
-                        widthResize = widthResize - 100;
-                        heightResize = heightResize - 100;
-                    }
+                    widthResize = widthResize - 50;
+                    heightResize = heightResize - 50;
                 }
                 var bitmap = new Bitmap(bitmapResize, pictureBoxMap.Width + widthResize,
                     pictureBoxMap.Height + heightResize);
                 pictureBoxMap.Image = bitmap;
                 if (opted != 0)
                 {
-                    for(int i = 0; i < opted; i++)
+                    for (int i = 0; i < opted; i++)
                     {
                         selected[i].Picture.Location =
-                            DrawHelper.ScaleImage( selected[i].LocationInImage , selected[i].initSizePicture, pictureBoxMap);
+                            DrawHelper.ScaleImage(selected[i].LocationInImage, selected[i].initSizePicture, pictureBoxMap);
                     }
                 }
                 pictureBoxMap.Refresh();
@@ -164,16 +160,14 @@ namespace DXApplication1.Views
             ////{
             ////    images[i] = Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + i + ".png");
             ////}
-            
+
             foreach (DataRow dr in PicSet.Tables[0].Rows)
             {
                 imageListChild.Images.Add(Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
-                
+
             }
-            
+
         }
-
-
 
         private Point firstPoint;
 
@@ -191,14 +185,31 @@ namespace DXApplication1.Views
                 {
                     Point temp = Control.MousePosition;
                     Point res = new Point(firstPoint.X - temp.X, firstPoint.Y - temp.Y);
-
+                    pp.LocationChanged += pp_LocationChanged;
                     pp.Location = new Point(pp.Location.X - res.X, pp.Location.Y - res.Y);
-
                     firstPoint = temp;
+                    pictureBoxDoiTuongIsMoved = true;
                 }
             };
         }
-        
+
+        private void pp_LocationChanged(object sender, EventArgs e)
+        {
+            if (pictureBoxDoiTuongIsMoved)
+            {
+                PictureBox pic = sender as PictureBox;
+                if (pic != null)
+                    for (int i = 0; i < opted; i++)
+                    {
+                        if (selected[i].Picture == pic)
+                        {
+                            selected[i].LocationInImage = pic.Location;
+                            selected[i].initSizePicture = pictureBoxMap.Size;
+                        }
+                    }
+                pictureBoxDoiTuongIsMoved = false;
+            }
+        }
 
         public void deletePic(PictureBox pic)
         {
@@ -242,10 +253,10 @@ namespace DXApplication1.Views
                 }
                 i++;
             }
-             
+
         }
 
-        
+
 
         private void Frm_test1_Load(object sender, EventArgs e)
         {
@@ -255,7 +266,7 @@ namespace DXApplication1.Views
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            for(int i = 6; i < 13; i++)
+            for (int i = 6; i < 13; i++)
             {
                 if (e.Node.ImageIndex == i)
                 {
@@ -272,8 +283,8 @@ namespace DXApplication1.Views
                     deletePic(selected[opted].Picture);
                     opted++;
                 }
-            }    
-            
+            }
+
         }
         //nhap chuot phai hien thong tin, chuot trai cho phep sua thong tin
         //===============================================================================================           
@@ -502,7 +513,7 @@ namespace DXApplication1.Views
             b.Abort();
             _mDem.Read(path);
             pictureBoxMap.Image = bitmapInit;
-            bitmapResize = new Bitmap(bitmapInit1 , 1201 ,1201);
+            bitmapResize = new Bitmap(bitmapInit1, 1201, 1201);
         }
 
 
