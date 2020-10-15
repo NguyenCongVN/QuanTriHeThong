@@ -292,7 +292,7 @@ namespace DXApplication1.Views
             //    selected[opted].Picture.Image = images[1];
             //    selected[opted].Detail = "detail" + opted;
             //    selected[opted].Picture.Location = new Point(10, 10);
-            //    pictureBox1.AddControl(selected[opted].Picture);
+            //    pictureBoxMap.AddControl(selected[opted].Picture);
             //    MoveButton(selected[opted].Picture);
             //    deletePic(selected[opted].Picture);
             //    opted++;
