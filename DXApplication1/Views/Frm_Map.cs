@@ -284,7 +284,6 @@ namespace DXApplication1.Views
                     opted++;
                 }
             }
-
         }
         //nhap chuot phai hien thong tin, chuot trai cho phep sua thong tin
         //===============================================================================================           
