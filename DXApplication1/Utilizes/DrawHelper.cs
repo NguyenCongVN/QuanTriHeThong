@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.MVVM.Services;
+using Control = System.Windows.Forms.Control;
 
 namespace DXApplication1.Utilizes
 {
-    public class DrawHelper
+    public static class DrawHelper
     {
         public static Color GetGreenYellowRedByPropotion(double value, double max)
         {
@@ -29,6 +32,69 @@ namespace DXApplication1.Utilizes
             int y =(int)(((float)point.Y / initSize.Height) * pictureBox.Height);
             int x = (int)(((float)point.X / initSize.Width) * pictureBox.Width);
             return  new Point(x, y);
+        }
+
+        public static void ScrollToMouseInPictureBox(this XtraScrollableControl p 
+            , Point newPoint , PictureBox picture)
+        {
+            Point currentPoint = picture.PointToClient(Control.MousePosition);
+            int yDiff = newPoint.Y - currentPoint.Y;
+            if (yDiff < 0)
+            {
+                //pos passed in should be positive
+                using (Control c = new Control()
+                {
+                    Parent = p,
+                    Height = 1,
+                    Top = p.ClientSize.Height + yDiff,
+                })
+                {
+                    p.ScrollControlIntoView(c);
+                }
+            }
+
+            if (yDiff > 0)
+            {
+                //pos passed in should be negative
+                using (Control c = new Control()
+                {
+                    Parent = p,
+                    Height = 1,
+                    Top = yDiff,
+                })
+                {
+                    p.ScrollControlIntoView(c);
+                }
+            }
+
+            int xDiff = newPoint.X - currentPoint.X;
+            if (xDiff < 0)
+            {
+                //pos passed in should be positive
+                using (Control c = new Control()
+                {
+                    Parent = p,
+                    Width = 1,
+                    Left = p.ClientSize.Width + xDiff,
+                })
+                {
+                    p.ScrollControlIntoView(c);
+                }
+            }
+
+            if (xDiff > 0)
+            {
+                //pos passed in should be negative
+                using (Control c = new Control()
+                {
+                    Parent = p,
+                    Width = 1,
+                    Left = xDiff,
+                })
+                {
+                    p.ScrollControlIntoView(c);
+                }
+            }
         }
     }
 }

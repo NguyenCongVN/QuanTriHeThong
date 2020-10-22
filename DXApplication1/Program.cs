@@ -45,7 +45,6 @@ namespace DXApplication1
             quanLyNhanVien = new QuanLyNhanVien();
             lg = new frmLogin();
             frm_Map = new Frm_test1();
-            
             Application.Run(lg);
         }
     }

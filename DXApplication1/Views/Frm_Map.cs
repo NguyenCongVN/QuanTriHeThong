@@ -3,11 +3,15 @@ using DevExpress.Utils.Extensions;
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
 using System;
+using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Input;
+using Cursor = System.Windows.Input.Cursor;
 using Cursors = System.Windows.Forms.Cursors;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 
@@ -122,7 +126,8 @@ namespace DXApplication1.Views
 
         private void PictureBoxMap_MouseWheel(object sender, MouseEventArgs e)
         {
-            if (Keyboard.GetKeyStates(Key.LeftCtrl) == KeyStates.Down)
+            Debug.Write((sender as PictureBox).Focused);
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) == true)
             {
                 if (e.Delta > 0)
                 {
@@ -134,6 +139,9 @@ namespace DXApplication1.Views
                     widthResize = widthResize - 50;
                     heightResize = heightResize - 50;
                 }
+
+                Size CurrentSize = pictureBoxMap.Image.Size;
+                Point currentPoint = pictureBoxMap.PointToClient(Control.MousePosition);
                 var bitmap = new Bitmap(bitmapResize, pictureBoxMap.Width + widthResize,
                     pictureBoxMap.Height + heightResize);
                 pictureBoxMap.Image = bitmap;
@@ -146,6 +154,8 @@ namespace DXApplication1.Views
                     }
                 }
                 pictureBoxMap.Refresh();
+                Point newPoint = DrawHelper.ScaleImage(currentPoint, CurrentSize, pictureBoxMap);
+                DrawHelper.ScrollToMouseInPictureBox(this.panelMap ,  newPoint , pictureBoxMap);
                 widthResize = 0;
                 heightResize = 0;
             }
@@ -170,7 +180,6 @@ namespace DXApplication1.Views
         }
 
         private Point firstPoint;
-
 
         public void MoveButton(PictureBox pp)
         {
@@ -222,6 +231,7 @@ namespace DXApplication1.Views
                 }
             };
         }
+
         public void load_Tree()
         {
             nodeOnMap = new NodeOnMap();
@@ -256,13 +266,10 @@ namespace DXApplication1.Views
 
         }
 
-
-
         private void Frm_test1_Load(object sender, EventArgs e)
         {
             load_Tree();
         }
-
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -521,7 +528,9 @@ namespace DXApplication1.Views
             if (check == 1)
             {
                 //selected[opted - 1].Picture.Location = new Point(10, 10);
-                selected[opted - 1].Picture.Location = new Point(Control.MousePosition.X - 240, Control.MousePosition.Y - 270);
+                Point point = new Point(Control.MousePosition.X, Control.MousePosition.Y);
+                point = pictureBoxMap.PointToClient(point);
+                selected[opted - 1].Picture.Location = point;
                 selected[opted - 1].LocationInImage = selected[opted - 1].Picture.Location;
                 selected[opted - 1].initSizePicture = pictureBoxMap.Size;
                 selected[opted - 1].Picture.Visible = true;
@@ -630,11 +639,6 @@ namespace DXApplication1.Views
             }
         }
 
-        private void buttonXoa_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonAnHienChiTietFile_Click(object sender, EventArgs e)
         {
             if (hidedFile)
@@ -671,5 +675,13 @@ namespace DXApplication1.Views
                 }
             }
         }
+
+        private void simpleButtonLuuPhuongAn_Click(object sender, EventArgs e)
+        {
+            TaoKeHoachMoi taoKeHoachMoi = new TaoKeHoachMoi();
+            taoKeHoachMoi.ShowDialog();
+        }
+
+        
     }
 }
