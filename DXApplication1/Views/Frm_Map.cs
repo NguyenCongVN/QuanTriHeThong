@@ -126,7 +126,6 @@ namespace DXApplication1.Views
 
         private void PictureBoxMap_MouseWheel(object sender, MouseEventArgs e)
         {
-            Debug.Write((sender as PictureBox).Focused);
             if (Keyboard.IsKeyDown(Key.LeftCtrl) == true)
             {
                 if (e.Delta > 0)
@@ -156,6 +155,7 @@ namespace DXApplication1.Views
                 pictureBoxMap.Refresh();
                 Point newPoint = DrawHelper.ScaleImage(currentPoint, CurrentSize, pictureBoxMap);
                 DrawHelper.ScrollToMouseInPictureBox(this.panelMap ,  newPoint , pictureBoxMap);
+                Point currentPoint1 = pictureBoxMap.PointToClient(Control.MousePosition);
                 widthResize = 0;
                 heightResize = 0;
             }
@@ -682,6 +682,5 @@ namespace DXApplication1.Views
             taoKeHoachMoi.ShowDialog();
         }
 
-        
     }
 }

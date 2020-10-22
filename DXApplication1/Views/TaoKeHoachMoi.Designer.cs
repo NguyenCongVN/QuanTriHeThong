@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -51,27 +52,19 @@
             this.simpleButtonLuu = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonMo = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonDong = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(133, 160);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(361, 20);
-            this.textEdit1.TabIndex = 0;
             // 
             // textEdit3
             // 
@@ -96,6 +89,21 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(602, 74);
             this.panelControl1.TabIndex = 4;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(5, 28);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(86, 13);
+            this.labelControl9.TabIndex = 24;
+            this.labelControl9.Text = "Thông tin tìm kiếm";
+            // 
+            // textEdit8
+            // 
+            this.textEdit8.Location = new System.Drawing.Point(121, 25);
+            this.textEdit8.Name = "textEdit8";
+            this.textEdit8.Size = new System.Drawing.Size(361, 20);
+            this.textEdit8.TabIndex = 24;
             // 
             // simpleButtonTimKiem
             // 
@@ -257,26 +265,30 @@
             this.simpleButtonDong.TabIndex = 23;
             this.simpleButtonDong.Text = "Đóng";
             // 
-            // textEdit8
+            // listBox1
             // 
-            this.textEdit8.Location = new System.Drawing.Point(121, 25);
-            this.textEdit8.Name = "textEdit8";
-            this.textEdit8.Size = new System.Drawing.Size(361, 20);
-            this.textEdit8.TabIndex = 24;
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(0, 398);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(621, 121);
+            this.listBox1.TabIndex = 24;
             // 
-            // labelControl9
+            // comboBox1
             // 
-            this.labelControl9.Location = new System.Drawing.Point(5, 28);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(86, 13);
-            this.labelControl9.TabIndex = 24;
-            this.labelControl9.Text = "Thông tin tìm kiếm";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(133, 159);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(361, 21);
+            this.comboBox1.TabIndex = 25;
             // 
             // TaoKeHoachMoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 440);
+            this.ClientSize = new System.Drawing.Size(621, 519);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.simpleButtonDong);
             this.Controls.Add(this.simpleButtonMo);
             this.Controls.Add(this.simpleButtonLuu);
@@ -294,33 +306,29 @@
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.textEdit1);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.textEdit4);
             this.Controls.Add(this.textEdit3);
             this.Controls.Add(this.timeEdit1);
             this.Name = "TaoKeHoachMoi";
             this.Text = "Tạo Kế Hoạch";
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.TextEdit textEdit4;
         private DevExpress.XtraEditors.PanelControl panelControl1;
@@ -345,5 +353,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonDong;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.TextEdit textEdit8;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

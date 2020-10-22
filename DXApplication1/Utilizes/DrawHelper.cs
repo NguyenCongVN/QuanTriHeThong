@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.MVVM.Services;
+using DXApplication1.Views;
 using Control = System.Windows.Forms.Control;
 
 namespace DXApplication1.Utilizes
@@ -34,12 +36,12 @@ namespace DXApplication1.Utilizes
             return  new Point(x, y);
         }
 
-        public static void ScrollToMouseInPictureBox(this XtraScrollableControl p 
+        public static void ScrollToMouseInPictureBox(this CustomScrollPanel p 
             , Point newPoint , PictureBox picture)
         {
             Point currentPoint = picture.PointToClient(Control.MousePosition);
             int yDiff = newPoint.Y - currentPoint.Y;
-            if (yDiff < 0)
+            if (yDiff > 0)
             {
                 //pos passed in should be positive
                 using (Control c = new Control()
@@ -53,7 +55,7 @@ namespace DXApplication1.Utilizes
                 }
             }
 
-            if (yDiff > 0)
+            if (yDiff < 0)
             {
                 //pos passed in should be negative
                 using (Control c = new Control()
@@ -68,7 +70,7 @@ namespace DXApplication1.Utilizes
             }
 
             int xDiff = newPoint.X - currentPoint.X;
-            if (xDiff < 0)
+            if (xDiff > 0)
             {
                 //pos passed in should be positive
                 using (Control c = new Control()
@@ -82,7 +84,7 @@ namespace DXApplication1.Utilizes
                 }
             }
 
-            if (xDiff > 0)
+            if (xDiff < 0)
             {
                 //pos passed in should be negative
                 using (Control c = new Control()
