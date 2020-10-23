@@ -20,6 +20,11 @@ namespace DXApplication1.Views
 {
     public partial class Frm_test1 : DevExpress.XtraEditors.XtraForm
     {
+
+        // Ke Hoach
+        public KeHoach KeHoach { get; set; }
+
+
         int panelWidth;
         int panelWidthFile;
         bool hided;
@@ -280,7 +285,6 @@ namespace DXApplication1.Views
                     selected[opted] = new DoiTuong();
                     selected[opted].Picture.Image = imageListChild.Images[i];
                     selected[opted].Detail = e.Node.Text;
-
                     selected[opted].Picture.Visible = false;
                     selected[opted].Picture.Location = new Point(10, 10);
                     pictureBoxMap.AddControl(selected[opted].Picture);
@@ -678,7 +682,7 @@ namespace DXApplication1.Views
 
         private void simpleButtonLuuPhuongAn_Click(object sender, EventArgs e)
         {
-            TaoKeHoachMoi taoKeHoachMoi = new TaoKeHoachMoi();
+            TaoKeHoachMoi taoKeHoachMoi = new TaoKeHoachMoi(selected);
             taoKeHoachMoi.ShowDialog();
         }
 

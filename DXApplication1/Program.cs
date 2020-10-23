@@ -29,6 +29,8 @@ namespace DXApplication1
         public static ChucvuSql chucvuSql;
         public static Chucvu cvu;
         public static Frm_test1 frm_Map;
+        public static KeHoachSql KeHoachSql;
+        public static ThongTinChiTietDoiTuongSql ThongTinChiTietDoiTuongSql;
         [STAThread]
 
         static void Main()

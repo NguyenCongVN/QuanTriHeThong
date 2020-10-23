@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DXApplication1.Models
 {
-    class DoiTuong : Form
+    public class DoiTuong : Form
     {
         PictureBox picture;
         private ContextMenuStrip contextMenuStrip1;

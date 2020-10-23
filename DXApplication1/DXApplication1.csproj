@@ -116,6 +116,8 @@
     <Compile Include="Models\DoiTuong.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Models\KeHoach.cs" />
+    <Compile Include="Models\KeHoachSql.cs" />
     <Compile Include="Models\LoaiQuyen.cs" />
     <Compile Include="Models\LoaiQuyenSql.cs" />
     <Compile Include="Models\NguoiDung.cs" />
@@ -128,6 +130,8 @@
     <Compile Include="Models\QuyenSql.cs" />
     <Compile Include="Models\Quyen_LoaiQuyen.cs" />
     <Compile Include="Models\Quyen_LoaiQuyenSql.cs" />
+    <Compile Include="Models\ThongTinChiTietDoiTuong.cs" />
+    <Compile Include="Models\ThongTinChiTietDoiTuongSql.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Models\ThongTinNguoiDung.cs" />
