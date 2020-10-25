@@ -45,6 +45,8 @@ namespace DXApplication1
             cvu = new Chucvu();
             quyenSql = new QuyenSql();
             quanLyNhanVien = new QuanLyNhanVien();
+            KeHoachSql = new KeHoachSql();
+            ThongTinChiTietDoiTuongSql = new ThongTinChiTietDoiTuongSql();
             lg = new frmLogin();
             frm_Map = new Frm_test1();
             Application.Run(lg);

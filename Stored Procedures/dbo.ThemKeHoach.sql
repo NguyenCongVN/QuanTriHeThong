@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -6,10 +7,10 @@ CREATE PROC [dbo].[ThemKeHoach](@name NVARCHAR(200) , @maNguoiLapKeHoach VARCHAR
 AS
 BEGIN
 INSERT INTO dbo.KeHoach
-        ( TenKeHoach, MaNguoiLapKeHoach )
+        ( TenKeHoach, MaNguoiLapKeHoach ,ThoiGianTao )
 OUTPUT Inserted.MaKeHoach
 VALUES  ( @name, -- TenKeHoach - nvarchar(200)
           @maNguoiLapKeHoach  -- MaNguoiLapKeHoach - varchar(10)
-          )
+          , GETDATE())
 END
 GO

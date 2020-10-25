@@ -16,7 +16,6 @@ namespace DXApplication1.Admin
         {
             Program.quanLyNhanVienSql = new QuanLyNhanVienSql();
             Program.quanLyNhanVienSql.getDataDSNV(dataGridViewDSNV, searchLookUpEditDSNV);
-
         }
 
         private void buttonThem_Click(object sender, System.EventArgs e)
@@ -75,7 +74,7 @@ namespace DXApplication1.Admin
             numrow = e.RowIndex;
             getDataFromDgvIntoTextBox(textBoxMaDangNhap, numrow, "MaDangNhapNguoiDung");
             getDataFromDgvIntoTextBox(textBoxHoTen, numrow, "HoTen");
-            getDataFromDgvIntoTextBox(textBoxChucVu, numrow, "TenChucVu");
+            //getDataFromDgvIntoTextBox(textBoxChucVu, numrow, "TenChucVu");
             getDataFromDgvIntoTextBox(textBoxDiaChi, numrow, "DiaChi");
             getDataFromDgvIntoTextBox(textBoxEmail, numrow, "Email");
             getDataFromDgvIntoTextBox(textBoxSoDienThoai, numrow, "SoDienThoai");

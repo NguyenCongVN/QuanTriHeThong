@@ -1,6 +1,6 @@
 ﻿namespace DXApplication1.Views
 {
-    partial class TaoKeHoachMoi
+    partial class QuanLyPhuongAnForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,6 @@
             this.simpleButtonTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.textEditThoiGianLap = new DevExpress.XtraEditors.TextEdit();
             this.timeEditThoiGianLap = new DevExpress.XtraEditors.DateEdit();
             this.richEditControlChiTiet = new DevExpress.XtraRichEdit.RichEditControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -45,15 +44,14 @@
             this.simpleButtonLuu = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonMo = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonDong = new DevExpress.XtraEditors.SimpleButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewKeHoach = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenPhuongAn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTimKiem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThoiGianLap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEditThoiGianLap.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEditThoiGianLap.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKeHoach)).BeginInit();
             this.SuspendLayout();
             // 
             // textEditTenPhuongAn
@@ -112,17 +110,10 @@
             this.labelControl7.TabIndex = 13;
             this.labelControl7.Text = "Thời gian lập phương án";
             // 
-            // textEditThoiGianLap
-            // 
-            this.textEditThoiGianLap.Location = new System.Drawing.Point(133, 136);
-            this.textEditThoiGianLap.Name = "textEditThoiGianLap";
-            this.textEditThoiGianLap.Size = new System.Drawing.Size(260, 20);
-            this.textEditThoiGianLap.TabIndex = 14;
-            // 
             // timeEditThoiGianLap
             // 
             this.timeEditThoiGianLap.EditValue = new System.DateTime(2020, 10, 20, 0, 0, 0, 0);
-            this.timeEditThoiGianLap.Location = new System.Drawing.Point(408, 136);
+            this.timeEditThoiGianLap.Location = new System.Drawing.Point(133, 136);
             this.timeEditThoiGianLap.Name = "timeEditThoiGianLap";
             this.timeEditThoiGianLap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -134,7 +125,7 @@
             this.timeEditThoiGianLap.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.timeEditThoiGianLap.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
             this.timeEditThoiGianLap.Properties.Mask.EditMask = "T";
-            this.timeEditThoiGianLap.Size = new System.Drawing.Size(86, 20);
+            this.timeEditThoiGianLap.Size = new System.Drawing.Size(361, 20);
             this.timeEditThoiGianLap.TabIndex = 15;
             // 
             // richEditControlChiTiet
@@ -203,21 +194,22 @@
             this.simpleButtonDong.TabIndex = 23;
             this.simpleButtonDong.Text = "Đóng";
             // 
-            // dataGridView1
+            // dataGridViewKeHoach
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 347);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(621, 108);
-            this.dataGridView1.TabIndex = 25;
+            this.dataGridViewKeHoach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewKeHoach.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridViewKeHoach.Location = new System.Drawing.Point(0, 347);
+            this.dataGridViewKeHoach.Name = "dataGridViewKeHoach";
+            this.dataGridViewKeHoach.Size = new System.Drawing.Size(621, 108);
+            this.dataGridViewKeHoach.TabIndex = 25;
+            this.dataGridViewKeHoach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKeHoach_CellClick);
             // 
-            // TaoKeHoachMoi
+            // QuanLyPhuongAnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 455);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewKeHoach);
             this.Controls.Add(this.simpleButtonDong);
             this.Controls.Add(this.simpleButtonMo);
             this.Controls.Add(this.simpleButtonLuu);
@@ -226,23 +218,21 @@
             this.Controls.Add(this.simpleButtonThem);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.richEditControlChiTiet);
-            this.Controls.Add(this.textEditThoiGianLap);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.textEditTenPhuongAn);
             this.Controls.Add(this.timeEditThoiGianLap);
-            this.Name = "TaoKeHoachMoi";
-            this.Text = "Tạo Kế Hoạch";
+            this.Name = "QuanLyPhuongAnForm";
+            this.Text = "Quản Lý Phương Án";
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenPhuongAn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTimKiem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditThoiGianLap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEditThoiGianLap.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEditThoiGianLap.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKeHoach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,7 +244,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonTimKiem;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.TextEdit textEditThoiGianLap;
         private DevExpress.XtraEditors.DateEdit timeEditThoiGianLap;
         private DevExpress.XtraRichEdit.RichEditControl richEditControlChiTiet;
         private DevExpress.XtraEditors.LabelControl labelControl8;
@@ -266,6 +255,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonDong;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.TextEdit textEditTimKiem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewKeHoach;
     }
 }

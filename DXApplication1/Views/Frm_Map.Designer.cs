@@ -45,7 +45,11 @@ namespace DXApplication1.Views
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.item1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.item2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.simpleButtonBatDau = new DevExpress.XtraEditors.SimpleButton();
+            this.checkButtonTamDung = new DevExpress.XtraEditors.CheckButton();
             this.panelSideBar = new System.Windows.Forms.Panel();
             this.buttonAnHien = new System.Windows.Forms.Button();
             this.timerAnHien = new System.Windows.Forms.Timer(this.components);
@@ -56,15 +60,10 @@ namespace DXApplication1.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonAnHienChiTietFile = new System.Windows.Forms.Button();
             this.timerAnHienFile = new System.Windows.Forms.Timer(this.components);
-            this.simpleButtonLuuPhuongAn = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonTaoPhuongAn = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonQuanLyPhuongAn = new DevExpress.XtraEditors.SimpleButton();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panelMap = new DXApplication1.Views.CustomScrollPanel();
             this.pictureBoxMap = new System.Windows.Forms.PictureBox();
-            this.simpleButtonBatDau = new DevExpress.XtraEditors.SimpleButton();
-            this.checkButtonTamDung = new DevExpress.XtraEditors.CheckButton();
-            this.item1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.item2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -72,9 +71,9 @@ namespace DXApplication1.Views
             this.panelSideBar.SuspendLayout();
             this.panelNode.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panelMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // imageListChild
@@ -179,6 +178,21 @@ namespace DXApplication1.Views
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(130, 56);
             // 
+            // item1ToolStripMenuItem
+            // 
+            this.item1ToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconPro;
+            this.item1ToolStripMenuItem.Name = "item1ToolStripMenuItem";
+            this.item1ToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
+            this.item1ToolStripMenuItem.Text = "Thông tin";
+            // 
+            // item2ToolStripMenuItem
+            // 
+            this.item2ToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.item2ToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconDelete;
+            this.item2ToolStripMenuItem.Name = "item2ToolStripMenuItem";
+            this.item2ToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
+            this.item2ToolStripMenuItem.Text = "Delete";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.simpleButtonBatDau);
@@ -191,6 +205,28 @@ namespace DXApplication1.Views
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1066, 43);
             this.panel2.TabIndex = 9;
+            // 
+            // simpleButtonBatDau
+            // 
+            this.simpleButtonBatDau.ImageOptions.Image = global::DXApplication1.Properties.Resources.start_16;
+            this.simpleButtonBatDau.Location = new System.Drawing.Point(506, 2);
+            this.simpleButtonBatDau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.simpleButtonBatDau.Name = "simpleButtonBatDau";
+            this.simpleButtonBatDau.Size = new System.Drawing.Size(64, 22);
+            this.simpleButtonBatDau.TabIndex = 12;
+            this.simpleButtonBatDau.Text = "Bắt Đầu";
+            this.simpleButtonBatDau.Click += new System.EventHandler(this.simpleButtonBatDau_Click);
+            // 
+            // checkButtonTamDung
+            // 
+            this.checkButtonTamDung.ImageOptions.Image = global::DXApplication1.Properties.Resources.pause_16;
+            this.checkButtonTamDung.Location = new System.Drawing.Point(594, 1);
+            this.checkButtonTamDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkButtonTamDung.Name = "checkButtonTamDung";
+            this.checkButtonTamDung.Size = new System.Drawing.Size(76, 23);
+            this.checkButtonTamDung.TabIndex = 9;
+            this.checkButtonTamDung.Text = "Tạm Dừng";
+            this.checkButtonTamDung.CheckedChanged += new System.EventHandler(this.checkButtonTamDung_CheckedChanged);
             // 
             // panelSideBar
             // 
@@ -289,22 +325,14 @@ namespace DXApplication1.Views
             // 
             this.timerAnHienFile.Tick += new System.EventHandler(this.timerAnHienFile_Tick);
             // 
-            // simpleButtonLuuPhuongAn
+            // simpleButtonQuanLyPhuongAn
             // 
-            this.simpleButtonLuuPhuongAn.Location = new System.Drawing.Point(389, 1);
-            this.simpleButtonLuuPhuongAn.Name = "simpleButtonLuuPhuongAn";
-            this.simpleButtonLuuPhuongAn.Size = new System.Drawing.Size(136, 23);
-            this.simpleButtonLuuPhuongAn.TabIndex = 13;
-            this.simpleButtonLuuPhuongAn.Text = "Lưu phương án";
-            this.simpleButtonLuuPhuongAn.Click += new System.EventHandler(this.simpleButtonLuuPhuongAn_Click);
-            // 
-            // simpleButtonTaoPhuongAn
-            // 
-            this.simpleButtonTaoPhuongAn.Location = new System.Drawing.Point(243, 1);
-            this.simpleButtonTaoPhuongAn.Name = "simpleButtonTaoPhuongAn";
-            this.simpleButtonTaoPhuongAn.Size = new System.Drawing.Size(136, 23);
-            this.simpleButtonTaoPhuongAn.TabIndex = 12;
-            this.simpleButtonTaoPhuongAn.Text = "Tạo Phương Án Mới";
+            this.simpleButtonQuanLyPhuongAn.Location = new System.Drawing.Point(389, 1);
+            this.simpleButtonQuanLyPhuongAn.Name = "simpleButtonQuanLyPhuongAn";
+            this.simpleButtonQuanLyPhuongAn.Size = new System.Drawing.Size(136, 23);
+            this.simpleButtonQuanLyPhuongAn.TabIndex = 13;
+            this.simpleButtonQuanLyPhuongAn.Text = "Quản lý phương án";
+            this.simpleButtonQuanLyPhuongAn.Click += new System.EventHandler(this.simpleButtonLuuPhuongAn_Click);
             // 
             // panelMap
             // 
@@ -331,52 +359,13 @@ namespace DXApplication1.Views
             this.pictureBoxMap.TabStop = false;
             this.pictureBoxMap.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // simpleButtonBatDau
-            // 
-            this.simpleButtonBatDau.ImageOptions.Image = global::DXApplication1.Properties.Resources.start_16;
-            this.simpleButtonBatDau.Location = new System.Drawing.Point(506, 2);
-            this.simpleButtonBatDau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.simpleButtonBatDau.Name = "simpleButtonBatDau";
-            this.simpleButtonBatDau.Size = new System.Drawing.Size(64, 22);
-            this.simpleButtonBatDau.TabIndex = 12;
-            this.simpleButtonBatDau.Text = "Bắt Đầu";
-            this.simpleButtonBatDau.Click += new System.EventHandler(this.simpleButtonBatDau_Click);
-            // 
-            // checkButtonTamDung
-            // 
-            this.checkButtonTamDung.ImageOptions.Image = global::DXApplication1.Properties.Resources.pause_16;
-            this.checkButtonTamDung.Location = new System.Drawing.Point(594, 1);
-            this.checkButtonTamDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkButtonTamDung.Name = "checkButtonTamDung";
-            this.checkButtonTamDung.Size = new System.Drawing.Size(76, 23);
-            this.checkButtonTamDung.TabIndex = 9;
-            this.checkButtonTamDung.Text = "Tạm Dừng";
-            this.checkButtonTamDung.CheckedChanged += new System.EventHandler(this.checkButtonTamDung_CheckedChanged);
-            // 
-            // item1ToolStripMenuItem
-            // 
-            this.item1ToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconPro;
-            this.item1ToolStripMenuItem.Name = "item1ToolStripMenuItem";
-            this.item1ToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
-            this.item1ToolStripMenuItem.Text = "Thông tin";
-            this.item1ToolStripMenuItem.Click += new System.EventHandler(this.item1ToolStripMenuItem_Click);
-            // 
-            // item2ToolStripMenuItem
-            // 
-            this.item2ToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.item2ToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconDelete;
-            this.item2ToolStripMenuItem.Name = "item2ToolStripMenuItem";
-            this.item2ToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
-            this.item2ToolStripMenuItem.Text = "Delete";
-            // 
             // Frm_test1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1179, 614);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelMap);
-            this.Controls.Add(this.simpleButtonLuuPhuongAn);
-            this.Controls.Add(this.simpleButtonTaoPhuongAn);
+            this.Controls.Add(this.simpleButtonQuanLyPhuongAn);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panelNode);
             this.Controls.Add(this.panelSideBar);
@@ -397,10 +386,10 @@ namespace DXApplication1.Views
             this.panelSideBar.ResumeLayout(false);
             this.panelNode.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panelMap.ResumeLayout(false);
             this.panelMap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,8 +423,7 @@ namespace DXApplication1.Views
         private Panel panel1;
         private Button buttonAnHienChiTietFile;
         private Timer timerAnHienFile;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonLuuPhuongAn;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonTaoPhuongAn;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonQuanLyPhuongAn;
         private PictureBox pictureBoxMap;
         private CustomScrollPanel panelMap;
     }

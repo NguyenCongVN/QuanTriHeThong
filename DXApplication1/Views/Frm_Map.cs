@@ -105,7 +105,6 @@ namespace DXApplication1.Views
 
         public static EventWaitHandle readyToWrite = new AutoResetEvent(true);
 
-
         int check = 0;
         int opted = 0;
 
@@ -179,7 +178,6 @@ namespace DXApplication1.Views
             foreach (DataRow dr in PicSet.Tables[0].Rows)
             {
                 imageListChild.Images.Add(Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
-
             }
 
         }
@@ -283,6 +281,7 @@ namespace DXApplication1.Views
                 if (e.Node.ImageIndex == i)
                 {
                     selected[opted] = new DoiTuong();
+                    selected[opted].MaDonVi = e.Node.Name;
                     selected[opted].Picture.Image = imageListChild.Images[i];
                     selected[opted].Detail = e.Node.Text;
                     selected[opted].Picture.Visible = false;
@@ -526,7 +525,6 @@ namespace DXApplication1.Views
             bitmapResize = new Bitmap(bitmapInit1, 1201, 1201);
         }
 
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (check == 1)
@@ -541,11 +539,6 @@ namespace DXApplication1.Views
                 check = 0;
                 this.Cursor = Cursors.Default;
             }
-        }
-
-        private void item1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -682,9 +675,9 @@ namespace DXApplication1.Views
 
         private void simpleButtonLuuPhuongAn_Click(object sender, EventArgs e)
         {
-            TaoKeHoachMoi taoKeHoachMoi = new TaoKeHoachMoi(selected);
+            QuanLyPhuongAnForm taoKeHoachMoi = new QuanLyPhuongAnForm(selected , opted , treeView1 , imageListChild);
             taoKeHoachMoi.ShowDialog();
-        }
 
+        }
     }
 }

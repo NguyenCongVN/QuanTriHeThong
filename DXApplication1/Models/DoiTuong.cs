@@ -18,12 +18,14 @@ namespace DXApplication1.Models
         private ToolStripMenuItem chỉnhSửaToolStripMenuItem;
         private ToolStripMenuItem xóaToolStripMenuItem;
         string detail;
+
         public enum DoiTuongFields
         {
             Picture,
             Detail
         }
 
+        public string MaDonVi { get; set; }
 
         public Point LocationInImage { get; set; }
 
