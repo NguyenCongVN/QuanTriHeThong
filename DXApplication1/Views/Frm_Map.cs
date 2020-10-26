@@ -675,9 +675,15 @@ namespace DXApplication1.Views
 
         private void simpleButtonLuuPhuongAn_Click(object sender, EventArgs e)
         {
-            QuanLyPhuongAnForm taoKeHoachMoi = new QuanLyPhuongAnForm(selected , opted , treeView1 , imageListChild);
+            bool isChange = false;
+            QuanLyPhuongAnForm taoKeHoachMoi = new QuanLyPhuongAnForm(selected , opted , treeView1 , imageListChild ,ref isChange);
             taoKeHoachMoi.ShowDialog();
-
+            if (isChange)
+            {
+                //this.pictureBoxMap.Controls.Clear();
+                //foreach(int )
+                //this.pictureBoxMap.AddControl();
+            }
         }
     }
 }

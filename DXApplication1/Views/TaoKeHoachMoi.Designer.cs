@@ -185,6 +185,7 @@
             this.simpleButtonMo.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonMo.TabIndex = 22;
             this.simpleButtonMo.Text = "Mở phương án";
+            this.simpleButtonMo.Click += new System.EventHandler(this.simpleButtonMo_Click);
             // 
             // simpleButtonDong
             // 
@@ -200,6 +201,7 @@
             this.dataGridViewKeHoach.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridViewKeHoach.Location = new System.Drawing.Point(0, 347);
             this.dataGridViewKeHoach.Name = "dataGridViewKeHoach";
+            this.dataGridViewKeHoach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewKeHoach.Size = new System.Drawing.Size(621, 108);
             this.dataGridViewKeHoach.TabIndex = 25;
             this.dataGridViewKeHoach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKeHoach_CellClick);

@@ -16,16 +16,27 @@ namespace DXApplication1.Views
 {
     public partial class QuanLyPhuongAnForm : DevExpress.XtraEditors.XtraForm
     {
+        enum ThongTinKeHoach
+        {
+            MaKeHoach,
+            TenKeHoach,
+            NguoiLapKeHoach,
+            ThoiGianLap,
+            MaNguoiLap
+        }
         private DoiTuong[] DoiTuong { get; set; }
         private int Count { get; set; }
         private TreeView TreeView { get; set; }
         private ImageList ImageList { get; set; }
-        public QuanLyPhuongAnForm(DoiTuong[] doiTuong , int count , TreeView treeView ,ImageList imageList )
+        public bool isChange {get ; set; }
+        public QuanLyPhuongAnForm(DoiTuong[] doiTuong , int count , TreeView treeView ,ImageList imageList ,ref bool isChange )
         {
+            isChange = true;
             this.DoiTuong = doiTuong;
             this.Count = count;
             this.ImageList = imageList;
             this.TreeView = treeView;
+            this.isChange = isChange;
             InitializeComponent();
             LoadKeHoach();
             LoadKeHoachDeTail();
@@ -113,7 +124,28 @@ namespace DXApplication1.Views
         {
             Program.frm_Map.KeHoach = keHoach;
             DoiTuong = Program.ThongTinChiTietDoiTuongSql.LayCacDoiTuongTuKeHoach(keHoach.MaKeHoach , TreeView , ImageList).ToArray();
+            this.isChange = true;
             this.Dispose();
+        }
+
+        private void simpleButtonMo_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewKeHoach.SelectedRows == null)
+            {
+                MessageBox.Show("Hãy chọn kế hoạch để mở"); // Is Unreachable ??
+            }
+            else
+            {
+                KeHoach selectedKeHoach = new KeHoach()
+                {
+                    MaKeHoach = Int32.Parse(dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.MaKeHoach].Value.ToString()),
+                    TenKeHoach = dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.TenKeHoach].Value.ToString(),
+                    MaNguoiLap = dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.MaNguoiLap].Value.ToString(),
+                    ThoiGianTao = DateTime.Parse(dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.ThoiGianLap].Value.ToString()),
+                    TenNguoiLap = dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.NguoiLapKeHoach].Value.ToString(),
+                };
+                MoKeHoach(selectedKeHoach);
+            }
         }
     }
 }
