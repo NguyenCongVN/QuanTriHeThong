@@ -141,8 +141,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utilizes\BooleanClass.cs" />
     <Compile Include="Utilizes\ComboBoxItemPhanQuyen.cs" />
     <Compile Include="Utilizes\DrawHelper.cs" />
+    <Compile Include="Utilizes\IntClass.cs" />
     <Compile Include="Utilizes\PhanQuyenHelper.cs" />
     <Compile Include="Utilizes\ThongTinThayDoiChucVu.cs" />
     <Compile Include="Utilizes\UserUtilizes.cs" />

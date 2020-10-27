@@ -424,7 +424,7 @@ namespace DXApplication1.Views
         private Button buttonAnHienChiTietFile;
         private Timer timerAnHienFile;
         private DevExpress.XtraEditors.SimpleButton simpleButtonQuanLyPhuongAn;
-        private PictureBox pictureBoxMap;
+        public PictureBox pictureBoxMap;
         private CustomScrollPanel panelMap;
     }
 }

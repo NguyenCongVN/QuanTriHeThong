@@ -8,6 +8,7 @@ namespace DXApplication1.Models
 {
     public class ThongTinChiTietDoiTuong
     {
+        public int MaDoiTuong { get; set; }
         public string MaDonVi { get; set; }
         public string MoTa { get; set; }
         public int ToaDoX { get; set; }

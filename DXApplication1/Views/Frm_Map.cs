@@ -3,6 +3,7 @@ using DevExpress.Utils.Extensions;
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -106,13 +107,16 @@ namespace DXApplication1.Views
         public static EventWaitHandle readyToWrite = new AutoResetEvent(true);
 
         int check = 0;
-        int opted = 0;
+        public int opted = 0;
 
         PictureBox p1;
-        DoiTuong[] listPic;
-        DoiTuong[] selected = new DoiTuong[100];
+        List<DoiTuong> listPic = new List<DoiTuong>();
+        List<DoiTuong> selected = new List<DoiTuong>();
         Image[] images;
 
+        public List<DoiTuong> listAdd = new List<DoiTuong>();
+        public List<DoiTuong> listUpdate = new List<DoiTuong>();
+        public List<DoiTuong> listRemove = new List<DoiTuong>();
 
         NodeOnMap nodeOnMap;
 
@@ -142,7 +146,6 @@ namespace DXApplication1.Views
                     widthResize = widthResize - 50;
                     heightResize = heightResize - 50;
                 }
-
                 Size CurrentSize = pictureBoxMap.Image.Size;
                 Point currentPoint = pictureBoxMap.PointToClient(Control.MousePosition);
                 var bitmap = new Bitmap(bitmapResize, pictureBoxMap.Width + widthResize,
@@ -177,9 +180,9 @@ namespace DXApplication1.Views
 
             foreach (DataRow dr in PicSet.Tables[0].Rows)
             {
+                var i = Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString();
                 imageListChild.Images.Add(Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
             }
-
         }
 
         private Point firstPoint;
@@ -217,6 +220,19 @@ namespace DXApplication1.Views
                         {
                             selected[i].LocationInImage = pic.Location;
                             selected[i].initSizePicture = pictureBoxMap.Size;
+                            var list = listUpdate.FindAll(c => c.MaDoiTuong == selected[i].MaDoiTuong);
+                            if(list.Count != 0)
+                            {
+                                foreach(var doiTuong in list)
+                                {
+                                    listUpdate.Remove(doiTuong);
+                                }
+                                listUpdate.Add(selected[i]);
+                            }
+                            else
+                            {
+                                listUpdate.Add(selected[i]);
+                            }
                         }
                     }
                 pictureBoxDoiTuongIsMoved = false;
@@ -227,7 +243,6 @@ namespace DXApplication1.Views
         {
             pic.Click += (ss, ee) =>
             {
-
                 if (Control.ModifierKeys == Keys.Delete)
                 {
                     MessageBox.Show("delete");
@@ -276,21 +291,22 @@ namespace DXApplication1.Views
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            for (int i = 6; i < 13; i++)
+            for (int i = 6; i < 7; i++)
             {
                 if (e.Node.ImageIndex == i)
                 {
-                    selected[opted] = new DoiTuong();
-                    selected[opted].MaDonVi = e.Node.Name;
-                    selected[opted].Picture.Image = imageListChild.Images[i];
-                    selected[opted].Detail = e.Node.Text;
-                    selected[opted].Picture.Visible = false;
-                    selected[opted].Picture.Location = new Point(10, 10);
-                    pictureBoxMap.AddControl(selected[opted].Picture);
-                    MoveButton(selected[opted].Picture);
+                    DoiTuong doiTuong = new DoiTuong();
+                    doiTuong.MaDonVi = e.Node.Name;
+                    doiTuong.Picture.Image = imageListChild.Images[i];
+                    doiTuong.Detail = e.Node.Text;
+                    doiTuong.Picture.Visible = false;
+                    doiTuong.Picture.Location = new Point(10, 10);
+                    selected.Add(doiTuong);
+                    pictureBoxMap.AddControl(doiTuong.Picture);
+                    MoveButton(doiTuong.Picture);
                     check = 1;
                     this.Cursor = Cursors.NoMove2D;
-                    deletePic(selected[opted].Picture);
+                    deletePic(doiTuong.Picture);
                     opted++;
                 }
             }
@@ -536,6 +552,10 @@ namespace DXApplication1.Views
                 selected[opted - 1].LocationInImage = selected[opted - 1].Picture.Location;
                 selected[opted - 1].initSizePicture = pictureBoxMap.Size;
                 selected[opted - 1].Picture.Visible = true;
+                if(this.KeHoach != null)
+                {
+                    this.listAdd.Add(selected[opted - 1]);
+                }
                 check = 0;
                 this.Cursor = Cursors.Default;
             }
@@ -675,14 +695,24 @@ namespace DXApplication1.Views
 
         private void simpleButtonLuuPhuongAn_Click(object sender, EventArgs e)
         {
-            bool isChange = false;
-            QuanLyPhuongAnForm taoKeHoachMoi = new QuanLyPhuongAnForm(selected , opted , treeView1 , imageListChild ,ref isChange);
+            BooleanAndDoiTuongClass check = new BooleanAndDoiTuongClass() { BoolVar = false};
+            IntClass count = new IntClass() { IntVar = opted};
+            QuanLyPhuongAnForm taoKeHoachMoi = new QuanLyPhuongAnForm(selected , count , treeView1 , imageListChild ,check);
             taoKeHoachMoi.ShowDialog();
-            if (isChange)
+            if (check.BoolVar)
             {
-                //this.pictureBoxMap.Controls.Clear();
-                //foreach(int )
-                //this.pictureBoxMap.AddControl();
+                opted = count.IntVar;
+                selected = check.DoiTuongs;
+                this.pictureBoxMap.Controls.Clear();
+                for (int i = 0 ; i < opted ; i++)
+                {
+                    selected[i].Picture.Visible = true;
+                    selected[i].Picture.Location =
+                            DrawHelper.ScaleImage(selected[i].LocationInImage, selected[i].initSizePicture, pictureBoxMap);
+                    pictureBoxMap.AddControl(selected[i].Picture);
+                    MoveButton(selected[i].Picture);
+                    deletePic(selected[i].Picture);
+                }
             }
         }
     }

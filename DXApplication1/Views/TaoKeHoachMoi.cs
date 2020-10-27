@@ -1,16 +1,9 @@
-﻿using System;
+﻿using DXApplication1.Models;
+using DXApplication1.Utilizes;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.Utils.Extensions;
-using DevExpress.XtraEditors;
-using DXApplication1.Models;
 
 namespace DXApplication1.Views
 {
@@ -24,15 +17,15 @@ namespace DXApplication1.Views
             ThoiGianLap,
             MaNguoiLap
         }
-        private DoiTuong[] DoiTuong { get; set; }
-        private int Count { get; set; }
+        private IntClass Count { get; set; }
         private TreeView TreeView { get; set; }
         private ImageList ImageList { get; set; }
-        public bool isChange {get ; set; }
-        public QuanLyPhuongAnForm(DoiTuong[] doiTuong , int count , TreeView treeView ,ImageList imageList ,ref bool isChange )
+        public BooleanAndDoiTuongClass isChange { get; set; }
+
+        public QuanLyPhuongAnForm(List<DoiTuong> doiTuong, IntClass count, TreeView treeView, ImageList imageList, BooleanAndDoiTuongClass isChange)
         {
-            isChange = true;
-            this.DoiTuong = doiTuong;
+            this.isChange = isChange;
+            this.isChange.DoiTuongs = doiTuong;
             this.Count = count;
             this.ImageList = imageList;
             this.TreeView = treeView;
@@ -42,6 +35,7 @@ namespace DXApplication1.Views
             LoadKeHoachDeTail();
         }
 
+        // Load Thong tin ke hoach vao trong cac text box
         public void LoadKeHoachDeTail()
         {
             if (Program.frm_Map.KeHoach != null)
@@ -51,12 +45,14 @@ namespace DXApplication1.Views
             }
         }
 
+        // Load Thong tin ke hoach vao trong cac text box
         public void LoadKeHoachDeTail(KeHoach keHoach)
         {
             textEditTenPhuongAn.Text = keHoach.TenKeHoach;
             timeEditThoiGianLap.DateTime = keHoach.ThoiGianTao;
         }
 
+        // Load Ke Hoach vao trong GridView
         public void LoadKeHoach()
         {
             DataTable dt = new DataTable();
@@ -65,7 +61,7 @@ namespace DXApplication1.Views
             dt.Columns.Add("Người Lập Kế Hoạch");
             dt.Columns.Add("Thời Gian Tạo");
             dt.Columns.Add("Mã Người Lập");
-            foreach(var item in Program.KeHoachSql.GetAllKeHoach())
+            foreach (var item in Program.KeHoachSql.GetAllKeHoach())
             {
                 dt.Rows.Add(new object[]
                 {
@@ -78,40 +74,92 @@ namespace DXApplication1.Views
             dataGridViewKeHoach.DataSource = dt;
         }
 
+        // Luu lai ke hoach da tao
         private void simpleButtonLuu_Click(object sender, EventArgs e)
         {
+
+            // Neu chua dang nhap thi bao loi
             if (Program.lg.UserLogin == null)
             {
                 MessageBox.Show("Bạn Phải Đăng Nhập");
                 return;
             }
-            if (this.timeEditThoiGianLap.DateTime <= DateTime.Now)
+            // Neu dang mo mot ke hoach
+            if (Program.frm_Map.KeHoach != null)
             {
-                KeHoach keHoach = new KeHoach()
+                // Neu chon ke hoach khac de luu thi bao canh bao
+                //if (Program.frm_Map.KeHoach.MaKeHoach
+                //    != Int32.Parse(dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.MaKeHoach].Value.ToString()))
+                //{
+                //    MessageBox.Show("Bạn đang chọn lưu vào một phương án khác\n Hãy tạo phương án mới hoặc mở phương án trước khi lưu");
+                //    return;
+                //}
+                //else
                 {
-                    MaNguoiLap = Program.lg.UserLogin.MaDangNhapNguoiDung,
-                    TenKeHoach = textEditTenPhuongAn.Text
-                };
-                Program.KeHoachSql.ThemKeHoach(keHoach);
-                Program.frm_Map.KeHoach = keHoach;
-                List<ThongTinChiTietDoiTuong> list = new List<ThongTinChiTietDoiTuong>();
-                for(int i = 0 ; i < Count ; i++)
-                {
-                    list.Add(new ThongTinChiTietDoiTuong()
+                    List<ThongTinChiTietDoiTuong> list = new List<ThongTinChiTietDoiTuong>();
+                    // Them cac doi tuong moi
+                    foreach (DoiTuong doiTuong in Program.frm_Map.listAdd)
                     {
-                        MaKeHoach = keHoach.MaKeHoach,
-                        MaDonVi = DoiTuong[i].MaDonVi,
-                        ToaDoX = DoiTuong[i].LocationInImage.X,
-                        ToaDoY = DoiTuong[i].LocationInImage.Y,
-                        ChieuDaiAnh = DoiTuong[i].initSizePicture.Height,
-                        ChieuRongAnh = DoiTuong[i].initSizePicture.Width,
-                });
+                        list.Add(new ThongTinChiTietDoiTuong()
+                        {
+                            MaKeHoach = Program.frm_Map.KeHoach.MaKeHoach,
+                            MaDonVi = doiTuong.MaDonVi,
+                            ToaDoX = doiTuong.LocationInImage.X,
+                            ToaDoY = doiTuong.LocationInImage.Y,
+                            ChieuDaiAnh = doiTuong.initSizePicture.Height,
+                            ChieuRongAnh = doiTuong.initSizePicture.Width,
+                        });
+                    }
+
+                    Program.ThongTinChiTietDoiTuongSql.AddDoiTuong(list);
+
+                    // Sua cac doi tuong duoc sua doi
+                    Program.ThongTinChiTietDoiTuongSql.SuaDoiTuong(Program.frm_Map.listUpdate);
+
+                    // Xoa cac doi tuong khong con tren ban do
+                    Program.ThongTinChiTietDoiTuongSql.XoaDoiTuong(Program.frm_Map.listRemove);
                 }
-                Program.ThongTinChiTietDoiTuongSql.AddDoiTuong(list);
-                MessageBox.Show("Thanh Cong");
-                LoadKeHoach();
-                LoadKeHoachDeTail();
             }
+            else
+            {
+                if (this.timeEditThoiGianLap.DateTime <= DateTime.Now)
+                {
+                    KeHoach keHoach = new KeHoach()
+                    {
+                        MaNguoiLap = Program.lg.UserLogin.MaDangNhapNguoiDung,
+                        TenKeHoach = textEditTenPhuongAn.Text
+                    };
+                    List<ThongTinChiTietDoiTuong> list = new List<ThongTinChiTietDoiTuong>();
+                    for (int i = 0; i < Count.IntVar; i++)
+                    {
+                        list.Add(new ThongTinChiTietDoiTuong()
+                        {
+                            MaKeHoach = keHoach.MaKeHoach,
+                            MaDonVi = isChange.DoiTuongs[i].MaDonVi,
+                            ToaDoX = isChange.DoiTuongs[i].LocationInImage.X,
+                            ToaDoY = isChange.DoiTuongs[i].LocationInImage.Y,
+                            ChieuDaiAnh = isChange.DoiTuongs[i].initSizePicture.Height,
+                            ChieuRongAnh = isChange.DoiTuongs[i].initSizePicture.Width,
+                        });
+                    }
+
+                    Program.KeHoachSql.ThemKeHoach(keHoach);
+                    Program.frm_Map.KeHoach = keHoach;
+                    Program.ThongTinChiTietDoiTuongSql.AddDoiTuong(list);
+                    MessageBox.Show("Thành Công");
+                    LoadKeHoach();
+                    LoadKeHoachDeTail();
+                }
+                else
+                {
+                    MessageBox.Show("Hãy chọn ngày đúng");
+                    return;
+                }
+            }
+            MessageBox.Show("Lưu lại thành công");
+            Program.frm_Map.listUpdate.Clear();
+            Program.frm_Map.listAdd.Clear();
+            Program.frm_Map.listRemove.Clear();
         }
 
         private void dataGridViewKeHoach_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -122,9 +170,17 @@ namespace DXApplication1.Views
 
         public void MoKeHoach(KeHoach keHoach)
         {
+            if (Program.frm_Map.listAdd.Count != 0 || Program.frm_Map.listUpdate.Count != 0 || Program.frm_Map.listRemove.Count != 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn có thông tin chưa lưu lại ! Bạn có muốn lưu lại trước khi mở một kế hoạch khác" ,"Cảnh báo", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    simpleButtonLuu_Click(null , null);
+                }
+            }
             Program.frm_Map.KeHoach = keHoach;
-            DoiTuong = Program.ThongTinChiTietDoiTuongSql.LayCacDoiTuongTuKeHoach(keHoach.MaKeHoach , TreeView , ImageList).ToArray();
-            this.isChange = true;
+            this.isChange.DoiTuongs = Program.ThongTinChiTietDoiTuongSql.LayCacDoiTuongTuKeHoach(keHoach.MaKeHoach, TreeView, ImageList, Count);
+            this.isChange.BoolVar = true;
             this.Dispose();
         }
 
@@ -132,7 +188,7 @@ namespace DXApplication1.Views
         {
             if (dataGridViewKeHoach.SelectedRows == null)
             {
-                MessageBox.Show("Hãy chọn kế hoạch để mở"); // Is Unreachable ??
+                MessageBox.Show("Hãy chọn kế hoạch để mở");
             }
             else
             {

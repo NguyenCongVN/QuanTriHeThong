@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DXApplication1.Utilizes;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -10,6 +11,7 @@ namespace DXApplication1.Models
     {
         enum DoiTuong
         {
+            MaDoiTuong,
             MaDonVi,
             MoTa,
             ToaDoX,
@@ -45,7 +47,6 @@ namespace DXApplication1.Models
             Connection.Close();
         }
 
-
         public List<ThongTinChiTietDoiTuong> LayCacThongTinDoiTuongTuKeHoach(int MaKeHoach)
         {
             List<ThongTinChiTietDoiTuong> doiTuongs = new List<ThongTinChiTietDoiTuong>();
@@ -75,10 +76,7 @@ namespace DXApplication1.Models
             return doiTuongs;
         }
 
-
-
-
-        public List<Models.DoiTuong> LayCacDoiTuongTuKeHoach(int MaKeHoach, TreeView treeView, ImageList imageList)
+        public List<Models.DoiTuong> LayCacDoiTuongTuKeHoach(int MaKeHoach, TreeView treeView, ImageList imageList, IntClass count)
         {
             List<Models.DoiTuong> doiTuongs = new List<Models.DoiTuong>();
             Connection.Open();
@@ -89,8 +87,10 @@ namespace DXApplication1.Models
             {
                 DataTable table = new DataTable();
                 adapter.Fill(table);
+                count.IntVar = table.Rows.Count;
                 foreach (DataRow doiTuong in table.Rows)
                 {
+                    int maDoiTuong = doiTuong.Field<int>((int)DoiTuong.MaDoiTuong);
                     int maKeHoach = doiTuong.Field<int>((int)DoiTuong.MaKeHoach);
                     string moTa = doiTuong.Field<string>((int)DoiTuong.MoTa);
                     string maDonVi = doiTuong.Field<string>((int)DoiTuong.MaDonVi);
@@ -100,6 +100,7 @@ namespace DXApplication1.Models
                     int chieuRongAnh = doiTuong.Field<int>((int)DoiTuong.ChieuRongAnh);
                     Models.DoiTuong anh = new Models.DoiTuong()
                     {
+                        MaDoiTuong = maDoiTuong,
                         initSizePicture = new Size() { Width = chieuRongAnh, Height = chieuDaiAnh },
                         LocationInImage = new Point() { X = toaDoX, Y = toaDoY },
                         MaDonVi = maDonVi,
@@ -112,6 +113,45 @@ namespace DXApplication1.Models
             return doiTuongs;
         }
 
+
+        public void XoaDoiTuong(List<Models.DoiTuong> doiTuongs)
+        {
+            Connection.Open();
+            foreach (Models.DoiTuong doiTuong in doiTuongs)
+            {
+                SqlCommand command = new SqlCommand("XoaDoiTuong", Connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@maDoiTuong", doiTuong.MaDoiTuong);
+                command.ExecuteScalar();
+            }
+            Connection.Close();
+        }
+
+
+        public void SuaDoiTuong(List<Models.DoiTuong> doiTuongs)
+        {
+            Connection.Open();
+            foreach (Models.DoiTuong doiTuong in doiTuongs)
+            {
+                SqlCommand command = new SqlCommand("CapNhatThongTinDoiTuong", Connection);
+                command.CommandType = CommandType.StoredProcedure;
+                //if (doiTuong.MoTa == null)
+                //{
+                    command.Parameters.AddWithValue("@moTa", string.Empty);
+                //}
+                //else
+                //{
+                    //command.Parameters.AddWithValue("@moTa", doiTuong.MoTa);
+                //}
+                command.Parameters.AddWithValue("@toaDoX", doiTuong.LocationInImage.X);
+                command.Parameters.AddWithValue("@toaDoY", doiTuong.LocationInImage.Y);
+                command.Parameters.AddWithValue("@chieuRongAnh", doiTuong.initSizePicture.Width);
+                command.Parameters.AddWithValue("@chieuDaiAnh", doiTuong.initSizePicture.Height);
+                command.Parameters.AddWithValue("@maDoiTuong", doiTuong.MaDoiTuong);
+                command.ExecuteScalar();
+            }
+            Connection.Close();
+        }
     }
 
 
