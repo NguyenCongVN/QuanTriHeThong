@@ -30,11 +30,11 @@ namespace DXApplication1.Views
         /// </summary>
         ///
         /// Thread to change height
-        private Thread a;
+        public Thread a;
         // Thread to draw 
-        private Thread b;
+        public Thread b;
         // Map value to proportion
-        private float MapValueToProportion(int value)
+        public float MapValueToProportion(int value)
         {
             switch (value)
             {
@@ -49,32 +49,32 @@ namespace DXApplication1.Views
             }
         }
         // Current path
-        private string path;
+        public string path;
         // Speed of virtualization
         // Default
-        private const short speedInit = 5;
+        public const short speedInit = 5;
         // Temporary speed
-        private static short speed = speedInit;
+        public static short speed = speedInit;
         //
         // Lock object for virtualization's speed
-        private static object speedLock = new object();
+        public static object speedLock = new object();
 
         // Pause
-        private static bool isPause = false;
+        public static bool isPause = false;
         // Pause Lock
-        private static object pauseLock = new object();
+        public static object pauseLock = new object();
 
-        static Bitmap bitmapInit1 = new Bitmap(Properties.Resources.Screenshot_2020_09_25_202017);
+        public static Bitmap bitmapInit1 = new Bitmap(Properties.Resources.Screenshot_2020_09_25_202017);
 
         // Resize bitmap background
-        Bitmap bitmapInit = new Bitmap(bitmapInit1, 1201, 1201);
+        public Bitmap bitmapInit = new Bitmap(bitmapInit1, 1201, 1201);
 
 
         // Bitmap Temp to be used in virtualization
         Bitmap bitmapTemp = new Bitmap(bitmapInit1, 1201, 1201);
 
         // Bitmap to be used in resize mode
-        Bitmap bitmapResize = new Bitmap(bitmapInit1, 1201, 1201);
+        public Bitmap bitmapResize = new Bitmap(bitmapInit1, 1201, 1201);
 
         // Resize information
         private int widthResize = 0;
@@ -119,6 +119,7 @@ namespace DXApplication1.Views
             hided = false;
             hidedFile = false;
             this.pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
+
         }
 
         private void PictureBoxMap_MouseWheel(object sender, MouseEventArgs e)
@@ -402,105 +403,6 @@ namespace DXApplication1.Views
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var dialog = new OpenFileDialog();
-            dialog.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                if (System.IO.File.Exists(dialog.FileName))
-                {
-                    path = dialog.FileName;
-                    _mDem = new DemDocument();
-                    _mDem.Read(dialog.FileName);
-                    txtOutput.Text = string.Empty;
-                    txtOutput.Text += "DEM Name: " + new string(_mDem.ARecord.file_name) + Environment.NewLine;
-                    txtOutput.Text += "SE Coord: " + new string(_mDem.ARecord.SE_geographic_corner_S) + ", " + new string(_mDem.ARecord.SE_geographic_corner_E) + Environment.NewLine;
-                    txtOutput.Text += "DEM Level Code: " + _mDem.ARecord.dem_level_code + Environment.NewLine;
-                    txtOutput.Text += "Ground Reference System: " + (GROUND_REF_SYSTEM)_mDem.ARecord.ground_ref_system + Environment.NewLine;
-                    txtOutput.Text += "Ground Reference Zone: " + _mDem.ARecord.ground_ref_zone + Environment.NewLine;
-                    txtOutput.Text += "Ground Unit: " + (GROUND_UNIT)_mDem.ARecord.ground_unit + Environment.NewLine;
-                    txtOutput.Text += "Elevation Unit: " + (ELEVATION_UNIT)_mDem.ARecord.elevation_unit + Environment.NewLine;
-                    txtOutput.Text += "Ground Resolution (lat, lng, elev): " + _mDem.ARecord.xyz_resolution[0] + ", " + _mDem.ARecord.xyz_resolution[1] + ", " + _mDem.ARecord.xyz_resolution[2] + Environment.NewLine;
-                    txtOutput.Text += "Elavation Array Szie: " + _mDem.ARecord.northings_rows + " x " + _mDem.ARecord.eastings_cols + Environment.NewLine;
-                    txtOutput.Text += "Percentage void: " + _mDem.ARecord.percent_void + Environment.NewLine;
-                    txtOutput.Text += "SW Coord: " + _mDem.ARecord.sw_coord[0] + ", " + _mDem.ARecord.sw_coord[1] + Environment.NewLine;
-                    txtOutput.Text += "NW Coord: " + _mDem.ARecord.nw_coord[0] + ", " + _mDem.ARecord.nw_coord[1] + Environment.NewLine;
-                    txtOutput.Text += "NE Coord: " + _mDem.ARecord.ne_coord[0] + ", " + _mDem.ARecord.ne_coord[1] + Environment.NewLine;
-                    txtOutput.Text += "SE Coord: " + _mDem.ARecord.se_coord[0] + ", " + _mDem.ARecord.se_coord[1] + Environment.NewLine;
-
-                }
-            }
-        }
-
-        private void trackBarTocDo_ValueChanged(object sender, EventArgs e)
-        {
-            while (true)
-            {
-                bool tryToLockSpeed = false;
-                Monitor.TryEnter(speedLock, ref tryToLockSpeed);
-                float proportion = MapValueToProportion(trackBarTocDo.Value);
-                if (tryToLockSpeed)
-                {
-                    speed = (short)(speedInit * proportion);
-                    labeTocDo.Text = "Tốc độ : X" + proportion;
-                    Monitor.Exit(speedLock);
-                    break;
-                }
-            }
-        }
-
-        private void checkButtonTamDung_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkButtonTamDung.Checked)
-            {
-
-                checkButtonTamDung.Image = Properties.Resources.start_16;
-                checkButtonTamDung.Text = "Tiếp Tục";
-                // Set Pause
-                lock (pauseLock)
-                {
-                    isPause = true;
-                }
-            }
-            else
-            {
-                checkButtonTamDung.Image = Properties.Resources.pause_16;
-                checkButtonTamDung.Text = "Tạm Dừng";
-                // Set Pause
-                lock (pauseLock)
-                {
-                    isPause = false;
-                }
-            }
-        }
-
-        private void simpleButtonBatDau_Click(object sender, EventArgs e)
-        {
-            readyToWrite.Set();
-            a = new Thread((() =>
-            {
-                ChangeHeight();
-            }));
-            a.IsBackground = true;
-            a.Start();
-            b = new Thread(() =>
-            {
-                DrawImage(pictureBoxMap);
-            });
-            b.Start();
-            b.IsBackground = true;
-        }
-
-        private void simpleButtonDatLai_Click(object sender, EventArgs e)
-        {
-            a.Abort();
-            b.Abort();
-            _mDem.Read(path);
-            pictureBoxMap.Image = bitmapInit;
-            bitmapResize = new Bitmap(bitmapInit1 , 1201 ,1201);
-        }
-
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -654,6 +556,11 @@ namespace DXApplication1.Views
                     this.Refresh();
                 }
             }
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
