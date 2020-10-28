@@ -622,7 +622,7 @@ namespace DXApplication1.Views
             }
         }
 
-        private void simpleButtonLuuPhuongAn_Click(object sender, EventArgs e)
+        public void simpleButtonLuuPhuongAn_Click(object sender, EventArgs e)
         {
             BooleanAndDoiTuongClass check = new BooleanAndDoiTuongClass() { BoolVar = false};
             IntClass count = new IntClass() { IntVar = opted};

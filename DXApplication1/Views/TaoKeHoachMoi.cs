@@ -164,10 +164,13 @@ namespace DXApplication1.Views
 
         private void dataGridViewKeHoach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (!string.IsNullOrEmpty(dataGridViewKeHoach[0, e.RowIndex].Value.ToString()))
+            if (e.RowIndex != -1)
             {
-                int MaKeHoach = Int32.Parse(dataGridViewKeHoach[0, e.RowIndex].Value.ToString());
-                LoadKeHoachDeTail(Program.KeHoachSql.GetKeHoachById(MaKeHoach));
+                if (!string.IsNullOrEmpty(dataGridViewKeHoach[0, e.RowIndex].Value.ToString()))
+                {
+                    int MaKeHoach = Int32.Parse(dataGridViewKeHoach[0, e.RowIndex].Value.ToString());
+                    LoadKeHoachDeTail(Program.KeHoachSql.GetKeHoachById(MaKeHoach));
+                }
             }
         }
 

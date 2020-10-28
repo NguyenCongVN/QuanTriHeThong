@@ -107,7 +107,10 @@ namespace DXApplication1
         private void ribbonControl1_Click(object sender, EventArgs e)
         {
             if (ribbonControl1.SelectedPage == rbpHeThong)
+            {
                 panel2.Visible = false;
+                Program.frm_Map.Close();
+            }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -373,7 +376,8 @@ namespace DXApplication1
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            panel2.Visible = true;
+           barButtonItem4_ItemClick(null , null);
+           Program.frm_Map.simpleButtonLuuPhuongAn_Click(null , null);
         }
     }
 }
