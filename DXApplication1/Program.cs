@@ -29,6 +29,10 @@ namespace DXApplication1
         public static ChucvuSql chucvuSql;
         public static Chucvu cvu;
         public static Frm_test1 frm_Map;
+        public static  NodeOnMap nodeOnMap;
+        public static string getMa;
+        public static bool flag;
+       
         [STAThread]
 
         static void Main()
@@ -45,6 +49,7 @@ namespace DXApplication1
             quanLyNhanVien = new QuanLyNhanVien();
             lg = new frmLogin();
             frm_Map = new Frm_test1();
+            nodeOnMap = new NodeOnMap();
             
             Application.Run(lg);
         }

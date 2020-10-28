@@ -1,4 +1,4 @@
-﻿using DXApplication1.Views;
+﻿using DXApplication1.Objects_Icon;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -72,15 +72,15 @@ namespace DXApplication1.Models
             // 
             this.thôngTinToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconPro;
             this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
-            this.thôngTinToolStripMenuItem.Text = "Thông tin";
+            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.thôngTinToolStripMenuItem.Text = "Tạo thông tin";
             this.thôngTinToolStripMenuItem.Click += new System.EventHandler(this.thôngTinToolStripMenuItem_Click);
             // 
             // chỉnhSửaToolStripMenuItem
             // 
             this.chỉnhSửaToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconChinhsua;
             this.chỉnhSửaToolStripMenuItem.Name = "chỉnhSửaToolStripMenuItem";
-            this.chỉnhSửaToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.chỉnhSửaToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.chỉnhSửaToolStripMenuItem.Text = "Chỉnh sửa";
             this.chỉnhSửaToolStripMenuItem.Click += new System.EventHandler(this.chỉnhSửaToolStripMenuItem_Click);
             // 
@@ -88,7 +88,7 @@ namespace DXApplication1.Models
             // 
             this.xóaToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconDelete;
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.xóaToolStripMenuItem.Text = "Xóa";
             this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
             // 
@@ -103,7 +103,10 @@ namespace DXApplication1.Models
 
         private void thôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(detail);
+            //MessageBox.Show(detail);
+            Objects_Icon.TTDoiTuong tTDoiTuong = new TTDoiTuong();
+            tTDoiTuong.ShowDialog();
+            
         }
 
         private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,23 +117,21 @@ namespace DXApplication1.Models
 
         private void chỉnhSửaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChinhSuaTT cs = new ChinhSuaTT();
+           // ChinhSuaTT cs = new ChinhSuaTT();
+            //cs.Show();
+            //cs.Location = new Point(picture.Location.X + cs.Width + 50, picture.Location.Y + cs.Height);
+            //cs.button1.Click += (ss, ee) =>
+            //{
 
-            
-            cs.Show();
-            cs.Location = new Point(picture.Location.X + cs.Width + 50, picture.Location.Y + cs.Height);
-            cs.button1.Click += (ss, ee) =>
-            {
-
-                if (cs.textBox1.Text != "")
-                {
-                    detail = cs.textBox1.Text;
-                    MessageBox.Show("Thành công!");
-                    cs.Close();
-                }
-                else
-                    MessageBox.Show("Thông tin trống", "???");
-            };
+            //    if (cs.textBox1.Text != "")
+            //    {
+            //        detail = cs.textBox1.Text;
+            //        MessageBox.Show("Thành công!");
+            //        cs.Close();
+            //    }
+            //    else
+            //        MessageBox.Show("Thông tin trống", "???");
+            //};
         }
         
     }

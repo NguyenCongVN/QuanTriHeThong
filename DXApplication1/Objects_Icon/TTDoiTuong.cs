@@ -9,24 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace DXApplication1.Views
+namespace DXApplication1.Objects_Icon
 {
-    public partial class ChinhSuaTT : DevExpress.XtraEditors.XtraForm
+    public partial class TTDoiTuong : DevExpress.XtraEditors.XtraForm
     {
-        public ChinhSuaTT()
+        public TTDoiTuong()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
         }
         private const int WS_SYSMENU = 0x80000;
         protected override CreateParams CreateParams
@@ -37,6 +27,11 @@ namespace DXApplication1.Views
                 cp.Style &= ~WS_SYSMENU;
                 return cp;
             }
+        }
+
+        private void lbSao_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,12 +39,14 @@
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.barButtonItemPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNhanVien = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemBanDo = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbBackground = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpManage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -52,8 +54,6 @@
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItemBanDo = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,6 +162,15 @@
             this.barButtonItemNhanVien.Name = "barButtonItemNhanVien";
             this.barButtonItemNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNhanVien_ItemClick);
             // 
+            // barButtonItemBanDo
+            // 
+            this.barButtonItemBanDo.Caption = "Bản đồ";
+            this.barButtonItemBanDo.Id = 18;
+            this.barButtonItemBanDo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemBanDo.ImageOptions.Image")));
+            this.barButtonItemBanDo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemBanDo.ImageOptions.LargeImage")));
+            this.barButtonItemBanDo.Name = "barButtonItemBanDo";
+            this.barButtonItemBanDo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemBanDo_ItemClick);
+            // 
             // rbpHeThong
             // 
             this.rbpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -206,6 +215,12 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemNhanVien);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Nhân sự";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemBanDo);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Nghiệp vụ";
             // 
             // rbpHelp
             // 
@@ -252,21 +267,6 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1932, 687);
             this.panelMain.TabIndex = 3;
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemBanDo);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Nghiệp vụ";
-            // 
-            // barButtonItemBanDo
-            // 
-            this.barButtonItemBanDo.Caption = "Bản đồ";
-            this.barButtonItemBanDo.Id = 18;
-            this.barButtonItemBanDo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonItemBanDo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
-            this.barButtonItemBanDo.Name = "barButtonItemBanDo";
-            this.barButtonItemBanDo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemBanDo_ItemClick);
             // 
             // FrmMain_Admin
             // 
