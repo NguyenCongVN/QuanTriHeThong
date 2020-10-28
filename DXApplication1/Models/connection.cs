@@ -55,6 +55,42 @@ namespace DXApplication1.Models
             return efftectRecord;
         }
 
+        public bool Excute_Sql_Node(string strQuery, CommandType cmdtype, string[] para, object[] values, SqlInfoMessageEventHandler result)
+        {
+           
+            SqlCommand sqlCommand = new SqlCommand(strQuery, Connection);
+            sqlCommand.CommandType = cmdtype;
+            SqlParameter sqlpara;
+            try
+            {   
+                for (int i = 0; i < para.Length; i++)
+                {
+                    sqlpara = new SqlParameter();
+                    sqlpara.ParameterName = para[i];
+                    sqlpara.SqlValue = values[i];
+                    sqlCommand.Parameters.Add(sqlpara);
+                }
+                Connection.Open();
+                Connection.InfoMessage += result;
+                sqlCommand.ExecuteNonQuery();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra");
+                return false;
+            }
+            finally
+            {
+                Connection.InfoMessage -= result;
+                Connection.Close();
+                sqlCommand.Dispose();
+            }
+        }
+
+
+
+
         public DataSet FillDataSet(string strQuery, CommandType cmdtype, string[] para, object[] values)
         {
             DataSet ds = new DataSet();

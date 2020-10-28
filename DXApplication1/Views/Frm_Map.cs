@@ -2,6 +2,7 @@
 using DevExpress.Utils.Extensions;
 using DXApplication1.Models;
 using DXApplication1.Utilizes;
+using DXApplication1.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,9 @@ using System.Windows.Input;
 using Cursor = System.Windows.Input.Cursor;
 using Cursors = System.Windows.Forms.Cursors;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
-
+using DXApplication1.Objects_Icon;
+using System.IO;
+using System.Text;
 
 namespace DXApplication1.Views
 {
@@ -113,17 +116,17 @@ namespace DXApplication1.Views
         List<DoiTuong> listPic = new List<DoiTuong>();
         List<DoiTuong> selected = new List<DoiTuong>();
         Image[] images;
-
         public List<DoiTuong> listAdd = new List<DoiTuong>();
         public List<DoiTuong> listUpdate = new List<DoiTuong>();
         public List<DoiTuong> listRemove = new List<DoiTuong>();
-
         NodeOnMap nodeOnMap;
+
+        
 
         public Frm_test1()
         {
             InitializeComponent();
-            initImageOfNode();
+           // initImageOfNode();
             pictureBoxMap.Image = bitmapResize;
             panelWidth = panelNode.Width;
             panelWidthFile = txtOutput.Width;
@@ -173,21 +176,31 @@ namespace DXApplication1.Views
         {
             nodeOnMap = new NodeOnMap();
             DataSet PicSet = nodeOnMap.getIconChild();
-            //images = new Image[1000];
-            ////for (int i = 1; i <= 6; i++)
-            ////{
-            ////    images[i] = Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + i + ".png");
-            ////}
-
             foreach (DataRow dr in PicSet.Tables[0].Rows)
             {
-                var i = Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString();
-                imageListChild.Images.Add(Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
+//<<<<<<< HEAD
+//                var i = Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString();
+//                imageListChild.Images.Add(Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
+//            }
+//        }
+
+//        private Point firstPoint;
+
+//=======
+                string fileName = Path.GetFileName(dr["DuongDanAnh"].ToString());
+                if (fileName == dr["DuongDanAnh"].ToString())
+                {
+                    imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
+                }
+                else
+                {
+                    imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(dr["DuongDanAnh"].ToString()));
+                }
             }
-        }
-
+        }  
+        
         private Point firstPoint;
-
+//>>>>>>> pr/53
         public void MoveButton(PictureBox pp)
         {
             pp.MouseDown += (ss, ee) =>
@@ -253,12 +266,17 @@ namespace DXApplication1.Views
 
         public void load_Tree()
         {
-            nodeOnMap = new NodeOnMap();
-            DataSet PicSet = nodeOnMap.getIconChild();
-            foreach (DataRow dr in PicSet.Tables[0].Rows)
-            {
-                imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
-            }
+//<<<<<<< HEAD
+//            nodeOnMap = new NodeOnMap();
+//            DataSet PicSet = nodeOnMap.getIconChild();
+//            foreach (DataRow dr in PicSet.Tables[0].Rows)
+//            {
+//                imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
+//            }
+//=======
+            nodeOnMap = new NodeOnMap();        
+            ParentNode parentNode = new ParentNode();
+//>>>>>>> pr/53
             int count = imageListChild.Images.Count;
             treeView1.ImageList = imageListChild;
             nodeOnMap = new NodeOnMap();
@@ -267,28 +285,39 @@ namespace DXApplication1.Views
             int i = 0;
             foreach (DataRow dr in PrSet.Tables[0].Rows)
             {
-                treeView1.Nodes.Add(dr["MaBinhChung"].ToString(), dr["TenBinhChung"].ToString(), count + 1, count + 2);
-                DataSet chSet = nodeOnMap.getDataChildNode(dr["MaBinhChung"].ToString());
+                TreeNode treeNode = new TreeNode();
+                treeNode.Name = dr["MaBinhChung"].ToString();
+                treeNode.SelectedImageIndex = count + 2; // không hien anh
+                treeNode.ImageIndex = count + 1; // khong hien anh
+                treeNode.Text = dr["TenBinhChung"].ToString();
+                treeNode.ContextMenuStrip = controlParentNode;
+                treeView1.Nodes.Add(treeNode);
+                DataSet chSet = Program.nodeOnMap.getDataChildNode(dr["MaBinhChung"].ToString());
                 foreach (DataRow drch in chSet.Tables[0].Rows)
                 {
                     int index = imageListChild.Images.IndexOfKey(drch["MaDonVi"].ToString());
-                    treeView1.Nodes[i].Nodes.Add(drch["MaDonVi"].ToString(), drch["TenDonVi"].ToString(), index, index);
+                    TreeNode treeNode1 = new TreeNode();
+                    treeNode1.SelectedImageIndex = index;
+                    treeNode1.ImageIndex = index;
+                  //  treeNode1.ImageKey = drch["MaDonVi"].ToString();
+                    treeNode1.Text = drch["TenDonVi"].ToString();
+                    treeNode1.ContextMenuStrip = controlChildNode;
+                    treeView1.Nodes[i].Nodes.Add(treeNode1);
                 }
                 i++;
             }
-
         }
 
-        private void Frm_test1_Load(object sender, EventArgs e)
+        public void Frm_test1_Load(object sender, EventArgs e)
         {
+            initImageOfNode();
             load_Tree();
+            
         }
 
-
-        //nhap chuot phai hien thong tin, chuot trai cho phep sua thong tin
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            for (int i = 6; i < 7; i++)
+            for (int i = 0; i < imageListChild.Images.Count; i++)
             {
                 if (e.Node.ImageIndex == i)
                 {
@@ -307,8 +336,12 @@ namespace DXApplication1.Views
                     opted++;
                 }
             }
+
+            if (e.Button == MouseButtons.Right)
+                Program.getMa = e.Node.Name;
+
+
         }
-        
 
         public static void ChangeHeight()
         {
@@ -552,7 +585,6 @@ namespace DXApplication1.Views
                 }
             }
         }
-
         private void buttonAnHienChiTietFile_Click(object sender, EventArgs e)
         {
             if (hidedFile)
@@ -611,6 +643,51 @@ namespace DXApplication1.Views
                     deletePic(selected[i].Picture);
                 }
             }
+        }
+        private void doiTentoolStripMenuItemChild_Click(object sender, EventArgs e)
+        {
+            Program.flag = false;
+            Icon_DoiTuong icon = new Icon_DoiTuong();
+            icon.ShowDialog();
+        }
+
+        private void xoatoolStripMenuItemChild_Click(object sender, EventArgs e)
+        {
+            treeView1.SelectedNode.Remove();
+            Program.nodeOnMap.XoaDonVi(Program.getMa);
+
+        }
+
+        private void đoiTenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.flag = false;
+            LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
+            loaiDoiTuong.ShowDialog();
+        }
+
+        private void thêmKíHiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.flag = true;
+            Icon_DoiTuong icon = new Icon_DoiTuong();
+            icon.ShowDialog();
+        }
+
+        private void xoáToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            treeView1.SelectedNode.Remove();
+            Program.nodeOnMap.XoaBinhChung(Program.getMa);
+        }
+
+        private void themtoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.flag = true;
+            LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
+            loaiDoiTuong.ShowDialog();
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            
         }
     }
 }
