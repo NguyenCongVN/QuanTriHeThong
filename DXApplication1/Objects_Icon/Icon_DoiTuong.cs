@@ -51,7 +51,7 @@ namespace DXApplication1.Objects_Icon
                     XtraMessageBox.Show(ex.Message);
                     return;
                 }
-                Program.nodeOnMap.AddDonVi(textBoxMaDonVi.Text, textBoxTenDonVi.Text, textBoxAnh.Text, Program.getMa);
+                Program.nodeOnMap.ThemDonVi(textBoxMaDonVi.Text, textBoxTenDonVi.Text, textBoxAnh.Text, Program.getMa);
             }   
             else // chinh sua don vi
             {

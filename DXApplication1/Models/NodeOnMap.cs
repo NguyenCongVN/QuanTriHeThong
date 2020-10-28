@@ -126,7 +126,7 @@ namespace DXApplication1.Models
         }
 
 
-        public void AddBinhChung(string s1, string s2)
+        public void ThemBinhChung(string s1, string s2)
         {
             string query = "ThemBinhChung";
             string[] para = { "@maBinhChung", "@tenBinhChung" };
@@ -154,7 +154,7 @@ namespace DXApplication1.Models
             Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultDeleteFromSql);
         }
 
-        public void AddDonVi(string madonvi, string tendonvi, string duongdananh, string mabinhchung)
+        public void ThemDonVi(string madonvi, string tendonvi, string duongdananh, string mabinhchung)
         {
             string query = "ThemDonVi";
             string[] para = { "@maDonVi", "@tenDonVi", "@duongDanAnh", "@maBinhChung" };
@@ -182,5 +182,22 @@ namespace DXApplication1.Models
             Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultDeleteFromSql);
         }
 
+        public void TaoTTDoiTuong(string madonvi, string mota, int makehoach, int toadoX, int toadoY, int chieuronganh, int chieudaianh)
+        {
+            string query = "TaoTTDoiTuong";
+            string[] para = { "@maDonVi", "@mota", "@toadoX", "@toadoY", "@makehoach", "@chieuronganh", "@chieudaianh" };
+            object[] value = { madonvi, mota,toadoX,toadoY,makehoach,chieuronganh,chieudaianh };
+            connection Connection = new connection();
+            Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultFromSql);
+        }
+
+        public void ChinhSuaTTDoiTuong(int madoituong, string mota, int toadoX, int toadoY, int chieuronganh, int chieudaianh)
+        {
+            string query = "ChinhSuaTTDoiTuong";
+            string[] para = { "@madoituong", "@mota", "@toadoX", "@toadoY", "@chieuronganh", "@chieudaianh" };
+            object[] value = { madoituong, mota, toadoX, toadoY,chieuronganh, chieudaianh };
+            connection Connection = new connection();
+            Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultFromSql);
+        }
     }
 }

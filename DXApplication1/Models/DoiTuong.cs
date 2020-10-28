@@ -73,7 +73,7 @@ namespace DXApplication1.Models
             this.thôngTinToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconPro;
             this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
             this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
-            this.thôngTinToolStripMenuItem.Text = "Tạo thông tin";
+            this.thôngTinToolStripMenuItem.Text = "Thông tin chi tiết";
             this.thôngTinToolStripMenuItem.Click += new System.EventHandler(this.thôngTinToolStripMenuItem_Click);
             // 
             // chỉnhSửaToolStripMenuItem
@@ -103,6 +103,7 @@ namespace DXApplication1.Models
 
         private void thôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Program.flag = true;
             //MessageBox.Show(detail);
             Objects_Icon.TTDoiTuong tTDoiTuong = new TTDoiTuong();
             tTDoiTuong.ShowDialog();
@@ -117,7 +118,8 @@ namespace DXApplication1.Models
 
         private void chỉnhSửaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // ChinhSuaTT cs = new ChinhSuaTT();
+            Program.flag = false;
+            // ChinhSuaTT cs = new ChinhSuaTT();
             //cs.Show();
             //cs.Location = new Point(picture.Location.X + cs.Width + 50, picture.Location.Y + cs.Height);
             //cs.button1.Click += (ss, ee) =>

@@ -34,7 +34,7 @@ namespace DXApplication1.Objects_Icon
                     XtraMessageBox.Show(ex.Message);
                     return;
                 }
-                Program.nodeOnMap.AddBinhChung(textBoxMaBinhChung.Text, textBoxTenBinhChung.Text);
+                Program.nodeOnMap.ThemBinhChung(textBoxMaBinhChung.Text, textBoxTenBinhChung.Text);
             }    
             else // chinh sua binh chung
             {

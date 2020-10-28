@@ -59,7 +59,7 @@
             this.groupControlThêmChucVu.Name = "groupControlThêmChucVu";
             this.groupControlThêmChucVu.Size = new System.Drawing.Size(585, 220);
             this.groupControlThêmChucVu.TabIndex = 15;
-            this.groupControlThêmChucVu.Text = "Thêm đơn vị";
+            this.groupControlThêmChucVu.Text = "Đơn vị";
             // 
             // buttonRoot
             // 

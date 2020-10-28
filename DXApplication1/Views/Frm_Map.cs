@@ -169,13 +169,6 @@ namespace DXApplication1.Views
                 {
                     imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(dr["DuongDanAnh"].ToString()));
                 }
-              //  imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
-                // string filename = Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString();
-                //// if (Image.FromFile(filename).Width > 0)
-                //  //   imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
-                // //else
-                //     imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(dr["DuongDanAnh"].ToString()));
-
             }
         }  
         
@@ -232,13 +225,8 @@ namespace DXApplication1.Views
         }
         public void load_Tree()
         {
-            nodeOnMap = new NodeOnMap();
-            //DataSet PicSet = nodeOnMap.getIconChild();
+            nodeOnMap = new NodeOnMap();        
             ParentNode parentNode = new ParentNode();
-            //foreach (DataRow dr in PicSet.Tables[0].Rows)
-            //{
-            //    imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
-            //}
             int count = imageListChild.Images.Count;
             treeView1.ImageList = imageListChild;
             nodeOnMap = new NodeOnMap();
@@ -279,7 +267,6 @@ namespace DXApplication1.Views
             
         }
 
-        string getMaBinhChung;
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             for (int i = 0; i < imageListChild.Images.Count; i++)
