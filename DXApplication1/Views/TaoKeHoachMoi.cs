@@ -164,18 +164,21 @@ namespace DXApplication1.Views
 
         private void dataGridViewKeHoach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int MaKeHoach = Int32.Parse(dataGridViewKeHoach[0, e.RowIndex].Value.ToString());
-            LoadKeHoachDeTail(Program.KeHoachSql.GetKeHoachById(MaKeHoach));
+            if (!string.IsNullOrEmpty(dataGridViewKeHoach[0, e.RowIndex].Value.ToString()))
+            {
+                int MaKeHoach = Int32.Parse(dataGridViewKeHoach[0, e.RowIndex].Value.ToString());
+                LoadKeHoachDeTail(Program.KeHoachSql.GetKeHoachById(MaKeHoach));
+            }
         }
 
         public void MoKeHoach(KeHoach keHoach)
         {
             if (Program.frm_Map.listAdd.Count != 0 || Program.frm_Map.listUpdate.Count != 0 || Program.frm_Map.listRemove.Count != 0)
             {
-                DialogResult dialogResult = MessageBox.Show("Bạn có thông tin chưa lưu lại ! Bạn có muốn lưu lại trước khi mở một kế hoạch khác" ,"Cảnh báo", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Bạn có thông tin chưa lưu lại ! Bạn có muốn lưu lại trước khi mở một kế hoạch khác", "Cảnh báo", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    simpleButtonLuu_Click(null , null);
+                    simpleButtonLuu_Click(null, null);
                 }
             }
             Program.frm_Map.KeHoach = keHoach;
