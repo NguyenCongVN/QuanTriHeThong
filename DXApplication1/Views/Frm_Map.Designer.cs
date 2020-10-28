@@ -76,18 +76,18 @@ namespace DXApplication1.Views
             this.panelMap = new DXApplication1.Views.CustomScrollPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-//=======
-//            this.controlParentNode = new System.Windows.Forms.ContextMenuStrip(this.components);
-//            this.đoiTenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-//            this.thêmKíHiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-//            this.xoáToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-//            this.controlChildNode = new System.Windows.Forms.ContextMenuStrip(this.components);
-//            this.doiTentoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
-//            this.xoatoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
-//            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-//            ((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).BeginInit();
-//            this.menuStrip1.SuspendLayout();
-//>>>>>>> pr/53
+            //=======
+            this.controlParentNode = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.đoiTenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thêmKíHiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xoáToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.controlChildNode = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.doiTentoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
+            this.xoatoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            //((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).BeginInit();
+            //this.menuStrip1.SuspendLayout();
+            //>>>>>>> pr/53
             this.contextMenuStrip1.SuspendLayout();
             this.panelMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).BeginInit();
