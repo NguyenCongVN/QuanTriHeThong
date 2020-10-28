@@ -4,11 +4,16 @@ using DXApplication1.Models;
 using DXApplication1.Utilizes;
 using DXApplication1.Properties;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Input;
+using Cursor = System.Windows.Input.Cursor;
 using Cursors = System.Windows.Forms.Cursors;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 using DXApplication1.Objects_Icon;
@@ -19,6 +24,11 @@ namespace DXApplication1.Views
 {
     public partial class Frm_test1 : DevExpress.XtraEditors.XtraForm
     {
+
+        // Ke Hoach
+        public KeHoach KeHoach { get; set; }
+
+
         int panelWidth;
         int panelWidthFile;
         bool hided;
@@ -32,11 +42,11 @@ namespace DXApplication1.Views
         /// </summary>
         ///
         /// Thread to change height
-        private Thread a;
+        public Thread a;
         // Thread to draw 
-        private Thread b;
+        public Thread b;
         // Map value to proportion
-        private float MapValueToProportion(int value)
+        public float MapValueToProportion(int value)
         {
             switch (value)
             {
@@ -51,32 +61,32 @@ namespace DXApplication1.Views
             }
         }
         // Current path
-        private string path;
+        public string path;
         // Speed of virtualization
         // Default
-        private const short speedInit = 5;
+        public const short speedInit = 5;
         // Temporary speed
-        private static short speed = speedInit;
+        public static short speed = speedInit;
         //
         // Lock object for virtualization's speed
-        private static object speedLock = new object();
+        public static object speedLock = new object();
 
         // Pause
-        private static bool isPause = false;
+        public static bool isPause = false;
         // Pause Lock
-        private static object pauseLock = new object();
+        public static object pauseLock = new object();
 
-        static Bitmap bitmapInit1 = new Bitmap(Properties.Resources.Screenshot_2020_09_25_202017);
+        public static Bitmap bitmapInit1 = new Bitmap(Properties.Resources.Screenshot_2020_09_25_202017);
 
         // Resize bitmap background
-        Bitmap bitmapInit = new Bitmap(bitmapInit1, 1201, 1201);
+        public Bitmap bitmapInit = new Bitmap(bitmapInit1, 1201, 1201);
 
 
         // Bitmap Temp to be used in virtualization
         Bitmap bitmapTemp = new Bitmap(bitmapInit1, 1201, 1201);
 
         // Bitmap to be used in resize mode
-        Bitmap bitmapResize = new Bitmap(bitmapInit1, 1201, 1201);
+        public Bitmap bitmapResize = new Bitmap(bitmapInit1, 1201, 1201);
 
         // Resize information
         private int widthResize = 0;
@@ -99,14 +109,16 @@ namespace DXApplication1.Views
 
         public static EventWaitHandle readyToWrite = new AutoResetEvent(true);
 
-
         int check = 0;
-        int opted = 0;
+        public int opted = 0;
 
         PictureBox p1;
-        DoiTuong[] listPic;
-        DoiTuong[] selected = new DoiTuong[100];
+        List<DoiTuong> listPic = new List<DoiTuong>();
+        List<DoiTuong> selected = new List<DoiTuong>();
         Image[] images;
+        public List<DoiTuong> listAdd = new List<DoiTuong>();
+        public List<DoiTuong> listUpdate = new List<DoiTuong>();
+        public List<DoiTuong> listRemove = new List<DoiTuong>();
         NodeOnMap nodeOnMap;
 
         
@@ -121,11 +133,12 @@ namespace DXApplication1.Views
             hided = false;
             hidedFile = false;
             this.pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
+
         }
 
         private void PictureBoxMap_MouseWheel(object sender, MouseEventArgs e)
         {
-            if (Keyboard.GetKeyStates(Key.LeftCtrl) == KeyStates.Down)
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) == true)
             {
                 if (e.Delta > 0)
                 {
@@ -137,6 +150,8 @@ namespace DXApplication1.Views
                     widthResize = widthResize - 50;
                     heightResize = heightResize - 50;
                 }
+                Size CurrentSize = pictureBoxMap.Image.Size;
+                Point currentPoint = pictureBoxMap.PointToClient(Control.MousePosition);
                 var bitmap = new Bitmap(bitmapResize, pictureBoxMap.Width + widthResize,
                     pictureBoxMap.Height + heightResize);
                 pictureBoxMap.Image = bitmap;
@@ -149,6 +164,9 @@ namespace DXApplication1.Views
                     }
                 }
                 pictureBoxMap.Refresh();
+                Point newPoint = DrawHelper.ScaleImage(currentPoint, CurrentSize, pictureBoxMap);
+                DrawHelper.ScrollToMouseInPictureBox(this.panelMap ,  newPoint , pictureBoxMap);
+                Point currentPoint1 = pictureBoxMap.PointToClient(Control.MousePosition);
                 widthResize = 0;
                 heightResize = 0;
             }
@@ -160,6 +178,15 @@ namespace DXApplication1.Views
             DataSet PicSet = nodeOnMap.getIconChild();
             foreach (DataRow dr in PicSet.Tables[0].Rows)
             {
+//<<<<<<< HEAD
+//                var i = Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString();
+//                imageListChild.Images.Add(Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
+//            }
+//        }
+
+//        private Point firstPoint;
+
+//=======
                 string fileName = Path.GetFileName(dr["DuongDanAnh"].ToString());
                 if (fileName == dr["DuongDanAnh"].ToString())
                 {
@@ -173,6 +200,7 @@ namespace DXApplication1.Views
         }  
         
         private Point firstPoint;
+//>>>>>>> pr/53
         public void MoveButton(PictureBox pp)
         {
             pp.MouseDown += (ss, ee) =>
@@ -206,6 +234,19 @@ namespace DXApplication1.Views
                         {
                             selected[i].LocationInImage = pic.Location;
                             selected[i].initSizePicture = pictureBoxMap.Size;
+                            var list = listUpdate.FindAll(c => c.MaDoiTuong == selected[i].MaDoiTuong);
+                            if(list.Count != 0)
+                            {
+                                foreach(var doiTuong in list)
+                                {
+                                    listUpdate.Remove(doiTuong);
+                                }
+                                listUpdate.Add(selected[i]);
+                            }
+                            else
+                            {
+                                listUpdate.Add(selected[i]);
+                            }
                         }
                     }
                 pictureBoxDoiTuongIsMoved = false;
@@ -216,17 +257,26 @@ namespace DXApplication1.Views
         {
             pic.Click += (ss, ee) =>
             {
-
                 if (Control.ModifierKeys == Keys.Delete)
                 {
                     MessageBox.Show("delete");
                 }
             };
         }
+
         public void load_Tree()
         {
+//<<<<<<< HEAD
+//            nodeOnMap = new NodeOnMap();
+//            DataSet PicSet = nodeOnMap.getIconChild();
+//            foreach (DataRow dr in PicSet.Tables[0].Rows)
+//            {
+//                imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
+//            }
+//=======
             nodeOnMap = new NodeOnMap();        
             ParentNode parentNode = new ParentNode();
+//>>>>>>> pr/53
             int count = imageListChild.Images.Count;
             treeView1.ImageList = imageListChild;
             nodeOnMap = new NodeOnMap();
@@ -258,8 +308,6 @@ namespace DXApplication1.Views
             }
         }
 
-
-
         public void Frm_test1_Load(object sender, EventArgs e)
         {
             initImageOfNode();
@@ -273,17 +321,18 @@ namespace DXApplication1.Views
             {
                 if (e.Node.ImageIndex == i)
                 {
-                    selected[opted] = new DoiTuong();
-                    selected[opted].Picture.Image = imageListChild.Images[i];
-                    selected[opted].Detail = e.Node.Text;
-
-                    selected[opted].Picture.Visible = false;
-                    selected[opted].Picture.Location = new Point(10, 10);
-                    pictureBoxMap.AddControl(selected[opted].Picture);
-                    MoveButton(selected[opted].Picture);
+                    DoiTuong doiTuong = new DoiTuong();
+                    doiTuong.MaDonVi = e.Node.Name;
+                    doiTuong.Picture.Image = imageListChild.Images[i];
+                    doiTuong.Detail = e.Node.Text;
+                    doiTuong.Picture.Visible = false;
+                    doiTuong.Picture.Location = new Point(10, 10);
+                    selected.Add(doiTuong);
+                    pictureBoxMap.AddControl(doiTuong.Picture);
+                    MoveButton(doiTuong.Picture);
                     check = 1;
                     this.Cursor = Cursors.NoMove2D;
-                    deletePic(selected[opted].Picture);
+                    deletePic(doiTuong.Picture);
                     opted++;
                 }
             }
@@ -293,10 +342,6 @@ namespace DXApplication1.Views
 
 
         }
-
-      
-        //nhap chuot phai hien thong tin, chuot trai cho phep sua thong tin
-        //===============================================================================================           
 
         public static void ChangeHeight()
         {
@@ -426,123 +471,24 @@ namespace DXApplication1.Views
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var dialog = new OpenFileDialog();
-            dialog.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                if (System.IO.File.Exists(dialog.FileName))
-                {
-                    path = dialog.FileName;
-                    _mDem = new DemDocument();
-                    _mDem.Read(dialog.FileName);
-                    txtOutput.Text = string.Empty;
-                    txtOutput.Text += "DEM Name: " + new string(_mDem.ARecord.file_name) + Environment.NewLine;
-                    txtOutput.Text += "SE Coord: " + new string(_mDem.ARecord.SE_geographic_corner_S) + ", " + new string(_mDem.ARecord.SE_geographic_corner_E) + Environment.NewLine;
-                    txtOutput.Text += "DEM Level Code: " + _mDem.ARecord.dem_level_code + Environment.NewLine;
-                    txtOutput.Text += "Ground Reference System: " + (GROUND_REF_SYSTEM)_mDem.ARecord.ground_ref_system + Environment.NewLine;
-                    txtOutput.Text += "Ground Reference Zone: " + _mDem.ARecord.ground_ref_zone + Environment.NewLine;
-                    txtOutput.Text += "Ground Unit: " + (GROUND_UNIT)_mDem.ARecord.ground_unit + Environment.NewLine;
-                    txtOutput.Text += "Elevation Unit: " + (ELEVATION_UNIT)_mDem.ARecord.elevation_unit + Environment.NewLine;
-                    txtOutput.Text += "Ground Resolution (lat, lng, elev): " + _mDem.ARecord.xyz_resolution[0] + ", " + _mDem.ARecord.xyz_resolution[1] + ", " + _mDem.ARecord.xyz_resolution[2] + Environment.NewLine;
-                    txtOutput.Text += "Elavation Array Szie: " + _mDem.ARecord.northings_rows + " x " + _mDem.ARecord.eastings_cols + Environment.NewLine;
-                    txtOutput.Text += "Percentage void: " + _mDem.ARecord.percent_void + Environment.NewLine;
-                    txtOutput.Text += "SW Coord: " + _mDem.ARecord.sw_coord[0] + ", " + _mDem.ARecord.sw_coord[1] + Environment.NewLine;
-                    txtOutput.Text += "NW Coord: " + _mDem.ARecord.nw_coord[0] + ", " + _mDem.ARecord.nw_coord[1] + Environment.NewLine;
-                    txtOutput.Text += "NE Coord: " + _mDem.ARecord.ne_coord[0] + ", " + _mDem.ARecord.ne_coord[1] + Environment.NewLine;
-                    txtOutput.Text += "SE Coord: " + _mDem.ARecord.se_coord[0] + ", " + _mDem.ARecord.se_coord[1] + Environment.NewLine;
-
-                }
-            }
-        }
-
-        private void trackBarTocDo_ValueChanged(object sender, EventArgs e)
-        {
-            while (true)
-            {
-                bool tryToLockSpeed = false;
-                Monitor.TryEnter(speedLock, ref tryToLockSpeed);
-                float proportion = MapValueToProportion(trackBarTocDo.Value);
-                if (tryToLockSpeed)
-                {
-                    speed = (short)(speedInit * proportion);
-                    labeTocDo.Text = "Tốc độ : X" + proportion;
-                    Monitor.Exit(speedLock);
-                    break;
-                }
-            }
-        }
-
-        private void checkButtonTamDung_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkButtonTamDung.Checked)
-            {
-
-                checkButtonTamDung.Image = Properties.Resources.start_16;
-                checkButtonTamDung.Text = "Tiếp Tục";
-                // Set Pause
-                lock (pauseLock)
-                {
-                    isPause = true;
-                }
-            }
-            else
-            {
-                checkButtonTamDung.Image = Properties.Resources.pause_16;
-                checkButtonTamDung.Text = "Tạm Dừng";
-                // Set Pause
-                lock (pauseLock)
-                {
-                    isPause = false;
-                }
-            }
-        }
-
-        private void simpleButtonBatDau_Click(object sender, EventArgs e)
-        {
-            readyToWrite.Set();
-            a = new Thread((() =>
-            {
-                ChangeHeight();
-            }));
-            a.IsBackground = true;
-            a.Start();
-            b = new Thread(() =>
-            {
-                DrawImage(pictureBoxMap);
-            });
-            b.Start();
-            b.IsBackground = true;
-        }
-
-        private void simpleButtonDatLai_Click(object sender, EventArgs e)
-        {
-            a.Abort();
-            b.Abort();
-            _mDem.Read(path);
-            pictureBoxMap.Image = bitmapInit;
-            bitmapResize = new Bitmap(bitmapInit1, 1201, 1201);
-        }
-
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (check == 1)
             {
                 //selected[opted - 1].Picture.Location = new Point(10, 10);
-                selected[opted - 1].Picture.Location = new Point(Control.MousePosition.X - 240, Control.MousePosition.Y - 270);
+                Point point = new Point(Control.MousePosition.X, Control.MousePosition.Y);
+                point = pictureBoxMap.PointToClient(point);
+                selected[opted - 1].Picture.Location = point;
                 selected[opted - 1].LocationInImage = selected[opted - 1].Picture.Location;
                 selected[opted - 1].initSizePicture = pictureBoxMap.Size;
                 selected[opted - 1].Picture.Visible = true;
+                if(this.KeHoach != null)
+                {
+                    this.listAdd.Add(selected[opted - 1]);
+                }
                 check = 0;
                 this.Cursor = Cursors.Default;
             }
-        }
-
-        private void item1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -676,6 +622,28 @@ namespace DXApplication1.Views
             }
         }
 
+        private void simpleButtonLuuPhuongAn_Click(object sender, EventArgs e)
+        {
+            BooleanAndDoiTuongClass check = new BooleanAndDoiTuongClass() { BoolVar = false};
+            IntClass count = new IntClass() { IntVar = opted};
+            QuanLyPhuongAnForm taoKeHoachMoi = new QuanLyPhuongAnForm(selected , count , treeView1 , imageListChild ,check);
+            taoKeHoachMoi.ShowDialog();
+            if (check.BoolVar)
+            {
+                opted = count.IntVar;
+                selected = check.DoiTuongs;
+                this.pictureBoxMap.Controls.Clear();
+                for (int i = 0 ; i < opted ; i++)
+                {
+                    selected[i].Picture.Visible = true;
+                    selected[i].Picture.Location =
+                            DrawHelper.ScaleImage(selected[i].LocationInImage, selected[i].initSizePicture, pictureBoxMap);
+                    pictureBoxMap.AddControl(selected[i].Picture);
+                    MoveButton(selected[i].Picture);
+                    deletePic(selected[i].Picture);
+                }
+            }
+        }
         private void doiTentoolStripMenuItemChild_Click(object sender, EventArgs e)
         {
             Program.flag = false;

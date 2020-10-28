@@ -69,8 +69,6 @@ namespace DXApplication1.Views
 
             DangKy(txtUser.Text, txtPass.Text, txtHoTen.Text,
                 txtEmail.Text, txtSoDienThoai.Text, txtDiaChi.Text, dateNgaySinh.DateTime, comboBoxEditChucVu.Text);
-            
-            
         }
 
 

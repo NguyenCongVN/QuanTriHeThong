@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DXApplication1.Models
 {
-    class DoiTuong : Form
+    public class DoiTuong : Form
     {
         PictureBox picture;
         private ContextMenuStrip contextMenuStrip1;
@@ -18,12 +18,16 @@ namespace DXApplication1.Models
         private ToolStripMenuItem chỉnhSửaToolStripMenuItem;
         private ToolStripMenuItem xóaToolStripMenuItem;
         string detail;
+
         public enum DoiTuongFields
         {
             Picture,
             Detail
         }
 
+        public int MaDoiTuong { get; set; }
+
+        public string MaDonVi { get; set; }
 
         public Point LocationInImage { get; set; }
 
@@ -31,7 +35,6 @@ namespace DXApplication1.Models
 
         public PictureBox Picture { get => picture; set => picture = value; }
         public  string Detail { get => detail; set => detail = value; }
-
 
         public DoiTuong()
         {
@@ -113,7 +116,9 @@ namespace DXApplication1.Models
         private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             picture.Dispose();
-
+            Program.frm_Map.pictureBoxMap.Controls.Remove(this.Picture);
+            Program.frm_Map.listRemove.Add(this);
+            Program.frm_Map.opted--;
         }
 
         private void chỉnhSửaToolStripMenuItem_Click(object sender, EventArgs e)

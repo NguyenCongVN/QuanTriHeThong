@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace DXApplication1.Models
 {
     class ThongTinNguoiDungSql : ConnectionDatabase
     {
-     
+
         public ThongTinNguoiDung Select_Detail(ThongTinNguoiDung detail_user, string ma)
         {
             SqlCommand command = new SqlCommand("Detail_User @MA", Connection);
             command.Parameters.Add(new SqlParameter("@MA", SqlDbType.VarChar, 10, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, ma));
             command.CommandType = CommandType.Text;
-
             try
             {
-                
+
                 Connection.Open();
                 IDataReader data = command.ExecuteReader();
 
@@ -76,7 +74,7 @@ namespace DXApplication1.Models
         {
             //MessageBox.Show(data.GetString(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.MaDangNhapNguoiDung.ToString())));
             detail_user.MaDangNhapNguoiDung = data.GetString(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.MaDangNhapNguoiDung.ToString()));
-            
+
             if (!data.IsDBNull(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.HoTen.ToString())))
             {
                 detail_user.HoTen = data.GetString(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.HoTen.ToString()));
@@ -109,8 +107,8 @@ namespace DXApplication1.Models
             }
             if (!data.IsDBNull(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.MaChucVu.ToString())))
             {
-                detail_user.ChucVu =  Program.chucvuSql.GetNameById(data.GetString(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.MaChucVu.ToString())));
-              //  detail_user.ChucVu = data.GetString(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.MaChucVu.ToString()));
+                detail_user.ChucVu = Program.chucvuSql.GetNameById(data.GetString(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.MaChucVu.ToString())));
+                //  detail_user.ChucVu = data.GetString(data.GetOrdinal(ThongTinNguoiDung.DetailUserFields.MaChucVu.ToString()));
 
             }
         }
