@@ -104,7 +104,11 @@ namespace DXApplication1
 
         private void ribbonControl1_Click(object sender, EventArgs e)
         {
-
+            if (ribbonControl1.SelectedPage == rbpHeThong)
+            {
+                panel2.Visible = false;
+                Program.frm_Map.Close();
+            }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
