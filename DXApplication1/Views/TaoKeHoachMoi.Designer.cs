@@ -200,6 +200,7 @@
             this.dataGridViewKeHoach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewKeHoach.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridViewKeHoach.Location = new System.Drawing.Point(0, 347);
+            this.dataGridViewKeHoach.MultiSelect = false;
             this.dataGridViewKeHoach.Name = "dataGridViewKeHoach";
             this.dataGridViewKeHoach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewKeHoach.Size = new System.Drawing.Size(621, 108);

@@ -84,7 +84,6 @@ namespace DXApplication1.Views
             this.controlChildNode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.doiTentoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
             this.xoatoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             //((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).BeginInit();
             //this.menuStrip1.SuspendLayout();
             //>>>>>>> pr/53

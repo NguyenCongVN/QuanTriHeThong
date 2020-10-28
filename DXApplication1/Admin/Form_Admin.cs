@@ -373,7 +373,8 @@ namespace DXApplication1
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            panel2.Visible = true;
+           barButtonItem4_ItemClick(null , null);
+           Program.frm_Map.simpleButtonLuuPhuongAn_Click(null , null);
         }
     }
 }

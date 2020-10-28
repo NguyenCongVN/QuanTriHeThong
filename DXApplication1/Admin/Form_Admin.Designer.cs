@@ -94,7 +94,7 @@
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
             this.rbpManage});
-            this.ribbonControl1.Size = new System.Drawing.Size(1932, 183);
+            this.ribbonControl1.Size = new System.Drawing.Size(1376, 149);
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // btnLogin
@@ -362,10 +362,10 @@
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 183);
+            this.panelMain.Location = new System.Drawing.Point(0, 149);
             this.panelMain.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1932, 682);
+            this.panelMain.Size = new System.Drawing.Size(1376, 634);
             this.panelMain.TabIndex = 3;
             // 
             // rbData
@@ -378,9 +378,9 @@
             // FrmMain_Admin
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1932, 865);
+            this.ClientSize = new System.Drawing.Size(1376, 783);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.ribbonControl1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
