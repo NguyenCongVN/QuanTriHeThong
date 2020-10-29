@@ -110,9 +110,6 @@
     <Compile Include="Admin\SuaChucVu.Designer.cs">
       <DependentUpon>SuaChucVu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ParentNode.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Models\Chucvu.cs" />
     <Compile Include="Models\ChucvuSql.cs" />
     <Compile Include="Models\connection.cs" />
@@ -232,9 +229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\SuaChucVu.resx">
       <DependentUpon>SuaChucVu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Models\ParentNode.resx">
-      <DependentUpon>ParentNode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\DoiTuong.resx">
       <DependentUpon>DoiTuong.cs</DependentUpon>

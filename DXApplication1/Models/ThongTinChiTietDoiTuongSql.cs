@@ -100,10 +100,15 @@ namespace DXApplication1.Models
                     int chieuRongAnh = doiTuong.Field<int>((int)DoiTuong.ChieuRongAnh);
                     Models.DoiTuong anh = new Models.DoiTuong()
                     {
-                        MaDoiTuong = maDoiTuong,
-                        initSizePicture = new Size() { Width = chieuRongAnh, Height = chieuDaiAnh },
-                        LocationInImage = new Point() { X = toaDoX, Y = toaDoY },
-                        MaDonVi = maDonVi,
+                        ThongTinChiTietDoiTuong = new ThongTinChiTietDoiTuong()
+                        {
+                            MaDoiTuong = maDoiTuong,
+                            ChieuDaiAnh = chieuDaiAnh ,
+                            ChieuRongAnh = chieuRongAnh,
+                            ToaDoX = toaDoX,
+                            ToaDoY = toaDoY,
+                            MaDonVi = maDonVi,
+                        }
                     };
                     anh.Picture.Image = imageList.Images[maDonVi];
                     doiTuongs.Add(anh);
@@ -121,7 +126,7 @@ namespace DXApplication1.Models
             {
                 SqlCommand command = new SqlCommand("XoaDoiTuong", Connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@maDoiTuong", doiTuong.MaDoiTuong);
+                command.Parameters.AddWithValue("@maDoiTuong", doiTuong.ThongTinChiTietDoiTuong.MaDoiTuong);
                 command.ExecuteScalar();
             }
             Connection.Close();
@@ -143,11 +148,11 @@ namespace DXApplication1.Models
                 //{
                     //command.Parameters.AddWithValue("@moTa", doiTuong.MoTa);
                 //}
-                command.Parameters.AddWithValue("@toaDoX", doiTuong.LocationInImage.X);
-                command.Parameters.AddWithValue("@toaDoY", doiTuong.LocationInImage.Y);
-                command.Parameters.AddWithValue("@chieuRongAnh", doiTuong.initSizePicture.Width);
-                command.Parameters.AddWithValue("@chieuDaiAnh", doiTuong.initSizePicture.Height);
-                command.Parameters.AddWithValue("@maDoiTuong", doiTuong.MaDoiTuong);
+                command.Parameters.AddWithValue("@toaDoX", doiTuong.ThongTinChiTietDoiTuong.ToaDoX);
+                command.Parameters.AddWithValue("@toaDoY", doiTuong.ThongTinChiTietDoiTuong.ToaDoY);
+                command.Parameters.AddWithValue("@chieuRongAnh", doiTuong.ThongTinChiTietDoiTuong.ChieuRongAnh);
+                command.Parameters.AddWithValue("@chieuDaiAnh", doiTuong.ThongTinChiTietDoiTuong.ChieuDaiAnh);
+                command.Parameters.AddWithValue("@maDoiTuong", doiTuong.ThongTinChiTietDoiTuong.MaDoiTuong);
                 command.ExecuteScalar();
             }
             Connection.Close();

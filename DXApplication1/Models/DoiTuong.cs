@@ -25,20 +25,14 @@ namespace DXApplication1.Models
             Detail
         }
 
-        public int MaDoiTuong { get; set; }
-
-        public string MaDonVi { get; set; }
-
-        public Point LocationInImage { get; set; }
-
-        public Size initSizePicture { get; set; }
-
+        public ThongTinChiTietDoiTuong ThongTinChiTietDoiTuong { get; set; }
         public PictureBox Picture { get => picture; set => picture = value; }
         public  string Detail { get => detail; set => detail = value; }
 
         public DoiTuong()
         {
             InitializeComponent();
+            ThongTinChiTietDoiTuong = new ThongTinChiTietDoiTuong();
             picture = new PictureBox();
             picture.BackColor = System.Drawing.Color.Transparent;
             picture.Size = new System.Drawing.Size(13, 20);
