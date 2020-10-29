@@ -1,17 +1,17 @@
-﻿using DevExpress.XtraEditors;
-using System;
-using System.Windows.Forms;
+﻿using Braincase.USGS.DEM;
+using DevExpress.Utils.Extensions;
+using DevExpress.XtraEditors;
 using DXApplication1.Account;
 using DXApplication1.Models;
 using DXApplication1.Views;
-using Braincase.USGS.DEM;
-using DevExpress.Utils.Extensions;
+using System;
 using System.Drawing;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace DXApplication1
 {
-  
+
 
     public partial class FrmMain_Admin : DevExpress.XtraBars.Ribbon.RibbonForm
     {
@@ -25,15 +25,15 @@ namespace DXApplication1
         TrackBar trackBarTocDo = new TrackBar();
         public FrmMain_Admin()
         {
-            
+
             InitializeComponent();
             testribon();
         }
 
-        
+
         public void testribon()
         {
-            
+
             simpleButtonBatDau.ImageOptions.Image = global::DXApplication1.Properties.Resources.start_16;
             simpleButtonBatDau.Location = new System.Drawing.Point(590, 2);
             simpleButtonBatDau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -51,7 +51,7 @@ namespace DXApplication1
             labeTocDo.TabIndex = 11;
             labeTocDo.Text = "Tốc độ : X1";
 
-            
+
             simpleButtonDatLai.Location = new System.Drawing.Point(806, 2);
             simpleButtonDatLai.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             simpleButtonDatLai.Name = "simpleButtonDatLai";
@@ -92,8 +92,8 @@ namespace DXApplication1
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(1000, 60);
             panel2.Visible = false;
-            
-            
+
+
             panel2.Location = new Point(200, 100);
             ribbonControl1.AddControl(panel2);
         }
@@ -146,7 +146,7 @@ namespace DXApplication1
         private void barButtonItemPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.phanquyen = new Admin.Phanquyen();
-            
+
             Program.phanquyen.TopLevel = false;
             panelMain.Controls.Clear();
             panelMain.Dock = DockStyle.Fill;
@@ -159,7 +159,7 @@ namespace DXApplication1
 
         public void barButtonItemNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+
             panel2.Visible = false;
             int kt = 0;
             foreach (var q in Program.lg.List_Q)
@@ -182,8 +182,8 @@ namespace DXApplication1
                 Program.quanLyNhanVien.Dock = DockStyle.Fill;
                 Program.quanLyNhanVien.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                 Program.quanLyNhanVien.Show();
-            }    
-           
+            }
+
         }
 
         private void btnThongTinCaNhan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -224,8 +224,8 @@ namespace DXApplication1
             {
                 Program.up_datePass = new UpdatePass();
                 Program.up_datePass.Show();
-            }    
-           
+            }
+
         }
 
         private void btnLogout_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -243,7 +243,7 @@ namespace DXApplication1
 
         private void barButtonItemBanDo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+
         }
 
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -257,12 +257,12 @@ namespace DXApplication1
             Program.frm_Map.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Program.frm_Map.Show();
             panel2.Visible = true;
-            
+
         }
 
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+
 
             var dialog = new OpenFileDialog();
             dialog.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
@@ -373,8 +373,15 @@ namespace DXApplication1
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           barButtonItem4_ItemClick(null , null);
-           Program.frm_Map.simpleButtonLuuPhuongAn_Click(null , null);
+            if (!panelMain.Controls.Contains(Program.frm_Map))
+            {
+                barButtonItem4_ItemClick(null, null);
+                Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
+            }
+            else
+            {
+                Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
+            }
         }
     }
 }

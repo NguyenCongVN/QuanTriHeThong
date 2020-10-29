@@ -100,15 +100,7 @@ namespace DXApplication1.Views
                     // Them cac doi tuong moi
                     foreach (DoiTuong doiTuong in Program.frm_Map.listAdd)
                     {
-                        list.Add(new ThongTinChiTietDoiTuong()
-                        {
-                            MaKeHoach = Program.frm_Map.KeHoach.MaKeHoach,
-                            MaDonVi = doiTuong.MaDonVi,
-                            ToaDoX = doiTuong.LocationInImage.X,
-                            ToaDoY = doiTuong.LocationInImage.Y,
-                            ChieuDaiAnh = doiTuong.initSizePicture.Height,
-                            ChieuRongAnh = doiTuong.initSizePicture.Width,
-                        });
+                        list.Add(doiTuong.ThongTinChiTietDoiTuong);
                     }
 
                     Program.ThongTinChiTietDoiTuongSql.AddDoiTuong(list);
@@ -135,11 +127,11 @@ namespace DXApplication1.Views
                         list.Add(new ThongTinChiTietDoiTuong()
                         {
                             MaKeHoach = keHoach.MaKeHoach,
-                            MaDonVi = isChange.DoiTuongs[i].MaDonVi,
-                            ToaDoX = isChange.DoiTuongs[i].LocationInImage.X,
-                            ToaDoY = isChange.DoiTuongs[i].LocationInImage.Y,
-                            ChieuDaiAnh = isChange.DoiTuongs[i].initSizePicture.Height,
-                            ChieuRongAnh = isChange.DoiTuongs[i].initSizePicture.Width,
+                            MaDonVi = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.MaDonVi,
+                            ToaDoX = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ToaDoX,
+                            ToaDoY = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ToaDoY,
+                            ChieuDaiAnh = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuDaiAnh,
+                            ChieuRongAnh = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuRongAnh,
                         });
                     }
 
