@@ -69,5 +69,10 @@ namespace DXApplication1.Objects_Icon
         {
             this.Close();
         }
+
+        private void TTDoiTuong_Load(object sender, EventArgs e)
+        {
+            //textBoxMaDonVi.Text
+        }
     }
 }

@@ -27,6 +27,8 @@ namespace DXApplication1.Models
 
         public int MaDoiTuong { get; set; }
 
+        public string MoTa { get; set; }
+
         public string MaDonVi { get; set; }
 
         public Point LocationInImage { get; set; }

@@ -244,11 +244,6 @@ namespace DXApplication1
             }
         }
 
-        private void barButtonItemBanDo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            
-        }
-
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.frm_Map = new Views.Frm_test1();
@@ -376,8 +371,9 @@ namespace DXApplication1
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           barButtonItem4_ItemClick(null , null);
-           Program.frm_Map.simpleButtonLuuPhuongAn_Click(null , null);
+            barButtonItem4_ItemClick(null, null);
+            Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
+
         }
     }
 }

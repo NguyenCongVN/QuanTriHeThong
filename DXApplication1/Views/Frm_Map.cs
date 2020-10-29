@@ -275,8 +275,6 @@ namespace DXApplication1.Views
 //            }
 //=======
             nodeOnMap = new NodeOnMap();        
-            ParentNode parentNode = new ParentNode();
-//>>>>>>> pr/53
             int count = imageListChild.Images.Count;
             treeView1.ImageList = imageListChild;
             nodeOnMap = new NodeOnMap();
