@@ -49,6 +49,7 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbBackground = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -86,15 +87,16 @@
             this.barButtonItem5,
             this.barButtonItem6,
             this.barSubItem1,
-            this.barButtonItem7});
+            this.barButtonItem7,
+            this.barButtonItem8});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.ribbonControl1.MaxItemId = 26;
+            this.ribbonControl1.MaxItemId = 27;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
             this.rbpManage});
-            this.ribbonControl1.Size = new System.Drawing.Size(1376, 149);
+            this.ribbonControl1.Size = new System.Drawing.Size(1376, 183);
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // btnLogin
@@ -200,6 +202,8 @@
             // 
             // barButtonItemNhanVien
             // 
+            this.barButtonItemNhanVien.ActAsDropDown = true;
+            this.barButtonItemNhanVien.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemNhanVien.Caption = "Nhân Viên";
             this.barButtonItemNhanVien.Id = 17;
             this.barButtonItemNhanVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemNhanVien.ImageOptions.Image")));
@@ -233,7 +237,6 @@
             this.barButtonItemBanDo.ItemAppearance.Pressed.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barButtonItemBanDo.ItemAppearance.Pressed.Options.UseFont = true;
             this.barButtonItemBanDo.Name = "barButtonItemBanDo";
-            this.barButtonItemBanDo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemBanDo_ItemClick);
             // 
             // popupMenu1
             // 
@@ -292,6 +295,12 @@
             this.barSubItem1.Caption = "barSubItem1";
             this.barSubItem1.Id = 24;
             this.barSubItem1.Name = "barSubItem1";
+            // 
+            // barButtonItem8
+            // 
+            this.barButtonItem8.Caption = "barButtonItem8";
+            this.barButtonItem8.Id = 26;
+            this.barButtonItem8.Name = "barButtonItem8";
             // 
             // rbpHeThong
             // 
@@ -362,10 +371,10 @@
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 149);
+            this.panelMain.Location = new System.Drawing.Point(0, 183);
             this.panelMain.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1376, 634);
+            this.panelMain.Size = new System.Drawing.Size(1376, 600);
             this.panelMain.TabIndex = 3;
             // 
             // rbData
@@ -378,7 +387,7 @@
             // FrmMain_Admin
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1376, 783);
             this.Controls.Add(this.panelMain);
@@ -432,6 +441,7 @@
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbData;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
     }
 }
 

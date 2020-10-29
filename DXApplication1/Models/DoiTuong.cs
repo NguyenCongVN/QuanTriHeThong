@@ -26,15 +26,6 @@ namespace DXApplication1.Models
         }
 
         public ThongTinChiTietDoiTuong ThongTinChiTietDoiTuong { get; set; }
-
-        //public int MaDoiTuong { get; set; }
-
-        //public string MaDonVi { get; set; }
-
-        //public Point LocationInImage { get; set; }
-
-        //public Size initSizePicture { get; set; }
-
         public PictureBox Picture { get => picture; set => picture = value; }
         public  string Detail { get => detail; set => detail = value; }
 

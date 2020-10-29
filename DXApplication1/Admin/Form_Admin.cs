@@ -243,12 +243,6 @@ namespace DXApplication1
                 this.Hide();
             }
         }
-
-        private void barButtonItemBanDo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Program.frm_Map = new Views.Frm_test1();

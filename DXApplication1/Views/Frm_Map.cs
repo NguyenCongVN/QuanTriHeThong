@@ -277,9 +277,8 @@ namespace DXApplication1.Views
 //                imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
 //            }
 //=======
-            nodeOnMap = new NodeOnMap();
-            ParentNode parentNode = new ParentNode();
-//>>>>>>> pr/53
+
+            nodeOnMap = new NodeOnMap();        
             int count = imageListChild.Images.Count;
             treeView1.ImageList = imageListChild;
             nodeOnMap = new NodeOnMap();
