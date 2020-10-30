@@ -44,6 +44,8 @@
             this.textBoxMaDonVi = new System.Windows.Forms.TextBox();
             this.textBoxMoTa = new System.Windows.Forms.TextBox();
             this.groupControlThêmChucVu = new DevExpress.XtraEditors.GroupControl();
+            this.labelMadoituong = new System.Windows.Forms.Label();
+            this.textBoxMaDoiTuong = new System.Windows.Forms.TextBox();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -59,7 +61,7 @@
             // 
             this.ButtonHuy.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonHuy.Appearance.Options.UseFont = true;
-            this.ButtonHuy.Location = new System.Drawing.Point(257, 376);
+            this.ButtonHuy.Location = new System.Drawing.Point(271, 384);
             this.ButtonHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonHuy.Name = "ButtonHuy";
             this.ButtonHuy.Size = new System.Drawing.Size(87, 30);
@@ -71,7 +73,7 @@
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(38, 238);
+            this.label5.Location = new System.Drawing.Point(38, 259);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(142, 30);
             this.label5.TabIndex = 10;
@@ -81,7 +83,7 @@
             // textBoxChieuRongAnh
             // 
             this.textBoxChieuRongAnh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxChieuRongAnh.Location = new System.Drawing.Point(225, 238);
+            this.textBoxChieuRongAnh.Location = new System.Drawing.Point(225, 259);
             this.textBoxChieuRongAnh.Name = "textBoxChieuRongAnh";
             this.textBoxChieuRongAnh.Size = new System.Drawing.Size(241, 30);
             this.textBoxChieuRongAnh.TabIndex = 11;
@@ -90,7 +92,7 @@
             // 
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(38, 279);
+            this.label6.Location = new System.Drawing.Point(38, 300);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(142, 25);
             this.label6.TabIndex = 8;
@@ -100,7 +102,7 @@
             // textBoxChieuDaiAnh
             // 
             this.textBoxChieuDaiAnh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxChieuDaiAnh.Location = new System.Drawing.Point(225, 277);
+            this.textBoxChieuDaiAnh.Location = new System.Drawing.Point(225, 298);
             this.textBoxChieuDaiAnh.Name = "textBoxChieuDaiAnh";
             this.textBoxChieuDaiAnh.Size = new System.Drawing.Size(241, 30);
             this.textBoxChieuDaiAnh.TabIndex = 9;
@@ -109,7 +111,7 @@
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(38, 166);
+            this.label3.Location = new System.Drawing.Point(38, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(142, 25);
             this.label3.TabIndex = 6;
@@ -119,7 +121,7 @@
             // textBoxToaDoY
             // 
             this.textBoxToaDoY.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxToaDoY.Location = new System.Drawing.Point(225, 164);
+            this.textBoxToaDoY.Location = new System.Drawing.Point(225, 185);
             this.textBoxToaDoY.Name = "textBoxToaDoY";
             this.textBoxToaDoY.Size = new System.Drawing.Size(241, 30);
             this.textBoxToaDoY.TabIndex = 7;
@@ -128,7 +130,7 @@
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(38, 202);
+            this.label2.Location = new System.Drawing.Point(38, 223);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(142, 30);
             this.label2.TabIndex = 4;
@@ -138,7 +140,7 @@
             // textBoxMaKeHoach
             // 
             this.textBoxMaKeHoach.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMaKeHoach.Location = new System.Drawing.Point(225, 202);
+            this.textBoxMaKeHoach.Location = new System.Drawing.Point(225, 223);
             this.textBoxMaKeHoach.Name = "textBoxMaKeHoach";
             this.textBoxMaKeHoach.Size = new System.Drawing.Size(241, 30);
             this.textBoxMaKeHoach.TabIndex = 5;
@@ -146,7 +148,7 @@
             // textboxToaDoX
             // 
             this.textboxToaDoX.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textboxToaDoX.Location = new System.Drawing.Point(225, 127);
+            this.textboxToaDoX.Location = new System.Drawing.Point(225, 148);
             this.textboxToaDoX.Multiline = true;
             this.textboxToaDoX.Name = "textboxToaDoX";
             this.textboxToaDoX.Size = new System.Drawing.Size(241, 28);
@@ -156,7 +158,7 @@
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 129);
+            this.label1.Location = new System.Drawing.Point(38, 150);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 26);
             this.label1.TabIndex = 2;
@@ -167,7 +169,7 @@
             // 
             this.labelMaBC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelMaBC.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMaBC.Location = new System.Drawing.Point(38, 56);
+            this.labelMaBC.Location = new System.Drawing.Point(38, 77);
             this.labelMaBC.Name = "labelMaBC";
             this.labelMaBC.Size = new System.Drawing.Size(142, 25);
             this.labelMaBC.TabIndex = 0;
@@ -178,7 +180,7 @@
             // 
             this.labelTenBC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelTenBC.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTenBC.Location = new System.Drawing.Point(38, 94);
+            this.labelTenBC.Location = new System.Drawing.Point(38, 115);
             this.labelTenBC.Name = "labelTenBC";
             this.labelTenBC.Size = new System.Drawing.Size(142, 25);
             this.labelTenBC.TabIndex = 1;
@@ -188,7 +190,7 @@
             // textBoxMaDonVi
             // 
             this.textBoxMaDonVi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMaDonVi.Location = new System.Drawing.Point(225, 54);
+            this.textBoxMaDonVi.Location = new System.Drawing.Point(225, 75);
             this.textBoxMaDonVi.Name = "textBoxMaDonVi";
             this.textBoxMaDonVi.ReadOnly = true;
             this.textBoxMaDonVi.Size = new System.Drawing.Size(241, 30);
@@ -197,7 +199,7 @@
             // textBoxMoTa
             // 
             this.textBoxMoTa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMoTa.Location = new System.Drawing.Point(225, 92);
+            this.textBoxMoTa.Location = new System.Drawing.Point(225, 113);
             this.textBoxMoTa.Name = "textBoxMoTa";
             this.textBoxMoTa.Size = new System.Drawing.Size(241, 30);
             this.textBoxMoTa.TabIndex = 1;
@@ -206,6 +208,8 @@
             // 
             this.groupControlThêmChucVu.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControlThêmChucVu.AppearanceCaption.Options.UseFont = true;
+            this.groupControlThêmChucVu.Controls.Add(this.labelMadoituong);
+            this.groupControlThêmChucVu.Controls.Add(this.textBoxMaDoiTuong);
             this.groupControlThêmChucVu.Controls.Add(this.labelControl6);
             this.groupControlThêmChucVu.Controls.Add(this.labelControl2);
             this.groupControlThêmChucVu.Controls.Add(this.labelControl5);
@@ -228,9 +232,30 @@
             this.groupControlThêmChucVu.Controls.Add(this.textBoxMoTa);
             this.groupControlThêmChucVu.Location = new System.Drawing.Point(22, 25);
             this.groupControlThêmChucVu.Name = "groupControlThêmChucVu";
-            this.groupControlThêmChucVu.Size = new System.Drawing.Size(496, 331);
+            this.groupControlThêmChucVu.Size = new System.Drawing.Size(496, 346);
             this.groupControlThêmChucVu.TabIndex = 21;
             this.groupControlThêmChucVu.Text = "Đối tượng";
+            // 
+            // labelMadoituong
+            // 
+            this.labelMadoituong.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelMadoituong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMadoituong.Location = new System.Drawing.Point(38, 41);
+            this.labelMadoituong.Name = "labelMadoituong";
+            this.labelMadoituong.Size = new System.Drawing.Size(142, 25);
+            this.labelMadoituong.TabIndex = 34;
+            this.labelMadoituong.Text = "Mã đối tượng";
+            this.labelMadoituong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBoxMaDoiTuong
+            // 
+            this.textBoxMaDoiTuong.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMaDoiTuong.Location = new System.Drawing.Point(225, 39);
+            this.textBoxMaDoiTuong.Name = "textBoxMaDoiTuong";
+            this.textBoxMaDoiTuong.ReadOnly = true;
+            this.textBoxMaDoiTuong.Size = new System.Drawing.Size(241, 30);
+            this.textBoxMaDoiTuong.TabIndex = 35;
+            this.textBoxMaDoiTuong.TextChanged += new System.EventHandler(this.textBoxMaDoiTuong_TextChanged);
             // 
             // labelControl6
             // 
@@ -238,7 +263,7 @@
             this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.Location = new System.Drawing.Point(186, 279);
+            this.labelControl6.Location = new System.Drawing.Point(186, 300);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(8, 18);
@@ -251,7 +276,7 @@
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(186, 238);
+            this.labelControl2.Location = new System.Drawing.Point(186, 259);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(8, 18);
@@ -264,7 +289,7 @@
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Appearance.Options.UseForeColor = true;
-            this.labelControl5.Location = new System.Drawing.Point(186, 164);
+            this.labelControl5.Location = new System.Drawing.Point(186, 185);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(8, 18);
@@ -277,7 +302,7 @@
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Appearance.Options.UseForeColor = true;
-            this.labelControl4.Location = new System.Drawing.Point(186, 127);
+            this.labelControl4.Location = new System.Drawing.Point(186, 148);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(8, 18);
@@ -290,7 +315,7 @@
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(186, 202);
+            this.labelControl1.Location = new System.Drawing.Point(186, 223);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(8, 18);
@@ -303,7 +328,7 @@
             this.lbSao.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lbSao.Appearance.Options.UseFont = true;
             this.lbSao.Appearance.Options.UseForeColor = true;
-            this.lbSao.Location = new System.Drawing.Point(186, 56);
+            this.lbSao.Location = new System.Drawing.Point(186, 77);
             this.lbSao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lbSao.Name = "lbSao";
             this.lbSao.Size = new System.Drawing.Size(8, 18);
@@ -314,7 +339,7 @@
             // 
             this.buttonLuu.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLuu.Appearance.Options.UseFont = true;
-            this.buttonLuu.Location = new System.Drawing.Point(115, 376);
+            this.buttonLuu.Location = new System.Drawing.Point(129, 384);
             this.buttonLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLuu.Name = "buttonLuu";
             this.buttonLuu.Size = new System.Drawing.Size(87, 30);
@@ -335,7 +360,6 @@
             this.Name = "TTDoiTuong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TTDoiTuong";
-            this.Load += new System.EventHandler(this.TTDoiTuong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlThêmChucVu)).EndInit();
             this.groupControlThêmChucVu.ResumeLayout(false);
             this.groupControlThêmChucVu.PerformLayout();
@@ -368,5 +392,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        public System.Windows.Forms.Label labelMadoituong;
+        public System.Windows.Forms.TextBox textBoxMaDoiTuong;
     }
 }
