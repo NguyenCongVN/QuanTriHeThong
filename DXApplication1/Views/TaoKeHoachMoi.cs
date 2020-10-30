@@ -250,6 +250,7 @@ namespace DXApplication1.Views
                         textEditTenPhuongAn.ReadOnly = false;
                         timeEditThoiGianLap.DateTime = DateTime.Now;
                         richEditControlChiTiet.ReadOnly = false;
+                        Program.frm_Map.opted = 0;
                     }
                     else
                     {
