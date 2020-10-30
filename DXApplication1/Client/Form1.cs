@@ -263,10 +263,18 @@ namespace DXApplication1
                 }
             }
         }
-
+        // Is Fixing
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            panel2.Visible = true;
+            if (!panelMain.Controls.Contains(Program.frm_Map))
+            {
+                barButtonItem2_ItemClick(null, null);
+                Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
+            }
+            else
+            {
+                Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
+            }
         }
         private void trackBarTocDo_ValueChanged(object sender, EventArgs e)
         {
