@@ -182,7 +182,7 @@ namespace DXApplication1.Views
             this.Dispose();
         }
 
-        private void simpleButtonMo_Click(object sender, EventArgs e)
+        public void simpleButtonMo_Click(object sender, EventArgs e)
         {
             if (dataGridViewKeHoach.SelectedRows == null)
             {

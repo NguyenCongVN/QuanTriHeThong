@@ -119,21 +119,9 @@ namespace DXApplication1.Models
         private void chỉnhSửaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.flag = false;
-            // ChinhSuaTT cs = new ChinhSuaTT();
-            //cs.Show();
-            //cs.Location = new Point(picture.Location.X + cs.Width + 50, picture.Location.Y + cs.Height);
-            //cs.button1.Click += (ss, ee) =>
-            //{
-
-            //    if (cs.textBox1.Text != "")
-            //    {
-            //        detail = cs.textBox1.Text;
-            //        MessageBox.Show("Thành công!");
-            //        cs.Close();
-            //    }
-            //    else
-            //        MessageBox.Show("Thông tin trống", "???");
-            //};
+            Objects_Icon.TTDoiTuong tTDoiTuong = new TTDoiTuong();
+            tTDoiTuong.LoadDataInToForm(ThongTinChiTietDoiTuong);
+            tTDoiTuong.ShowDialog();
         }
         
     }

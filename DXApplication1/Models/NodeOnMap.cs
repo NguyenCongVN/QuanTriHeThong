@@ -93,7 +93,41 @@ namespace DXApplication1.Models
             }
         };
 
-        
+        SqlInfoMessageEventHandler showResultThemChiTietDTFromSql = (sender, e) =>
+        {
+            if (int.Parse(e.Message) == 1)
+            {
+                DialogResult result = MessageBox.Show("Tạo thông tin thành công", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    //Program.frm_Map.Frm_test1_Load(sender, e);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Thông tin tạo không hợp lệ", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        };
+
+        SqlInfoMessageEventHandler showResultSuaChiTietDTFromSql = (sender, e) =>
+        {
+            if (int.Parse(e.Message) == 1)
+            {
+                DialogResult result = MessageBox.Show("Chỉnh sửa thông tin thành công", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result == DialogResult.OK)
+                {
+                    ////Program.quanLyPhuongAnForm.simpleButtonMo_Click(null, null);
+                    //simpleButtonMo_Click
+                    //Program.frm_Map.Frm_test1_Load(sender, e);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chỉnh sửa không thành công", "Notice message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        };
+
+
         connection connect;
         public DataSet getDataParentNode()
         {
@@ -188,7 +222,7 @@ namespace DXApplication1.Models
             string[] para = { "@maDonVi", "@mota", "@toadoX", "@toadoY", "@makehoach", "@chieuronganh", "@chieudaianh" };
             object[] value = { madonvi, mota,toadoX,toadoY,makehoach,chieuronganh,chieudaianh };
             connection Connection = new connection();
-            Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultFromSql);
+            Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultThemChiTietDTFromSql);
         }
 
         public void ChinhSuaTTDoiTuong(int madoituong, string mota, int toadoX, int toadoY, int chieuronganh, int chieudaianh)
@@ -197,7 +231,7 @@ namespace DXApplication1.Models
             string[] para = { "@madoituong", "@mota", "@toadoX", "@toadoY", "@chieuronganh", "@chieudaianh" };
             object[] value = { madoituong, mota, toadoX, toadoY,chieuronganh, chieudaianh };
             connection Connection = new connection();
-            Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultFromSql);
+            Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultSuaChiTietDTFromSql);
         }
     }
 }

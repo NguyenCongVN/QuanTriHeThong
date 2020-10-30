@@ -629,6 +629,7 @@ namespace DXApplication1.Views
         {
             Program.flag = false;
             LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
+            loaiDoiTuong.LoadData(Program.getMa);
             loaiDoiTuong.ShowDialog();
         }
 

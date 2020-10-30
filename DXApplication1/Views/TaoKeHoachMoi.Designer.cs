@@ -274,10 +274,10 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonSua;
         private DevExpress.XtraEditors.SimpleButton simpleButtonXoa;
         private DevExpress.XtraEditors.SimpleButton simpleButtonLuu;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonMo;
         private DevExpress.XtraEditors.SimpleButton simpleButtonDong;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.TextEdit textEditTimKiem;
         private System.Windows.Forms.DataGridView dataGridViewKeHoach;
+        public DevExpress.XtraEditors.SimpleButton simpleButtonMo;
     }
 }

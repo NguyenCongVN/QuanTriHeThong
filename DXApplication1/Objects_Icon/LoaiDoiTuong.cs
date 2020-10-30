@@ -73,5 +73,11 @@ namespace DXApplication1.Objects_Icon
                 textBoxMaBinhChung.ReadOnly = true;
             }
         }
+
+        public void LoadData(string maloaidoituong)
+        {
+            textBoxMaBinhChung.Text = maloaidoituong;
+           // textBoxTenBinhChung.Text = tenloaidoituong;
+        }
     }
 }

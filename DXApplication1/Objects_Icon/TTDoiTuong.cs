@@ -31,7 +31,7 @@ namespace DXApplication1.Objects_Icon
         }
         private void buttonLuu_Click(object sender, EventArgs e)
         {
-            if(Program.flag_Doituong)
+            if(Program.flag_Doituong) // tao moi
             {
                 try
                 {
@@ -47,27 +47,27 @@ namespace DXApplication1.Objects_Icon
                 }
                 Program.nodeOnMap.TaoTTDoiTuong(textBoxMaDonVi.Text, textBoxMoTa.Text, int.Parse(textBoxMaKeHoach.Text), int.Parse(textboxToaDoX.Text)
                     , int.Parse(textBoxToaDoY.Text), int.Parse(textBoxChieuRongAnh.Text), int.Parse(textBoxChieuDaiAnh.Text));
-            }    
-            //if (Program.flag) // them don vi
-            //{
-               
-            //}
-            //else // chinh sua don vi
-            //{
-            //    try
-            //    {
-            //        if (textBoxMoTa.Text == "" || textboxToaDoX.Text == "")
-            //        {
-            //            throw new Exception("Bạn phải nhập đầy đủ thông tin");
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        XtraMessageBox.Show(ex.Message);
-            //        return;
-            //    }
-            //  //  Program.nodeOnMap.ChinhSuaTTDoiTuong(textBoxMaDonVi.Text, textBoxMoTa.Text, textboxToaDoX.Text);
-            //}
+            }
+         
+            if (!Program.flag)
+            {
+                try
+                {
+                    if (textboxToaDoX.Text == "" || textBoxToaDoY.Text == "" || textBoxChieuDaiAnh.Text == "" || textBoxChieuRongAnh.Text == "")
+                    {
+                        throw new Exception("Bạn phải nhập đầy đủ thông tin");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message);
+                    return;
+                }
+                Program.nodeOnMap.ChinhSuaTTDoiTuong(int.Parse(textBoxMaDoiTuong.Text), textBoxMoTa.Text, int.Parse(textboxToaDoX.Text)
+                   , int.Parse(textBoxToaDoY.Text), int.Parse(textBoxChieuRongAnh.Text), int.Parse(textBoxChieuDaiAnh.Text));
+            }
+
+    
         }
 
         private void ButtonHuy_Click(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace DXApplication1.Objects_Icon
 
         public void LoadDataInToForm (ThongTinChiTietDoiTuong thongTinChiTietDoiTuong)
         {
-            if(thongTinChiTietDoiTuong.MaDoiTuong == 0)
+            if(thongTinChiTietDoiTuong.MaDoiTuong == 0) // tao moi doi tuong
             {
                 thongTinChiTietDoiTuong.MaDoiTuong = Program.ThongTinChiTietDoiTuongSql.LayMaDoiTuongLonNhat() + 1;
                 Program.flag_Doituong = true;
@@ -99,6 +99,20 @@ namespace DXApplication1.Objects_Icon
         private void textBoxMaDoiTuong_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void TTDoiTuong_Load(object sender, EventArgs e)
+        {
+            if(!Program.flag_Doituong)
+            {
+              //  buttonLuu.Visible = true;
+              //  ButtonHuy.Visible = true;
+            }    
+            else
+            {
+              //  buttonLuu.Visible = false;
+              //  ButtonHuy.Visible = false;
+            }    
         }
     }
 }

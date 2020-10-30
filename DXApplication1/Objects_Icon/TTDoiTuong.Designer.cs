@@ -360,6 +360,7 @@
             this.Name = "TTDoiTuong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TTDoiTuong";
+            this.Load += new System.EventHandler(this.TTDoiTuong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlThêmChucVu)).EndInit();
             this.groupControlThêmChucVu.ResumeLayout(false);
             this.groupControlThêmChucVu.PerformLayout();
