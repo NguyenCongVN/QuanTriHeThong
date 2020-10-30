@@ -126,7 +126,6 @@ namespace DXApplication1.Views
         public Frm_test1()
         {
             InitializeComponent();
-           // initImageOfNode();
             pictureBoxMap.Image = bitmapResize;
             panelWidth = panelNode.Width;
             panelWidthFile = txtOutput.Width;
@@ -179,15 +178,6 @@ namespace DXApplication1.Views
             DataSet PicSet = nodeOnMap.getIconChild();
             foreach (DataRow dr in PicSet.Tables[0].Rows)
             {
-//<<<<<<< HEAD
-//                var i = Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString();
-//                imageListChild.Images.Add(Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
-//            }
-//        }
-
-//        private Point firstPoint;
-
-//=======
                 string fileName = Path.GetFileName(dr["DuongDanAnh"].ToString());
                 if (fileName == dr["DuongDanAnh"].ToString())
                 {
@@ -201,7 +191,6 @@ namespace DXApplication1.Views
         }  
         
         private Point firstPoint;
-//>>>>>>> pr/53
         public void MoveButton(PictureBox pp)
         {
             pp.MouseDown += (ss, ee) =>
@@ -269,15 +258,6 @@ namespace DXApplication1.Views
 
         public void load_Tree()
         {
-//<<<<<<< HEAD
-//            nodeOnMap = new NodeOnMap();
-//            DataSet PicSet = nodeOnMap.getIconChild();
-//            foreach (DataRow dr in PicSet.Tables[0].Rows)
-//            {
-//                imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
-//            }
-//=======
-
             nodeOnMap = new NodeOnMap();        
             int count = imageListChild.Images.Count;
             treeView1.ImageList = imageListChild;
@@ -535,24 +515,6 @@ namespace DXApplication1.Views
                 }
             }
         }
-
-        private void treeView1_DrawNode(object sender, DrawTreeNodeEventArgs e)
-        {
-            //if (e.Node.ImageIndex >= e.Node.TreeView.ImageList.Images.Count) // if there is no image 
-            //{
-            //    int imagewidths = e.Node.TreeView.ImageList.ImageSize.Width;
-            //    int textheight = TextRenderer.MeasureText(e.Node.Text, e.Node.NodeFont).Height;
-            //    int x = e.Node.Bounds.Left - 3 - imagewidths / 2;
-            //    int y = (e.Bounds.Top + e.Bounds.Bottom) / 2 + 1;
-
-            //    Point point = new Point(x - imagewidths / 2, y - textheight / 2); // the new location for the text to be drawn 
-
-            //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.NodeFont, point, e.Node.ForeColor.);
-            //}
-            //else // drawn at the default location 
-            //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Bounds, default);
-        }
-
         private void buttonAnHien_Click(object sender, EventArgs e)
         {
             if (hided)

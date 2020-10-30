@@ -1,4 +1,5 @@
 ﻿using DXApplication1.Utilizes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -103,11 +104,13 @@ namespace DXApplication1.Models
                         ThongTinChiTietDoiTuong = new ThongTinChiTietDoiTuong()
                         {
                             MaDoiTuong = maDoiTuong,
-                            ChieuDaiAnh = chieuDaiAnh ,
+                            ChieuDaiAnh = chieuDaiAnh,
                             ChieuRongAnh = chieuRongAnh,
                             ToaDoX = toaDoX,
                             ToaDoY = toaDoY,
                             MaDonVi = maDonVi,
+                            MaKeHoach = maKeHoach,
+                            MoTa = moTa,
                         }
                     };
                     anh.Picture.Image = imageList.Images[maDonVi];
@@ -156,6 +159,18 @@ namespace DXApplication1.Models
                 command.ExecuteScalar();
             }
             Connection.Close();
+        }
+
+        public int LayMaDoiTuongLonNhat()
+        {
+            Connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("SELECT MAX(MaDoiTuong) FROM dbo.DoiTuong", Connection);
+            sqlCommand.CommandType = CommandType.Text;
+            object result = sqlCommand.ExecuteScalar();
+            int maxMa = Convert.ToInt32(result);
+            Connection.Close();
+            return maxMa;
+
         }
     }
 

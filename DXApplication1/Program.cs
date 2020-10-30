@@ -35,6 +35,9 @@ namespace DXApplication1
         public static  NodeOnMap nodeOnMap;
         public static string getMa;
         public static bool flag;
+        public static DoiTuong doiTuong;
+        public static TTDoiTuong tTDoiTuong;
+        public static bool flag_Doituong;
         [STAThread]
 
         static void Main()
@@ -54,6 +57,7 @@ namespace DXApplication1
             lg = new frmLogin();
             frm_Map = new Frm_test1();
             nodeOnMap = new NodeOnMap();
+            tTDoiTuong = new TTDoiTuong();
             Application.Run(lg);
         }
     }

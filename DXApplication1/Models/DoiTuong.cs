@@ -38,11 +38,13 @@ namespace DXApplication1.Models
             picture.Size = new System.Drawing.Size(13, 20);
             picture.SizeMode = PictureBoxSizeMode.AutoSize;
             picture.ContextMenuStrip = contextMenuStrip1;
+          
         }
         public DoiTuong(PictureBox _pic, string _detail)
         {
             this.picture = _pic;
             this.detail = _detail;
+           
         }
 
         private void InitializeComponent()
@@ -101,10 +103,9 @@ namespace DXApplication1.Models
         private void thôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.flag = true;
-            //MessageBox.Show(detail);
             Objects_Icon.TTDoiTuong tTDoiTuong = new TTDoiTuong();
+            tTDoiTuong.LoadDataInToForm(ThongTinChiTietDoiTuong);
             tTDoiTuong.ShowDialog();
-            
         }
 
         private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
