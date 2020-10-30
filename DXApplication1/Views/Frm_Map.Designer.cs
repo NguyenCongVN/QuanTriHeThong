@@ -38,7 +38,6 @@ namespace DXApplication1.Views
             this.txtOutput = new System.Windows.Forms.RichTextBox();
             this.item1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.item2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBoxMap = new System.Windows.Forms.PictureBox();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panelSideBar = new System.Windows.Forms.Panel();
@@ -53,7 +52,6 @@ namespace DXApplication1.Views
             this.buttonAnHienChiTietFile = new System.Windows.Forms.Button();
             this.timerAnHienFile = new System.Windows.Forms.Timer(this.components);
             this.simpleButtonQuanLyPhuongAn = new DevExpress.XtraEditors.SimpleButton();
-            this.panelMap = new DXApplication1.Views.CustomScrollPanel();
             this.controlParentNode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.đoiTenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thêmKíHiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,16 +59,18 @@ namespace DXApplication1.Views
             this.controlChildNode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.doiTentoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
             this.xoatoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).BeginInit();
+            this.panelMap = new DXApplication1.Views.CustomScrollPanel();
+            this.pictureBoxMap = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panelSideBar.SuspendLayout();
             this.panelNode.SuspendLayout();
             this.controlDanhSach.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panelMap.SuspendLayout();
             this.controlParentNode.SuspendLayout();
             this.controlChildNode.SuspendLayout();
+            this.panelMap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).BeginInit();
             this.SuspendLayout();
             // 
             // imageListChild
@@ -104,21 +104,6 @@ namespace DXApplication1.Views
             this.item2ToolStripMenuItem.Name = "item2ToolStripMenuItem";
             this.item2ToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
             this.item2ToolStripMenuItem.Text = "Delete";
-            // 
-            // pictureBoxMap
-            // 
-            this.pictureBoxMap.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxMap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBoxMap.InitialImage = null;
-            this.pictureBoxMap.Location = new System.Drawing.Point(3, 4);
-            this.pictureBoxMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBoxMap.Name = "pictureBoxMap";
-            this.pictureBoxMap.Size = new System.Drawing.Size(861, 249);
-            this.pictureBoxMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxMap.TabIndex = 0;
-            this.pictureBoxMap.TabStop = false;
-            this.pictureBoxMap.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // contextMenuStrip1
             // 
@@ -242,17 +227,6 @@ namespace DXApplication1.Views
             this.simpleButtonQuanLyPhuongAn.Text = "Quản lý phương án";
             this.simpleButtonQuanLyPhuongAn.Click += new System.EventHandler(this.simpleButtonLuuPhuongAn_Click);
             // 
-            // panelMap
-            // 
-            this.panelMap.AutoScroll = true;
-            this.panelMap.Controls.Add(this.pictureBoxMap);
-            this.panelMap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMap.Location = new System.Drawing.Point(193, 0);
-            this.panelMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelMap.Name = "panelMap";
-            this.panelMap.Size = new System.Drawing.Size(752, 614);
-            this.panelMap.TabIndex = 14;
-            // 
             // controlParentNode
             // 
             this.controlParentNode.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -312,6 +286,32 @@ namespace DXApplication1.Views
             this.xoatoolStripMenuItemChild.Text = "Xoá";
             this.xoatoolStripMenuItemChild.Click += new System.EventHandler(this.xoatoolStripMenuItemChild_Click);
             // 
+            // panelMap
+            // 
+            this.panelMap.AutoScroll = true;
+            this.panelMap.Controls.Add(this.pictureBoxMap);
+            this.panelMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMap.Location = new System.Drawing.Point(193, 0);
+            this.panelMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelMap.Name = "panelMap";
+            this.panelMap.Size = new System.Drawing.Size(752, 614);
+            this.panelMap.TabIndex = 14;
+            // 
+            // pictureBoxMap
+            // 
+            this.pictureBoxMap.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxMap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxMap.InitialImage = null;
+            this.pictureBoxMap.Location = new System.Drawing.Point(-81, 22);
+            this.pictureBoxMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxMap.Name = "pictureBoxMap";
+            this.pictureBoxMap.Size = new System.Drawing.Size(861, 266);
+            this.pictureBoxMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxMap.TabIndex = 0;
+            this.pictureBoxMap.TabStop = false;
+            this.pictureBoxMap.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // Frm_test1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,17 +327,17 @@ namespace DXApplication1.Views
             this.Text = resources.GetString("$this.Text");
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Frm_test1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panelSideBar.ResumeLayout(false);
             this.panelNode.ResumeLayout(false);
             this.controlDanhSach.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panelMap.ResumeLayout(false);
-            this.panelMap.PerformLayout();
             this.controlParentNode.ResumeLayout(false);
             this.controlChildNode.ResumeLayout(false);
+            this.panelMap.ResumeLayout(false);
+            this.panelMap.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).EndInit();
             this.ResumeLayout(false);
 
         }
