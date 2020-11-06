@@ -163,6 +163,7 @@
             this.simpleButtonThem.Size = new System.Drawing.Size(105, 28);
             this.simpleButtonThem.TabIndex = 1;
             this.simpleButtonThem.Text = "Thêm mới";
+            this.simpleButtonThem.Click += new System.EventHandler(this.simpleButtonThem_Click);
             // 
             // simpleButtonSua
             // 
@@ -248,6 +249,7 @@
             this.Name = "QuanLyPhuongAnForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Phương Án";
+            this.Load += new System.EventHandler(this.QuanLyPhuongAnForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenPhuongAn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

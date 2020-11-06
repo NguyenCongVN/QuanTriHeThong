@@ -201,5 +201,15 @@ namespace DXApplication1.Views
                 MoKeHoach(selectedKeHoach);
             }
         }
+
+        private void simpleButtonThem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void QuanLyPhuongAnForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
