@@ -355,11 +355,9 @@ namespace DXApplication1.Views
         private Label label1;
         private TreeView treeView1;
         private Timer timerAnHienFile;
-//<<<<<<< HEAD
         private DevExpress.XtraEditors.SimpleButton simpleButtonQuanLyPhuongAn;
         private CustomScrollPanel panelMap;
         public PictureBox pictureBoxMap;
-        //=======
         private ContextMenuStrip controlParentNode;
         private ToolStripMenuItem đoiTenToolStripMenuItem;
         private ToolStripMenuItem thêmKíHiệuToolStripMenuItem;
@@ -371,6 +369,5 @@ namespace DXApplication1.Views
         private ToolStripMenuItem themtoolStripMenuItem;
         private Button buttonAnHienChiTietFile;
         private Label label2;
-        //>>>>>>> pr/53
     }
 }
