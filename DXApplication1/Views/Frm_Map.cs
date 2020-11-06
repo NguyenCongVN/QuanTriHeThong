@@ -18,6 +18,7 @@ namespace DXApplication1.Views
 {
     public partial class Frm_test1 : DevExpress.XtraEditors.XtraForm
     {
+        Dictionary<string, string> ListdiachiAnh = new Dictionary<string, string>();
 
         // Ke Hoach
         public KeHoach KeHoach { get; set; }
@@ -65,7 +66,7 @@ namespace DXApplication1.Views
         public static bool isPause = false;
         // Pause Lock
         public static object pauseLock = new object();
-
+        //E:\PICTURE\
         public static Bitmap bitmapInit1 = new Bitmap(Properties.Resources.Screenshot_2020_09_25_202017);
 
         // Resize bitmap background
@@ -113,13 +114,17 @@ namespace DXApplication1.Views
 
         public Frm_test1()
         {
+            
             InitializeComponent();
+            buttonKyHieuQuanSu_Click(null, null);
+            buttonAnHienChiTietFile_Click_1(null, null);
             pictureBoxMap.Image = bitmapResize;
             panelWidth = panelNode.Width;
             panelWidthFile = txtOutput.Width;
             hided = false;
             hidedFile = false;
             this.pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
+
         }
 
         // Center PictureBox is being tested
@@ -169,18 +174,26 @@ namespace DXApplication1.Views
 
         public void initImageOfNode()
         {
+            imageListChild = new ImageList();
+            ListdiachiAnh = new Dictionary<string, string>();
             nodeOnMap = new NodeOnMap();
             DataSet PicSet = nodeOnMap.getIconChild();
+            string diachiAnh;
             foreach (DataRow dr in PicSet.Tables[0].Rows)
             {
                 string fileName = Path.GetFileName(dr["DuongDanAnh"].ToString());
                 if (fileName == dr["DuongDanAnh"].ToString())
                 {
-                    imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
+                    diachiAnh = Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString();
+                    imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(diachiAnh));
+                    ListdiachiAnh.Add(dr["MaDonVi"].ToString(), diachiAnh);
                 }
                 else
                 {
-                    imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(dr["DuongDanAnh"].ToString()));
+                    diachiAnh = dr["DuongDanAnh"].ToString();
+                    imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(diachiAnh));
+                    ListdiachiAnh.Add(dr["MaDonVi"].ToString(), diachiAnh);
+
                 }
             }
         }
@@ -289,6 +302,7 @@ namespace DXApplication1.Views
         {
             initImageOfNode();
             load_Tree();
+           
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -316,9 +330,25 @@ namespace DXApplication1.Views
                     opted++;
                 }
             }
-
             if (e.Button == MouseButtons.Right)
-                Program.getMa = e.Node.Name;
+            {
+                if (e.Node.Parent != null && e.Node.Parent.GetType() == typeof(TreeNode))
+                {
+                    //Program.getMa = e.Node.Name;
+                    // la node con
+                    Program.donVi.madonvi = e.Node.Name;
+                    Program.donVi.mabinhchung = e.Node.Parent.Name;
+                    int index = imageListChild.Images.IndexOfKey(e.Node.Name);
+                    Program.donVi.duongdananh = ListdiachiAnh[e.Node.Name];
+                    Program.donVi.tendonvi = e.Node.Text;
+                }  
+                else // node cha
+                {
+                    Program.binhChung.mabinhchung = e.Node.Name;
+                    Program.binhChung.tenbinhchung = e.Node.Text;
+                }
+            }    
+                
 
 
         }
@@ -514,15 +544,6 @@ namespace DXApplication1.Views
             }
         }
 
-        private void buttonAnHien_Click(object sender, EventArgs e)
-        {
-            if (hided)
-                buttonAnHien.Text = "H\ni\nd\ne";
-            else
-                buttonAnHien.Text = "S\nh\no\nw";
-            timerAnHien.Start();
-        }
-
         private void timerAnHien_Tick(object sender, EventArgs e)
         {
             if (hided) // true là an
@@ -551,14 +572,6 @@ namespace DXApplication1.Views
             }
         }
 
-        private void buttonAnHienChiTietFile_Click(object sender, EventArgs e)
-        {
-            if (hidedFile)
-                buttonAnHienChiTietFile.Text = "H\ni\nd\ne";
-            else
-                buttonAnHienChiTietFile.Text = "S\nh\no\nw";
-            timerAnHienFile.Start();
-        }
 
         private void timerAnHienFile_Tick(object sender, EventArgs e)
         {
@@ -616,13 +629,15 @@ namespace DXApplication1.Views
         {
             Program.flag = false;
             Icon_DoiTuong icon = new Icon_DoiTuong();
+            icon.LoadDataDonVi(Program.donVi);
             icon.ShowDialog();
         }
 
         private void xoatoolStripMenuItemChild_Click(object sender, EventArgs e)
         {
-            treeView1.SelectedNode.Remove();
-            Program.nodeOnMap.XoaDonVi(Program.getMa);
+            treeView1.Nodes.Remove()
+           // treeView1.se
+            Program.nodeOnMap.XoaDonVi(Program.donVi.madonvi);
 
         }
 
@@ -630,7 +645,7 @@ namespace DXApplication1.Views
         {
             Program.flag = false;
             LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
-            loaiDoiTuong.LoadData(Program.getMa);
+            loaiDoiTuong.HienThiThongTinBinhChung(Program.binhChung);
             loaiDoiTuong.ShowDialog();
         }
 
@@ -638,7 +653,9 @@ namespace DXApplication1.Views
         {
             Program.flag = true;
             Icon_DoiTuong icon = new Icon_DoiTuong();
+            icon.HienMaBinhChung(Program.binhChung.mabinhchung);
             icon.ShowDialog();
+            
         }
 
         private void xoáToolStripMenuItem_Click(object sender, EventArgs e)
@@ -656,7 +673,38 @@ namespace DXApplication1.Views
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            
 
         }
+
+        private void buttonAnHien_Paint(object sender, PaintEventArgs e)
+        {
+            Font font = new Font("Tahoma", 8);
+            Brush brush = new System.Drawing.SolidBrush(System.Drawing.Color.Black);
+            e.Graphics.TranslateTransform(30, 20);
+            e.Graphics.RotateTransform(90);
+            e.Graphics.DrawString("Ký hiệu quân sự", font, brush, 0, 0);
+        }
+
+        private void buttonAnHienChiTietFile_Paint(object sender, PaintEventArgs e)
+        {
+            Font font = new Font("Tahoma", 8);
+            Brush brush = new System.Drawing.SolidBrush(System.Drawing.Color.Black);
+            e.Graphics.TranslateTransform(30, 20);
+            e.Graphics.RotateTransform(90);
+            e.Graphics.DrawString("Chi tiết File", font, brush, 0, 0);
+        }
+
+        private void buttonAnHienChiTietFile_Click_1(object sender, EventArgs e)
+        {
+            timerAnHienFile.Start();
+        }
+
+        private void buttonKyHieuQuanSu_Click(object sender, EventArgs e)
+        {
+            timerAnHien.Start();
+        }
+
+        
     }
 }

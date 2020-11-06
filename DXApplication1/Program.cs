@@ -39,6 +39,8 @@ namespace DXApplication1
         public static TTDoiTuong tTDoiTuong;
         public static bool flag_Doituong;
         public static QuanLyPhuongAnForm quanLyPhuongAnForm;
+        public static BinhChung binhChung;
+        public static DonVi donVi;
         [STAThread]
 
         static void Main()
@@ -58,6 +60,10 @@ namespace DXApplication1
             lg = new frmLogin();
             frm_Map = new Frm_test1();
             nodeOnMap = new NodeOnMap();
+
+            tTDoiTuong = new TTDoiTuong();
+            binhChung = new BinhChung();
+            donVi = new DonVi();
             Application.Run(lg);
         }
     }

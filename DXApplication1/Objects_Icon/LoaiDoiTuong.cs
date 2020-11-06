@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DXApplication1.Models;
 
 namespace DXApplication1.Objects_Icon
 {
@@ -74,9 +75,10 @@ namespace DXApplication1.Objects_Icon
             }
         }
 
-        public void LoadData(string maloaidoituong)
+        public void HienThiThongTinBinhChung(BinhChung binhchung)
         {
-            textBoxMaBinhChung.Text = maloaidoituong;
+            textBoxMaBinhChung.Text = binhchung.mabinhchung;
+            textBoxTenBinhChung.Text = binhchung.tenbinhchung;
            // textBoxTenBinhChung.Text = tenloaidoituong;
         }
     }
