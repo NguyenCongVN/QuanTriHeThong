@@ -69,7 +69,6 @@ namespace DXApplication1.Views
             this.checkButtonTamDung = new DevExpress.XtraEditors.CheckButton();
             this.simpleButtonDatLai = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonBatDau = new DevExpress.XtraEditors.SimpleButton();
-=======
 
             this.panelMap = new DXApplication1.Views.CustomScrollPanel();
             this.pictureBoxMap = new System.Windows.Forms.PictureBox();
@@ -84,7 +83,6 @@ namespace DXApplication1.Views
 
             this.panelMP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).BeginInit();
-=======
 
             this.panelMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).BeginInit();
@@ -101,7 +99,6 @@ namespace DXApplication1.Views
             this.txtOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtOutput.Dock = System.Windows.Forms.DockStyle.Left;
 
-=======
             this.txtOutput.Location = new System.Drawing.Point(32, 0);
             this.txtOutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOutput.Name = "txtOutput";
@@ -420,7 +417,6 @@ namespace DXApplication1.Views
             this.simpleButtonBatDau.Text = "Bắt đầu";
             this.simpleButtonBatDau.Click += new System.EventHandler(this.simpleButtonBatDau_Click);
             // 
-=======
             this.xoatoolStripMenuItemChild.Size = new System.Drawing.Size(131, 26);
             this.xoatoolStripMenuItemChild.Text = "Xoá";
             this.xoatoolStripMenuItemChild.Click += new System.EventHandler(this.xoatoolStripMenuItemChild_Click);
@@ -437,7 +433,6 @@ namespace DXApplication1.Views
             this.panelMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMap.Name = "panelMap";
             this.panelMap.Size = new System.Drawing.Size(1375, 756);
-=======
 
             this.panelMap.TabIndex = 14;
             // 

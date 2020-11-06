@@ -236,7 +236,6 @@
             this.Name = "QuanLyPhuongAnForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Phương Án";
-            this.Load += new System.EventHandler(this.QuanLyPhuongAnForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenPhuongAn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

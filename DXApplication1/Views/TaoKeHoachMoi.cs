@@ -203,12 +203,6 @@ namespace DXApplication1.Views
             }
         }
 
-
-
-        private void QuanLyPhuongAnForm_Load(object sender, EventArgs e)
-        {
-
-
         private void simpleButtonDong_Click(object sender, EventArgs e)
         {
             this.Dispose();
