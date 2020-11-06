@@ -16,8 +16,5 @@ namespace DXApplication1.Models
         public int MaKeHoach { get; set; }
         public int ChieuRongAnh { get; set; }
         public int ChieuDaiAnh { get; set; }
-        public int ChieuNgang { get; set; }
-        public int ChieuDoc { get; set; }
-        public string TenDoiTuong { get; set; }
     }
 }

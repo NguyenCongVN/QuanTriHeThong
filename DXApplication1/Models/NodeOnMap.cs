@@ -216,22 +216,22 @@ namespace DXApplication1.Models
             Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultDeleteFromSql);
         }
 
-        //public void TaoTTDoiTuong(string madonvi, string mota, int makehoach, int toadoX, int toadoY, int chieuronganh, int chieudaianh)
-        //{
-        //    string query = "TaoTTDoiTuong";
-        //    string[] para = { "@maDonVi", "@mota", "@toadoX", "@toadoY", "@makehoach", "@chieuronganh", "@chieudaianh" };
-        //    object[] value = { madonvi, mota,toadoX,toadoY,makehoach,chieuronganh,chieudaianh };
-        //    connection Connection = new connection();
-        //    Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultThemChiTietDTFromSql);
-        //}
+        public void TaoTTDoiTuong(string madonvi, string mota, int makehoach, int toadoX, int toadoY, int chieuronganh, int chieudaianh)
+        {
+            string query = "TaoTTDoiTuong";
+            string[] para = { "@maDonVi", "@mota", "@toadoX", "@toadoY", "@makehoach", "@chieuronganh", "@chieudaianh" };
+            object[] value = { madonvi, mota,toadoX,toadoY,makehoach,chieuronganh,chieudaianh };
+            connection Connection = new connection();
+            Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultThemChiTietDTFromSql);
+        }
 
-        //public void ChinhSuaTTDoiTuong(int madoituong, string mota, int toadoX, int toadoY, int chieuronganh, int chieudaianh)
-        //{
-        //    string query = "ChinhSuaTTDoiTuong";
-        //    string[] para = { "@madoituong", "@mota", "@toadoX", "@toadoY", "@chieuronganh", "@chieudaianh" };
-        //    object[] value = { madoituong, mota, toadoX, toadoY,chieuronganh, chieudaianh };
-        //    connection Connection = new connection();
-        //    Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultSuaChiTietDTFromSql);
-        //}
+        public void ChinhSuaTTDoiTuong(int madoituong, string mota, int toadoX, int toadoY, int chieuronganh, int chieudaianh)
+        {
+            string query = "ChinhSuaTTDoiTuong";
+            string[] para = { "@madoituong", "@mota", "@toadoX", "@toadoY", "@chieuronganh", "@chieudaianh" };
+            object[] value = { madoituong, mota, toadoX, toadoY,chieuronganh, chieudaianh };
+            connection Connection = new connection();
+            Connection.Excute_Sql_Node(query, CommandType.StoredProcedure, para, value, showResultSuaChiTietDTFromSql);
+        }
     }
 }

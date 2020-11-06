@@ -15,9 +15,9 @@ namespace DXApplication1.Models
         private ContextMenuStrip contextMenuStrip1;
         private System.ComponentModel.IContainer components;
         private ToolStripMenuItem thôngTinToolStripMenuItem;
+        private ToolStripMenuItem chỉnhSửaToolStripMenuItem;
         private ToolStripMenuItem xóaToolStripMenuItem;
-
-        public Image InitImage { get; set; }
+        string detail;
 
         public enum DoiTuongFields
         {
@@ -27,6 +27,7 @@ namespace DXApplication1.Models
 
         public ThongTinChiTietDoiTuong ThongTinChiTietDoiTuong { get; set; }
         public PictureBox Picture { get => picture; set => picture = value; }
+        public  string Detail { get => detail; set => detail = value; }
 
         public DoiTuong()
         {
@@ -39,10 +40,11 @@ namespace DXApplication1.Models
             picture.ContextMenuStrip = contextMenuStrip1;
           
         }
-
         public DoiTuong(PictureBox _pic, string _detail)
         {
             this.picture = _pic;
+            this.detail = _detail;
+           
         }
 
         private void InitializeComponent()
@@ -50,6 +52,7 @@ namespace DXApplication1.Models
             this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chỉnhSửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +62,7 @@ namespace DXApplication1.Models
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinToolStripMenuItem,
+            this.chỉnhSửaToolStripMenuItem,
             this.xóaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(195, 82);
@@ -71,7 +75,6 @@ namespace DXApplication1.Models
             this.thôngTinToolStripMenuItem.Text = "Thông tin chi tiết";
             this.thôngTinToolStripMenuItem.Click += new System.EventHandler(this.thôngTinToolStripMenuItem_Click);
             // 
-
             // chỉnhSửaToolStripMenuItem
             // 
             this.chỉnhSửaToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconChinhsua;
@@ -80,7 +83,6 @@ namespace DXApplication1.Models
             this.chỉnhSửaToolStripMenuItem.Text = "Chỉnh sửa";
             this.chỉnhSửaToolStripMenuItem.Click += new System.EventHandler(this.chỉnhSửaToolStripMenuItem_Click);
             // 
-
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconDelete;
@@ -95,10 +97,14 @@ namespace DXApplication1.Models
             this.Name = "DoiTuong";
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
+
         private void thôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Objects_Icon.TTDoiTuong tTDoiTuong = new TTDoiTuong(this);
+            Program.flag = true;
+            Objects_Icon.TTDoiTuong tTDoiTuong = new TTDoiTuong();
+            tTDoiTuong.LoadDataInToForm(ThongTinChiTietDoiTuong);
             tTDoiTuong.ShowDialog();
         }
 
@@ -109,5 +115,14 @@ namespace DXApplication1.Models
             Program.frm_Map.listRemove.Add(this);
             Program.frm_Map.opted--;
         }
+
+        private void chỉnhSửaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.flag = false;
+            Objects_Icon.TTDoiTuong tTDoiTuong = new TTDoiTuong();
+            tTDoiTuong.LoadDataInToForm(ThongTinChiTietDoiTuong);
+            tTDoiTuong.ShowDialog();
+        }
+        
     }
 }

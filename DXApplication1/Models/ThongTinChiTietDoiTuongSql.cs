@@ -1,4 +1,5 @@
 ﻿using DXApplication1.Utilizes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,10 +19,7 @@ namespace DXApplication1.Models
             ToaDoY,
             MaKeHoach,
             ChieuRongAnh,
-            ChieuDaiAnh,
-            TenDoiTuong,
-            ChieuNgang,
-            ChieuDoc
+            ChieuDaiAnh
         }
 
         public void AddDoiTuong(List<ThongTinChiTietDoiTuong> list)
@@ -45,42 +43,39 @@ namespace DXApplication1.Models
                 command.Parameters.AddWithValue("@maKeHoach", doiTuong.MaKeHoach);
                 command.Parameters.AddWithValue("@chieuRongAnh", doiTuong.ChieuRongAnh);
                 command.Parameters.AddWithValue("@chieuDaiAnh", doiTuong.ChieuDaiAnh);
-                command.Parameters.AddWithValue("@chieuNgang", doiTuong.ChieuNgang);
-                command.Parameters.AddWithValue("@chieuDoc", doiTuong.ChieuDoc);
-                command.Parameters.AddWithValue("@tenDoiTuong", doiTuong.TenDoiTuong);
                 command.ExecuteScalar();
             }
             Connection.Close();
         }
 
-        //public List<ThongTinChiTietDoiTuong> LayCacThongTinDoiTuongTuKeHoach(int MaKeHoach)
-        //{
-        //    List<ThongTinChiTietDoiTuong> doiTuongs = new List<ThongTinChiTietDoiTuong>();
-        //    Connection.Open();
-        //    SqlCommand command = new SqlCommand("LayDoiTuongTuKeHoach", Connection);
-        //    command.CommandType = CommandType.StoredProcedure;
-        //    command.Parameters.AddWithValue("@maKeHoach", MaKeHoach);
-        //    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-        //    {
-        //        DataTable table = new DataTable();
-        //        adapter.Fill(table);
-        //        foreach (DataRow doiTuong in table.Rows)
-        //        {
-        //            doiTuongs.Add(new ThongTinChiTietDoiTuong()
-        //            {
-        //                MaKeHoach = doiTuong.Field<int>((int)DoiTuong.MaKeHoach),
-        //                MoTa = doiTuong.Field<string>((int)DoiTuong.MoTa),
-        //                MaDonVi = doiTuong.Field<string>((int)DoiTuong.MaDonVi),
-        //                ToaDoX = doiTuong.Field<int>((int)DoiTuong.ToaDoX),
-        //                ToaDoY = doiTuong.Field<int>((int)DoiTuong.ToaDoY),
-        //                ChieuDaiAnh = doiTuong.Field<int>((int)DoiTuong.ChieuDaiAnh),
-        //                ChieuRongAnh = doiTuong.Field<int>((int)DoiTuong.ChieuRongAnh)
-        //            });
-        //        }
-        //    }
-        //    Connection.Close();
-        //    return doiTuongs;
-        //}
+        public List<ThongTinChiTietDoiTuong> LayCacThongTinDoiTuongTuKeHoach(int MaKeHoach)
+        {
+            List<ThongTinChiTietDoiTuong> doiTuongs = new List<ThongTinChiTietDoiTuong>();
+            Connection.Open();
+            SqlCommand command = new SqlCommand("LayDoiTuongTuKeHoach", Connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@maKeHoach", MaKeHoach);
+            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+            {
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                foreach (DataRow doiTuong in table.Rows)
+                {
+                    doiTuongs.Add(new ThongTinChiTietDoiTuong()
+                    {
+                        MaKeHoach = doiTuong.Field<int>((int)DoiTuong.MaKeHoach),
+                        MoTa = doiTuong.Field<string>((int)DoiTuong.MoTa),
+                        MaDonVi = doiTuong.Field<string>((int)DoiTuong.MaDonVi),
+                        ToaDoX = doiTuong.Field<int>((int)DoiTuong.ToaDoX),
+                        ToaDoY = doiTuong.Field<int>((int)DoiTuong.ToaDoY),
+                        ChieuDaiAnh = doiTuong.Field<int>((int)DoiTuong.ChieuDaiAnh),
+                        ChieuRongAnh = doiTuong.Field<int>((int)DoiTuong.ChieuRongAnh)
+                    });
+                }
+            }
+            Connection.Close();
+            return doiTuongs;
+        }
 
         public List<Models.DoiTuong> LayCacDoiTuongTuKeHoach(int MaKeHoach, TreeView treeView, ImageList imageList, IntClass count)
         {
@@ -104,9 +99,6 @@ namespace DXApplication1.Models
                     int toaDoY = doiTuong.Field<int>((int)DoiTuong.ToaDoY);
                     int chieuDaiAnh = doiTuong.Field<int>((int)DoiTuong.ChieuDaiAnh);
                     int chieuRongAnh = doiTuong.Field<int>((int)DoiTuong.ChieuRongAnh);
-                    string tenDoiTuong = doiTuong.Field<string>((int)DoiTuong.TenDoiTuong);
-                    int chieuNgang = doiTuong.Field<int>((int)DoiTuong.ChieuNgang);
-                    int chieuDoc = doiTuong.Field<int>((int)DoiTuong.ChieuDoc);
                     Models.DoiTuong anh = new Models.DoiTuong()
                     {
                         ThongTinChiTietDoiTuong = new ThongTinChiTietDoiTuong()
@@ -119,16 +111,9 @@ namespace DXApplication1.Models
                             MaDonVi = maDonVi,
                             MaKeHoach = maKeHoach,
                             MoTa = moTa,
-                            ChieuDoc = chieuDoc,
-                            ChieuNgang = chieuNgang,
-                            TenDoiTuong = tenDoiTuong
                         }
                     };
-                    anh.InitImage = imageList.Images[maDonVi];
-                    // Thiết lập chiều ngang và chiều dọc của đối tượng
-                    // Thiết lập ảnh cho đối tượng
-                    anh.Picture.Image = new Bitmap(anh.InitImage, anh.ThongTinChiTietDoiTuong.ChieuNgang,
-                     anh.ThongTinChiTietDoiTuong.ChieuDoc);
+                    anh.Picture.Image = imageList.Images[maDonVi];
                     doiTuongs.Add(anh);
                 }
             }
@@ -136,7 +121,7 @@ namespace DXApplication1.Models
             return doiTuongs;
         }
 
-        // Xóa list đối tượng
+
         public void XoaDoiTuong(List<Models.DoiTuong> doiTuongs)
         {
             Connection.Open();
@@ -150,7 +135,7 @@ namespace DXApplication1.Models
             Connection.Close();
         }
 
-        // Sửa List đối tượng
+
         public void SuaDoiTuong(List<Models.DoiTuong> doiTuongs)
         {
             Connection.Open();
@@ -158,35 +143,34 @@ namespace DXApplication1.Models
             {
                 SqlCommand command = new SqlCommand("CapNhatThongTinDoiTuong", Connection);
                 command.CommandType = CommandType.StoredProcedure;
-                if (doiTuong.ThongTinChiTietDoiTuong.MoTa == null)
-                {
+                //if (doiTuong.MoTa == null)
+                //{
                     command.Parameters.AddWithValue("@moTa", string.Empty);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@moTa", doiTuong.ThongTinChiTietDoiTuong.MoTa);
-                }
+                //}
+                //else
+                //{
+                    //command.Parameters.AddWithValue("@moTa", doiTuong.MoTa);
+                //}
                 command.Parameters.AddWithValue("@toaDoX", doiTuong.ThongTinChiTietDoiTuong.ToaDoX);
                 command.Parameters.AddWithValue("@toaDoY", doiTuong.ThongTinChiTietDoiTuong.ToaDoY);
-                command.Parameters.AddWithValue("@chieuNgang", doiTuong.ThongTinChiTietDoiTuong.ChieuNgang);
-                command.Parameters.AddWithValue("@chieuDoc", doiTuong.ThongTinChiTietDoiTuong.ChieuDoc);
-                command.Parameters.AddWithValue("@tenDoiTuong", doiTuong.ThongTinChiTietDoiTuong.TenDoiTuong);
+                command.Parameters.AddWithValue("@chieuRongAnh", doiTuong.ThongTinChiTietDoiTuong.ChieuRongAnh);
+                command.Parameters.AddWithValue("@chieuDaiAnh", doiTuong.ThongTinChiTietDoiTuong.ChieuDaiAnh);
                 command.Parameters.AddWithValue("@maDoiTuong", doiTuong.ThongTinChiTietDoiTuong.MaDoiTuong);
                 command.ExecuteScalar();
             }
             Connection.Close();
         }
 
-        // lấy thông tin tên đơn vị
-        public string LayTenDonViTuMa(string maDonVi)
+        public int LayMaDoiTuongLonNhat()
         {
             Connection.Open();
-            var query = "SELECT TenDonVi FROM dbo.DonVi WHERE MaDonVi = @maDonVi";
-            SqlCommand command = new SqlCommand(query, Connection);
-            command.Parameters.AddWithValue("@maDonVi", maDonVi);
-            string tenDonVi = command.ExecuteScalar().ToString();
+            SqlCommand sqlCommand = new SqlCommand("SELECT MAX(MaDoiTuong) FROM dbo.DoiTuong", Connection);
+            sqlCommand.CommandType = CommandType.Text;
+            object result = sqlCommand.ExecuteScalar();
+            int maxMa = Convert.ToInt32(result);
             Connection.Close();
-            return tenDonVi;
+            return maxMa;
+
         }
     }
 

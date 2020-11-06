@@ -60,7 +60,6 @@ namespace DXApplication1
             lg = new frmLogin();
             frm_Map = new Frm_test1();
             nodeOnMap = new NodeOnMap();
-
             tTDoiTuong = new TTDoiTuong();
             binhChung = new BinhChung();
             donVi = new DonVi();

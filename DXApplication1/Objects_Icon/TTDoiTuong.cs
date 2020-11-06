@@ -1,25 +1,23 @@
-﻿using DevExpress.XtraEditors;
-using DXApplication1.Models;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
+using DXApplication1.Models;
 
 namespace DXApplication1.Objects_Icon
 {
     public partial class TTDoiTuong : DevExpress.XtraEditors.XtraForm
     {
-        public DoiTuong DoiTuong { get; set; }
-        public TTDoiTuong(DoiTuong doiTuong)
+        public TTDoiTuong()
         {
             InitializeComponent();
-            this.DoiTuong = doiTuong;
-            this.textBoxTenDoiTuong.Text = DoiTuong.ThongTinChiTietDoiTuong.TenDoiTuong;
-            this.textBoxTenDonVi.Text = Program.ThongTinChiTietDoiTuongSql.LayTenDonViTuMa(DoiTuong.ThongTinChiTietDoiTuong.MaDonVi);
-            this.textBoxMoTa.Text = DoiTuong.ThongTinChiTietDoiTuong.MoTa;
-            this.textboxToaDoX.Text = DoiTuong.ThongTinChiTietDoiTuong.ToaDoX.ToString();
-            this.textBoxToaDoY.Text = DoiTuong.ThongTinChiTietDoiTuong.ToaDoY.ToString();
-            this.textBoxChieuNgang.Text = DoiTuong.ThongTinChiTietDoiTuong.ChieuNgang.ToString();
-            this.textBoxChieuDoc.Text = DoiTuong.ThongTinChiTietDoiTuong.ChieuDoc.ToString();
+           // this.FormBorderStyle = FormBorderStyle.None;
         }
         private const int WS_SYSMENU = 0x80000;
         protected override CreateParams CreateParams
@@ -33,66 +31,88 @@ namespace DXApplication1.Objects_Icon
         }
         private void buttonLuu_Click(object sender, EventArgs e)
         {
-            int toaDoX, toaDoY, chieuNgang, chieuDoc;
-            try
+            if(Program.flag_Doituong) // tao moi
             {
-                if (textboxToaDoX.Text == "" || textBoxToaDoY.Text == ""
-                    || textboxToaDoX.Text == "" || textBoxToaDoY.Text == ""
-                    || textBoxTenDoiTuong.Text == "" || textBoxChieuNgang.Text == "" || textBoxChieuDoc.Text == "")
+                try
                 {
-                    throw new Exception("Bạn phải nhập đầy đủ thông tin");
+                    if (textboxToaDoX.Text == "" || textBoxToaDoY.Text == "" || textBoxChieuDaiAnh.Text == "" || textBoxChieuRongAnh.Text == "")
+                    {
+                        throw new Exception("Bạn phải nhập đầy đủ thông tin");
+                    }
                 }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message);
+                    return;
+                }
+                Program.nodeOnMap.TaoTTDoiTuong(textBoxMaDonVi.Text, textBoxMoTa.Text, int.Parse(textBoxMaKeHoach.Text), int.Parse(textboxToaDoX.Text)
+                    , int.Parse(textBoxToaDoY.Text), int.Parse(textBoxChieuRongAnh.Text), int.Parse(textBoxChieuDaiAnh.Text));
+            }
+         
+            if (!Program.flag)
+            {
+                try
+                {
+                    if (textboxToaDoX.Text == "" || textBoxToaDoY.Text == "" || textBoxChieuDaiAnh.Text == "" || textBoxChieuRongAnh.Text == "")
+                    {
+                        throw new Exception("Bạn phải nhập đầy đủ thông tin");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message);
+                    return;
+                }
+                Program.nodeOnMap.ChinhSuaTTDoiTuong(int.Parse(textBoxMaDoiTuong.Text), textBoxMoTa.Text, int.Parse(textboxToaDoX.Text)
+                   , int.Parse(textBoxToaDoY.Text), int.Parse(textBoxChieuRongAnh.Text), int.Parse(textBoxChieuDaiAnh.Text));
+            }
 
-                if (!int.TryParse(textboxToaDoX.Text, out toaDoX) || !int.TryParse(textBoxToaDoY.Text, out toaDoY) || !int.TryParse(textBoxChieuNgang.Text, out chieuNgang)
-                    || !int.TryParse(textBoxChieuDoc.Text, out chieuDoc))
-                {
-                    throw new Exception("Hãy nhập vào thông tin chính xác");
-                }
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message);
-                return;
-            }
-            DoiTuong.ThongTinChiTietDoiTuong.ToaDoX = toaDoX;
-            DoiTuong.ThongTinChiTietDoiTuong.ToaDoY = toaDoY;
-            DoiTuong.ThongTinChiTietDoiTuong.ChieuDoc = chieuDoc;
-            DoiTuong.ThongTinChiTietDoiTuong.ChieuNgang = chieuNgang;
-            DoiTuong.Picture.Image = new Bitmap(DoiTuong.InitImage ,DoiTuong.ThongTinChiTietDoiTuong.ChieuNgang ,
-                     DoiTuong.ThongTinChiTietDoiTuong.ChieuDoc);
-            DoiTuong.ThongTinChiTietDoiTuong.TenDoiTuong = textBoxTenDoiTuong.Text;
-            DoiTuong.ThongTinChiTietDoiTuong.MoTa = textBoxMoTa.Text;
-            var list = Program.frm_Map.listUpdate.FindAll(c => c.ThongTinChiTietDoiTuong.MaDoiTuong == this.DoiTuong.ThongTinChiTietDoiTuong.MaDoiTuong);
-            if (list.Count != 0)
-            {
-                foreach (var doiTuong in list)
-                {
-                    doiTuong.ThongTinChiTietDoiTuong.ToaDoX = toaDoX;
-                    doiTuong.ThongTinChiTietDoiTuong.ToaDoY = toaDoY;
-                    doiTuong.ThongTinChiTietDoiTuong.ChieuDoc = chieuDoc;
-                    doiTuong.ThongTinChiTietDoiTuong.ChieuNgang = chieuNgang;
-                    doiTuong.ThongTinChiTietDoiTuong.MoTa = textBoxMoTa.Text;
-                    doiTuong.ThongTinChiTietDoiTuong.TenDoiTuong = textBoxTenDoiTuong.Text;
-                }
-            }
-            else
-            {
-                Program.frm_Map.listUpdate.Add(DoiTuong);
-            }
-            XtraMessageBox.Show("Sửa Thành Công");
+    
         }
+
         private void ButtonHuy_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void simpleButtonChinhSua_Click(object sender, EventArgs e)
+
+        public void LoadDataInToForm (ThongTinChiTietDoiTuong thongTinChiTietDoiTuong)
         {
-            textBoxTenDoiTuong.ReadOnly = false;
-            textBoxMoTa.ReadOnly = false;
-            textBoxToaDoY.ReadOnly = false;
-            textboxToaDoX.ReadOnly = false;
-            textBoxChieuDoc.ReadOnly = false;
-            textBoxChieuNgang.ReadOnly = false;
+            if(thongTinChiTietDoiTuong.MaDoiTuong == 0) // tao moi doi tuong
+            {
+                thongTinChiTietDoiTuong.MaDoiTuong = Program.ThongTinChiTietDoiTuongSql.LayMaDoiTuongLonNhat() + 1;
+                Program.flag_Doituong = true;
+            }    
+            else
+            {
+                Program.flag_Doituong = false;
+            }    
+            textBoxMaDoiTuong.Text = thongTinChiTietDoiTuong.MaDoiTuong.ToString();
+            textBoxMaDonVi.Text = thongTinChiTietDoiTuong.MaDonVi;
+            textBoxMoTa.Text = thongTinChiTietDoiTuong.MoTa;
+            textBoxMaKeHoach.Text = thongTinChiTietDoiTuong.MaKeHoach.ToString();
+            textboxToaDoX.Text = thongTinChiTietDoiTuong.ToaDoX.ToString();
+            textBoxToaDoY.Text = thongTinChiTietDoiTuong.ToaDoY.ToString();
+            textBoxChieuRongAnh.Text = thongTinChiTietDoiTuong.ChieuRongAnh.ToString();
+            textBoxChieuDaiAnh.Text = thongTinChiTietDoiTuong.ChieuDaiAnh.ToString();
+        }
+
+        private void textBoxMaDoiTuong_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TTDoiTuong_Load(object sender, EventArgs e)
+        {
+            if(!Program.flag_Doituong)
+            {
+              //  buttonLuu.Visible = true;
+              //  ButtonHuy.Visible = true;
+            }    
+            else
+            {
+              //  buttonLuu.Visible = false;
+              //  ButtonHuy.Visible = false;
+            }    
         }
     }
 }
