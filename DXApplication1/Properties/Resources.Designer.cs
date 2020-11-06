@@ -63,9 +63,9 @@ namespace DXApplication1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _78431742_439507070022294_2080884446294179840_n {
+        internal static System.Drawing.Bitmap _88116067_2742197879232261_3214101542890110976_n {
             get {
-                object obj = ResourceManager.GetObject("78431742_439507070022294_2080884446294179840_n", resourceCulture);
+                object obj = ResourceManager.GetObject("88116067_2742197879232261_3214101542890110976_n", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +156,16 @@ namespace DXApplication1.Properties {
         internal static System.Drawing.Bitmap start_16 {
             get {
                 object obj = ResourceManager.GetObject("start_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TrungVo {
+            get {
+                object obj = ResourceManager.GetObject("TrungVo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

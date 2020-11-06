@@ -110,7 +110,6 @@
     <Compile Include="Admin\SuaChucVu.Designer.cs">
       <DependentUpon>SuaChucVu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\BinhChung.cs" />
     <Compile Include="Models\Chucvu.cs" />
     <Compile Include="Models\ChucvuSql.cs" />
     <Compile Include="Models\connection.cs" />
@@ -118,7 +117,6 @@
     <Compile Include="Models\DoiTuong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Models\DonVi.cs" />
     <Compile Include="Models\KeHoach.cs" />
     <Compile Include="Models\KeHoachSql.cs" />
     <Compile Include="Models\LoaiQuyen.cs" />
@@ -301,13 +299,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\iconChinhsua.png" />
-    <None Include="Resources\iconDelete.jpg" />
-    <None Include="Resources\iconPro.jpg" />
-    <None Include="Resources\icons8-add-new-100.png" />
-    <None Include="Resources\icons8-rename-48.png" />
-    <None Include="Resources\pause-16.png" />
-    <None Include="Resources\start-16.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
@@ -499,7 +490,7 @@
     <Content Include="obj\Debug\dxapplication1.exe.licenses" />
     <Content Include="obj\Debug\DXApplication1.pdb" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
-    <Content Include="Resources\78431742_439507070022294_2080884446294179840_n.png" />
+    <Content Include="Resources\88116067_2742197879232261_3214101542890110976_n.jpg" />
     <Content Include="Resources\AddFile_16x16.png" />
     <Content Include="Resources\AddFile_32x32.png" />
     <Content Include="Resources\AddFolder_16x16.png" />
@@ -515,11 +506,20 @@
     <Content Include="Resources\ColorMixer_32x32.png" />
     <Content Include="Resources\duyen.jpg" />
     <Content Include="Resources\Filter_32x32.png" />
-    <Content Include="Resources\pause-16.png" />
+    <Content Include="Resources\gax1.PNG" />
+    <None Include="Resources\pause-16.png" />
+    <None Include="Resources\start-16.png" />
+    <None Include="Resources\iconPro.jpg" />
+    <None Include="Resources\iconDelete.jpg" />
+    <None Include="Resources\iconChinhsua.png" />
+    <None Include="Resources\icons8-rename-48.png" />
+    <None Include="Resources\icons8-add-new-100.png" />
     <Content Include="Resources\sample_5184×3456.cur" />
-    <Content Include="Resources\Screenshot 2020-09-25 202017.png" />
     <Content Include="Resources\square.cur" />
+    <Content Include="Resources\pause-16.png" />
+    <Content Include="Resources\Screenshot 2020-09-25 202017.png" />
     <Content Include="Resources\start-16.png" />
+    <Content Include="Resources\TrungVo.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
