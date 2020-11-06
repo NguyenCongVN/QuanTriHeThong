@@ -24,8 +24,10 @@ namespace DXApplication1.Views
 
 
         int panelWidth;
+        int panelWidthMP;
         int panelWidthFile;
         bool hided;
+        bool hidedMP;
         bool hidedFile;
 
 
@@ -116,8 +118,10 @@ namespace DXApplication1.Views
             InitializeComponent();
             pictureBoxMap.Image = bitmapResize;
             panelWidth = panelNode.Width;
+            panelWidthMP = panelMP.Width;
             panelWidthFile = txtOutput.Width;
             hided = false;
+            hidedMP = false;
             hidedFile = false;
             this.pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
         }
@@ -550,6 +554,43 @@ namespace DXApplication1.Views
                 }
             }
         }
+        
+      private void btnAnHienMophong_Click(object sender, EventArgs e)
+        {
+            if (hidedMP)
+                btnAnHienMophong.Text = "H\ni\nd\ne";
+            else
+                btnAnHienMophong.Text = "S\nh\no\nw";
+            timerMP.Start();
+        }
+
+        private void timerMP_Tick(object sender, EventArgs e)
+        {
+            if (hidedMP) // true là an
+            {
+                panelMP.Width = panelMP.Width + 20;
+                panelMap.Width = panelMap.Width - 20;
+                if (panelMP.Width >= panelWidthMP)
+                {
+                    timerMP.Stop();
+                    hidedMP = false;
+                    //    panelMap.Width = panelMap.Width + 20;
+                    this.Refresh();
+                }
+            }
+            else // hien 
+            {
+                panelMP.Width = panelMP.Width - 20;
+                panelMap.Width = panelMap.Width + 20;
+                if (panelMP.Width <= 0)
+                {
+                    timerMP.Stop();
+                    hidedMP = true;
+                    //    panelMap.Width = panelMap.Width + 20;
+                    this.Refresh();
+                }
+            }
+        }
 
         private void buttonAnHienChiTietFile_Click(object sender, EventArgs e)
         {
@@ -657,6 +698,86 @@ namespace DXApplication1.Views
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
+        }
+
+        
+
+        private void panelMP_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButtonBatDau_Click(object sender, EventArgs e)
+        {
+            Frm_test1.readyToWrite.Set();
+            Program.frm_Map.a = new Thread((() =>
+            {
+                Frm_test1.ChangeHeight();
+            }));
+            Program.frm_Map.a.IsBackground = true;
+            Program.frm_Map.a.Start();
+            Program.frm_Map.b = new Thread(() =>
+            {
+                Program.frm_Map.DrawImage(Program.frm_Map.pictureBoxMap);
+            });
+            Program.frm_Map.b.Start();
+            Program.frm_Map.b.IsBackground = true;
+        }
+
+        private void simpleButtonDatLai_Click(object sender, EventArgs e)
+        {
+            Program.frm_Map.a.Abort();
+            Program.frm_Map.b.Abort();
+            Frm_test1._mDem.Read(Program.frm_Map.path);
+            Program.frm_Map.pictureBoxMap.Image = Program.frm_Map.bitmapInit;
+            Program.frm_Map.bitmapResize = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+        }
+
+        private void checkButtonTamDung_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkButtonTamDung.Checked)
+            {
+
+                checkButtonTamDung.Image = Properties.Resources.start_16;
+                checkButtonTamDung.Text = "Tiếp Tục";
+                // Set Pause
+                lock (Frm_test1.pauseLock)
+                {
+                    Frm_test1.isPause = true;
+                }
+            }
+            else
+            {
+                checkButtonTamDung.Image = Properties.Resources.pause_16;
+                checkButtonTamDung.Text = "Tạm Dừng";
+                // Set Pause
+                lock (Frm_test1.pauseLock)
+                {
+                    Frm_test1.isPause = false;
+                }
+            }
+        }
+
+        private void trackBarTocDo_ValueChanged(object sender, EventArgs e)
+        {
+            while (true)
+            {
+                bool tryToLockSpeed = false;
+                Monitor.TryEnter(Frm_test1.speedLock, ref tryToLockSpeed);
+                float proportion = Program.frm_Map.MapValueToProportion(trackBarTocDo.Value);
+                if (tryToLockSpeed)
+                {
+                    Frm_test1.speed = (short)(Frm_test1.speedInit * proportion);
+                    labeTocDo.Text = "Tốc độ : X" + proportion;
+                    Monitor.Exit(Frm_test1.speedLock);
+                    break;
+                }
+            }
         }
     }
 }

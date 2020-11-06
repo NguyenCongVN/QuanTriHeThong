@@ -18,6 +18,7 @@ namespace DXApplication1
         /// The main entry point for the application.
         /// </summary>
         public static NguoiDungSql ndSql;
+
         public static ThongTinNguoiDungSql detail_userSql;
         public static frmLogin lg;
         public static frmDky dky;
@@ -33,6 +34,9 @@ namespace DXApplication1
         public static KeHoachSql KeHoachSql;
         public static ThongTinChiTietDoiTuongSql ThongTinChiTietDoiTuongSql;
         public static  NodeOnMap nodeOnMap;
+
+        public static FileDem fileDem;
+
         public static string getMa;
         public static bool flag;
         public static DoiTuong doiTuong;
@@ -58,6 +62,7 @@ namespace DXApplication1
             lg = new frmLogin();
             frm_Map = new Frm_test1();
             nodeOnMap = new NodeOnMap();
+            fileDem = new FileDem();
             Application.Run(lg);
         }
     }

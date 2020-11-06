@@ -117,6 +117,8 @@
     <Compile Include="Models\DoiTuong.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Models\Dem.cs" />
+    <Compile Include="Models\FileDemSql.cs" />
     <Compile Include="Models\KeHoach.cs" />
     <Compile Include="Models\KeHoachSql.cs" />
     <Compile Include="Models\LoaiQuyen.cs" />
@@ -170,6 +172,12 @@
     <Compile Include="Utilizes\UserUtilizes.cs" />
     <Compile Include="Views\CustomScrollPanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\FileDem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FileDem.Designer.cs">
+      <DependentUpon>FileDem.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frmDky.cs">
       <SubType>Form</SubType>
@@ -258,6 +266,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FileDem.resx">
+      <DependentUpon>FileDem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDky.resx">
       <DependentUpon>frmDky.cs</DependentUpon>
