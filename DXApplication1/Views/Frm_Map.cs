@@ -32,10 +32,6 @@ namespace DXApplication1.Views
 
         private bool pictureBoxDoiTuongIsMoved = false;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        ///
         /// Thread to change height
         public Thread a;
         // Thread to draw 
@@ -116,8 +112,6 @@ namespace DXApplication1.Views
         public List<DoiTuong> listRemove = new List<DoiTuong>();
         NodeOnMap nodeOnMap;
 
-
-
         public Frm_test1()
         {
             
@@ -130,11 +124,10 @@ namespace DXApplication1.Views
             hided = true;
             hidedFile = true;
             this.pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
-            
 
         }
 
-        // Center PictureBox
+        // Center PictureBox is being tested
         private void CenterPictureBox(PictureBox picBox, Bitmap picImage)
         {
             picBox.Image = picImage;
@@ -146,7 +139,7 @@ namespace DXApplication1.Views
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) == true)
             {
-                if (e.Delta > 0)
+                if (e.Delta > 20)
                 {
                     widthResize = widthResize + 50;
                     heightResize = heightResize + 50;
@@ -330,8 +323,11 @@ namespace DXApplication1.Views
                     DoiTuong doiTuong = new DoiTuong();
                     doiTuong.ThongTinChiTietDoiTuong.MaDonVi = e.Node.Name;
                     doiTuong.ThongTinChiTietDoiTuong.MaKeHoach = Program.frm_Map.KeHoach.MaKeHoach;
-                    doiTuong.Picture.Image = imageListChild.Images[i];
-                    doiTuong.Detail = e.Node.Text;
+                    doiTuong.ThongTinChiTietDoiTuong.ChieuDoc = 10;
+                    doiTuong.ThongTinChiTietDoiTuong.ChieuNgang = 10;
+                    doiTuong.InitImage = imageListChild.Images[i];
+                    doiTuong.Picture.Image = new Bitmap(doiTuong.InitImage, doiTuong.ThongTinChiTietDoiTuong.ChieuNgang,
+                     doiTuong.ThongTinChiTietDoiTuong.ChieuDoc);
                     doiTuong.Picture.Visible = false;
                     doiTuong.Picture.Location = new Point(10, 10);
                     selected.Add(doiTuong);
@@ -557,6 +553,7 @@ namespace DXApplication1.Views
                 }
             }
         }
+
         private void timerAnHien_Tick(object sender, EventArgs e)
         {
             if (hided) // true là an
@@ -584,7 +581,7 @@ namespace DXApplication1.Views
                 }
             }
         }
-     
+
 
         private void timerAnHienFile_Tick(object sender, EventArgs e)
         {
@@ -637,7 +634,9 @@ namespace DXApplication1.Views
                 }
             }
         }
+
         #region  quanlytreeview
+
         private void doiTentoolStripMenuItemChild_Click(object sender, EventArgs e)
         {
             Program.flag = false;
