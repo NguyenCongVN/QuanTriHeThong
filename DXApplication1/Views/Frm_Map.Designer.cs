@@ -59,7 +59,6 @@ namespace DXApplication1.Views
             this.doiTentoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
             this.xoatoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMap = new DXApplication1.Views.CustomScrollPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxMap = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -279,7 +278,6 @@ namespace DXApplication1.Views
             // panelMap
             // 
             this.panelMap.AutoScroll = true;
-            this.panelMap.Controls.Add(this.label2);
             this.panelMap.Controls.Add(this.pictureBoxMap);
             this.panelMap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMap.Location = new System.Drawing.Point(0, 0);
@@ -287,16 +285,6 @@ namespace DXApplication1.Views
             this.panelMap.Name = "panelMap";
             this.panelMap.Size = new System.Drawing.Size(976, 756);
             this.panelMap.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(934, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
             // 
             // pictureBoxMap
             // 
@@ -370,7 +358,6 @@ namespace DXApplication1.Views
         private ContextMenuStrip controlDanhSach;
         private ToolStripMenuItem themtoolStripMenuItem;
         private Button buttonAnHienChiTietFile;
-        private Label label2;
         //>>>>>>> pr/53
     }
 }

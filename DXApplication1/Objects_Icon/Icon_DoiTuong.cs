@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DXApplication1.Models;
+using System.IO;
 
 namespace DXApplication1.Objects_Icon
 {
@@ -21,8 +22,9 @@ namespace DXApplication1.Objects_Icon
         private void buttonRoot_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-           // string projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-            // dlg.InitialDirectory = Environment.CurrentDirectory.ToString() + @"\..\..\Resources\"
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName + @"\Resources";
+            dlg.InitialDirectory = projectDirectory;
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 string fileName;

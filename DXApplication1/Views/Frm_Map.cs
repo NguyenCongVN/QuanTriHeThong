@@ -127,8 +127,8 @@ namespace DXApplication1.Views
             pictureBoxMap.Image = bitmapResize;
             panelWidth = panelNode.Width;
             panelWidthFile = txtOutput.Width;
-            hided = false;
-            hidedFile = false;
+            hided = true;
+            hidedFile = true;
             this.pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
             
 
@@ -290,18 +290,27 @@ namespace DXApplication1.Views
                 treeNode.ContextMenuStrip = controlParentNode;
                 treeView1.Nodes.Add(treeNode);
                 DataSet chSet = Program.nodeOnMap.getDataChildNode(dr["MaBinhChung"].ToString());
+                int dem = chSet.Tables[0].Rows.Count;
                 foreach (DataRow drch in chSet.Tables[0].Rows)
                 {
                     int index = imageListChild.Images.IndexOfKey(drch["MaDonVi"].ToString());
-                    TreeNode treeNode1 = new TreeNode();
-                    treeNode1.SelectedImageIndex = index;
-                    treeNode1.ImageIndex = index;
-                    treeNode1.Name = drch["MaDonVi"].ToString();
-                    treeNode1.Text = drch["TenDonVi"].ToString();
-                    treeNode1.ContextMenuStrip = controlChildNode;
-                    treeView1.Nodes[i].Nodes.Add(treeNode1);
+                    if (index >= 0)
+                    {
+                        TreeNode treeNode1 = new TreeNode();
+                        treeNode1.SelectedImageIndex = index;
+                        treeNode1.ImageIndex = index;
+                        treeNode1.Name = drch["MaDonVi"].ToString();
+                        treeNode1.Text = drch["TenDonVi"].ToString();
+                        treeNode1.ContextMenuStrip = controlChildNode;
+                        treeView1.Nodes[i].Nodes.Add(treeNode1);
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
                 i++;
+
             }
         }
 
@@ -336,6 +345,7 @@ namespace DXApplication1.Views
             }
             if (e.Button == MouseButtons.Right)
             {
+                treeView1.SelectedNode = e.Node;
                 if (e.Node.Parent != null && e.Node.Parent.GetType() == typeof(TreeNode))
                 {
                     //Program.getMa = e.Node.Name;
@@ -627,6 +637,7 @@ namespace DXApplication1.Views
                 }
             }
         }
+        #region  quanlytreeview
         private void doiTentoolStripMenuItemChild_Click(object sender, EventArgs e)
         {
             Program.flag = false;
@@ -634,23 +645,12 @@ namespace DXApplication1.Views
             icon.LoadDataDonVi(Program.donVi);
             icon.ShowDialog();
         }
-
         private void xoatoolStripMenuItemChild_Click(object sender, EventArgs e)
         {
-            treeView1.Nodes.Remove()
-           // treeView1.se
+            treeView1.SelectedNode.Remove();
             Program.nodeOnMap.XoaDonVi(Program.donVi.madonvi);
 
         }
-
-        private void đoiTenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Program.flag = false;
-            LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
-            loaiDoiTuong.HienThiThongTinBinhChung(Program.binhChung);
-            loaiDoiTuong.ShowDialog();
-        }
-
         private void thêmKíHiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.flag = true;
@@ -659,20 +659,25 @@ namespace DXApplication1.Views
             icon.ShowDialog();
             
         }
-
+        private void đoiTenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.flag = false;
+            LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
+            loaiDoiTuong.HienThiThongTinBinhChung(Program.binhChung);
+            loaiDoiTuong.ShowDialog();
+        }
         private void xoáToolStripMenuItem_Click(object sender, EventArgs e)
         {
             treeView1.SelectedNode.Remove();
-            Program.nodeOnMap.XoaBinhChung(Program.getMa);
+            Program.nodeOnMap.XoaBinhChung(Program.binhChung.mabinhchung);
         }
-
         private void themtoolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.flag = true;
             LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
             loaiDoiTuong.ShowDialog();
         }
-
+        #endregion
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             
