@@ -3,6 +3,7 @@ using DXApplication1.Utilizes;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace DXApplication1.Views
@@ -182,7 +183,7 @@ namespace DXApplication1.Views
             this.Dispose();
         }
 
-        private void simpleButtonMo_Click(object sender, EventArgs e)
+        public void simpleButtonMo_Click(object sender, EventArgs e)
         {
             if (dataGridViewKeHoach.SelectedRows == null)
             {
@@ -202,13 +203,98 @@ namespace DXApplication1.Views
             }
         }
 
-        private void simpleButtonThem_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void QuanLyPhuongAnForm_Load(object sender, EventArgs e)
         {
+
+
+        private void simpleButtonDong_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void simpleButtonThem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Hãy nhập thông tin và nhấn lưu lại", "Thành Công", MessageBoxButtons.OKCancel);
+            if (dialogResult == DialogResult.OK)
+            {
+                Program.frm_Map.KeHoach = null;
+                textEditTenPhuongAn.Text = "";
+                timeEditThoiGianLap.DateTime = DateTime.Now;
+                richEditControlChiTiet.Text = "";
+
+                // 
+
+                DialogResult dialogResult1 = MessageBox.Show("Bạn có muốn giữ lại các đối tượng hiện tại không>", "Thành Công", MessageBoxButtons.YesNoCancel);
+                if (dialogResult1 == DialogResult.Yes)
+                {
+                    Program.frm_Map.KeHoach = null;
+                    textEditTenPhuongAn.Text = "";
+                    timeEditThoiGianLap.DateTime = DateTime.Now;
+                    richEditControlChiTiet.Text = "";
+                    Program.frm_Map.listUpdate.Clear();
+                    Program.frm_Map.listAdd.Clear();
+                    Program.frm_Map.listRemove.Clear();
+                    textEditTenPhuongAn.ReadOnly = false;
+                    timeEditThoiGianLap.DateTime = DateTime.Now;
+                    richEditControlChiTiet.ReadOnly = false;
+                }
+                else
+                {
+                    if (dialogResult1 == DialogResult.No)
+                    {
+                        Program.frm_Map.KeHoach = null;
+                        textEditTenPhuongAn.Text = "";
+                        timeEditThoiGianLap.DateTime = DateTime.Now;
+                        richEditControlChiTiet.Text = "";
+                        isChange.DoiTuongs.Clear();
+                        Program.frm_Map.listUpdate.Clear();
+                        Program.frm_Map.listAdd.Clear();
+                        Program.frm_Map.listRemove.Clear();
+                        Program.frm_Map.pictureBoxMap.Controls.Clear();
+                        textEditTenPhuongAn.ReadOnly = false;
+                        timeEditThoiGianLap.DateTime = DateTime.Now;
+                        richEditControlChiTiet.ReadOnly = false;
+                        Program.frm_Map.opted = 0;
+                    }
+                    else
+                    {
+                        if (dialogResult1 == DialogResult.Cancel)
+                            return;
+                    }
+                }
+            }
+
+
+        }
+
+        private void TimKiem()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Mã Kế Hoạch");
+            dt.Columns.Add("Tên Kế Hoạch");
+            dt.Columns.Add("Người Lập Kế Hoạch");
+            dt.Columns.Add("Thời Gian Tạo");
+            dt.Columns.Add("Mã Người Lập");
+            var list = Program.KeHoachSql.GetAllKeHoach();
+            list = list.Where(keHoach => keHoach.TenKeHoach.Contains(textEditTimKiem.Text)).ToList();
+            foreach (var item in list)
+            {
+                dt.Rows.Add(new object[]
+                {
+                    item.MaKeHoach, item.TenKeHoach ,
+                    item.TenNguoiLap,
+                    item.ThoiGianTao,
+                    item.MaNguoiLap
+                });
+            }
+            dataGridViewKeHoach.DataSource = dt;
+        }
+
+        private void textEditTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            TimKiem();
 
         }
     }

@@ -1,24 +1,18 @@
 ﻿using Braincase.USGS.DEM;
 using DevExpress.Utils.Extensions;
 using DXApplication1.Models;
+using DXApplication1.Objects_Icon;
 using DXApplication1.Utilizes;
-using DXApplication1.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Reflection;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Input;
-using Cursor = System.Windows.Input.Cursor;
 using Cursors = System.Windows.Forms.Cursors;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
-using DXApplication1.Objects_Icon;
-using System.IO;
-using System.Text;
 
 namespace DXApplication1.Views
 {
@@ -39,10 +33,6 @@ namespace DXApplication1.Views
 
         private bool pictureBoxDoiTuongIsMoved = false;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        ///
         /// Thread to change height
         public Thread a;
         // Thread to draw 
@@ -123,12 +113,9 @@ namespace DXApplication1.Views
         public List<DoiTuong> listRemove = new List<DoiTuong>();
         NodeOnMap nodeOnMap;
 
-        
-
         public Frm_test1()
         {
             InitializeComponent();
-           // initImageOfNode();
             pictureBoxMap.Image = bitmapResize;
             panelWidth = panelNode.Width;
             panelWidthMP = panelMP.Width;
@@ -137,14 +124,21 @@ namespace DXApplication1.Views
             hidedMP = false;
             hidedFile = false;
             this.pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
+        }
 
+        // Center PictureBox is being tested
+        private void CenterPictureBox(PictureBox picBox, Bitmap picImage)
+        {
+            picBox.Image = picImage;
+            picBox.Location = new Point((picBox.Parent.ClientSize.Width / 2) - (picImage.Width / 2),
+                                        (picBox.Parent.ClientSize.Height / 2) - (picImage.Height / 2));
         }
 
         private void PictureBoxMap_MouseWheel(object sender, MouseEventArgs e)
         {
             if (Keyboard.IsKeyDown(Key.LeftCtrl) == true)
             {
-                if (e.Delta > 0)
+                if (e.Delta > 20)
                 {
                     widthResize = widthResize + 50;
                     heightResize = heightResize + 50;
@@ -164,13 +158,13 @@ namespace DXApplication1.Views
                     for (int i = 0; i < opted; i++)
                     {
                         selected[i].Picture.Location =
-                            DrawHelper.ScaleImage(new Point(selected[i].ThongTinChiTietDoiTuong.ToaDoX , selected[i].ThongTinChiTietDoiTuong.ToaDoY) ,
-                            new Size(selected[i].ThongTinChiTietDoiTuong.ChieuRongAnh , selected[i].ThongTinChiTietDoiTuong.ChieuDaiAnh) , pictureBoxMap);
+                            DrawHelper.ScaleImage(new Point(selected[i].ThongTinChiTietDoiTuong.ToaDoX, selected[i].ThongTinChiTietDoiTuong.ToaDoY),
+                            new Size(selected[i].ThongTinChiTietDoiTuong.ChieuRongAnh, selected[i].ThongTinChiTietDoiTuong.ChieuDaiAnh), pictureBoxMap);
                     }
                 }
                 pictureBoxMap.Refresh();
                 Point newPoint = DrawHelper.ScaleImage(currentPoint, CurrentSize, pictureBoxMap);
-                DrawHelper.ScrollToMouseInPictureBox(this.panelMap ,  newPoint , pictureBoxMap);
+                DrawHelper.ScrollToMouseInPictureBox(this.panelMap, newPoint, pictureBoxMap);
                 Point currentPoint1 = pictureBoxMap.PointToClient(Control.MousePosition);
                 widthResize = 0;
                 heightResize = 0;
@@ -183,15 +177,6 @@ namespace DXApplication1.Views
             DataSet PicSet = nodeOnMap.getIconChild();
             foreach (DataRow dr in PicSet.Tables[0].Rows)
             {
-//<<<<<<< HEAD
-//                var i = Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString();
-//                imageListChild.Images.Add(Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
-//            }
-//        }
-
-//        private Point firstPoint;
-
-//=======
                 string fileName = Path.GetFileName(dr["DuongDanAnh"].ToString());
                 if (fileName == dr["DuongDanAnh"].ToString())
                 {
@@ -202,10 +187,9 @@ namespace DXApplication1.Views
                     imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(dr["DuongDanAnh"].ToString()));
                 }
             }
-        }  
-        
+        }
+
         private Point firstPoint;
-//>>>>>>> pr/53
         public void MoveButton(PictureBox pp)
         {
             pp.MouseDown += (ss, ee) =>
@@ -242,9 +226,9 @@ namespace DXApplication1.Views
                             selected[i].ThongTinChiTietDoiTuong.ChieuDaiAnh = pictureBoxMap.Size.Height;
                             selected[i].ThongTinChiTietDoiTuong.ChieuRongAnh = pictureBoxMap.Size.Width;
                             var list = listUpdate.FindAll(c => c.ThongTinChiTietDoiTuong.MaDoiTuong == selected[i].ThongTinChiTietDoiTuong.MaDoiTuong);
-                            if(list.Count != 0)
+                            if (list.Count != 0)
                             {
-                                foreach(var doiTuong in list)
+                                foreach (var doiTuong in list)
                                 {
                                     listUpdate.Remove(doiTuong);
                                 }
@@ -273,16 +257,7 @@ namespace DXApplication1.Views
 
         public void load_Tree()
         {
-//<<<<<<< HEAD
-//            nodeOnMap = new NodeOnMap();
-//            DataSet PicSet = nodeOnMap.getIconChild();
-//            foreach (DataRow dr in PicSet.Tables[0].Rows)
-//            {
-//                imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(Environment.CurrentDirectory.ToString() + @"\..\..\Resources\" + dr["DuongDanAnh"].ToString()));
-//            }
-//=======
-
-            nodeOnMap = new NodeOnMap();        
+            nodeOnMap = new NodeOnMap();
             int count = imageListChild.Images.Count;
             treeView1.ImageList = imageListChild;
             nodeOnMap = new NodeOnMap();
@@ -329,8 +304,11 @@ namespace DXApplication1.Views
                     DoiTuong doiTuong = new DoiTuong();
                     doiTuong.ThongTinChiTietDoiTuong.MaDonVi = e.Node.Name;
                     doiTuong.ThongTinChiTietDoiTuong.MaKeHoach = Program.frm_Map.KeHoach.MaKeHoach;
-                    doiTuong.Picture.Image = imageListChild.Images[i];
-                    doiTuong.Detail = e.Node.Text;
+                    doiTuong.ThongTinChiTietDoiTuong.ChieuDoc = 10;
+                    doiTuong.ThongTinChiTietDoiTuong.ChieuNgang = 10;
+                    doiTuong.InitImage = imageListChild.Images[i];
+                    doiTuong.Picture.Image = new Bitmap(doiTuong.InitImage, doiTuong.ThongTinChiTietDoiTuong.ChieuNgang,
+                     doiTuong.ThongTinChiTietDoiTuong.ChieuDoc);
                     doiTuong.Picture.Visible = false;
                     doiTuong.Picture.Location = new Point(10, 10);
                     selected.Add(doiTuong);
@@ -490,7 +468,7 @@ namespace DXApplication1.Views
                 selected[opted - 1].ThongTinChiTietDoiTuong.ChieuRongAnh = pictureBoxMap.Size.Width;
                 selected[opted - 1].ThongTinChiTietDoiTuong.ChieuDaiAnh = pictureBoxMap.Size.Height;
                 selected[opted - 1].Picture.Visible = true;
-                if(this.KeHoach != null)
+                if (this.KeHoach != null)
                 {
                     this.listAdd.Add(selected[opted - 1]);
                 }
@@ -540,23 +518,6 @@ namespace DXApplication1.Views
             }
         }
 
-        private void treeView1_DrawNode(object sender, DrawTreeNodeEventArgs e)
-        {
-            //if (e.Node.ImageIndex >= e.Node.TreeView.ImageList.Images.Count) // if there is no image 
-            //{
-            //    int imagewidths = e.Node.TreeView.ImageList.ImageSize.Width;
-            //    int textheight = TextRenderer.MeasureText(e.Node.Text, e.Node.NodeFont).Height;
-            //    int x = e.Node.Bounds.Left - 3 - imagewidths / 2;
-            //    int y = (e.Bounds.Top + e.Bounds.Bottom) / 2 + 1;
-
-            //    Point point = new Point(x - imagewidths / 2, y - textheight / 2); // the new location for the text to be drawn 
-
-            //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.NodeFont, point, e.Node.ForeColor.);
-            //}
-            //else // drawn at the default location 
-            //    TextRenderer.DrawText(e.Graphics, e.Node.Text, e.Node.TreeView.Font, e.Bounds, default);
-        }
-
         private void buttonAnHien_Click(object sender, EventArgs e)
         {
             if (hided)
@@ -593,7 +554,8 @@ namespace DXApplication1.Views
                 }
             }
         }
-        private void btnAnHienMophong_Click(object sender, EventArgs e)
+        
+      private void btnAnHienMophong_Click(object sender, EventArgs e)
         {
             if (hidedMP)
                 btnAnHienMophong.Text = "H\ni\nd\ne";
@@ -629,6 +591,7 @@ namespace DXApplication1.Views
                 }
             }
         }
+
         private void buttonAnHienChiTietFile_Click(object sender, EventArgs e)
         {
             if (hidedFile)
@@ -668,27 +631,28 @@ namespace DXApplication1.Views
 
         public void simpleButtonLuuPhuongAn_Click(object sender, EventArgs e)
         {
-            BooleanAndDoiTuongClass check = new BooleanAndDoiTuongClass() { BoolVar = false};
-            IntClass count = new IntClass() { IntVar = opted};
-            QuanLyPhuongAnForm taoKeHoachMoi = new QuanLyPhuongAnForm(selected , count , treeView1 , imageListChild ,check);
+            BooleanAndDoiTuongClass check = new BooleanAndDoiTuongClass() { BoolVar = false };
+            IntClass count = new IntClass() { IntVar = opted };
+            QuanLyPhuongAnForm taoKeHoachMoi = new QuanLyPhuongAnForm(selected, count, treeView1, imageListChild, check);
             taoKeHoachMoi.ShowDialog();
             if (check.BoolVar)
             {
                 opted = count.IntVar;
                 selected = check.DoiTuongs;
                 this.pictureBoxMap.Controls.Clear();
-                for (int i = 0 ; i < opted ; i++)
+                for (int i = 0; i < opted; i++)
                 {
                     selected[i].Picture.Visible = true;
                     selected[i].Picture.Location =
-                            DrawHelper.ScaleImage(new Point(selected[i].ThongTinChiTietDoiTuong.ToaDoX , selected[i].ThongTinChiTietDoiTuong.ToaDoY)
-                            ,new Size(selected[i].ThongTinChiTietDoiTuong.ChieuRongAnh , selected[i].ThongTinChiTietDoiTuong.ChieuDaiAnh), pictureBoxMap);
+                            DrawHelper.ScaleImage(new Point(selected[i].ThongTinChiTietDoiTuong.ToaDoX, selected[i].ThongTinChiTietDoiTuong.ToaDoY)
+                            , new Size(selected[i].ThongTinChiTietDoiTuong.ChieuRongAnh, selected[i].ThongTinChiTietDoiTuong.ChieuDaiAnh), pictureBoxMap);
                     pictureBoxMap.AddControl(selected[i].Picture);
                     MoveButton(selected[i].Picture);
                     deletePic(selected[i].Picture);
                 }
             }
         }
+
         private void doiTentoolStripMenuItemChild_Click(object sender, EventArgs e)
         {
             Program.flag = false;
@@ -707,6 +671,7 @@ namespace DXApplication1.Views
         {
             Program.flag = false;
             LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
+            loaiDoiTuong.LoadData(Program.getMa);
             loaiDoiTuong.ShowDialog();
         }
 
@@ -732,7 +697,7 @@ namespace DXApplication1.Views
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            
+
         }
 
         

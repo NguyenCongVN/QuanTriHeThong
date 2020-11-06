@@ -39,6 +39,10 @@ namespace DXApplication1
 
         public static string getMa;
         public static bool flag;
+        public static DoiTuong doiTuong;
+        public static TTDoiTuong tTDoiTuong;
+        public static bool flag_Doituong;
+        public static QuanLyPhuongAnForm quanLyPhuongAnForm;
         [STAThread]
 
         static void Main()

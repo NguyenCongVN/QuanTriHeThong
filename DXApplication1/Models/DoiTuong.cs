@@ -15,9 +15,9 @@ namespace DXApplication1.Models
         private ContextMenuStrip contextMenuStrip1;
         private System.ComponentModel.IContainer components;
         private ToolStripMenuItem thôngTinToolStripMenuItem;
-        private ToolStripMenuItem chỉnhSửaToolStripMenuItem;
         private ToolStripMenuItem xóaToolStripMenuItem;
-        string detail;
+
+        public Image InitImage { get; set; }
 
         public enum DoiTuongFields
         {
@@ -27,7 +27,6 @@ namespace DXApplication1.Models
 
         public ThongTinChiTietDoiTuong ThongTinChiTietDoiTuong { get; set; }
         public PictureBox Picture { get => picture; set => picture = value; }
-        public  string Detail { get => detail; set => detail = value; }
 
         public DoiTuong()
         {
@@ -38,11 +37,12 @@ namespace DXApplication1.Models
             picture.Size = new System.Drawing.Size(13, 20);
             picture.SizeMode = PictureBoxSizeMode.AutoSize;
             picture.ContextMenuStrip = contextMenuStrip1;
+          
         }
+
         public DoiTuong(PictureBox _pic, string _detail)
         {
             this.picture = _pic;
-            this.detail = _detail;
         }
 
         private void InitializeComponent()
@@ -50,7 +50,6 @@ namespace DXApplication1.Models
             this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chỉnhSửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +59,6 @@ namespace DXApplication1.Models
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinToolStripMenuItem,
-            this.chỉnhSửaToolStripMenuItem,
             this.xóaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(215, 110);
@@ -72,14 +70,6 @@ namespace DXApplication1.Models
             this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.thôngTinToolStripMenuItem.Text = "Thông tin chi tiết";
             this.thôngTinToolStripMenuItem.Click += new System.EventHandler(this.thôngTinToolStripMenuItem_Click);
-            // 
-            // chỉnhSửaToolStripMenuItem
-            // 
-            this.chỉnhSửaToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconChinhsua;
-            this.chỉnhSửaToolStripMenuItem.Name = "chỉnhSửaToolStripMenuItem";
-            this.chỉnhSửaToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
-            this.chỉnhSửaToolStripMenuItem.Text = "Chỉnh sửa";
-            this.chỉnhSửaToolStripMenuItem.Click += new System.EventHandler(this.chỉnhSửaToolStripMenuItem_Click);
             // 
             // xóaToolStripMenuItem
             // 
@@ -95,16 +85,11 @@ namespace DXApplication1.Models
             this.Name = "DoiTuong";
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
-
         private void thôngTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Program.flag = true;
-            //MessageBox.Show(detail);
-            Objects_Icon.TTDoiTuong tTDoiTuong = new TTDoiTuong();
+            Objects_Icon.TTDoiTuong tTDoiTuong = new TTDoiTuong(this);
             tTDoiTuong.ShowDialog();
-            
         }
 
         private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,26 +99,5 @@ namespace DXApplication1.Models
             Program.frm_Map.listRemove.Add(this);
             Program.frm_Map.opted--;
         }
-
-        private void chỉnhSửaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Program.flag = false;
-            // ChinhSuaTT cs = new ChinhSuaTT();
-            //cs.Show();
-            //cs.Location = new Point(picture.Location.X + cs.Width + 50, picture.Location.Y + cs.Height);
-            //cs.button1.Click += (ss, ee) =>
-            //{
-
-            //    if (cs.textBox1.Text != "")
-            //    {
-            //        detail = cs.textBox1.Text;
-            //        MessageBox.Show("Thành công!");
-            //        cs.Close();
-            //    }
-            //    else
-            //        MessageBox.Show("Thông tin trống", "???");
-            //};
-        }
-        
     }
 }
