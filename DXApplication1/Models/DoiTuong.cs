@@ -65,29 +65,21 @@ namespace DXApplication1.Models
             this.chỉnhSửaToolStripMenuItem,
             this.xóaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 82);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 110);
             // 
             // thôngTinToolStripMenuItem
             // 
             this.thôngTinToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconPro;
             this.thôngTinToolStripMenuItem.Name = "thôngTinToolStripMenuItem";
-            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.thôngTinToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.thôngTinToolStripMenuItem.Text = "Thông tin chi tiết";
             this.thôngTinToolStripMenuItem.Click += new System.EventHandler(this.thôngTinToolStripMenuItem_Click);
-            // 
-            // chỉnhSửaToolStripMenuItem
-            // 
-            this.chỉnhSửaToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconChinhsua;
-            this.chỉnhSửaToolStripMenuItem.Name = "chỉnhSửaToolStripMenuItem";
-            this.chỉnhSửaToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
-            this.chỉnhSửaToolStripMenuItem.Text = "Chỉnh sửa";
-            this.chỉnhSửaToolStripMenuItem.Click += new System.EventHandler(this.chỉnhSửaToolStripMenuItem_Click);
             // 
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Image = global::DXApplication1.Properties.Resources.iconDelete;
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.xóaToolStripMenuItem.Text = "Xóa";
             this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
             // 
