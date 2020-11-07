@@ -36,7 +36,7 @@ namespace DXApplication1
         public static  NodeOnMap nodeOnMap;
 
         public static FileDem fileDem;
-
+        public static QuanLyBanDo QuanLyBanDo;
         public static string getMa;
         public static bool flag;
         public static DoiTuong doiTuong;
@@ -64,12 +64,10 @@ namespace DXApplication1
             lg = new frmLogin();
             frm_Map = new Frm_test1();
             nodeOnMap = new NodeOnMap();
-//<<<<<<< HEAD
             binhChung = new BinhChung();
             donVi = new DonVi();
-//=======
             fileDem = new FileDem();
-//>>>>>>> master
+            QuanLyBanDo = new QuanLyBanDo();
             Application.Run(lg);
         }
     }

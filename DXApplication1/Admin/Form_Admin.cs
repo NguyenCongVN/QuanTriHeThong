@@ -341,5 +341,29 @@ namespace DXApplication1
                 Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
             }
         }
+
+        private void barButtonItemQLBanDo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Program.fileDem.ShowDialog();
+        }
+
+        private void barButtonItemQuanLyDuLieuTranDau_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if(Program.QuanLyBanDo.IsDisposed)
+            Program.QuanLyBanDo.ShowDialog();
+        }
+
+        private void barButtonItemQLPhuongAn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!panelMain.Controls.Contains(Program.frm_Map))
+            {
+                barButtonItem4_ItemClick(null, null);
+                Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
+            }
+            else
+            {
+                Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
+            }
+        }
     }
 }
