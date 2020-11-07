@@ -328,8 +328,11 @@ namespace DXApplication1.Views
                     DoiTuong doiTuong = new DoiTuong();
                     doiTuong.ThongTinChiTietDoiTuong.MaDonVi = e.Node.Name;
                     doiTuong.ThongTinChiTietDoiTuong.MaKeHoach = Program.frm_Map.KeHoach.MaKeHoach;
-                    doiTuong.Picture.Image = imageListChild.Images[i];
-                    doiTuong.Detail = e.Node.Text;
+                    doiTuong.ThongTinChiTietDoiTuong.ChieuDoc = 10;
+                    doiTuong.ThongTinChiTietDoiTuong.ChieuNgang = 10;
+                    doiTuong.InitImage = imageListChild.Images[i];
+                    doiTuong.Picture.Image = new Bitmap(doiTuong.InitImage, doiTuong.ThongTinChiTietDoiTuong.ChieuNgang,
+                        doiTuong.ThongTinChiTietDoiTuong.ChieuDoc);
                     doiTuong.Picture.Visible = false;
                     doiTuong.Picture.Location = new Point(10, 10);
                     selected.Add(doiTuong);
@@ -354,13 +357,13 @@ namespace DXApplication1.Views
                     int index = imageListChild.Images.IndexOfKey(e.Node.Name);
                     Program.donVi.duongdananh = ListdiachiAnh[e.Node.Name];
                     Program.donVi.tendonvi = e.Node.Text;
-                }  
+                }
                 else // node cha
                 {
                     Program.binhChung.mabinhchung = e.Node.Name;
                     Program.binhChung.tenbinhchung = e.Node.Text;
                 }
-            }    
+            }
         }
 
         public static void ChangeHeight()
@@ -581,11 +584,11 @@ namespace DXApplication1.Views
                 }
             }
         }
-//<<<<<<< HEAD
-     
-//=======
-        
-      private void btnAnHienMophong_Click(object sender, EventArgs e)
+        //<<<<<<< HEAD
+
+        //=======
+
+        private void btnAnHienMophong_Click(object sender, EventArgs e)
         {
             if (hidedMP)
                 btnAnHienMophong.Text = "H\ni\nd\ne";
@@ -622,15 +625,15 @@ namespace DXApplication1.Views
             }
         }
 
-//        private void buttonAnHienChiTietFile_Click(object sender, EventArgs e)
-//        {
-//            if (hidedFile)
-//                buttonAnHienChiTietFile.Text = "H\ni\nd\ne";
-//            else
-//                buttonAnHienChiTietFile.Text = "S\nh\no\nw";
-//            timerAnHienFile.Start();
-//        }
-//>>>>>>> master
+        //        private void buttonAnHienChiTietFile_Click(object sender, EventArgs e)
+        //        {
+        //            if (hidedFile)
+        //                buttonAnHienChiTietFile.Text = "H\ni\nd\ne";
+        //            else
+        //                buttonAnHienChiTietFile.Text = "S\nh\no\nw";
+        //            timerAnHienFile.Start();
+        //        }
+        //>>>>>>> master
 
         private void timerAnHienFile_Tick(object sender, EventArgs e)
         {
@@ -693,23 +696,23 @@ namespace DXApplication1.Views
         private void xoatoolStripMenuItemChild_Click(object sender, EventArgs e)
         {
             treeView1.SelectedNode.Remove();
-//<<<<<<< HEAD
+            //<<<<<<< HEAD
             Program.nodeOnMap.XoaDonVi(Program.donVi.madonvi);
         }
-//=======
-//            Program.nodeOnMap.XoaDonVi(Program.getMa);
+        //=======
+        //            Program.nodeOnMap.XoaDonVi(Program.getMa);
 
-//        }
+        //        }
 
-//        private void đoiTenToolStripMenuItem_Click(object sender, EventArgs e)
-//        {
-//            Program.flag = false;
-//            LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
-//            loaiDoiTuong.LoadData(Program.getMa);
-//            loaiDoiTuong.ShowDialog();
-//        }
+        //        private void đoiTenToolStripMenuItem_Click(object sender, EventArgs e)
+        //        {
+        //            Program.flag = false;
+        //            LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
+        //            loaiDoiTuong.LoadData(Program.getMa);
+        //            loaiDoiTuong.ShowDialog();
+        //        }
 
-//>>>>>>> master
+        //>>>>>>> master
         private void thêmKíHiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.flag = true;
@@ -749,7 +752,7 @@ namespace DXApplication1.Views
             e.Graphics.RotateTransform(90);
             e.Graphics.DrawString("Ký hiệu quân sự", font, brush, 0, 0);
         }
-        
+
 
         private void panelMP_Paint(object sender, PaintEventArgs e)
         {
