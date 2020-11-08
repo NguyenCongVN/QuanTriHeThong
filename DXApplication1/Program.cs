@@ -37,6 +37,7 @@ namespace DXApplication1
         public static  NodeOnMap nodeOnMap;
 
         public static FileDem fileDem;
+        public static FileDemSql fileDemSql;
         public static QuanLyBanDo QuanLyBanDo;
         public static string getMa;
         public static bool flag;
@@ -62,6 +63,8 @@ namespace DXApplication1
             quanLyNhanVien = new QuanLyNhanVien();
             KeHoachSql = new KeHoachSql();
             ThongTinChiTietDoiTuongSql = new ThongTinChiTietDoiTuongSql();
+            banDoSql = new BanDoSql();
+            fileDemSql = new FileDemSql();
             lg = new frmLogin();
             frm_Map = new Frm_test1();
             nodeOnMap = new NodeOnMap();
@@ -69,7 +72,6 @@ namespace DXApplication1
             donVi = new DonVi();
             fileDem = new FileDem();
             QuanLyBanDo = new QuanLyBanDo();
-            banDoSql = new BanDoSql();
             Application.Run(lg);
         }
     }

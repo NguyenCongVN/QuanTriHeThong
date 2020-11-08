@@ -46,11 +46,11 @@
             this.simpleButtonDong = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridViewKeHoach = new System.Windows.Forms.DataGridView();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxMaBanDo = new System.Windows.Forms.ComboBox();
+            this.comboBoxMaFile = new System.Windows.Forms.ComboBox();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTenFile = new System.Windows.Forms.ComboBox();
+            this.comboBoxTenBanDo = new System.Windows.Forms.ComboBox();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -232,21 +232,21 @@
             this.labelControl1.TabIndex = 26;
             this.labelControl1.Text = "Bản đồ";
             // 
-            // comboBox1
+            // comboBoxMaBanDo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(206, 335);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(93, 21);
-            this.comboBox1.TabIndex = 27;
+            this.comboBoxMaBanDo.FormattingEnabled = true;
+            this.comboBoxMaBanDo.Location = new System.Drawing.Point(206, 335);
+            this.comboBoxMaBanDo.Name = "comboBoxMaBanDo";
+            this.comboBoxMaBanDo.Size = new System.Drawing.Size(93, 21);
+            this.comboBoxMaBanDo.TabIndex = 27;
             // 
-            // comboBox2
+            // comboBoxMaFile
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(206, 371);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(93, 21);
-            this.comboBox2.TabIndex = 29;
+            this.comboBoxMaFile.FormattingEnabled = true;
+            this.comboBoxMaFile.Location = new System.Drawing.Point(206, 371);
+            this.comboBoxMaFile.Name = "comboBoxMaFile";
+            this.comboBoxMaFile.Size = new System.Drawing.Size(93, 21);
+            this.comboBoxMaFile.TabIndex = 29;
             // 
             // labelControl3
             // 
@@ -256,21 +256,21 @@
             this.labelControl3.TabIndex = 28;
             this.labelControl3.Text = "File Dem";
             // 
-            // comboBox3
+            // comboBoxTenFile
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(359, 371);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(155, 21);
-            this.comboBox3.TabIndex = 31;
+            this.comboBoxTenFile.FormattingEnabled = true;
+            this.comboBoxTenFile.Location = new System.Drawing.Point(359, 371);
+            this.comboBoxTenFile.Name = "comboBoxTenFile";
+            this.comboBoxTenFile.Size = new System.Drawing.Size(155, 21);
+            this.comboBoxTenFile.TabIndex = 31;
             // 
-            // comboBox4
+            // comboBoxTenBanDo
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(359, 335);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(155, 21);
-            this.comboBox4.TabIndex = 30;
+            this.comboBoxTenBanDo.FormattingEnabled = true;
+            this.comboBoxTenBanDo.Location = new System.Drawing.Point(359, 335);
+            this.comboBoxTenBanDo.Name = "comboBoxTenBanDo";
+            this.comboBoxTenBanDo.Size = new System.Drawing.Size(155, 21);
+            this.comboBoxTenBanDo.TabIndex = 30;
             // 
             // labelControl4
             // 
@@ -313,11 +313,11 @@
             this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl5);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBoxTenFile);
+            this.Controls.Add(this.comboBoxTenBanDo);
+            this.Controls.Add(this.comboBoxMaFile);
             this.Controls.Add(this.labelControl3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxMaBanDo);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.dataGridViewKeHoach);
             this.Controls.Add(this.simpleButtonDong);
@@ -368,11 +368,11 @@
         private System.Windows.Forms.DataGridView dataGridViewKeHoach;
         public DevExpress.XtraEditors.SimpleButton simpleButtonMo;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxMaBanDo;
+        private System.Windows.Forms.ComboBox comboBoxMaFile;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBoxTenFile;
+        private System.Windows.Forms.ComboBox comboBoxTenBanDo;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;

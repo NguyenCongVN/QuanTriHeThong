@@ -98,5 +98,29 @@ namespace DXApplication1.Models
                 command.Dispose();
             }
         }
+
+
+        public void DeleteMap(int maBanDo)
+        {
+            SqlCommand command = new SqlCommand("DeleteMap", Connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@maBanDo", maBanDo);
+            try
+            {
+                Connection.Open();
+                command.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                Connection.Close();
+                command.Dispose();
+                throw new Exception("Map::Delete Map::Error occured.", ex);
+            }
+            finally
+            {
+                Connection.Close();
+                command.Dispose();
+            }
+        }
     }
 }

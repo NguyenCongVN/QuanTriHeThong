@@ -12,6 +12,14 @@ namespace DXApplication1.Models
 {
     class FileDemSql : ConnectionDatabase
     {
+
+        enum FileDemField
+        {
+            TenFile,
+            DuongDan,
+            MaFile
+        }
+
         public bool Insert_FileDem(Dem fdem)
         {
             string query = "Insert_FileDem";
@@ -127,7 +135,29 @@ namespace DXApplication1.Models
             dataSet = connect.FillDataSet(query, CommandType.StoredProcedure);
             dataGridView.DataSource = dataSet.Tables[0];
             searchLookUpEdit.Properties.DataSource = dataSet.Tables[0];
-
         }
+
+
+        public List<Dem> SelectAllFileDem()
+        {
+            connection connect;
+
+            string query = "SelectAllFile";
+            DataSet dataSet = new DataSet();
+            connect = new connection();
+            dataSet = connect.FillDataSet(query, CommandType.StoredProcedure);
+            List<Dem> list = new List<Dem>();
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                list.Add(new Dem()
+                {
+                    MaFile = row.Field<int>((int)FileDemField.MaFile),
+                    TenFile = row.Field<string>((int)FileDemField.TenFile),
+                    DuongDan = row.Field<string>((int)FileDemField.DuongDan)
+                });
+            }
+            return list;
+        }
+
     }
 }

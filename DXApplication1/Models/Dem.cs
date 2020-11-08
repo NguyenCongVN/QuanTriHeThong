@@ -62,5 +62,7 @@ namespace DXApplication1.Models
             }
         }
 
+        public int MaFile { get; set; }
+
     }
 }

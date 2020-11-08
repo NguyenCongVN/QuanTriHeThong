@@ -1,15 +1,8 @@
-﻿using System;
+﻿using DXApplication1.Models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DXApplication1.Models;
-using Braincase.USGS.DEM;
 
 namespace DXApplication1.Views
 {
@@ -19,15 +12,18 @@ namespace DXApplication1.Views
         public QuanLyBanDo()
         {
             InitializeComponent();
+            QuanLyBanDo_Load();
+            dataGridViewDSBanDo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
         }
 
         private void simpleButtonThem_Click(object sender, EventArgs e)
         {
-            //comboBoxMaKeHoach. = false;
+            simpleButtonChonDuongDan.Visible = true;
             simpleButtonHuy.Visible = true;
             simpleButtonXN.Visible = true;
             txtDuongDan.ReadOnly = false;
             txtTenBanDo.ReadOnly = false;
+            textEditMaBanDo.Text = "";
             opt = 1;
             var dialog = new OpenFileDialog();
             dialog.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
@@ -38,7 +34,6 @@ namespace DXApplication1.Views
                     txtDuongDan.Text = dialog.FileName;
                 }
             }
-
         }
 
         private void simpleButtonSua_Click(object sender, EventArgs e)
@@ -46,7 +41,8 @@ namespace DXApplication1.Views
             simpleButtonHuy.Visible = true;
             simpleButtonXN.Visible = true;
             txtDuongDan.ReadOnly = false;
-            //txtMKH.ReadOnly = false;
+            txtTenBanDo.ReadOnly = false;
+            simpleButtonChonDuongDan.Visible = true;
             opt = 2;
         }
 
@@ -63,13 +59,14 @@ namespace DXApplication1.Views
             simpleButtonXN.Visible = false;
             txtDuongDan.ReadOnly = true;
             txtTenBanDo.ReadOnly = true;
+            simpleButtonChonDuongDan.Visible = false;
         }
 
         private void simpleButtonXN_Click(object sender, EventArgs e)
         {
             if (opt == 1)
             {
-                if (txtDuongDan.Text == null || txtTenBanDo.Text == null /*|| txtMKH.Text == null*/)
+                if (txtDuongDan.Text == null || txtTenBanDo.Text == null)
                 {
                     MessageBox.Show("Bạn phải nhập đủ thông tin", "Lỗi");
                 }
@@ -106,57 +103,93 @@ namespace DXApplication1.Views
                 }
                 else
                 {
-                    //BanDo banDo = new BanDo()
-                    //{
-                    //    MaBanDo = 
-                    //};
-                    //if (demSql.UpdateDem(fdem) == true)
-                    //{
-                    //    MessageBox.Show("Sửa thành công!");
-                    //    simpleButtonHuy.Visible = false;
-                    //    simpleButtonXN.Visible = false;
-                    //    txtDuongDan.ReadOnly = true;
-                    //    txtMKH.ReadOnly = true;
-                    //    loadTable();
-                    //}
+                    try
+                    {
+                        BanDo banDo = new BanDo()
+                        {
+                            MaBanDo = Int32.Parse(textEditMaBanDo.Text),
+                            DuongDanAnh = txtDuongDan.Text,
+                            TenBanDo = txtTenBanDo.Text
+                        };
+                        Program.banDoSql.UpdateMap(banDo);
+                        MessageBox.Show("Sửa thành công!");
+                        simpleButtonHuy.Visible = false;
+                        simpleButtonXN.Visible = false;
+                        txtDuongDan.ReadOnly = true;
+                        MessageBox.Show("Cập nhật thành công");
+                        loadTable();
+                    }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show("Có lỗi xảy ra");
+                    }
                 }
             }
             else if (opt == 3)
             {
-                //Dem fdem = new Dem(txtTenBanDo.Text, txtDuongDan.Text, Convert.ToInt32(txtMKH.Text));
-                //if (demSql.DeleteDem(fdem) == true)
-                //{
-                //    MessageBox.Show("Xóa thành công!");
-                //    simpleButtonHuy.Visible = false;
-                //    simpleButtonXN.Visible = false;
-                //    loadTable();
-
-
-                //}
+                try
+                {
+                    Program.banDoSql.DeleteMap(Int32.Parse(textEditMaBanDo.Text));
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        simpleButtonHuy.Visible = false;
+                        simpleButtonXN.Visible = false;
+                        loadTable();
+                    }
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("Có lỗi xảy ra");
+                }
             }
-
+            simpleButtonChonDuongDan.Visible = false;
         }
 
         public void loadTable()
         {
-            Program.banDoSql.Select_All_Map();
+            int i = 1;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("STT");
+            dt.Columns.Add("Mã Bản Đò");
+            dt.Columns.Add("Tên Bản Đồ");
+            dt.Columns.Add("Đường Dẫn Ảnh");
+            foreach (var item in Program.banDoSql.Select_All_Map())
+            {
+                dt.Rows.Add(new object[]
+                {
+                    i.ToString(), item.MaBanDo,
+                    item.TenBanDo,
+                    item.DuongDanAnh
+                });
+                i++;
+            }
+            dataGridViewDSBanDo.DataSource = dt;
+            
         }
-        private void FileDem_Load(object sender, EventArgs e)
+
+        private void QuanLyBanDo_Load()
         {
             loadTable();
         }
 
         private void dataGridViewDSDem_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-
-            txtTenBanDo.Text = dataGridViewDSDem.CurrentRow.Cells[1].Value.ToString();
-            txtDuongDan.Text = dataGridViewDSDem.CurrentRow.Cells[2].Value.ToString();
-            //txtMKH.Text = dataGridViewDSDem.CurrentRow.Cells[3].Value.ToString();
+            textEditMaBanDo.Text = dataGridViewDSBanDo.CurrentRow.Cells[1].Value.ToString();
+            txtTenBanDo.Text = dataGridViewDSBanDo.CurrentRow.Cells[2].Value.ToString();
+            txtDuongDan.Text = dataGridViewDSBanDo.CurrentRow.Cells[3].Value.ToString();
         }
 
-        private void dataGridViewDSDem_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        private void simpleButtonChonDuongDan_Click(object sender, EventArgs e)
         {
-            dataGridViewDSDem.Rows[e.RowIndex].Cells["STT"].Value = e.RowIndex + 1;
+            var dialog = new OpenFileDialog();
+            dialog.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (System.IO.File.Exists(dialog.FileName))
+                {
+                    txtDuongDan.Text = dialog.FileName;
+                }
+            }
         }
     }
 }
