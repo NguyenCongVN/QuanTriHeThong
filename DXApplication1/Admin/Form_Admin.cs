@@ -259,7 +259,15 @@ namespace DXApplication1
 
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Program.fileDem.Show();
+            if (Program.fileDem.IsDisposed)
+            {
+                Program.fileDem = new FileDem();
+                Program.fileDem.Show();
+            }
+            else
+            {
+                Program.fileDem.Show();
+            }
         }
         private void trackBarTocDo_ValueChanged(object sender, EventArgs e)
         {
@@ -344,13 +352,28 @@ namespace DXApplication1
 
         private void barButtonItemQLBanDo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Program.fileDem.ShowDialog();
+            if (Program.QuanLyBanDo.IsDisposed)
+            {
+                Program.QuanLyBanDo = new QuanLyBanDo();
+                Program.QuanLyBanDo.ShowDialog();
+            }
+            else
+            {
+                Program.QuanLyBanDo.ShowDialog();
+            }
         }
 
         private void barButtonItemQuanLyDuLieuTranDau_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(Program.QuanLyBanDo.IsDisposed)
-            Program.QuanLyBanDo.ShowDialog();
+            if (Program.fileDem.IsDisposed)
+            {
+                Program.fileDem = new FileDem();
+                Program.fileDem.ShowDialog();
+            }
+            else
+            {
+                Program.fileDem.ShowDialog();
+            }
         }
 
         private void barButtonItemQLPhuongAn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

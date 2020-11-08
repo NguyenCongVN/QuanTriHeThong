@@ -45,6 +45,16 @@
             this.simpleButtonMo = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonDong = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridViewKeHoach = new System.Windows.Forms.DataGridView();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenPhuongAn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -205,20 +215,110 @@
             // 
             this.dataGridViewKeHoach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewKeHoach.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridViewKeHoach.Location = new System.Drawing.Point(0, 347);
+            this.dataGridViewKeHoach.Location = new System.Drawing.Point(0, 398);
             this.dataGridViewKeHoach.MultiSelect = false;
             this.dataGridViewKeHoach.Name = "dataGridViewKeHoach";
             this.dataGridViewKeHoach.RowHeadersWidth = 51;
             this.dataGridViewKeHoach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewKeHoach.Size = new System.Drawing.Size(621, 108);
+            this.dataGridViewKeHoach.Size = new System.Drawing.Size(621, 146);
             this.dataGridViewKeHoach.TabIndex = 25;
             this.dataGridViewKeHoach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKeHoach_CellClick);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(17, 335);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(33, 13);
+            this.labelControl1.TabIndex = 26;
+            this.labelControl1.Text = "Bản đồ";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(206, 335);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(93, 21);
+            this.comboBox1.TabIndex = 27;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(206, 371);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(93, 21);
+            this.comboBox2.TabIndex = 29;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(17, 371);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(40, 13);
+            this.labelControl3.TabIndex = 28;
+            this.labelControl3.Text = "File Dem";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(359, 371);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(155, 21);
+            this.comboBox3.TabIndex = 31;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(359, 335);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(155, 21);
+            this.comboBox4.TabIndex = 30;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(153, 374);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(14, 13);
+            this.labelControl4.TabIndex = 33;
+            this.labelControl4.Text = "Mã";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(153, 338);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(14, 13);
+            this.labelControl5.TabIndex = 32;
+            this.labelControl5.Text = "Mã";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(310, 374);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(18, 13);
+            this.labelControl6.TabIndex = 35;
+            this.labelControl6.Text = "Tên";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(310, 338);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(18, 13);
+            this.labelControl10.TabIndex = 34;
+            this.labelControl10.Text = "Tên";
             // 
             // QuanLyPhuongAnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 455);
+            this.ClientSize = new System.Drawing.Size(621, 544);
+            this.Controls.Add(this.labelControl6);
+            this.Controls.Add(this.labelControl10);
+            this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.labelControl5);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.labelControl3);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.dataGridViewKeHoach);
             this.Controls.Add(this.simpleButtonDong);
             this.Controls.Add(this.simpleButtonMo);
@@ -267,5 +367,15 @@
         private DevExpress.XtraEditors.TextEdit textEditTimKiem;
         private System.Windows.Forms.DataGridView dataGridViewKeHoach;
         public DevExpress.XtraEditors.SimpleButton simpleButtonMo;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
     }
 }

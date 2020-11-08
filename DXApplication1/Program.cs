@@ -29,6 +29,7 @@ namespace DXApplication1
         public static QuanLyNhanVien quanLyNhanVien;
         public static QuanLyNhanVienSql quanLyNhanVienSql;
         public static ChucvuSql chucvuSql;
+        public static BanDoSql banDoSql;
         public static Chucvu cvu;
         public static Frm_test1 frm_Map;
         public static KeHoachSql KeHoachSql;
@@ -68,6 +69,7 @@ namespace DXApplication1
             donVi = new DonVi();
             fileDem = new FileDem();
             QuanLyBanDo = new QuanLyBanDo();
+            banDoSql = new BanDoSql();
             Application.Run(lg);
         }
     }

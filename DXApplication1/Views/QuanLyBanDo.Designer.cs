@@ -28,46 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.simpleButtonMo = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonXN = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonXoa = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonSua = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonThem = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.txtTenFile = new DevExpress.XtraEditors.TextEdit();
+            this.txtTenBanDo = new DevExpress.XtraEditors.TextEdit();
             this.searchLookUpEditDSNV = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelDanhSachBanDo = new System.Windows.Forms.Label();
             this.dataGridViewDSDem = new System.Windows.Forms.DataGridView();
             this.txtDuongDan = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.txtMKH = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxMaKeHoach = new System.Windows.Forms.ComboBox();
+            this.comboBoxTenKeHoach = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenBanDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DuongDan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaKeHoach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenFile.Properties)).BeginInit();
+            this.TenKeHoach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenBanDo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditDSNV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSDem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDuongDan.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMKH.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // simpleButtonMo
-            // 
-            this.simpleButtonMo.Location = new System.Drawing.Point(519, 115);
-            this.simpleButtonMo.Name = "simpleButtonMo";
-            this.simpleButtonMo.Size = new System.Drawing.Size(90, 23);
-            this.simpleButtonMo.TabIndex = 37;
-            this.simpleButtonMo.Text = "Mở Bản Đồ";
-            this.simpleButtonMo.Click += new System.EventHandler(this.simpleButtonMo_Click);
             // 
             // simpleButtonXN
             // 
-            this.simpleButtonXN.Location = new System.Drawing.Point(213, 110);
+            this.simpleButtonXN.Location = new System.Drawing.Point(223, 113);
             this.simpleButtonXN.Name = "simpleButtonXN";
             this.simpleButtonXN.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonXN.TabIndex = 36;
@@ -118,13 +111,13 @@
             this.labelControl2.TabIndex = 29;
             this.labelControl2.Text = "Tên Bản Đồ";
             // 
-            // txtTenFile
+            // txtTenBanDo
             // 
-            this.txtTenFile.Location = new System.Drawing.Point(153, 21);
-            this.txtTenFile.Name = "txtTenFile";
-            this.txtTenFile.Properties.ReadOnly = true;
-            this.txtTenFile.Size = new System.Drawing.Size(361, 20);
-            this.txtTenFile.TabIndex = 27;
+            this.txtTenBanDo.Location = new System.Drawing.Point(153, 21);
+            this.txtTenBanDo.Name = "txtTenBanDo";
+            this.txtTenBanDo.Properties.ReadOnly = true;
+            this.txtTenBanDo.Size = new System.Drawing.Size(361, 20);
+            this.txtTenBanDo.TabIndex = 27;
             // 
             // searchLookUpEditDSNV
             // 
@@ -166,7 +159,8 @@
             this.STT,
             this.TenBanDo,
             this.DuongDan,
-            this.MaKeHoach});
+            this.MaKeHoach,
+            this.TenKeHoach});
             this.dataGridViewDSDem.Location = new System.Drawing.Point(-1, 192);
             this.dataGridViewDSDem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDSDem.Name = "dataGridViewDSDem";
@@ -187,7 +181,7 @@
             // 
             // simpleButtonHuy
             // 
-            this.simpleButtonHuy.Location = new System.Drawing.Point(339, 110);
+            this.simpleButtonHuy.Location = new System.Drawing.Point(350, 113);
             this.simpleButtonHuy.Name = "simpleButtonHuy";
             this.simpleButtonHuy.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonHuy.TabIndex = 42;
@@ -195,21 +189,48 @@
             this.simpleButtonHuy.Visible = false;
             this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
             // 
-            // txtMKH
+            // label1
             // 
-            this.txtMKH.Location = new System.Drawing.Point(153, 83);
-            this.txtMKH.Name = "txtMKH";
-            this.txtMKH.Properties.ReadOnly = true;
-            this.txtMKH.Size = new System.Drawing.Size(361, 20);
-            this.txtMKH.TabIndex = 44;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Mã Kế Hoạch";
             // 
-            // labelControl1
+            // comboBoxMaKeHoach
             // 
-            this.labelControl1.Location = new System.Drawing.Point(18, 85);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(60, 13);
-            this.labelControl1.TabIndex = 43;
-            this.labelControl1.Text = "Mã kế hoạch";
+            this.comboBoxMaKeHoach.FormattingEnabled = true;
+            this.comboBoxMaKeHoach.Location = new System.Drawing.Point(153, 75);
+            this.comboBoxMaKeHoach.Name = "comboBoxMaKeHoach";
+            this.comboBoxMaKeHoach.Size = new System.Drawing.Size(103, 21);
+            this.comboBoxMaKeHoach.TabIndex = 44;
+            // 
+            // comboBoxTenKeHoach
+            // 
+            this.comboBoxTenKeHoach.FormattingEnabled = true;
+            this.comboBoxTenKeHoach.Location = new System.Drawing.Point(398, 75);
+            this.comboBoxTenKeHoach.Name = "comboBoxTenKeHoach";
+            this.comboBoxTenKeHoach.Size = new System.Drawing.Size(116, 21);
+            this.comboBoxTenKeHoach.TabIndex = 45;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(272, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Hoặc";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(319, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.TabIndex = 47;
+            this.label3.Text = "Tên Kế Hoạch";
             // 
             // STT
             // 
@@ -246,61 +267,70 @@
             this.MaKeHoach.MinimumWidth = 6;
             this.MaKeHoach.Name = "MaKeHoach";
             // 
+            // TenKeHoach
+            // 
+            this.TenKeHoach.HeaderText = "Tên Kế Hoạch";
+            this.TenKeHoach.Name = "TenKeHoach";
+            // 
             // QuanLyBanDo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 415);
-            this.Controls.Add(this.txtMKH);
-            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBoxTenKeHoach);
+            this.Controls.Add(this.comboBoxMaKeHoach);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.simpleButtonHuy);
             this.Controls.Add(this.txtDuongDan);
             this.Controls.Add(this.searchLookUpEditDSNV);
             this.Controls.Add(this.labelDanhSachBanDo);
             this.Controls.Add(this.dataGridViewDSDem);
-            this.Controls.Add(this.simpleButtonMo);
             this.Controls.Add(this.simpleButtonXN);
             this.Controls.Add(this.simpleButtonXoa);
             this.Controls.Add(this.simpleButtonSua);
             this.Controls.Add(this.simpleButtonThem);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.txtTenFile);
+            this.Controls.Add(this.txtTenBanDo);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "QuanLyBanDo";
             this.Text = "Quản Lý Bản Đồ";
             this.Load += new System.EventHandler(this.FileDem_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenFile.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenBanDo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditDSNV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSDem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDuongDan.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMKH.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private DevExpress.XtraEditors.SimpleButton simpleButtonMo;
         private DevExpress.XtraEditors.SimpleButton simpleButtonXN;
         private DevExpress.XtraEditors.SimpleButton simpleButtonXoa;
         private DevExpress.XtraEditors.SimpleButton simpleButtonSua;
         private DevExpress.XtraEditors.SimpleButton simpleButtonThem;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit txtTenFile;
+        private DevExpress.XtraEditors.TextEdit txtTenBanDo;
         private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEditDSNV;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
         private System.Windows.Forms.Label labelDanhSachBanDo;
         public System.Windows.Forms.DataGridView dataGridViewDSDem;
         private DevExpress.XtraEditors.TextEdit txtDuongDan;
         private DevExpress.XtraEditors.SimpleButton simpleButtonHuy;
-        private DevExpress.XtraEditors.TextEdit txtMKH;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxMaKeHoach;
+        private System.Windows.Forms.ComboBox comboBoxTenKeHoach;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenBanDo;
         private System.Windows.Forms.DataGridViewTextBoxColumn DuongDan;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKeHoach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKeHoach;
     }
 }

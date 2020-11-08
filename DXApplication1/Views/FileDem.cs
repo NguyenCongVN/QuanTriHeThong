@@ -125,46 +125,6 @@ namespace DXApplication1.Views
 
         }
 
-        private void simpleButtonMo_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewDSDem.SelectedRows == null)
-            {
-                MessageBox.Show("Hãy chọn kế hoạch để mở");
-            }
-            else
-            {
-                Program.frm_Map.path = txtDuongDan.Text;
-
-                Frm_test1._mDem = new DemDocument();
-                Frm_test1._mDem.Read(txtDuongDan.Text);
-                Program.frm_Map.txtOutput.Text = string.Empty;
-                Program.frm_Map.txtOutput.Text += "DEM Name: " + new string(Frm_test1._mDem.ARecord.file_name) + Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "SE Coord: " + new string(Frm_test1._mDem.ARecord.SE_geographic_corner_S) + ", " +
-                                  new string(Frm_test1._mDem.ARecord.SE_geographic_corner_E) + Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "DEM Level Code: " + Frm_test1._mDem.ARecord.dem_level_code + Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "Ground Reference System: " +
-                                  (GROUND_REF_SYSTEM)Frm_test1._mDem.ARecord.ground_ref_system + Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "Ground Reference Zone: " + Frm_test1._mDem.ARecord.ground_ref_zone + Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "Ground Unit: " + (GROUND_UNIT)Frm_test1._mDem.ARecord.ground_unit + Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "Elevation Unit: " + (ELEVATION_UNIT)Frm_test1._mDem.ARecord.elevation_unit +
-                                  Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "Ground Resolution (lat, lng, elev): " + Frm_test1._mDem.ARecord.xyz_resolution[0] + ", " +
-                                  Frm_test1._mDem.ARecord.xyz_resolution[1] + ", " + Frm_test1._mDem.ARecord.xyz_resolution[2] +
-                                  Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "Elavation Array Szie: " + Frm_test1._mDem.ARecord.northings_rows + " x " +
-                                  Frm_test1._mDem.ARecord.eastings_cols + Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "Percentage void: " + Frm_test1._mDem.ARecord.percent_void + Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "SW Coord: " + Frm_test1._mDem.ARecord.sw_coord[0] + ", " + Frm_test1._mDem.ARecord.sw_coord[1] +
-                                  Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "NW Coord: " + Frm_test1._mDem.ARecord.nw_coord[0] + ", " + Frm_test1._mDem.ARecord.nw_coord[1] +
-                                  Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "NE Coord: " + Frm_test1._mDem.ARecord.ne_coord[0] + ", " + Frm_test1._mDem.ARecord.ne_coord[1] +
-                                  Environment.NewLine;
-                Program.frm_Map.txtOutput.Text += "SE Coord: " + Frm_test1._mDem.ARecord.se_coord[0] + ", " + Frm_test1._mDem.ARecord.se_coord[1] +
-                                  Environment.NewLine;
-
-            }
-        }
         public void loadTable()
         {
             demSql.SelectAllFileDem(dataGridViewDSDem, searchLookUpEditDSNV);

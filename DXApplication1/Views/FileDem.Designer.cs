@@ -64,7 +64,6 @@
             this.simpleButtonMo.Size = new System.Drawing.Size(105, 28);
             this.simpleButtonMo.TabIndex = 37;
             this.simpleButtonMo.Text = "Mở File";
-            this.simpleButtonMo.Click += new System.EventHandler(this.simpleButtonMo_Click);
             // 
             // simpleButtonXN
             // 

@@ -110,6 +110,8 @@
     <Compile Include="Admin\SuaChucVu.Designer.cs">
       <DependentUpon>SuaChucVu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BanDo.cs" />
+    <Compile Include="Models\BanDoSql.cs" />
     <Compile Include="Models\BinhChung.cs" />
     <Compile Include="Models\Chucvu.cs" />
     <Compile Include="Models\ChucvuSql.cs" />
