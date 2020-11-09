@@ -40,37 +40,33 @@
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelDSNV = new System.Windows.Forms.Label();
             this.dataGridViewDSDem = new System.Windows.Forms.DataGridView();
-            this.txtDuongDan = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButtonHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.txtMKH = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DuongDan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaKeHoach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtDuongDan = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButtonHuy = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenFile.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditDSNV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSDem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDuongDan.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMKH.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // simpleButtonMo
             // 
-            this.simpleButtonMo.Location = new System.Drawing.Point(605, 141);
-            this.simpleButtonMo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonMo.Location = new System.Drawing.Point(153, 81);
             this.simpleButtonMo.Name = "simpleButtonMo";
-            this.simpleButtonMo.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonMo.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonMo.TabIndex = 37;
             this.simpleButtonMo.Text = "Mở File";
+            this.simpleButtonMo.Click += new System.EventHandler(this.simpleButtonMo_Click);
             // 
             // simpleButtonXN
             // 
-            this.simpleButtonXN.Location = new System.Drawing.Point(249, 135);
-            this.simpleButtonXN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonXN.Location = new System.Drawing.Point(207, 122);
             this.simpleButtonXN.Name = "simpleButtonXN";
-            this.simpleButtonXN.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonXN.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonXN.TabIndex = 36;
             this.simpleButtonXN.Text = "Xác Nhận";
             this.simpleButtonXN.Visible = false;
@@ -78,65 +74,59 @@
             // 
             // simpleButtonXoa
             // 
-            this.simpleButtonXoa.Location = new System.Drawing.Point(605, 92);
-            this.simpleButtonXoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonXoa.Location = new System.Drawing.Point(519, 75);
             this.simpleButtonXoa.Name = "simpleButtonXoa";
-            this.simpleButtonXoa.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonXoa.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonXoa.TabIndex = 35;
             this.simpleButtonXoa.Text = "Xóa";
             this.simpleButtonXoa.Click += new System.EventHandler(this.simpleButtonXoa_Click);
             // 
             // simpleButtonSua
             // 
-            this.simpleButtonSua.Location = new System.Drawing.Point(605, 56);
-            this.simpleButtonSua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonSua.Location = new System.Drawing.Point(519, 46);
             this.simpleButtonSua.Name = "simpleButtonSua";
-            this.simpleButtonSua.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonSua.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonSua.TabIndex = 34;
             this.simpleButtonSua.Text = "Sửa";
             this.simpleButtonSua.Click += new System.EventHandler(this.simpleButtonSua_Click);
             // 
             // simpleButtonThem
             // 
-            this.simpleButtonThem.Location = new System.Drawing.Point(605, 20);
-            this.simpleButtonThem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonThem.Location = new System.Drawing.Point(519, 16);
             this.simpleButtonThem.Name = "simpleButtonThem";
-            this.simpleButtonThem.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonThem.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonThem.TabIndex = 26;
             this.simpleButtonThem.Text = "Thêm mới";
             this.simpleButtonThem.Click += new System.EventHandler(this.simpleButtonThem_Click);
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(20, 65);
-            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl7.Location = new System.Drawing.Point(17, 53);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(92, 17);
+            this.labelControl7.Size = new System.Drawing.Size(73, 13);
             this.labelControl7.TabIndex = 30;
             this.labelControl7.Text = "Đường dẫn File";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(20, 28);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl2.Location = new System.Drawing.Point(17, 23);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(46, 16);
+            this.labelControl2.Size = new System.Drawing.Size(37, 13);
             this.labelControl2.TabIndex = 29;
             this.labelControl2.Text = "Tên File";
             // 
             // txtTenFile
             // 
-            this.txtTenFile.Location = new System.Drawing.Point(179, 26);
-            this.txtTenFile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTenFile.Location = new System.Drawing.Point(153, 21);
             this.txtTenFile.Name = "txtTenFile";
             this.txtTenFile.Properties.ReadOnly = true;
-            this.txtTenFile.Size = new System.Drawing.Size(421, 22);
+            this.txtTenFile.Size = new System.Drawing.Size(361, 20);
             this.txtTenFile.TabIndex = 27;
             // 
             // searchLookUpEditDSNV
             // 
             this.searchLookUpEditDSNV.EditValue = " ";
-            this.searchLookUpEditDSNV.Location = new System.Drawing.Point(260, 184);
+            this.searchLookUpEditDSNV.Location = new System.Drawing.Point(223, 150);
             this.searchLookUpEditDSNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchLookUpEditDSNV.Name = "searchLookUpEditDSNV";
             this.searchLookUpEditDSNV.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -144,7 +134,7 @@
             this.searchLookUpEditDSNV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchLookUpEditDSNV.Properties.PopupView = this.searchLookUpEdit1View;
-            this.searchLookUpEditDSNV.Size = new System.Drawing.Size(271, 28);
+            this.searchLookUpEditDSNV.Size = new System.Drawing.Size(232, 26);
             this.searchLookUpEditDSNV.TabIndex = 40;
             // 
             // searchLookUpEdit1View
@@ -158,9 +148,9 @@
             // 
             this.labelDSNV.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDSNV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelDSNV.Location = new System.Drawing.Point(31, 187);
+            this.labelDSNV.Location = new System.Drawing.Point(27, 152);
             this.labelDSNV.Name = "labelDSNV";
-            this.labelDSNV.Size = new System.Drawing.Size(568, 47);
+            this.labelDSNV.Size = new System.Drawing.Size(487, 38);
             this.labelDSNV.TabIndex = 39;
             this.labelDSNV.Text = "Danh Sách Fie Dem";
             // 
@@ -174,53 +164,15 @@
             this.TenFile,
             this.DuongDan,
             this.MaKeHoach});
-            this.dataGridViewDSDem.Location = new System.Drawing.Point(-1, 236);
+            this.dataGridViewDSDem.Location = new System.Drawing.Point(-1, 192);
             this.dataGridViewDSDem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDSDem.Name = "dataGridViewDSDem";
             this.dataGridViewDSDem.RowHeadersWidth = 51;
             this.dataGridViewDSDem.RowTemplate.Height = 24;
-            this.dataGridViewDSDem.Size = new System.Drawing.Size(713, 263);
+            this.dataGridViewDSDem.Size = new System.Drawing.Size(611, 214);
             this.dataGridViewDSDem.TabIndex = 38;
             this.dataGridViewDSDem.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSDem_CellEnter);
             this.dataGridViewDSDem.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewDSDem_RowPrePaint);
-            // 
-            // txtDuongDan
-            // 
-            this.txtDuongDan.Location = new System.Drawing.Point(179, 62);
-            this.txtDuongDan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtDuongDan.Name = "txtDuongDan";
-            this.txtDuongDan.Properties.ReadOnly = true;
-            this.txtDuongDan.Size = new System.Drawing.Size(421, 22);
-            this.txtDuongDan.TabIndex = 41;
-            // 
-            // simpleButtonHuy
-            // 
-            this.simpleButtonHuy.Location = new System.Drawing.Point(395, 135);
-            this.simpleButtonHuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.simpleButtonHuy.Name = "simpleButtonHuy";
-            this.simpleButtonHuy.Size = new System.Drawing.Size(105, 28);
-            this.simpleButtonHuy.TabIndex = 42;
-            this.simpleButtonHuy.Text = "Hủy";
-            this.simpleButtonHuy.Visible = false;
-            this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
-            // 
-            // txtMKH
-            // 
-            this.txtMKH.Location = new System.Drawing.Point(179, 102);
-            this.txtMKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtMKH.Name = "txtMKH";
-            this.txtMKH.Properties.ReadOnly = true;
-            this.txtMKH.Size = new System.Drawing.Size(421, 22);
-            this.txtMKH.TabIndex = 44;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(21, 105);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(77, 17);
-            this.labelControl1.TabIndex = 43;
-            this.labelControl1.Text = "Mã kế hoạch";
             // 
             // STT
             // 
@@ -257,13 +209,29 @@
             this.MaKeHoach.MinimumWidth = 6;
             this.MaKeHoach.Name = "MaKeHoach";
             // 
+            // txtDuongDan
+            // 
+            this.txtDuongDan.Location = new System.Drawing.Point(153, 50);
+            this.txtDuongDan.Name = "txtDuongDan";
+            this.txtDuongDan.Properties.ReadOnly = true;
+            this.txtDuongDan.Size = new System.Drawing.Size(361, 20);
+            this.txtDuongDan.TabIndex = 41;
+            // 
+            // simpleButtonHuy
+            // 
+            this.simpleButtonHuy.Location = new System.Drawing.Point(347, 122);
+            this.simpleButtonHuy.Name = "simpleButtonHuy";
+            this.simpleButtonHuy.Size = new System.Drawing.Size(90, 23);
+            this.simpleButtonHuy.TabIndex = 42;
+            this.simpleButtonHuy.Text = "Hủy";
+            this.simpleButtonHuy.Visible = false;
+            this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
+            // 
             // FileDem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 511);
-            this.Controls.Add(this.txtMKH);
-            this.Controls.Add(this.labelControl1);
+            this.ClientSize = new System.Drawing.Size(621, 415);
             this.Controls.Add(this.simpleButtonHuy);
             this.Controls.Add(this.txtDuongDan);
             this.Controls.Add(this.searchLookUpEditDSNV);
@@ -277,6 +245,7 @@
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.txtTenFile);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FileDem";
             this.Text = "Quản Lý File Dem";
             this.Load += new System.EventHandler(this.FileDem_Load);
@@ -285,7 +254,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSDem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDuongDan.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMKH.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,8 +274,6 @@
         public System.Windows.Forms.DataGridView dataGridViewDSDem;
         private DevExpress.XtraEditors.TextEdit txtDuongDan;
         private DevExpress.XtraEditors.SimpleButton simpleButtonHuy;
-        private DevExpress.XtraEditors.TextEdit txtMKH;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenFile;
         private System.Windows.Forms.DataGridViewTextBoxColumn DuongDan;
