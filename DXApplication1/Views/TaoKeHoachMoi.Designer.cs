@@ -239,6 +239,7 @@
             this.comboBoxMaBanDo.Name = "comboBoxMaBanDo";
             this.comboBoxMaBanDo.Size = new System.Drawing.Size(93, 21);
             this.comboBoxMaBanDo.TabIndex = 27;
+            this.comboBoxMaBanDo.SelectedIndexChanged += new System.EventHandler(this.comboBoxMaBanDo_SelectedIndexChanged);
             // 
             // comboBoxMaFile
             // 
@@ -247,6 +248,7 @@
             this.comboBoxMaFile.Name = "comboBoxMaFile";
             this.comboBoxMaFile.Size = new System.Drawing.Size(93, 21);
             this.comboBoxMaFile.TabIndex = 29;
+            this.comboBoxMaFile.SelectedIndexChanged += new System.EventHandler(this.comboBoxMaFile_SelectedIndexChanged);
             // 
             // labelControl3
             // 
@@ -263,6 +265,7 @@
             this.comboBoxTenFile.Name = "comboBoxTenFile";
             this.comboBoxTenFile.Size = new System.Drawing.Size(155, 21);
             this.comboBoxTenFile.TabIndex = 31;
+            this.comboBoxTenFile.SelectedIndexChanged += new System.EventHandler(this.comboBoxTenFile_SelectedIndexChanged);
             // 
             // comboBoxTenBanDo
             // 
@@ -271,6 +274,7 @@
             this.comboBoxTenBanDo.Name = "comboBoxTenBanDo";
             this.comboBoxTenBanDo.Size = new System.Drawing.Size(155, 21);
             this.comboBoxTenBanDo.TabIndex = 30;
+            this.comboBoxTenBanDo.SelectedIndexChanged += new System.EventHandler(this.comboBoxTenBanDo_SelectedIndexChanged);
             // 
             // labelControl4
             // 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using DevExpress.DataProcessing;
 
 namespace DXApplication1.Models
 {
@@ -18,17 +19,16 @@ namespace DXApplication1.Models
 
         enum FieldKeHoachBanDoFileDem
         {
-            //HoTen,
-            //MaDangNhapNguoiDung, coding stop here ( is add BanDo and File Dem to ke hoach)
             MaKeHoach,
             TenKeHoach,
-            MaNguoiLapKeHoach,
+            HoTen,
+            MaDangNhapNguoiDung,
             ThoiGianTao,
             MaBanDo,
             TenBanDo,
             DuongDanAnh,
             TenFile,
-            DuongDan,
+            DuongDanFile,
             MaFile,
             ChieuRong,
             ChieuDai
@@ -107,16 +107,32 @@ namespace DXApplication1.Models
                 adpAdapter.Fill(table);
                 keHoach = new KeHoach()
                 {
-                    MaNguoiLap = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.MaNguoiLapKeHoach),
+                    MaNguoiLap = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.MaDangNhapNguoiDung),
                     MaKeHoach = table.Rows[0].Field<int>((int)FieldKeHoachBanDoFileDem.MaKeHoach),
                     TenKeHoach = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.TenKeHoach),
-                    TenNguoiLap = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.),
+                    TenNguoiLap = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.HoTen),
                     ThoiGianTao = table.Rows[0].Field<DateTime>((int)FieldKeHoachBanDoFileDem.ThoiGianTao),
-                    BanDo = new BanDo()
-                    {
-                        MaBanDo = table.Rows[0].Field<DateTime>((int)FieldKeHoachBanDoFileDem.ThoiGianTao)
-                    }
+                    
                 };
+                if (table.Rows[0][((int) FieldKeHoachBanDoFileDem.MaBanDo)] != DBNull.Value)
+                {
+                    keHoach.BanDo = new BanDo()
+                    {
+                        MaBanDo = table.Rows[0].Field<int>((int) FieldKeHoachBanDoFileDem.MaBanDo),
+                        TenBanDo = table.Rows[0].Field<string>((int) FieldKeHoachBanDoFileDem.TenBanDo),
+                        DuongDanAnh = table.Rows[0].Field<string>((int) FieldKeHoachBanDoFileDem.DuongDanAnh)
+                    };
+                }
+
+                if (table.Rows[0][((int) FieldKeHoachBanDoFileDem.MaFile)] != DBNull.Value)
+                {
+                    keHoach.FileDem = new Dem()
+                    {
+                        MaFile = table.Rows[0].Field<int>((int) FieldKeHoachBanDoFileDem.MaFile),
+                        TenFile = table.Rows[0].Field<string>((int) FieldKeHoachBanDoFileDem.TenFile),
+                        DuongDan = table.Rows[0].Field<string>((int) FieldKeHoachBanDoFileDem.DuongDanFile)
+                    };
+                }
             }
             Connection.Close();
             return keHoach;

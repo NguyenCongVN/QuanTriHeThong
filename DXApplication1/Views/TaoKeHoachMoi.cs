@@ -46,22 +46,6 @@ namespace DXApplication1.Views
             {
                 textEditTenPhuongAn.Text = Program.frm_Map.KeHoach.TenKeHoach;
                 timeEditThoiGianLap.DateTime = Program.frm_Map.KeHoach.ThoiGianTao;
-                foreach (ComboBoxItemBanDo comboBoxItemBanDo in comboBoxMaBanDo.Items)
-                {
-                    if (comboBoxItemBanDo.MaBanDo == Program.frm_Map.KeHoach.BanDo.MaBanDo)
-                    {
-                        comboBoxMaBanDo.SelectedItem = comboBoxItemBanDo;
-                        comboBoxTenBanDo.SelectedItem = comboBoxItemBanDo;
-                    }
-                }
-
-                foreach (ComboBoxItemFileDem comboBoxItemFileDem in comboBoxMaFile.Items)
-                {
-                    if (comboBoxItemFileDem.MaFile == Program.frm_Map.KeHoach.FileDem.MaFile)
-                    {
-                        comboBoxMaBanDo.SelectedItem = comboBoxItemFileDem;
-                    }
-                }
             }
         }
 
@@ -70,6 +54,23 @@ namespace DXApplication1.Views
         {
             textEditTenPhuongAn.Text = keHoach.TenKeHoach;
             timeEditThoiGianLap.DateTime = keHoach.ThoiGianTao;
+            if(keHoach.BanDo != null)
+            foreach (ComboBoxItemBanDo comboBoxItemBanDo in comboBoxMaBanDo.Items)
+            {
+                if (comboBoxItemBanDo.MaBanDo == keHoach.BanDo.MaBanDo)
+                {
+                    comboBoxMaBanDo.SelectedItem = comboBoxItemBanDo;
+                    comboBoxTenBanDo.SelectedItem = comboBoxItemBanDo;
+                }
+            }
+            if(keHoach.FileDem != null)
+            foreach (ComboBoxItemFileDem comboBoxItemFileDem in comboBoxMaFile.Items)
+            {
+                if (comboBoxItemFileDem.MaFile == keHoach.FileDem.MaFile)
+                {
+                    comboBoxMaBanDo.SelectedItem = comboBoxItemFileDem;
+                }
+            }
         }
 
         // Load Ke Hoach vao trong GridView
@@ -97,7 +98,6 @@ namespace DXApplication1.Views
         // Luu lai ke hoach da tao
         private void simpleButtonLuu_Click(object sender, EventArgs e)
         {
-
             // Neu chua dang nhap thi bao loi
             if (Program.lg.UserLogin == null)
             {
@@ -132,8 +132,45 @@ namespace DXApplication1.Views
                     Program.ThongTinChiTietDoiTuongSql.XoaDoiTuong(Program.frm_Map.listRemove);
 
                     // Lưu lại bản đồ và file dem
+                    if (comboBoxMaBanDo.SelectedItem != null)
+                    {
+                        if (Program.frm_Map.KeHoach.BanDo != null)
+                        {
+                            Program.ThongTinBanDoKeHoachSql.RemoveThongTinBanDoKeHoach(Program.frm_Map.KeHoach.MaThongTinBanDoKeHoach);
+                        }
+                        ComboBoxItemBanDo banDo = (ComboBoxItemBanDo)comboBoxMaBanDo.SelectedItem;
+                        Program.frm_Map.KeHoach.BanDo = new BanDo()
+                        {
+                            MaBanDo = banDo.MaBanDo ,
+                            DuongDanAnh = banDo.DuongDan,
+                            TenBanDo = banDo.TenBanDo
+                        };
+                        Program.ThongTinBanDoKeHoachSql.AddThongTinBanDoKeHoach(new ThongTinBanDoKeHoach()
+                        {
+                            MaKeHoach = Program.frm_Map.KeHoach.MaKeHoach,
+                            MaBanDo = Program.frm_Map.KeHoach.BanDo.MaBanDo,
+                        });
+                    }
 
-
+                    if (comboBoxMaFile.SelectedItem != null)
+                    {
+                        if (Program.frm_Map.KeHoach.FileDem != null)
+                        {
+                            Program.ThongTinFileDemKeHoachSql.RemoveThongTinFileDemKeHoach(Program.frm_Map.KeHoach.MaThongTinFileDemKeHoach);
+                        }
+                        ComboBoxItemFileDem file = (ComboBoxItemFileDem) comboBoxMaFile.SelectedItem;
+                        Program.frm_Map.KeHoach.FileDem = new Dem()
+                        {
+                            MaFile = file.MaFile,
+                            TenFile = file.TenFile,
+                            DuongDan = file.DuongDan
+                        };
+                        Program.ThongTinFileDemKeHoachSql.AddThongTinFileDemKeHoach(new ThongTinFileDemKeHoach()
+                        {
+                            MaKeHoach = Program.frm_Map.KeHoach.MaKeHoach,
+                            MaFile = Program.frm_Map.KeHoach.FileDem.MaFile,
+                        });
+                    }
                 }
             }
             else
@@ -185,7 +222,7 @@ namespace DXApplication1.Views
                 if (!string.IsNullOrEmpty(dataGridViewKeHoach[0, e.RowIndex].Value.ToString()))
                 {
                     int MaKeHoach = Int32.Parse(dataGridViewKeHoach[0, e.RowIndex].Value.ToString());
-                    LoadKeHoachDeTail(Program.KeHoachSql.GetKeHoachById(MaKeHoach));
+                    LoadKeHoachDeTail(Program.KeHoachSql.GetKeHoachAndDetailById(MaKeHoach));
                 }
             }
         }
@@ -214,14 +251,17 @@ namespace DXApplication1.Views
             }
             else
             {
-                KeHoach selectedKeHoach = new KeHoach()
-                {
-                    MaKeHoach = Int32.Parse(dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.MaKeHoach].Value.ToString()),
-                    TenKeHoach = dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.TenKeHoach].Value.ToString(),
-                    MaNguoiLap = dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.MaNguoiLap].Value.ToString(),
-                    ThoiGianTao = DateTime.Parse(dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.ThoiGianLap].Value.ToString()),
-                    TenNguoiLap = dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.NguoiLapKeHoach].Value.ToString(),
-                };
+                //KeHoach selectedKeHoach = new KeHoach()
+                //{
+                //    MaKeHoach = Int32.Parse(dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.MaKeHoach].Value.ToString()),
+                //    TenKeHoach = dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.TenKeHoach].Value.ToString(),
+                //    MaNguoiLap = dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.MaNguoiLap].Value.ToString(),
+                //    ThoiGianTao = DateTime.Parse(dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.ThoiGianLap].Value.ToString()),
+                //    TenNguoiLap = dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.NguoiLapKeHoach].Value.ToString(),
+                //};
+                int ma = Int32.Parse(dataGridViewKeHoach.SelectedRows[0].Cells[(int) ThongTinKeHoach.MaKeHoach].Value
+                    .ToString());
+                KeHoach selectedKeHoach = Program.KeHoachSql.GetKeHoachAndDetailById(ma);
                 MoKeHoach(selectedKeHoach);
             }
         }
@@ -319,8 +359,8 @@ namespace DXApplication1.Views
             List<BanDo> listBanDo = Program.banDoSql.Select_All_Map();
             foreach (BanDo banDo in listBanDo)
             {
-                comboBoxMaBanDo.Items.Add(new ComboBoxItemBanDo(){MaBanDo = banDo.MaBanDo , TenBanDo = banDo.TenBanDo , checkComboBox = true});
-                comboBoxTenBanDo.Items.Add(new ComboBoxItemBanDo(){MaBanDo = banDo.MaBanDo , TenBanDo = banDo.TenBanDo , checkComboBox = false});
+                comboBoxMaBanDo.Items.Add(new ComboBoxItemBanDo(){MaBanDo = banDo.MaBanDo , TenBanDo = banDo.TenBanDo , checkComboBox = true , DuongDan = banDo.DuongDanAnh});
+                comboBoxTenBanDo.Items.Add(new ComboBoxItemBanDo(){MaBanDo = banDo.MaBanDo , TenBanDo = banDo.TenBanDo , checkComboBox = false , DuongDan = banDo.DuongDanAnh});
             }
         }
 
@@ -329,8 +369,68 @@ namespace DXApplication1.Views
             List<Dem> listFileDem = Program.fileDemSql.SelectAllFileDem();
             foreach (Dem fileDem in listFileDem)
             {
-                comboBoxMaFile.Items.Add(new ComboBoxItemFileDem(){MaFile = fileDem.MaFile  , TenFile = fileDem.TenFile , checkComboBox = true});
-                comboBoxTenFile.Items.Add(new ComboBoxItemFileDem(){MaFile = fileDem.MaFile  , TenFile = fileDem.TenFile , checkComboBox = false});
+                comboBoxMaFile.Items.Add(new ComboBoxItemFileDem(){MaFile = fileDem.MaFile  , TenFile = fileDem.TenFile , checkComboBox = true , DuongDan = fileDem.DuongDan});
+                comboBoxTenFile.Items.Add(new ComboBoxItemFileDem(){MaFile = fileDem.MaFile  , TenFile = fileDem.TenFile , checkComboBox = false , DuongDan = fileDem.DuongDan});
+            }
+        }
+
+        private void comboBoxMaBanDo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxMaBanDo.SelectedItem != null)
+            {
+                ComboBoxItemBanDo item = comboBoxMaBanDo.SelectedItem as ComboBoxItemBanDo;
+                foreach (ComboBoxItemBanDo comboBoxItemBanDo in comboBoxTenBanDo.Items)
+                {
+                    if (comboBoxItemBanDo.MaBanDo == item.MaBanDo)
+                    {
+                        comboBoxTenBanDo.SelectedItem = comboBoxItemBanDo;
+                    }
+                }
+            }
+        }
+
+        private void comboBoxTenBanDo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxTenBanDo.SelectedItem != null)
+            {
+                ComboBoxItemBanDo item = comboBoxTenBanDo.SelectedItem as ComboBoxItemBanDo;
+                foreach (ComboBoxItemBanDo comboBoxItemBanDo in comboBoxMaBanDo.Items)
+                {
+                    if (comboBoxItemBanDo.MaBanDo == item.MaBanDo)
+                    {
+                        comboBoxMaBanDo.SelectedItem = comboBoxItemBanDo;
+                    }
+                }
+            }
+        }
+
+        private void comboBoxMaFile_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxMaFile.SelectedItem != null)
+            {
+                ComboBoxItemFileDem item = comboBoxMaFile.SelectedItem as ComboBoxItemFileDem;
+                foreach (ComboBoxItemFileDem comboBoxItemFileDem in comboBoxTenFile.Items)
+                {
+                    if (comboBoxItemFileDem.MaFile == item.MaFile)
+                    {
+                        comboBoxTenFile.SelectedItem = comboBoxItemFileDem;
+                    }
+                }
+            }
+        }
+
+        private void comboBoxTenFile_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxTenFile.SelectedItem != null)
+            {
+                ComboBoxItemFileDem item = comboBoxTenFile.SelectedItem as ComboBoxItemFileDem;
+                foreach (ComboBoxItemFileDem comboBoxItemFileDem in comboBoxMaFile.Items)
+                {
+                    if (comboBoxItemFileDem.MaFile == item.MaFile)
+                    {
+                        comboBoxMaFile.SelectedItem = comboBoxItemFileDem;
+                    }
+                }
             }
         }
     }
