@@ -112,7 +112,6 @@ namespace DXApplication1.Models
                     TenKeHoach = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.TenKeHoach),
                     TenNguoiLap = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.HoTen),
                     ThoiGianTao = table.Rows[0].Field<DateTime>((int)FieldKeHoachBanDoFileDem.ThoiGianTao),
-                    
                 };
                 if (table.Rows[0][((int) FieldKeHoachBanDoFileDem.MaBanDo)] != DBNull.Value)
                 {
