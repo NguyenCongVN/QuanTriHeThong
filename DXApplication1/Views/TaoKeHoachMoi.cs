@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using ComboBoxItemBanDo = DXApplication1.Utilizes.ComboBoxItemBanDo;
 
 namespace DXApplication1.Views
 {
@@ -34,6 +35,8 @@ namespace DXApplication1.Views
             InitializeComponent();
             LoadKeHoach();
             LoadKeHoachDeTail();
+            InitComBoBoxFile();
+            InitComBoBoxBanDo();
         }
 
         // Load Thong tin ke hoach vao trong cac text box
@@ -43,6 +46,22 @@ namespace DXApplication1.Views
             {
                 textEditTenPhuongAn.Text = Program.frm_Map.KeHoach.TenKeHoach;
                 timeEditThoiGianLap.DateTime = Program.frm_Map.KeHoach.ThoiGianTao;
+                foreach (ComboBoxItemBanDo comboBoxItemBanDo in comboBoxMaBanDo.Items)
+                {
+                    if (comboBoxItemBanDo.MaBanDo == Program.frm_Map.KeHoach.BanDo.MaBanDo)
+                    {
+                        comboBoxMaBanDo.SelectedItem = comboBoxItemBanDo;
+                        comboBoxTenBanDo.SelectedItem = comboBoxItemBanDo;
+                    }
+                }
+
+                foreach (ComboBoxItemFileDem comboBoxItemFileDem in comboBoxMaFile.Items)
+                {
+                    if (comboBoxItemFileDem.MaFile == Program.frm_Map.KeHoach.FileDem.MaFile)
+                    {
+                        comboBoxMaBanDo.SelectedItem = comboBoxItemFileDem;
+                    }
+                }
             }
         }
 
@@ -111,6 +130,10 @@ namespace DXApplication1.Views
 
                     // Xoa cac doi tuong khong con tren ban do
                     Program.ThongTinChiTietDoiTuongSql.XoaDoiTuong(Program.frm_Map.listRemove);
+
+                    // Lưu lại bản đồ và file dem
+
+
                 }
             }
             else
@@ -203,12 +226,6 @@ namespace DXApplication1.Views
             }
         }
 
-
-
-        private void QuanLyPhuongAnForm_Load(object sender, EventArgs e)
-        {
-
-
         private void simpleButtonDong_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -295,7 +312,26 @@ namespace DXApplication1.Views
         private void textEditTimKiem_TextChanged(object sender, EventArgs e)
         {
             TimKiem();
+        }
 
+        private void InitComBoBoxBanDo()
+        {
+            List<BanDo> listBanDo = Program.banDoSql.Select_All_Map();
+            foreach (BanDo banDo in listBanDo)
+            {
+                comboBoxMaBanDo.Items.Add(new ComboBoxItemBanDo(){MaBanDo = banDo.MaBanDo , TenBanDo = banDo.TenBanDo , checkComboBox = true});
+                comboBoxTenBanDo.Items.Add(new ComboBoxItemBanDo(){MaBanDo = banDo.MaBanDo , TenBanDo = banDo.TenBanDo , checkComboBox = false});
+            }
+        }
+
+        private void InitComBoBoxFile()
+        {
+            List<Dem> listFileDem = Program.fileDemSql.SelectAllFileDem();
+            foreach (Dem fileDem in listFileDem)
+            {
+                comboBoxMaFile.Items.Add(new ComboBoxItemFileDem(){MaFile = fileDem.MaFile  , TenFile = fileDem.TenFile , checkComboBox = true});
+                comboBoxTenFile.Items.Add(new ComboBoxItemFileDem(){MaFile = fileDem.MaFile  , TenFile = fileDem.TenFile , checkComboBox = false});
+            }
         }
     }
 }

@@ -110,6 +110,9 @@
     <Compile Include="Admin\SuaChucVu.Designer.cs">
       <DependentUpon>SuaChucVu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BanDo.cs" />
+    <Compile Include="Models\BanDoSql.cs" />
+    <Compile Include="Models\BinhChung.cs" />
     <Compile Include="Models\Chucvu.cs" />
     <Compile Include="Models\ChucvuSql.cs" />
     <Compile Include="Models\connection.cs" />
@@ -118,6 +121,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Models\Dem.cs" />
+    <Compile Include="Models\DonVi.cs" />
     <Compile Include="Models\FileDemSql.cs" />
     <Compile Include="Models\KeHoach.cs" />
     <Compile Include="Models\KeHoachSql.cs" />
@@ -132,10 +136,13 @@
     <Compile Include="Models\QuyenSql.cs" />
     <Compile Include="Models\Quyen_LoaiQuyen.cs" />
     <Compile Include="Models\Quyen_LoaiQuyenSql.cs" />
+    <Compile Include="Models\ThongTinBanDoKeHoach.cs" />
+    <Compile Include="Models\ThongTinBanDoKeHoachSql.cs" />
     <Compile Include="Models\ThongTinChiTietDoiTuong.cs" />
     <Compile Include="Models\ThongTinChiTietDoiTuongSql.cs" />
+    <Compile Include="Models\ThongTinFileDemKeHoach.cs" />
+    <Compile Include="Models\ThongTinFileDemKeHoachSql.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Models\ThongTinNguoiDung.cs" />
     <Compile Include="Models\ThongTinNguoiDungSql.cs" />
     <Compile Include="Objects_Icon\Icon_DoiTuong.cs">
@@ -164,6 +171,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilizes\BooleanClass.cs" />
+    <Compile Include="Utilizes\ComboBoxItemBanDo.cs" />
+    <Compile Include="Utilizes\ComboBoxItemFileDem.cs" />
     <Compile Include="Utilizes\ComboBoxItemPhanQuyen.cs" />
     <Compile Include="Utilizes\DrawHelper.cs" />
     <Compile Include="Utilizes\IntClass.cs" />
@@ -172,6 +181,12 @@
     <Compile Include="Utilizes\UserUtilizes.cs" />
     <Compile Include="Views\CustomScrollPanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\QuanLyBanDo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanLyBanDo.Designer.cs">
+      <DependentUpon>QuanLyBanDo.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FileDem.cs">
       <SubType>Form</SubType>
@@ -266,6 +281,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanLyBanDo.resx">
+      <DependentUpon>QuanLyBanDo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FileDem.resx">
       <DependentUpon>FileDem.cs</DependentUpon>

@@ -12,20 +12,26 @@ namespace DXApplication1.Models
 {
     class FileDemSql : ConnectionDatabase
     {
+
+        enum FileDemField
+        {
+            TenFile,
+            DuongDan,
+            MaFile
+        }
+
         public bool Insert_FileDem(Dem fdem)
         {
             string query = "Insert_FileDem";
             string[] para;
-            para = new string[3];
+            para = new string[2];
             para[0] = "@TenFile";
             para[1] = "@DuongDan";
-            para[2] = "@MaKH";
 
             object[] values;
-            values = new object[3];
+            values = new object[2];
             values[0] = fdem.TenFile;
             values[1] = fdem.DuongDan;
-            values[2] = fdem.MaKeHoach;
 
 
             try
@@ -52,16 +58,14 @@ namespace DXApplication1.Models
             string query = "Update_FileDem";
             string[] para;
             para = new string[3];
-            para[0] = "@TenFile";
+            para[0] = "@MaFile";
             para[1] = "@DuongDan";
-            para[2] = "@MaKH";
-
+            para[2] = "@TenFile";
             object[] values;
             values = new object[3];
-            values[0] = fdem.TenFile;
+            values[2] = fdem.TenFile;
             values[1] = fdem.DuongDan;
-            values[2] = fdem.MaKeHoach;
-
+            values[0] = fdem.MaFile;
 
             try
             {
@@ -88,14 +92,12 @@ namespace DXApplication1.Models
             string query = "Delete_FileDem";
             string[] para;
             para = new string[1];
-            para[0] = "@TenFile";
+            para[0] = "@MaFile";
 
 
             object[] values;
             values = new object[1];
-            values[0] = fdem.TenFile;
-
-
+            values[0] = fdem.MaFile;
 
             try
             {
@@ -127,7 +129,28 @@ namespace DXApplication1.Models
             dataSet = connect.FillDataSet(query, CommandType.StoredProcedure);
             dataGridView.DataSource = dataSet.Tables[0];
             searchLookUpEdit.Properties.DataSource = dataSet.Tables[0];
+        }
 
+
+        public List<Dem> SelectAllFileDem()
+        {
+            connection connect;
+
+            string query = "SelectAllFile";
+            DataSet dataSet = new DataSet();
+            connect = new connection();
+            dataSet = connect.FillDataSet(query, CommandType.StoredProcedure);
+            List<Dem> list = new List<Dem>();
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                list.Add(new Dem()
+                {
+                    MaFile = row.Field<int>((int)FileDemField.MaFile),
+                    TenFile = row.Field<string>((int)FileDemField.TenFile),
+                    DuongDan = row.Field<string>((int)FileDemField.DuongDan)
+                });
+            }
+            return list;
         }
     }
 }

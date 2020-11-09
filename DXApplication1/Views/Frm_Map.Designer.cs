@@ -41,16 +41,15 @@ namespace DXApplication1.Views
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panelSideBar = new System.Windows.Forms.Panel();
+            this.buttonAnHienChiTietFile = new System.Windows.Forms.Button();
+            this.buttonAnHienKyHieuQuanSu = new System.Windows.Forms.Button();
             this.btnAnHienMophong = new System.Windows.Forms.Button();
-            this.buttonAnHien = new System.Windows.Forms.Button();
             this.timerAnHien = new System.Windows.Forms.Timer(this.components);
             this.panelNode = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.controlDanhSach = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.themtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonAnHienChiTietFile = new System.Windows.Forms.Button();
             this.timerAnHienFile = new System.Windows.Forms.Timer(this.components);
             this.simpleButtonQuanLyPhuongAn = new DevExpress.XtraEditors.SimpleButton();
             this.controlParentNode = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -60,7 +59,6 @@ namespace DXApplication1.Views
             this.controlChildNode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.doiTentoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
             this.xoatoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
-
             this.timerMP = new System.Windows.Forms.Timer(this.components);
             this.panelMP = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,8 +67,6 @@ namespace DXApplication1.Views
             this.checkButtonTamDung = new DevExpress.XtraEditors.CheckButton();
             this.simpleButtonDatLai = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonBatDau = new DevExpress.XtraEditors.SimpleButton();
-=======
-
             this.panelMap = new DXApplication1.Views.CustomScrollPanel();
             this.pictureBoxMap = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -78,14 +74,10 @@ namespace DXApplication1.Views
             this.panelSideBar.SuspendLayout();
             this.panelNode.SuspendLayout();
             this.controlDanhSach.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.controlParentNode.SuspendLayout();
             this.controlChildNode.SuspendLayout();
-
             this.panelMP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).BeginInit();
-=======
-
             this.panelMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).BeginInit();
             this.SuspendLayout();
@@ -99,14 +91,11 @@ namespace DXApplication1.Views
             // txtOutput
             // 
             this.txtOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtOutput.Dock = System.Windows.Forms.DockStyle.Left;
-
-=======
-            this.txtOutput.Location = new System.Drawing.Point(32, 0);
+            this.txtOutput.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtOutput.Location = new System.Drawing.Point(724, 0);
             this.txtOutput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(161, 614);
-
+            this.txtOutput.Size = new System.Drawing.Size(221, 614);
             this.txtOutput.TabIndex = 2;
             this.txtOutput.Text = "";
             // 
@@ -132,47 +121,54 @@ namespace DXApplication1.Views
             this.item1ToolStripMenuItem,
             this.item2ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-
             this.contextMenuStrip1.Size = new System.Drawing.Size(130, 56);
-
             // 
             // panelSideBar
             // 
             this.panelSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.panelSideBar.Controls.Add(this.buttonAnHienChiTietFile);
+            this.panelSideBar.Controls.Add(this.buttonAnHienKyHieuQuanSu);
             this.panelSideBar.Controls.Add(this.btnAnHienMophong);
-            this.panelSideBar.Controls.Add(this.buttonAnHien);
             this.panelSideBar.Dock = System.Windows.Forms.DockStyle.Right;
-
             this.panelSideBar.Location = new System.Drawing.Point(1147, 0);
             this.panelSideBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSideBar.Name = "panelSideBar";
             this.panelSideBar.Size = new System.Drawing.Size(32, 614);
-
             this.panelSideBar.TabIndex = 0;
+            // 
+            // buttonAnHienChiTietFile
+            // 
+            this.buttonAnHienChiTietFile.Location = new System.Drawing.Point(0, 243);
+            this.buttonAnHienChiTietFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAnHienChiTietFile.Name = "buttonAnHienChiTietFile";
+            this.buttonAnHienChiTietFile.Size = new System.Drawing.Size(34, 98);
+            this.buttonAnHienChiTietFile.TabIndex = 2;
+            this.buttonAnHienChiTietFile.UseVisualStyleBackColor = true;
+            this.buttonAnHienChiTietFile.Click += new System.EventHandler(this.buttonAnHienChiTietFile_Click_1);
+            this.buttonAnHienChiTietFile.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonAnHienChiTietFile_Paint);
+            // 
+            // buttonAnHienKyHieuQuanSu
+            // 
+            this.buttonAnHienKyHieuQuanSu.Location = new System.Drawing.Point(0, 101);
+            this.buttonAnHienKyHieuQuanSu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAnHienKyHieuQuanSu.Name = "buttonAnHienKyHieuQuanSu";
+            this.buttonAnHienKyHieuQuanSu.Size = new System.Drawing.Size(35, 132);
+            this.buttonAnHienKyHieuQuanSu.TabIndex = 1;
+            this.buttonAnHienKyHieuQuanSu.UseVisualStyleBackColor = true;
+            this.buttonAnHienKyHieuQuanSu.Click += new System.EventHandler(this.buttonKyHieuQuanSu_Click);
+            this.buttonAnHienKyHieuQuanSu.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonAnHien_Paint);
             // 
             // btnAnHienMophong
             // 
             this.btnAnHienMophong.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAnHienMophong.Location = new System.Drawing.Point(0, 97);
+            this.btnAnHienMophong.Location = new System.Drawing.Point(0, 0);
             this.btnAnHienMophong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnHienMophong.Name = "btnAnHienMophong";
-            this.btnAnHienMophong.Size = new System.Drawing.Size(37, 97);
+            this.btnAnHienMophong.Size = new System.Drawing.Size(32, 97);
             this.btnAnHienMophong.TabIndex = 2;
             this.btnAnHienMophong.Text = "H\r\ni\r\nd\r\ne";
             this.btnAnHienMophong.UseVisualStyleBackColor = true;
             this.btnAnHienMophong.Click += new System.EventHandler(this.btnAnHienMophong_Click);
-            // 
-            // buttonAnHien
-            // 
-            this.buttonAnHien.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAnHien.Location = new System.Drawing.Point(0, 0);
-            this.buttonAnHien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonAnHien.Name = "buttonAnHien";
-            this.buttonAnHien.Size = new System.Drawing.Size(32, 79);
-            this.buttonAnHien.TabIndex = 1;
-            this.buttonAnHien.Text = "H\r\ni\r\nd\r\ne";
-            this.buttonAnHien.UseVisualStyleBackColor = true;
-            this.buttonAnHien.Click += new System.EventHandler(this.buttonAnHien_Click);
             // 
             // timerAnHien
             // 
@@ -181,16 +177,14 @@ namespace DXApplication1.Views
             // 
             // panelNode
             // 
-            this.panelNode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panelNode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panelNode.Controls.Add(this.label1);
             this.panelNode.Controls.Add(this.treeView1);
             this.panelNode.Dock = System.Windows.Forms.DockStyle.Right;
-
             this.panelNode.Location = new System.Drawing.Point(945, 0);
             this.panelNode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelNode.Name = "panelNode";
             this.panelNode.Size = new System.Drawing.Size(202, 614);
-
             this.panelNode.TabIndex = 11;
             // 
             // label1
@@ -230,30 +224,6 @@ namespace DXApplication1.Views
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.panel1.Controls.Add(this.buttonAnHienChiTietFile);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-
-            this.panel1.Size = new System.Drawing.Size(32, 614);
-             this.panel1.TabIndex = 1;
-            // 
-            // buttonAnHienChiTietFile
-            // 
-            this.buttonAnHienChiTietFile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAnHienChiTietFile.Location = new System.Drawing.Point(0, 0);
-            this.buttonAnHienChiTietFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonAnHienChiTietFile.Name = "buttonAnHienChiTietFile";
-            this.buttonAnHienChiTietFile.Size = new System.Drawing.Size(32, 79);
-            this.buttonAnHienChiTietFile.TabIndex = 1;
-            this.buttonAnHienChiTietFile.Text = "H\r\ni\r\nd\r\ne";
-            this.buttonAnHienChiTietFile.UseVisualStyleBackColor = true;
-            this.buttonAnHienChiTietFile.Click += new System.EventHandler(this.buttonAnHienChiTietFile_Click);
             // 
             // timerAnHienFile
             // 
@@ -310,17 +280,13 @@ namespace DXApplication1.Views
             this.doiTentoolStripMenuItemChild,
             this.xoatoolStripMenuItemChild});
             this.controlChildNode.Name = "controlTreeView";
-
             this.controlChildNode.Size = new System.Drawing.Size(132, 56);
-
             // 
             // doiTentoolStripMenuItemChild
             // 
             this.doiTentoolStripMenuItemChild.Image = global::DXApplication1.Properties.Resources.icons8_rename_48;
             this.doiTentoolStripMenuItemChild.Name = "doiTentoolStripMenuItemChild";
-
             this.doiTentoolStripMenuItemChild.Size = new System.Drawing.Size(131, 26);
-
             this.doiTentoolStripMenuItemChild.Text = "Chỉnh sửa";
             this.doiTentoolStripMenuItemChild.Click += new System.EventHandler(this.doiTentoolStripMenuItemChild_Click);
             // 
@@ -328,8 +294,7 @@ namespace DXApplication1.Views
             // 
             this.xoatoolStripMenuItemChild.Image = global::DXApplication1.Properties.Resources.iconDelete;
             this.xoatoolStripMenuItemChild.Name = "xoatoolStripMenuItemChild";
-
-            this.xoatoolStripMenuItemChild.Size = new System.Drawing.Size(146, 26);
+            this.xoatoolStripMenuItemChild.Size = new System.Drawing.Size(131, 26);
             this.xoatoolStripMenuItemChild.Text = "Xoá";
             this.xoatoolStripMenuItemChild.Click += new System.EventHandler(this.xoatoolStripMenuItemChild_Click);
             // 
@@ -347,10 +312,10 @@ namespace DXApplication1.Views
             this.panelMP.Controls.Add(this.simpleButtonDatLai);
             this.panelMP.Controls.Add(this.simpleButtonBatDau);
             this.panelMP.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelMP.Location = new System.Drawing.Point(1139, 0);
+            this.panelMP.Location = new System.Drawing.Point(780, 0);
             this.panelMP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMP.Name = "panelMP";
-            this.panelMP.Size = new System.Drawing.Size(236, 756);
+            this.panelMP.Size = new System.Drawing.Size(236, 597);
             this.panelMP.TabIndex = 11;
             this.panelMP.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMP_Paint);
             // 
@@ -379,7 +344,7 @@ namespace DXApplication1.Views
             this.trackBarTocDo.Maximum = 7;
             this.trackBarTocDo.Minimum = 1;
             this.trackBarTocDo.Name = "trackBarTocDo";
-            this.trackBarTocDo.Size = new System.Drawing.Size(137, 56);
+            this.trackBarTocDo.Size = new System.Drawing.Size(137, 45);
             this.trackBarTocDo.TabIndex = 3;
             this.trackBarTocDo.Value = 4;
             this.trackBarTocDo.ValueChanged += new System.EventHandler(this.trackBarTocDo_ValueChanged);
@@ -420,25 +385,16 @@ namespace DXApplication1.Views
             this.simpleButtonBatDau.Text = "Bắt đầu";
             this.simpleButtonBatDau.Click += new System.EventHandler(this.simpleButtonBatDau_Click);
             // 
-=======
-            this.xoatoolStripMenuItemChild.Size = new System.Drawing.Size(131, 26);
-            this.xoatoolStripMenuItemChild.Text = "Xoá";
-            this.xoatoolStripMenuItemChild.Click += new System.EventHandler(this.xoatoolStripMenuItemChild_Click);
-            // 
-
             // panelMap
             // 
             this.panelMap.AutoScroll = true;
             this.panelMap.Controls.Add(this.pictureBoxMap);
-
             this.panelMap.Controls.Add(this.panelMP);
             this.panelMap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMap.Location = new System.Drawing.Point(0, 0);
             this.panelMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMap.Name = "panelMap";
-            this.panelMap.Size = new System.Drawing.Size(1375, 756);
-=======
-
+            this.panelMap.Size = new System.Drawing.Size(724, 614);
             this.panelMap.TabIndex = 14;
             // 
             // pictureBoxMap
@@ -447,12 +403,10 @@ namespace DXApplication1.Views
             this.pictureBoxMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxMap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxMap.InitialImage = null;
-
             this.pictureBoxMap.Location = new System.Drawing.Point(-81, 22);
             this.pictureBoxMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxMap.Name = "pictureBoxMap";
             this.pictureBoxMap.Size = new System.Drawing.Size(861, 266);
-
             this.pictureBoxMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxMap.TabIndex = 0;
             this.pictureBoxMap.TabStop = false;
@@ -465,7 +419,6 @@ namespace DXApplication1.Views
             this.ClientSize = new System.Drawing.Size(1179, 614);
             this.Controls.Add(this.panelMap);
             this.Controls.Add(this.txtOutput);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelNode);
             this.Controls.Add(this.panelSideBar);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -478,14 +431,11 @@ namespace DXApplication1.Views
             this.panelSideBar.ResumeLayout(false);
             this.panelNode.ResumeLayout(false);
             this.controlDanhSach.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.controlParentNode.ResumeLayout(false);
             this.controlChildNode.ResumeLayout(false);
-
             this.panelMP.ResumeLayout(false);
             this.panelMP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).EndInit();
-
             this.panelMap.ResumeLayout(false);
             this.panelMap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).EndInit();
@@ -501,19 +451,15 @@ namespace DXApplication1.Views
         private System.Windows.Forms.ToolStripMenuItem item2ToolStripMenuItem;
         public System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private Panel panelSideBar;
-        private Button buttonAnHien;
+        private Button buttonAnHienKyHieuQuanSu;
         private Timer timerAnHien;
         private Panel panelNode;
         private Label label1;
         private TreeView treeView1;
-        private Panel panel1;
-        private Button buttonAnHienChiTietFile;
         private Timer timerAnHienFile;
-//<<<<<<< HEAD
         private DevExpress.XtraEditors.SimpleButton simpleButtonQuanLyPhuongAn;
         private CustomScrollPanel panelMap;
         public PictureBox pictureBoxMap;
-        //=======
         private ContextMenuStrip controlParentNode;
         private ToolStripMenuItem đoiTenToolStripMenuItem;
         private ToolStripMenuItem thêmKíHiệuToolStripMenuItem;
@@ -523,6 +469,7 @@ namespace DXApplication1.Views
         private ToolStripMenuItem xoatoolStripMenuItemChild;
         private ContextMenuStrip controlDanhSach;
         private ToolStripMenuItem themtoolStripMenuItem;
+        private Button buttonAnHienChiTietFile;
         private Button btnAnHienMophong;
         private Timer timerMP;
         private Panel panelMP;
@@ -532,6 +479,5 @@ namespace DXApplication1.Views
         private Label labeTocDo;
         private TrackBar trackBarTocDo;
         private Label label2;
-        //>>>>>>> pr/53
     }
 }

@@ -25,7 +25,7 @@ namespace DXApplication1
         public FrmMain()
         {
             InitializeComponent();
-            
+            testribon();
         }
 
         public void testribon()

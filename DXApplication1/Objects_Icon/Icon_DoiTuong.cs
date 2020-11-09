@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DXApplication1.Models;
+using System.IO;
 
 namespace DXApplication1.Objects_Icon
 {
@@ -17,15 +19,12 @@ namespace DXApplication1.Objects_Icon
         {
             InitializeComponent();
         }
-
-        private void simpleButtonChonAnh_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void buttonRoot_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName + @"\Resources";
+            dlg.InitialDirectory = projectDirectory;
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 string fileName;
@@ -51,7 +50,7 @@ namespace DXApplication1.Objects_Icon
                     XtraMessageBox.Show(ex.Message);
                     return;
                 }
-                Program.nodeOnMap.ThemDonVi(textBoxMaDonVi.Text, textBoxTenDonVi.Text, textBoxAnh.Text, Program.getMa);
+                Program.nodeOnMap.ThemDonVi(textBoxMaDonVi.Text, textBoxTenDonVi.Text, textBoxAnh.Text, textBoxmabinhchung.Text);
             }   
             else // chinh sua don vi
             {
@@ -76,7 +75,18 @@ namespace DXApplication1.Objects_Icon
         {
             this.Close();
         }
+        public void LoadDataDonVi(DonVi donvi)
+        {
+            textBoxmabinhchung.Text = donvi.mabinhchung;
+            textBoxMaDonVi.Text = donvi.madonvi;
+            textBoxTenDonVi.Text = donvi.tendonvi;
+            textBoxAnh.Text = donvi.duongdananh;
+        }
 
+        public void HienMaBinhChung(string mabinhchung)
+        {
+            textBoxmabinhchung.Text = mabinhchung;
+        }
         private void Icon_DoiTuong_Load(object sender, EventArgs e)
         {
             if(Program.flag) // them don vị

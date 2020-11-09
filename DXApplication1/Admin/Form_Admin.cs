@@ -27,7 +27,7 @@ namespace DXApplication1
         {
 
             InitializeComponent();
-            //testribon();
+            testribon();
         }
 
 
@@ -259,9 +259,15 @@ namespace DXApplication1
 
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
-
-            Program.fileDem.Show();
+            if (Program.fileDem.IsDisposed)
+            {
+                Program.fileDem = new FileDem();
+                Program.fileDem.Show();
+            }
+            else
+            {
+                Program.fileDem.Show();
+            }
         }
         private void trackBarTocDo_ValueChanged(object sender, EventArgs e)
         {
@@ -332,6 +338,45 @@ namespace DXApplication1
         }
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!panelMain.Controls.Contains(Program.frm_Map))
+            {
+                barButtonItem4_ItemClick(null, null);
+                Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
+            }
+            else
+            {
+                Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
+            }
+        }
+
+        private void barButtonItemQLBanDo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (Program.QuanLyBanDo.IsDisposed)
+            {
+                Program.QuanLyBanDo = new QuanLyBanDo();
+                Program.QuanLyBanDo.ShowDialog();
+            }
+            else
+            {
+                Program.QuanLyBanDo.ShowDialog();
+            }
+        }
+
+        private void barButtonItemQuanLyDuLieuTranDau_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (Program.fileDem.IsDisposed)
+            {
+                Program.fileDem = new FileDem();
+                Program.fileDem.ShowDialog();
+            }
+            else
+            {
+                Program.fileDem.ShowDialog();
+            }
+        }
+
+        private void barButtonItemQLPhuongAn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!panelMain.Controls.Contains(Program.frm_Map))
             {

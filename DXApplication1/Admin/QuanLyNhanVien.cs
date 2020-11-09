@@ -71,7 +71,6 @@ namespace DXApplication1.Admin
 
         private void dataGridViewDSNV_CellEnter(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
         {
-            
             int numrow;
             numrow = e.RowIndex;
             getDataFromDgvIntoTextBox(textBoxMaDangNhap, numrow, "MaDangNhapNguoiDung");
