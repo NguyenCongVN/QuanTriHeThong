@@ -3,8 +3,10 @@ using DXApplication1.Utilizes;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Braincase.USGS.DEM;
 using ComboBoxItemBanDo = DXApplication1.Utilizes.ComboBoxItemBanDo;
 
 namespace DXApplication1.Views
@@ -54,23 +56,23 @@ namespace DXApplication1.Views
         {
             textEditTenPhuongAn.Text = keHoach.TenKeHoach;
             timeEditThoiGianLap.DateTime = keHoach.ThoiGianTao;
-            if(keHoach.BanDo != null)
-            foreach (ComboBoxItemBanDo comboBoxItemBanDo in comboBoxMaBanDo.Items)
-            {
-                if (comboBoxItemBanDo.MaBanDo == keHoach.BanDo.MaBanDo)
+            if (keHoach.BanDo != null)
+                foreach (ComboBoxItemBanDo comboBoxItemBanDo in comboBoxMaBanDo.Items)
                 {
-                    comboBoxMaBanDo.SelectedItem = comboBoxItemBanDo;
-                    comboBoxTenBanDo.SelectedItem = comboBoxItemBanDo;
+                    if (comboBoxItemBanDo.MaBanDo == keHoach.BanDo.MaBanDo)
+                    {
+                        comboBoxMaBanDo.SelectedItem = comboBoxItemBanDo;
+                        comboBoxTenBanDo.SelectedItem = comboBoxItemBanDo;
+                    }
                 }
-            }
-            if(keHoach.FileDem != null)
-            foreach (ComboBoxItemFileDem comboBoxItemFileDem in comboBoxMaFile.Items)
-            {
-                if (comboBoxItemFileDem.MaFile == keHoach.FileDem.MaFile)
+            if (keHoach.FileDem != null)
+                foreach (ComboBoxItemFileDem comboBoxItemFileDem in comboBoxMaFile.Items)
                 {
-                    comboBoxMaBanDo.SelectedItem = comboBoxItemFileDem;
+                    if (comboBoxItemFileDem.MaFile == keHoach.FileDem.MaFile)
+                    {
+                        comboBoxMaBanDo.SelectedItem = comboBoxItemFileDem;
+                    }
                 }
-            }
         }
 
         // Load Ke Hoach vao trong GridView
@@ -141,7 +143,7 @@ namespace DXApplication1.Views
                         ComboBoxItemBanDo banDo = (ComboBoxItemBanDo)comboBoxMaBanDo.SelectedItem;
                         Program.frm_Map.KeHoach.BanDo = new BanDo()
                         {
-                            MaBanDo = banDo.MaBanDo ,
+                            MaBanDo = banDo.MaBanDo,
                             DuongDanAnh = banDo.DuongDan,
                             TenBanDo = banDo.TenBanDo
                         };
@@ -158,7 +160,7 @@ namespace DXApplication1.Views
                         {
                             Program.ThongTinFileDemKeHoachSql.RemoveThongTinFileDemKeHoach(Program.frm_Map.KeHoach.MaThongTinFileDemKeHoach);
                         }
-                        ComboBoxItemFileDem file = (ComboBoxItemFileDem) comboBoxMaFile.SelectedItem;
+                        ComboBoxItemFileDem file = (ComboBoxItemFileDem)comboBoxMaFile.SelectedItem;
                         Program.frm_Map.KeHoach.FileDem = new Dem()
                         {
                             MaFile = file.MaFile,
@@ -177,31 +179,105 @@ namespace DXApplication1.Views
             {
                 if (this.timeEditThoiGianLap.DateTime <= DateTime.Now)
                 {
-                    KeHoach keHoach = new KeHoach()
+
+                    if (comboBoxMaBanDo.SelectedItem == null || comboBoxMaFile.SelectedItem == null)
                     {
-                        MaNguoiLap = Program.lg.UserLogin.MaDangNhapNguoiDung,
-                        TenKeHoach = textEditTenPhuongAn.Text
-                    };
-                    List<ThongTinChiTietDoiTuong> list = new List<ThongTinChiTietDoiTuong>();
-                    for (int i = 0; i < Count.IntVar; i++)
+                        DialogResult dialogResult = MessageBox.Show("Bạn chưa chọn bản đồ hoặc kế hoạch ! Bạn có lưu lại luôn không?", "Lưu ý", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            KeHoach keHoach = new KeHoach()
+                            {
+                                MaNguoiLap = Program.lg.UserLogin.MaDangNhapNguoiDung,
+                                TenKeHoach = textEditTenPhuongAn.Text
+                            };
+                            List<ThongTinChiTietDoiTuong> list = new List<ThongTinChiTietDoiTuong>();
+                            for (int i = 0; i < Count.IntVar; i++)
+                            {
+                                list.Add(new ThongTinChiTietDoiTuong()
+                                {
+                                    MaKeHoach = keHoach.MaKeHoach,
+                                    MaDonVi = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.MaDonVi,
+                                    ToaDoX = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ToaDoX,
+                                    ToaDoY = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ToaDoY,
+                                    ChieuDaiAnh = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuDaiAnh,
+                                    ChieuRongAnh = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuRongAnh,
+                                    ChieuNgang = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuNgang,
+                                    ChieuDoc = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuDoc,
+                                    TenDoiTuong = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.TenDoiTuong
+                                });
+                            }
+
+                            Program.KeHoachSql.ThemKeHoach(keHoach);
+                            Program.frm_Map.KeHoach = keHoach;
+                            Program.ThongTinChiTietDoiTuongSql.AddDoiTuong(list);
+                            MessageBox.Show("Thành Công");
+                            LoadKeHoach();
+                            LoadKeHoachDeTail();
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                    else
                     {
-                        list.Add(new ThongTinChiTietDoiTuong()
+                        KeHoach keHoach = new KeHoach()
+                        {
+                            MaNguoiLap = Program.lg.UserLogin.MaDangNhapNguoiDung,
+                            TenKeHoach = textEditTenPhuongAn.Text
+                        };
+
+                        Program.KeHoachSql.ThemKeHoach(keHoach);
+                        // Lưu lại bản đồ và file dem
+                        ComboBoxItemBanDo banDo = (ComboBoxItemBanDo)comboBoxMaBanDo.SelectedItem;
+                        keHoach.BanDo = new BanDo()
+                        {
+                            MaBanDo = banDo.MaBanDo,
+                            DuongDanAnh = banDo.DuongDan,
+                            TenBanDo = banDo.TenBanDo
+                        };
+                        Program.ThongTinBanDoKeHoachSql.AddThongTinBanDoKeHoach(new ThongTinBanDoKeHoach()
                         {
                             MaKeHoach = keHoach.MaKeHoach,
-                            MaDonVi = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.MaDonVi,
-                            ToaDoX = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ToaDoX,
-                            ToaDoY = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ToaDoY,
-                            ChieuDaiAnh = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuDaiAnh,
-                            ChieuRongAnh = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuRongAnh,
+                            MaBanDo = keHoach.BanDo.MaBanDo,
                         });
-                    }
 
-                    Program.KeHoachSql.ThemKeHoach(keHoach);
-                    Program.frm_Map.KeHoach = keHoach;
-                    Program.ThongTinChiTietDoiTuongSql.AddDoiTuong(list);
-                    MessageBox.Show("Thành Công");
-                    LoadKeHoach();
-                    LoadKeHoachDeTail();
+                        ComboBoxItemFileDem file = (ComboBoxItemFileDem)comboBoxMaFile.SelectedItem;
+                        keHoach.FileDem = new Dem()
+                        {
+                            MaFile = file.MaFile,
+                            TenFile = file.TenFile,
+                            DuongDan = file.DuongDan
+                        };
+                        Program.ThongTinFileDemKeHoachSql.AddThongTinFileDemKeHoach(new ThongTinFileDemKeHoach()
+                        {
+                            MaKeHoach = keHoach.MaKeHoach,
+                            MaFile = keHoach.FileDem.MaFile,
+                        });
+
+                        // Thêm các đối tượng
+                        List<ThongTinChiTietDoiTuong> list = new List<ThongTinChiTietDoiTuong>();
+                        for (int i = 0; i < Count.IntVar; i++)
+                        {
+                            list.Add(new ThongTinChiTietDoiTuong()
+                            {
+                                MaKeHoach = keHoach.MaKeHoach,
+                                MaDonVi = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.MaDonVi,
+                                ToaDoX = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ToaDoX,
+                                ToaDoY = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ToaDoY,
+                                ChieuDaiAnh = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuDaiAnh,
+                                ChieuRongAnh = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuRongAnh,
+                                ChieuNgang = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuNgang,
+                                ChieuDoc = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.ChieuDoc,
+                                TenDoiTuong = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.TenDoiTuong
+                            });
+                        }
+                        Program.ThongTinChiTietDoiTuongSql.AddDoiTuong(list);
+                        Program.frm_Map.KeHoach = keHoach;
+                        MessageBox.Show("Thành Công");
+                        LoadKeHoach();
+                        LoadKeHoachDeTail();
+                    }
                 }
                 else
                 {
@@ -238,6 +314,57 @@ namespace DXApplication1.Views
                 }
             }
             Program.frm_Map.KeHoach = keHoach;
+            if (keHoach.BanDo != null)
+            {
+                Frm_test1.bitmapInit1 = new Bitmap(keHoach.BanDo.DuongDanAnh);
+
+                // Resize bitmap background
+                Program.frm_Map.bitmapInit = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+
+                Program.frm_Map.pictureBoxMap.Image = Program.frm_Map.bitmapInit;
+
+                // Bitmap Temp to be used in virtualization
+                Program.frm_Map.bitmapTemp = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+
+                // Bitmap to be used in resize mode
+                Program.frm_Map.bitmapResize = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+            }
+
+            if (keHoach.FileDem != null)
+            {
+                if (System.IO.File.Exists(keHoach.FileDem.DuongDan))
+                {
+                    Program.frm_Map.path = keHoach.FileDem.DuongDan;
+                    Frm_test1._mDem = new DemDocument();
+                    Frm_test1._mDem.Read(keHoach.FileDem.DuongDan);
+                    Program.frm_Map.txtOutput.Text = string.Empty;
+                    Program.frm_Map.txtOutput.Text += "DEM Name: " + new string(Frm_test1._mDem.ARecord.file_name) + Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "SE Coord: " + new string(Frm_test1._mDem.ARecord.SE_geographic_corner_S) + ", " +
+                                      new string(Frm_test1._mDem.ARecord.SE_geographic_corner_E) + Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "DEM Level Code: " + Frm_test1._mDem.ARecord.dem_level_code + Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "Ground Reference System: " +
+                                      (GROUND_REF_SYSTEM)Frm_test1._mDem.ARecord.ground_ref_system + Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "Ground Reference Zone: " + Frm_test1._mDem.ARecord.ground_ref_zone + Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "Ground Unit: " + (GROUND_UNIT)Frm_test1._mDem.ARecord.ground_unit + Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "Elevation Unit: " + (ELEVATION_UNIT)Frm_test1._mDem.ARecord.elevation_unit +
+                                      Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "Ground Resolution (lat, lng, elev): " + Frm_test1._mDem.ARecord.xyz_resolution[0] + ", " +
+                                      Frm_test1._mDem.ARecord.xyz_resolution[1] + ", " + Frm_test1._mDem.ARecord.xyz_resolution[2] +
+                                      Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "Elavation Array Szie: " + Frm_test1._mDem.ARecord.northings_rows + " x " +
+                                      Frm_test1._mDem.ARecord.eastings_cols + Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "Percentage void: " + Frm_test1._mDem.ARecord.percent_void + Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "SW Coord: " + Frm_test1._mDem.ARecord.sw_coord[0] + ", " + Frm_test1._mDem.ARecord.sw_coord[1] +
+                                      Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "NW Coord: " + Frm_test1._mDem.ARecord.nw_coord[0] + ", " + Frm_test1._mDem.ARecord.nw_coord[1] +
+                                      Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "NE Coord: " + Frm_test1._mDem.ARecord.ne_coord[0] + ", " + Frm_test1._mDem.ARecord.ne_coord[1] +
+                                      Environment.NewLine;
+                    Program.frm_Map.txtOutput.Text += "SE Coord: " + Frm_test1._mDem.ARecord.se_coord[0] + ", " + Frm_test1._mDem.ARecord.se_coord[1] +
+                                      Environment.NewLine;
+
+                }
+            }
             this.isChange.DoiTuongs = Program.ThongTinChiTietDoiTuongSql.LayCacDoiTuongTuKeHoach(keHoach.MaKeHoach, TreeView, ImageList, Count);
             this.isChange.BoolVar = true;
             this.Dispose();
@@ -259,7 +386,7 @@ namespace DXApplication1.Views
                 //    ThoiGianTao = DateTime.Parse(dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.ThoiGianLap].Value.ToString()),
                 //    TenNguoiLap = dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.NguoiLapKeHoach].Value.ToString(),
                 //};
-                int ma = Int32.Parse(dataGridViewKeHoach.SelectedRows[0].Cells[(int) ThongTinKeHoach.MaKeHoach].Value
+                int ma = Int32.Parse(dataGridViewKeHoach.SelectedRows[0].Cells[(int)ThongTinKeHoach.MaKeHoach].Value
                     .ToString());
                 KeHoach selectedKeHoach = Program.KeHoachSql.GetKeHoachAndDetailById(ma);
                 MoKeHoach(selectedKeHoach);
@@ -359,8 +486,8 @@ namespace DXApplication1.Views
             List<BanDo> listBanDo = Program.banDoSql.Select_All_Map();
             foreach (BanDo banDo in listBanDo)
             {
-                comboBoxMaBanDo.Items.Add(new ComboBoxItemBanDo(){MaBanDo = banDo.MaBanDo , TenBanDo = banDo.TenBanDo , checkComboBox = true , DuongDan = banDo.DuongDanAnh});
-                comboBoxTenBanDo.Items.Add(new ComboBoxItemBanDo(){MaBanDo = banDo.MaBanDo , TenBanDo = banDo.TenBanDo , checkComboBox = false , DuongDan = banDo.DuongDanAnh});
+                comboBoxMaBanDo.Items.Add(new ComboBoxItemBanDo() { MaBanDo = banDo.MaBanDo, TenBanDo = banDo.TenBanDo, checkComboBox = true, DuongDan = banDo.DuongDanAnh });
+                comboBoxTenBanDo.Items.Add(new ComboBoxItemBanDo() { MaBanDo = banDo.MaBanDo, TenBanDo = banDo.TenBanDo, checkComboBox = false, DuongDan = banDo.DuongDanAnh });
             }
         }
 
@@ -369,8 +496,8 @@ namespace DXApplication1.Views
             List<Dem> listFileDem = Program.fileDemSql.SelectAllFileDem();
             foreach (Dem fileDem in listFileDem)
             {
-                comboBoxMaFile.Items.Add(new ComboBoxItemFileDem(){MaFile = fileDem.MaFile  , TenFile = fileDem.TenFile , checkComboBox = true , DuongDan = fileDem.DuongDan});
-                comboBoxTenFile.Items.Add(new ComboBoxItemFileDem(){MaFile = fileDem.MaFile  , TenFile = fileDem.TenFile , checkComboBox = false , DuongDan = fileDem.DuongDan});
+                comboBoxMaFile.Items.Add(new ComboBoxItemFileDem() { MaFile = fileDem.MaFile, TenFile = fileDem.TenFile, checkComboBox = true, DuongDan = fileDem.DuongDan });
+                comboBoxTenFile.Items.Add(new ComboBoxItemFileDem() { MaFile = fileDem.MaFile, TenFile = fileDem.TenFile, checkComboBox = false, DuongDan = fileDem.DuongDan });
             }
         }
 

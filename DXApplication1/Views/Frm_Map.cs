@@ -80,7 +80,7 @@ namespace DXApplication1.Views
 
 
         // Bitmap Temp to be used in virtualization
-        Bitmap bitmapTemp = new Bitmap(bitmapInit1, 1201, 1201);
+        public Bitmap bitmapTemp = new Bitmap(bitmapInit1, 1201, 1201);
 
         // Bitmap to be used in resize mode
         public Bitmap bitmapResize = new Bitmap(bitmapInit1, 1201, 1201);

@@ -85,28 +85,6 @@ namespace DXApplication1.Models
             }
         }
 
-        public int GetIdThongTinFileDemKeHoach(int maKeHoach, int maFileDem)
-        {
-            try
-            {
-                Connection.Open();
-                SqlCommand command = new SqlCommand("GetIdThongTinFileDemKeHoach", Connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@maFileDem", maFileDem);
-                command.Parameters.AddWithValue("@maKeHoach", maKeHoach);
-                int ma = (int)command.ExecuteScalar();
-                Connection.Close();
-                return ma;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Có lỗi xảy ra");
-                throw;
-            }
-            finally
-            {
-                Connection.Close();
-            }
-        }
+        
     }
 }
