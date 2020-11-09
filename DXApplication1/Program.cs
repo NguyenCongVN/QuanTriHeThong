@@ -18,6 +18,7 @@ namespace DXApplication1
         /// The main entry point for the application.
         /// </summary>
         public static NguoiDungSql ndSql;
+
         public static ThongTinNguoiDungSql detail_userSql;
         public static frmLogin lg;
         public static frmDky dky;
@@ -28,11 +29,16 @@ namespace DXApplication1
         public static QuanLyNhanVien quanLyNhanVien;
         public static QuanLyNhanVienSql quanLyNhanVienSql;
         public static ChucvuSql chucvuSql;
+        public static BanDoSql banDoSql;
         public static Chucvu cvu;
         public static Frm_test1 frm_Map;
         public static KeHoachSql KeHoachSql;
         public static ThongTinChiTietDoiTuongSql ThongTinChiTietDoiTuongSql;
         public static  NodeOnMap nodeOnMap;
+
+        public static FileDem fileDem;
+        public static FileDemSql fileDemSql;
+        public static QuanLyBanDo QuanLyBanDo;
         public static string getMa;
         public static bool flag;
         public static DoiTuong doiTuong;
@@ -57,12 +63,15 @@ namespace DXApplication1
             quanLyNhanVien = new QuanLyNhanVien();
             KeHoachSql = new KeHoachSql();
             ThongTinChiTietDoiTuongSql = new ThongTinChiTietDoiTuongSql();
+            banDoSql = new BanDoSql();
+            fileDemSql = new FileDemSql();
             lg = new frmLogin();
             frm_Map = new Frm_test1();
             nodeOnMap = new NodeOnMap();
-            tTDoiTuong = new TTDoiTuong();
             binhChung = new BinhChung();
             donVi = new DonVi();
+            fileDem = new FileDem();
+            QuanLyBanDo = new QuanLyBanDo();
             Application.Run(lg);
         }
     }

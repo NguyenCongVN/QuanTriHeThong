@@ -34,6 +34,8 @@ namespace DXApplication1.Views
             InitializeComponent();
             LoadKeHoach();
             LoadKeHoachDeTail();
+            InitComBoBoxFile();
+            InitComBoBoxBanDo();
         }
 
         // Load Thong tin ke hoach vao trong cac text box
@@ -290,5 +292,26 @@ namespace DXApplication1.Views
         {
             TimKiem();
         }
+
+        private void InitComBoBoxBanDo()
+        {
+            List<BanDo> listBanDo = Program.banDoSql.Select_All_Map();
+            foreach (BanDo banDo in listBanDo)
+            {
+                comboBoxMaBanDo.Items.Add(new ComboBoxItemBanDo(){MaBanDo = banDo.MaBanDo , TenBanDo = banDo.TenBanDo , checkComboBox = true});
+                comboBoxTenBanDo.Items.Add(new ComboBoxItemBanDo(){MaBanDo = banDo.MaBanDo , TenBanDo = banDo.TenBanDo , checkComboBox = false});
+            }
+        }
+
+        private void InitComBoBoxFile()
+        {
+            List<Dem> listFileDem = Program.fileDemSql.SelectAllFileDem();
+            foreach (Dem fileDem in listFileDem)
+            {
+                comboBoxMaFile.Items.Add(new ComboBoxItemFileDem(){MaFile = fileDem.MaFile  , TenFile = fileDem.TenFile , checkComboBox = true});
+                comboBoxTenFile.Items.Add(new ComboBoxItemFileDem(){MaFile = fileDem.MaFile  , TenFile = fileDem.TenFile , checkComboBox = false});
+            }
+        }
+
     }
 }

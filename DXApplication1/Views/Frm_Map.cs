@@ -25,8 +25,10 @@ namespace DXApplication1.Views
 
 
         int panelWidth;
+        int panelWidthMP;
         int panelWidthFile;
         bool hided;
+        bool hidedMP;
         bool hidedFile;
 
 
@@ -70,7 +72,7 @@ namespace DXApplication1.Views
         public static bool isPause = false;
         // Pause Lock
         public static object pauseLock = new object();
-        //E:\PICTURE\
+
         public static Bitmap bitmapInit1 = new Bitmap(Properties.Resources.Screenshot_2020_09_25_202017);
 
         // Resize bitmap background
@@ -120,18 +122,16 @@ namespace DXApplication1.Views
 
         public Frm_test1()
         {
-            
             InitializeComponent();
             buttonKyHieuQuanSu_Click(null, null);
             buttonAnHienChiTietFile_Click_1(null, null);
             pictureBoxMap.Image = bitmapResize;
             panelWidth = panelNode.Width;
+            panelWidthMP = panelMP.Width;
             panelWidthFile = txtOutput.Width;
             hided = true;
             hidedFile = true;
             this.pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
-            
-
         }
 
         // Center PictureBox
@@ -200,7 +200,6 @@ namespace DXApplication1.Views
                     diachiAnh = dr["DuongDanAnh"].ToString();
                     imageListChild.Images.Add(dr["MaDonVi"].ToString(), Image.FromFile(diachiAnh));
                     ListdiachiAnh.Add(dr["MaDonVi"].ToString(), diachiAnh);
-
                 }
             }
         }
@@ -318,7 +317,6 @@ namespace DXApplication1.Views
         {
             initImageOfNode();
             load_Tree();
-           
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -330,8 +328,11 @@ namespace DXApplication1.Views
                     DoiTuong doiTuong = new DoiTuong();
                     doiTuong.ThongTinChiTietDoiTuong.MaDonVi = e.Node.Name;
                     doiTuong.ThongTinChiTietDoiTuong.MaKeHoach = Program.frm_Map.KeHoach.MaKeHoach;
-                    doiTuong.Picture.Image = imageListChild.Images[i];
-                    doiTuong.Detail = e.Node.Text;
+                    doiTuong.ThongTinChiTietDoiTuong.ChieuDoc = 10;
+                    doiTuong.ThongTinChiTietDoiTuong.ChieuNgang = 10;
+                    doiTuong.InitImage = imageListChild.Images[i];
+                    doiTuong.Picture.Image = new Bitmap(doiTuong.InitImage, doiTuong.ThongTinChiTietDoiTuong.ChieuNgang,
+                        doiTuong.ThongTinChiTietDoiTuong.ChieuDoc);
                     doiTuong.Picture.Visible = false;
                     doiTuong.Picture.Location = new Point(10, 10);
                     selected.Add(doiTuong);
@@ -343,6 +344,7 @@ namespace DXApplication1.Views
                     opted++;
                 }
             }
+
             if (e.Button == MouseButtons.Right)
             {
                 treeView1.SelectedNode = e.Node;
@@ -355,16 +357,13 @@ namespace DXApplication1.Views
                     int index = imageListChild.Images.IndexOfKey(e.Node.Name);
                     Program.donVi.duongdananh = ListdiachiAnh[e.Node.Name];
                     Program.donVi.tendonvi = e.Node.Text;
-                }  
+                }
                 else // node cha
                 {
                     Program.binhChung.mabinhchung = e.Node.Name;
                     Program.binhChung.tenbinhchung = e.Node.Text;
                 }
-            }    
-                
-
-
+            }
         }
 
         public static void ChangeHeight()
@@ -557,6 +556,7 @@ namespace DXApplication1.Views
                 }
             }
         }
+
         private void timerAnHien_Tick(object sender, EventArgs e)
         {
             if (hided) // true là an
@@ -584,7 +584,56 @@ namespace DXApplication1.Views
                 }
             }
         }
-     
+        //<<<<<<< HEAD
+
+        //=======
+
+        private void btnAnHienMophong_Click(object sender, EventArgs e)
+        {
+            if (hidedMP)
+                btnAnHienMophong.Text = "H\ni\nd\ne";
+            else
+                btnAnHienMophong.Text = "S\nh\no\nw";
+            timerMP.Start();
+        }
+
+        private void timerMP_Tick(object sender, EventArgs e)
+        {
+            if (hidedMP) // true là an
+            {
+                panelMP.Width = panelMP.Width + 20;
+                panelMap.Width = panelMap.Width - 20;
+                if (panelMP.Width >= panelWidthMP)
+                {
+                    timerMP.Stop();
+                    hidedMP = false;
+                    //    panelMap.Width = panelMap.Width + 20;
+                    this.Refresh();
+                }
+            }
+            else // hien 
+            {
+                panelMP.Width = panelMP.Width - 20;
+                panelMap.Width = panelMap.Width + 20;
+                if (panelMP.Width <= 0)
+                {
+                    timerMP.Stop();
+                    hidedMP = true;
+                    //    panelMap.Width = panelMap.Width + 20;
+                    this.Refresh();
+                }
+            }
+        }
+
+        //        private void buttonAnHienChiTietFile_Click(object sender, EventArgs e)
+        //        {
+        //            if (hidedFile)
+        //                buttonAnHienChiTietFile.Text = "H\ni\nd\ne";
+        //            else
+        //                buttonAnHienChiTietFile.Text = "S\nh\no\nw";
+        //            timerAnHienFile.Start();
+        //        }
+        //>>>>>>> master
 
         private void timerAnHienFile_Tick(object sender, EventArgs e)
         {
@@ -642,22 +691,34 @@ namespace DXApplication1.Views
         {
             Program.flag = false;
             Icon_DoiTuong icon = new Icon_DoiTuong();
-            icon.LoadDataDonVi(Program.donVi);
             icon.ShowDialog();
         }
         private void xoatoolStripMenuItemChild_Click(object sender, EventArgs e)
         {
             treeView1.SelectedNode.Remove();
+            //<<<<<<< HEAD
             Program.nodeOnMap.XoaDonVi(Program.donVi.madonvi);
-
         }
+        //=======
+        //            Program.nodeOnMap.XoaDonVi(Program.getMa);
+
+        //        }
+
+        //        private void đoiTenToolStripMenuItem_Click(object sender, EventArgs e)
+        //        {
+        //            Program.flag = false;
+        //            LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
+        //            loaiDoiTuong.LoadData(Program.getMa);
+        //            loaiDoiTuong.ShowDialog();
+        //        }
+
+        //>>>>>>> master
         private void thêmKíHiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.flag = true;
             Icon_DoiTuong icon = new Icon_DoiTuong();
             icon.HienMaBinhChung(Program.binhChung.mabinhchung);
             icon.ShowDialog();
-            
         }
         private void đoiTenToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -680,7 +741,6 @@ namespace DXApplication1.Views
         #endregion
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            
 
         }
 
@@ -693,6 +753,12 @@ namespace DXApplication1.Views
             e.Graphics.DrawString("Ký hiệu quân sự", font, brush, 0, 0);
         }
 
+
+        private void panelMP_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void buttonAnHienChiTietFile_Paint(object sender, PaintEventArgs e)
         {
             Font font = new Font("Tahoma", 8);
@@ -700,6 +766,11 @@ namespace DXApplication1.Views
             e.Graphics.TranslateTransform(30, 20);
             e.Graphics.RotateTransform(90);
             e.Graphics.DrawString("Chi tiết File", font, brush, 0, 0);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void buttonAnHienChiTietFile_Click_1(object sender, EventArgs e)
@@ -712,6 +783,72 @@ namespace DXApplication1.Views
             timerAnHien.Start();
         }
 
-        
+        private void simpleButtonBatDau_Click(object sender, EventArgs e)
+        {
+            Frm_test1.readyToWrite.Set();
+            Program.frm_Map.a = new Thread((() =>
+            {
+                Frm_test1.ChangeHeight();
+            }));
+            Program.frm_Map.a.IsBackground = true;
+            Program.frm_Map.a.Start();
+            Program.frm_Map.b = new Thread(() =>
+            {
+                Program.frm_Map.DrawImage(Program.frm_Map.pictureBoxMap);
+            });
+            Program.frm_Map.b.Start();
+            Program.frm_Map.b.IsBackground = true;
+        }
+
+        private void simpleButtonDatLai_Click(object sender, EventArgs e)
+        {
+            Program.frm_Map.a.Abort();
+            Program.frm_Map.b.Abort();
+            Frm_test1._mDem.Read(Program.frm_Map.path);
+            Program.frm_Map.pictureBoxMap.Image = Program.frm_Map.bitmapInit;
+            Program.frm_Map.bitmapResize = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+        }
+
+        private void checkButtonTamDung_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkButtonTamDung.Checked)
+            {
+
+                checkButtonTamDung.Image = Properties.Resources.start_16;
+                checkButtonTamDung.Text = "Tiếp Tục";
+                // Set Pause
+                lock (Frm_test1.pauseLock)
+                {
+                    Frm_test1.isPause = true;
+                }
+            }
+            else
+            {
+                checkButtonTamDung.Image = Properties.Resources.pause_16;
+                checkButtonTamDung.Text = "Tạm Dừng";
+                // Set Pause
+                lock (Frm_test1.pauseLock)
+                {
+                    Frm_test1.isPause = false;
+                }
+            }
+        }
+
+        private void trackBarTocDo_ValueChanged(object sender, EventArgs e)
+        {
+            while (true)
+            {
+                bool tryToLockSpeed = false;
+                Monitor.TryEnter(Frm_test1.speedLock, ref tryToLockSpeed);
+                float proportion = Program.frm_Map.MapValueToProportion(trackBarTocDo.Value);
+                if (tryToLockSpeed)
+                {
+                    Frm_test1.speed = (short)(Frm_test1.speedInit * proportion);
+                    labeTocDo.Text = "Tốc độ : X" + proportion;
+                    Monitor.Exit(Frm_test1.speedLock);
+                    break;
+                }
+            }
+        }
     }
 }
