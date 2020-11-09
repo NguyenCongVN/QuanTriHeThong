@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using DevExpress.DataProcessing;
 
 namespace DXApplication1.Models
@@ -135,6 +136,27 @@ namespace DXApplication1.Models
             }
             Connection.Close();
             return keHoach;
+        }
+
+        public void UpdateKeHoach(KeHoach keHoach)
+        {
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("UpdateKeHoach", Connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                Connection.Open();
+                sqlCommand.Parameters.AddWithValue("@maKeHoach", keHoach.MaKeHoach);
+                sqlCommand.Parameters.AddWithValue("@tenKeHoach", keHoach.TenKeHoach);
+                sqlCommand.Parameters.AddWithValue("@thoiGianTao", keHoach.ThoiGianTao);
+                sqlCommand.ExecuteScalar();
+                Connection.Close();
+                MessageBox.Show("Thành Công");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Có lỗi xảy ra");
+                return;
+            }
         }
     }
 }

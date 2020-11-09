@@ -118,6 +118,9 @@ namespace DXApplication1.Views
                 //}
                 //else
                 {
+                    Program.frm_Map.KeHoach.TenKeHoach = textEditTenPhuongAn.Text;
+                    Program.frm_Map.KeHoach.ThoiGianTao = timeEditThoiGianLap.DateTime;
+                    Program.KeHoachSql.UpdateKeHoach(Program.frm_Map.KeHoach);
                     List<ThongTinChiTietDoiTuong> list = new List<ThongTinChiTietDoiTuong>();
                     // Them cac doi tuong moi
                     foreach (DoiTuong doiTuong in Program.frm_Map.listAdd)
@@ -289,6 +292,7 @@ namespace DXApplication1.Views
             Program.frm_Map.listUpdate.Clear();
             Program.frm_Map.listAdd.Clear();
             Program.frm_Map.listRemove.Clear();
+            LoadKeHoach();
         }
 
         private void dataGridViewKeHoach_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -558,6 +562,21 @@ namespace DXApplication1.Views
                         comboBoxMaFile.SelectedItem = comboBoxItemFileDem;
                     }
                 }
+            }
+        }
+
+        private void simpleButtonChinhSua_Click(object sender, EventArgs e)
+        {
+            if(Program.frm_Map.KeHoach == null)
+            {
+                MessageBox.Show("Hãy mở kế hoạch trước khi sửa");
+                return;
+            }
+            else
+            {
+                textEditTenPhuongAn.ReadOnly = false;
+                timeEditThoiGianLap.ReadOnly = false;
+                richEditControlChiTiet.ReadOnly = false;
             }
         }
     }

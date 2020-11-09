@@ -39,7 +39,6 @@
             this.richEditControlChiTiet = new DevExpress.XtraRichEdit.RichEditControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonThem = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonSua = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonXoa = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonLuu = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonMo = new DevExpress.XtraEditors.SimpleButton();
@@ -55,6 +54,7 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButtonChinhSua = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenPhuongAn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -168,17 +168,9 @@
             this.simpleButtonThem.Text = "Thêm mới";
             this.simpleButtonThem.Click += new System.EventHandler(this.simpleButtonThem_Click);
             // 
-            // simpleButtonSua
-            // 
-            this.simpleButtonSua.Location = new System.Drawing.Point(519, 134);
-            this.simpleButtonSua.Name = "simpleButtonSua";
-            this.simpleButtonSua.Size = new System.Drawing.Size(90, 23);
-            this.simpleButtonSua.TabIndex = 19;
-            this.simpleButtonSua.Text = "Sửa";
-            // 
             // simpleButtonXoa
             // 
-            this.simpleButtonXoa.Location = new System.Drawing.Point(519, 163);
+            this.simpleButtonXoa.Location = new System.Drawing.Point(520, 161);
             this.simpleButtonXoa.Name = "simpleButtonXoa";
             this.simpleButtonXoa.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonXoa.TabIndex = 20;
@@ -186,7 +178,7 @@
             // 
             // simpleButtonLuu
             // 
-            this.simpleButtonLuu.Location = new System.Drawing.Point(519, 192);
+            this.simpleButtonLuu.Location = new System.Drawing.Point(520, 190);
             this.simpleButtonLuu.Name = "simpleButtonLuu";
             this.simpleButtonLuu.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonLuu.TabIndex = 21;
@@ -195,7 +187,7 @@
             // 
             // simpleButtonMo
             // 
-            this.simpleButtonMo.Location = new System.Drawing.Point(519, 221);
+            this.simpleButtonMo.Location = new System.Drawing.Point(520, 219);
             this.simpleButtonMo.Name = "simpleButtonMo";
             this.simpleButtonMo.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonMo.TabIndex = 22;
@@ -204,7 +196,7 @@
             // 
             // simpleButtonDong
             // 
-            this.simpleButtonDong.Location = new System.Drawing.Point(519, 250);
+            this.simpleButtonDong.Location = new System.Drawing.Point(520, 248);
             this.simpleButtonDong.Name = "simpleButtonDong";
             this.simpleButtonDong.Size = new System.Drawing.Size(90, 23);
             this.simpleButtonDong.TabIndex = 23;
@@ -308,11 +300,21 @@
             this.labelControl10.TabIndex = 34;
             this.labelControl10.Text = "Tên";
             // 
+            // simpleButtonChinhSua
+            // 
+            this.simpleButtonChinhSua.Location = new System.Drawing.Point(519, 132);
+            this.simpleButtonChinhSua.Name = "simpleButtonChinhSua";
+            this.simpleButtonChinhSua.Size = new System.Drawing.Size(90, 23);
+            this.simpleButtonChinhSua.TabIndex = 36;
+            this.simpleButtonChinhSua.Text = "Sửa";
+            this.simpleButtonChinhSua.Click += new System.EventHandler(this.simpleButtonChinhSua_Click);
+            // 
             // QuanLyPhuongAnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 544);
+            this.Controls.Add(this.simpleButtonChinhSua);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.labelControl4);
@@ -328,7 +330,6 @@
             this.Controls.Add(this.simpleButtonMo);
             this.Controls.Add(this.simpleButtonLuu);
             this.Controls.Add(this.simpleButtonXoa);
-            this.Controls.Add(this.simpleButtonSua);
             this.Controls.Add(this.simpleButtonThem);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.richEditControlChiTiet);
@@ -363,7 +364,6 @@
         private DevExpress.XtraRichEdit.RichEditControl richEditControlChiTiet;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.SimpleButton simpleButtonThem;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonSua;
         private DevExpress.XtraEditors.SimpleButton simpleButtonXoa;
         private DevExpress.XtraEditors.SimpleButton simpleButtonLuu;
         private DevExpress.XtraEditors.SimpleButton simpleButtonDong;
@@ -381,5 +381,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonChinhSua;
     }
 }
