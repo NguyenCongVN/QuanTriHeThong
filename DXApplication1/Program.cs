@@ -75,8 +75,7 @@ namespace DXApplication1
             binhChung = new BinhChung();
             donVi = new DonVi();
             fileDem = new FileDem();
-            //QuanLyBanDo = new QuanLyBanDo();
-            Application.Run(new Frm_test1());
+            Application.Run(lg);
         }
     }
 }
