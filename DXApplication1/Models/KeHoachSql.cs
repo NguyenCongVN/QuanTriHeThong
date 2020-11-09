@@ -110,11 +110,11 @@ namespace DXApplication1.Models
                     MaNguoiLap = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.MaNguoiLapKeHoach),
                     MaKeHoach = table.Rows[0].Field<int>((int)FieldKeHoachBanDoFileDem.MaKeHoach),
                     TenKeHoach = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.TenKeHoach),
-                    TenNguoiLap = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.),
+                    //TenNguoiLap = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.),
                     ThoiGianTao = table.Rows[0].Field<DateTime>((int)FieldKeHoachBanDoFileDem.ThoiGianTao),
                     BanDo = new BanDo()
                     {
-                        MaBanDo = table.Rows[0].Field<DateTime>((int)FieldKeHoachBanDoFileDem.ThoiGianTao)
+                        //MaBanDo = table.Rows[0].Field<DateTime>((int)FieldKeHoachBanDoFileDem.ThoiGianTao)
                     }
                 };
             }

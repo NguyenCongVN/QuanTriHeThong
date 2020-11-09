@@ -72,8 +72,8 @@ namespace DXApplication1.Models
                 Connection.Open();
                 SqlCommand command = new SqlCommand("ThemThongTinFileDemKeHoach", Connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@maFile", thongTin.MaFile);
-                command.Parameters.AddWithValue("@maKeHoach", thongTin.MaKeHoach);
+                //command.Parameters.AddWithValue("@maFile", thongTin.MaFile);
+                //command.Parameters.AddWithValue("@maKeHoach", thongTin.MaKeHoach);
                 command.ExecuteScalar();
                 Connection.Close();
             }

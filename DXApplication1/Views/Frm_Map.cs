@@ -850,5 +850,14 @@ namespace DXApplication1.Views
                 }
             }
         }
+
+        private void btnAnHienMophong_Paint(object sender, PaintEventArgs e)
+        {
+            Font font = new Font("Tahoma", 8);
+            Brush brush = new System.Drawing.SolidBrush(System.Drawing.Color.Black);
+            e.Graphics.TranslateTransform(30, 20);
+            e.Graphics.RotateTransform(90);
+            e.Graphics.DrawString("Mô phỏng", font, brush, 0, 0);
+        }
     }
 }

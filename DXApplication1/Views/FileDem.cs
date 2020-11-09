@@ -107,6 +107,12 @@ namespace DXApplication1.Views
             }
             else if (opt == 3)
             {
+                if (txtTenFile.Text == null)
+                {
+                    MessageBox.Show("Bạn phải chọn 1 file trong bảng", "Error???");
+                }
+                else
+                {
                     Dem fdem = new Dem(txtTenFile.Text, txtDuongDan.Text);
                     if (demSql.DeleteDem(fdem) == true)
                     {
@@ -115,6 +121,8 @@ namespace DXApplication1.Views
                         simpleButtonXN.Visible = false;
                         loadTable();
                     }
+                }    
+                
             }
 
         }
@@ -153,6 +161,26 @@ namespace DXApplication1.Views
                     txtDuongDan.Text = dialog.FileName;
                 }
             }
+        }
+
+        private void searchLookUpEditDSNV_EditValueChanged(object sender, EventArgs e)
+        {
+            searchLookUpEditDSNV.Text = "";
+            var view = searchLookUpEditDSNV.Properties.View;
+            int row = view.FocusedRowHandle;
+            string fieldTenFile = "TenFile";
+            string fieldDuongDan = "DuongDan";
+            string fieldMaKeHoach = "MaKeHoach";
+            
+
+            object valueTenFile = view.GetRowCellValue(row, fieldTenFile);
+            object valueDuongDan = view.GetRowCellValue(row, fieldDuongDan);
+            object valueMaKeHoach = view.GetRowCellValue(row, fieldMaKeHoach);
+            
+
+            txtTenFile.Text = valueTenFile.ToString();
+            txtDuongDan.Text = valueDuongDan.ToString();
+            
         }
     }
 }
