@@ -104,7 +104,7 @@
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
             this.rbpManage});
-            this.ribbonControl1.Size = new System.Drawing.Size(1376, 149);
+            this.ribbonControl1.Size = new System.Drawing.Size(1376, 183);
             this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // btnLogin
@@ -343,7 +343,7 @@
             this.rbHeThong,
             this.rbBackground});
             this.rbpHeThong.Name = "rbpHeThong";
-            this.rbpHeThong.Text = "Hệ thống";
+            this.rbpHeThong.Text = "Quản trị hệ thống";
             // 
             // rbHeThong
             // 
@@ -370,7 +370,7 @@
             this.ribbonPageGroup4,
             this.ribbonPageGroup5});
             this.rbpManage.Name = "rbpManage";
-            this.rbpManage.Text = "Quản lý";
+            this.rbpManage.Text = "Quản lý nghiệp vụ";
             // 
             // ribbonPageGroup1
             // 
@@ -394,7 +394,7 @@
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItemQLPhuongAn);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "Quản lý phương án";
             // 
             // ribbonPage3
             // 
@@ -418,10 +418,10 @@
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 149);
+            this.panelMain.Location = new System.Drawing.Point(0, 183);
             this.panelMain.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1376, 634);
+            this.panelMain.Size = new System.Drawing.Size(1376, 600);
             this.panelMain.TabIndex = 3;
             // 
             // rbData
@@ -434,7 +434,7 @@
             // FrmMain_Admin
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1376, 783);
             this.Controls.Add(this.panelMain);

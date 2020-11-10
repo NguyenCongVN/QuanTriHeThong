@@ -584,16 +584,9 @@ namespace DXApplication1.Views
                 }
             }
         }
-        //<<<<<<< HEAD
-
-        //=======
-
+     
         private void btnAnHienMophong_Click(object sender, EventArgs e)
         {
-            if (hidedMP)
-                btnAnHienMophong.Text = "H\ni\nd\ne";
-            else
-                btnAnHienMophong.Text = "S\nh\no\nw";
             timerMP.Start();
         }
 
@@ -624,17 +617,6 @@ namespace DXApplication1.Views
                 }
             }
         }
-
-        //        private void buttonAnHienChiTietFile_Click(object sender, EventArgs e)
-        //        {
-        //            if (hidedFile)
-        //                buttonAnHienChiTietFile.Text = "H\ni\nd\ne";
-        //            else
-        //                buttonAnHienChiTietFile.Text = "S\nh\no\nw";
-        //            timerAnHienFile.Start();
-        //        }
-        //>>>>>>> master
-
         private void timerAnHienFile_Tick(object sender, EventArgs e)
         {
             if (hidedFile)
@@ -696,23 +678,9 @@ namespace DXApplication1.Views
         private void xoatoolStripMenuItemChild_Click(object sender, EventArgs e)
         {
             treeView1.SelectedNode.Remove();
-            //<<<<<<< HEAD
             Program.nodeOnMap.XoaDonVi(Program.donVi.madonvi);
         }
-        //=======
-        //            Program.nodeOnMap.XoaDonVi(Program.getMa);
-
-        //        }
-
-        //        private void đoiTenToolStripMenuItem_Click(object sender, EventArgs e)
-        //        {
-        //            Program.flag = false;
-        //            LoaiDoiTuong loaiDoiTuong = new LoaiDoiTuong();
-        //            loaiDoiTuong.LoadData(Program.getMa);
-        //            loaiDoiTuong.ShowDialog();
-        //        }
-
-        //>>>>>>> master
+   
         private void thêmKíHiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.flag = true;
@@ -768,9 +736,13 @@ namespace DXApplication1.Views
             e.Graphics.DrawString("Chi tiết File", font, brush, 0, 0);
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void btnAnHienMophong_Paint(object sender, PaintEventArgs e)
         {
-
+            Font font = new Font("Tahoma", 8);
+            Brush brush = new System.Drawing.SolidBrush(System.Drawing.Color.Black);
+            e.Graphics.TranslateTransform(30, 20);
+            e.Graphics.RotateTransform(90);
+            e.Graphics.DrawString("Mô phỏng", font, brush, 0, 0);
         }
 
         private void buttonAnHienChiTietFile_Click_1(object sender, EventArgs e)
@@ -850,5 +822,7 @@ namespace DXApplication1.Views
                 }
             }
         }
+
+        
     }
 }
