@@ -6,21 +6,19 @@ using System.Threading.Tasks;
 
 namespace DXApplication1.Models
 {
-    class Dem
+    public class Dem
     {
         string _TenFile;
         string _Duongdan;
-        int maKH;
 
         public Dem()
         {
 
         }
-        public Dem(string ten, string duongdan, int mkh)
+        public Dem(string ten, string duongdan)
         {
             this._TenFile = ten;
             this._Duongdan = duongdan;
-            this.maKH = mkh;
         }
         public enum FileFields
         {
@@ -36,17 +34,6 @@ namespace DXApplication1.Models
                 if (_TenFile != value)
                 {
                     _TenFile = value;
-                }
-            }
-        }
-        public int MaKeHoach
-        {
-            get { return maKH; }
-            set
-            {
-                if (maKH != value)
-                {
-                    maKH = value;
                 }
             }
         }

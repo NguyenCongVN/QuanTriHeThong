@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
+using DevExpress.DataProcessing;
 
 namespace DXApplication1.Models
 {
@@ -14,6 +16,23 @@ namespace DXApplication1.Models
             HoTen,
             ThoiGianTao,
             MaDangNhapNguoiDung
+        }
+
+        enum FieldKeHoachBanDoFileDem
+        {
+            MaKeHoach,
+            TenKeHoach,
+            HoTen,
+            MaDangNhapNguoiDung,
+            ThoiGianTao,
+            MaBanDo,
+            TenBanDo,
+            DuongDanAnh,
+            TenFile,
+            DuongDanFile,
+            MaFile,
+            ChieuRong,
+            ChieuDai
         }
         public void ThemKeHoach(KeHoach keHoach)
         {
@@ -74,6 +93,70 @@ namespace DXApplication1.Models
             }
             Connection.Close();
             return keHoach;
+        }
+
+        public KeHoach GetKeHoachAndDetailById(int maKeHoach)
+        {
+            SqlCommand sqlCommand = new SqlCommand("LayKeHoachBanDoFileBangMa", Connection);
+            sqlCommand.Parameters.AddWithValue("@maKeHoach", maKeHoach);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            Connection.Open();
+            KeHoach keHoach;
+            using (SqlDataAdapter adpAdapter = new SqlDataAdapter(sqlCommand))
+            {
+                DataTable table = new DataTable();
+                adpAdapter.Fill(table);
+                keHoach = new KeHoach()
+                {
+                    MaNguoiLap = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.MaDangNhapNguoiDung),
+                    MaKeHoach = table.Rows[0].Field<int>((int)FieldKeHoachBanDoFileDem.MaKeHoach),
+                    TenKeHoach = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.TenKeHoach),
+                    TenNguoiLap = table.Rows[0].Field<string>((int)FieldKeHoachBanDoFileDem.HoTen),
+                    ThoiGianTao = table.Rows[0].Field<DateTime>((int)FieldKeHoachBanDoFileDem.ThoiGianTao),
+                };
+                if (table.Rows[0][((int) FieldKeHoachBanDoFileDem.MaBanDo)] != DBNull.Value)
+                {
+                    keHoach.BanDo = new BanDo()
+                    {
+                        MaBanDo = table.Rows[0].Field<int>((int) FieldKeHoachBanDoFileDem.MaBanDo),
+                        TenBanDo = table.Rows[0].Field<string>((int) FieldKeHoachBanDoFileDem.TenBanDo),
+                        DuongDanAnh = table.Rows[0].Field<string>((int) FieldKeHoachBanDoFileDem.DuongDanAnh)
+                    };
+                }
+
+                if (table.Rows[0][((int) FieldKeHoachBanDoFileDem.MaFile)] != DBNull.Value)
+                {
+                    keHoach.FileDem = new Dem()
+                    {
+                        MaFile = table.Rows[0].Field<int>((int) FieldKeHoachBanDoFileDem.MaFile),
+                        TenFile = table.Rows[0].Field<string>((int) FieldKeHoachBanDoFileDem.TenFile),
+                        DuongDan = table.Rows[0].Field<string>((int) FieldKeHoachBanDoFileDem.DuongDanFile)
+                    };
+                }
+            }
+            Connection.Close();
+            return keHoach;
+        }
+
+        public void UpdateKeHoach(KeHoach keHoach)
+        {
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("UpdateKeHoach", Connection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                Connection.Open();
+                sqlCommand.Parameters.AddWithValue("@maKeHoach", keHoach.MaKeHoach);
+                sqlCommand.Parameters.AddWithValue("@tenKeHoach", keHoach.TenKeHoach);
+                sqlCommand.Parameters.AddWithValue("@thoiGianTao", keHoach.ThoiGianTao);
+                sqlCommand.ExecuteScalar();
+                Connection.Close();
+                MessageBox.Show("Thành Công");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Có lỗi xảy ra");
+                return;
+            }
         }
     }
 }

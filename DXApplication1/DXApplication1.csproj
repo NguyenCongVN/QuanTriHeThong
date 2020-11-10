@@ -136,8 +136,12 @@
     <Compile Include="Models\QuyenSql.cs" />
     <Compile Include="Models\Quyen_LoaiQuyen.cs" />
     <Compile Include="Models\Quyen_LoaiQuyenSql.cs" />
+    <Compile Include="Models\ThongTinBanDoKeHoach.cs" />
+    <Compile Include="Models\ThongTinBanDoKeHoachSql.cs" />
     <Compile Include="Models\ThongTinChiTietDoiTuong.cs" />
     <Compile Include="Models\ThongTinChiTietDoiTuongSql.cs" />
+    <Compile Include="Models\ThongTinFileDemKeHoach.cs" />
+    <Compile Include="Models\ThongTinFileDemKeHoachSql.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Models\ThongTinNguoiDung.cs" />
     <Compile Include="Models\ThongTinNguoiDungSql.cs" />

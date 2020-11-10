@@ -301,6 +301,7 @@ namespace DXApplication1.Views
             // 
             // timerMP
             // 
+            this.timerMP.Interval = 10;
             this.timerMP.Tick += new System.EventHandler(this.timerMP_Tick);
             // 
             // panelMap
@@ -416,12 +417,39 @@ namespace DXApplication1.Views
             this.simpleButtonBatDau.Text = "Bắt đầu";
             this.simpleButtonBatDau.Click += new System.EventHandler(this.simpleButtonBatDau_Click);
             // 
+            // panelMap
+            // 
+            this.panelMap.AutoScroll = true;
+            this.panelMap.Controls.Add(this.pictureBoxMap);
+            this.panelMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMap.Location = new System.Drawing.Point(0, 0);
+            this.panelMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelMap.Name = "panelMap";
+            this.panelMap.Size = new System.Drawing.Size(488, 614);
+            this.panelMap.TabIndex = 14;
+            // 
+            // pictureBoxMap
+            // 
+            this.pictureBoxMap.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxMap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxMap.InitialImage = null;
+            this.pictureBoxMap.Location = new System.Drawing.Point(-81, 22);
+            this.pictureBoxMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxMap.Name = "pictureBoxMap";
+            this.pictureBoxMap.Size = new System.Drawing.Size(861, 266);
+            this.pictureBoxMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxMap.TabIndex = 0;
+            this.pictureBoxMap.TabStop = false;
+            this.pictureBoxMap.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // Frm_test1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1375, 756);
             this.Controls.Add(this.panelMap);
+            this.Controls.Add(this.panelMP);
             this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.panelNode);
             this.Controls.Add(this.panelSideBar);

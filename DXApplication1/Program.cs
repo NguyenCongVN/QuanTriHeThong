@@ -34,6 +34,8 @@ namespace DXApplication1
         public static Frm_test1 frm_Map;
         public static KeHoachSql KeHoachSql;
         public static ThongTinChiTietDoiTuongSql ThongTinChiTietDoiTuongSql;
+        public static ThongTinBanDoKeHoachSql ThongTinBanDoKeHoachSql;
+        public static ThongTinFileDemKeHoachSql ThongTinFileDemKeHoachSql;
         public static  NodeOnMap nodeOnMap;
 
         public static FileDem fileDem;
@@ -65,13 +67,14 @@ namespace DXApplication1
             ThongTinChiTietDoiTuongSql = new ThongTinChiTietDoiTuongSql();
             banDoSql = new BanDoSql();
             fileDemSql = new FileDemSql();
+            ThongTinBanDoKeHoachSql = new ThongTinBanDoKeHoachSql();
+            ThongTinFileDemKeHoachSql = new ThongTinFileDemKeHoachSql();
             lg = new frmLogin();
             frm_Map = new Frm_test1();
             nodeOnMap = new NodeOnMap();
             binhChung = new BinhChung();
             donVi = new DonVi();
             fileDem = new FileDem();
-            QuanLyBanDo = new QuanLyBanDo();
             Application.Run(lg);
         }
     }

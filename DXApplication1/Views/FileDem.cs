@@ -24,7 +24,6 @@ namespace DXApplication1.Views
 
         private void simpleButtonThem_Click(object sender, EventArgs e)
         {
-            txtMKH.ReadOnly = false;
             simpleButtonHuy.Visible = true;
             simpleButtonXN.Visible = true;
             txtDuongDan.ReadOnly = false;
@@ -47,7 +46,6 @@ namespace DXApplication1.Views
             simpleButtonHuy.Visible = true;
             simpleButtonXN.Visible = true;
             txtDuongDan.ReadOnly = false;
-            txtMKH.ReadOnly = false;
             opt = 2;
         }
 
@@ -70,13 +68,13 @@ namespace DXApplication1.Views
         {
             if(opt == 1)
             {
-                if(txtDuongDan.Text == null || txtTenFile.Text == null || txtMKH.Text == null)
+                if(txtDuongDan.Text == null || txtTenFile.Text == null)
                 {
                     MessageBox.Show("Bạn phải nhập đủ thông tin", "Error???");
                 }    
                 else
                 {
-                    Dem fdem = new Dem(txtTenFile.Text, txtDuongDan.Text, Convert.ToInt32(txtMKH.Text));
+                    Dem fdem = new Dem(txtTenFile.Text, txtDuongDan.Text);
                     if(demSql.Insert_FileDem(fdem) == true)
                     {
                         MessageBox.Show("Thêm thành công!");
@@ -84,9 +82,8 @@ namespace DXApplication1.Views
                         simpleButtonXN.Visible = false;
                         txtDuongDan.ReadOnly = true;
                         txtTenFile.ReadOnly = true;
-                        txtMKH.ReadOnly = true;
                         loadTable();
-                    }    
+                    }
                 }    
             }  
             else if(opt == 2)
@@ -97,30 +94,35 @@ namespace DXApplication1.Views
                 }
                 else
                 {
-                    Dem fdem = new Dem(txtTenFile.Text, txtDuongDan.Text, Convert.ToInt32(txtMKH.Text));
+                    Dem fdem = new Dem(txtTenFile.Text, txtDuongDan.Text);
                     if (demSql.UpdateDem(fdem) == true)
                     {
                         MessageBox.Show("Sửa thành công!");
                         simpleButtonHuy.Visible = false;
                         simpleButtonXN.Visible = false;
                         txtDuongDan.ReadOnly = true;
-                        txtMKH.ReadOnly = true;
                         loadTable();
                     }
                 }    
             }
             else if (opt == 3)
             {
-                    Dem fdem = new Dem(txtTenFile.Text, txtDuongDan.Text, Convert.ToInt32(txtMKH.Text));
+                if (txtTenFile.Text == null)
+                {
+                    MessageBox.Show("Bạn phải chọn 1 file trong bảng", "Error???");
+                }
+                else
+                {
+                    Dem fdem = new Dem(txtTenFile.Text, txtDuongDan.Text);
                     if (demSql.DeleteDem(fdem) == true)
                     {
                         MessageBox.Show("Xóa thành công!");
                         simpleButtonHuy.Visible = false;
                         simpleButtonXN.Visible = false;
                         loadTable();
-
-
                     }
+                }    
+                
             }
 
         }
@@ -136,16 +138,49 @@ namespace DXApplication1.Views
 
         private void dataGridViewDSDem_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-
-            txtTenFile.Text = dataGridViewDSDem.CurrentRow.Cells[1].Value.ToString();
-            txtDuongDan.Text = dataGridViewDSDem.CurrentRow.Cells[2].Value.ToString();
-            txtMKH.Text = dataGridViewDSDem.CurrentRow.Cells[3].Value.ToString();
-
+            if(dataGridViewDSDem.SelectedRows.Count > 0)
+            {
+                txtTenFile.Text = dataGridViewDSDem.SelectedRows[0].Cells[1].Value.ToString();
+                txtDuongDan.Text = dataGridViewDSDem.SelectedRows[0].Cells[2].Value.ToString();
+            }
         }
 
         private void dataGridViewDSDem_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
         {
             dataGridViewDSDem.Rows[e.RowIndex].Cells["STT"].Value = e.RowIndex + 1;
+        }
+
+        private void simpleButtonMo_Click(object sender, EventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            dialog.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (System.IO.File.Exists(dialog.FileName))
+                {
+                    txtDuongDan.Text = dialog.FileName;
+                }
+            }
+        }
+
+        private void searchLookUpEditDSNV_EditValueChanged(object sender, EventArgs e)
+        {
+            searchLookUpEditDSNV.Text = "";
+            var view = searchLookUpEditDSNV.Properties.View;
+            int row = view.FocusedRowHandle;
+            string fieldTenFile = "TenFile";
+            string fieldDuongDan = "DuongDan";
+            string fieldMaKeHoach = "MaKeHoach";
+            
+
+            object valueTenFile = view.GetRowCellValue(row, fieldTenFile);
+            object valueDuongDan = view.GetRowCellValue(row, fieldDuongDan);
+            object valueMaKeHoach = view.GetRowCellValue(row, fieldMaKeHoach);
+            
+
+            txtTenFile.Text = valueTenFile.ToString();
+            txtDuongDan.Text = valueDuongDan.ToString();
+            
         }
     }
 }

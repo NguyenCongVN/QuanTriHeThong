@@ -39,6 +39,11 @@
             this.btnRestore = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.barButtonItemBanDo = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbBackground = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -48,11 +53,6 @@
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
@@ -189,6 +189,42 @@
             this.barButtonItemBanDo.Name = "barButtonItemBanDo";
             this.barButtonItemBanDo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemBanDo_ItemClick);
             // 
+            // popupMenu1
+            // 
+            this.popupMenu1.ItemLinks.Add(this.barButtonItem2);
+            this.popupMenu1.ItemLinks.Add(this.barButtonItem3);
+            this.popupMenu1.ItemLinks.Add(this.barButtonItem4);
+            this.popupMenu1.ItemLinks.Add(this.barButtonItem5);
+            this.popupMenu1.Name = "popupMenu1";
+            this.popupMenu1.Ribbon = this.ribbonControl1;
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Mô phỏng";
+            this.barButtonItem2.Id = 17;
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "File";
+            this.barButtonItem3.Id = 18;
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "Phương án";
+            this.barButtonItem4.Id = 19;
+            this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "Thoát";
+            this.barButtonItem5.Id = 20;
+            this.barButtonItem5.Name = "barButtonItem5";
+            // 
             // rbpHeThong
             // 
             this.rbpHeThong.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -254,42 +290,6 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1375, 446);
             this.panelMain.TabIndex = 3;
-            // 
-            // popupMenu1
-            // 
-            this.popupMenu1.ItemLinks.Add(this.barButtonItem2);
-            this.popupMenu1.ItemLinks.Add(this.barButtonItem3);
-            this.popupMenu1.ItemLinks.Add(this.barButtonItem4);
-            this.popupMenu1.ItemLinks.Add(this.barButtonItem5);
-            this.popupMenu1.Name = "popupMenu1";
-            this.popupMenu1.Ribbon = this.ribbonControl1;
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Mô phỏng";
-            this.barButtonItem2.Id = 17;
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "File";
-            this.barButtonItem3.Id = 18;
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "Phương án";
-            this.barButtonItem4.Id = 19;
-            this.barButtonItem4.Name = "barButtonItem4";
-            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "Thoát";
-            this.barButtonItem5.Id = 20;
-            this.barButtonItem5.Name = "barButtonItem5";
             // 
             // FrmMain
             // 
