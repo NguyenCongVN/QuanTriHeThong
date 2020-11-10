@@ -47,7 +47,12 @@ namespace DXApplication1.Models
                 command.Parameters.AddWithValue("@chieuDaiAnh", doiTuong.ChieuDaiAnh);
                 command.Parameters.AddWithValue("@chieuNgang", doiTuong.ChieuNgang);
                 command.Parameters.AddWithValue("@chieuDoc", doiTuong.ChieuDoc);
-                command.Parameters.AddWithValue("@tenDoiTuong", doiTuong.TenDoiTuong);
+                if (doiTuong.TenDoiTuong != null)
+                    command.Parameters.AddWithValue("@tenDoiTuong", doiTuong.TenDoiTuong);
+                else
+                {
+                    command.Parameters.AddWithValue("@tenDoiTuong", string.Empty);
+                }
                 command.ExecuteScalar();
             }
             Connection.Close();

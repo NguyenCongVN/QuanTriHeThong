@@ -11,7 +11,7 @@ namespace DXApplication1.Utilizes
         public int MaFile { get; set; }
         public string TenFile { get; set; }
         public bool checkComboBox { get; set; } // true = ma , false = ten
-
+        public string DuongDan { get; set; }
         public override string ToString()
         {
             if (checkComboBox == true)

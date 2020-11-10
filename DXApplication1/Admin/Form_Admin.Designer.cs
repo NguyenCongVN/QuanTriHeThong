@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain_Admin));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnLogin = new DevExpress.XtraBars.BarButtonItem();
@@ -41,7 +40,6 @@
             this.barButtonItemPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemBanDo = new DevExpress.XtraBars.BarButtonItem();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
@@ -67,7 +65,6 @@
             this.panelMain = new System.Windows.Forms.Panel();
             this.rbData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -105,7 +102,6 @@
             this.rbpHeThong,
             this.rbpManage});
             this.ribbonControl1.Size = new System.Drawing.Size(1376, 149);
-            this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // btnLogin
             // 
@@ -232,7 +228,6 @@
             this.barButtonItemBanDo.ActAsDropDown = true;
             this.barButtonItemBanDo.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.barButtonItemBanDo.Caption = "Bản Đồ";
-            this.barButtonItemBanDo.DropDownControl = this.popupMenu1;
             this.barButtonItemBanDo.Id = 18;
             this.barButtonItemBanDo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemBanDo.ImageOptions.Image")));
             this.barButtonItemBanDo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemBanDo.ImageOptions.LargeImage")));
@@ -245,15 +240,6 @@
             this.barButtonItemBanDo.ItemAppearance.Pressed.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barButtonItemBanDo.ItemAppearance.Pressed.Options.UseFont = true;
             this.barButtonItemBanDo.Name = "barButtonItemBanDo";
-            // 
-            // popupMenu1
-            // 
-            this.popupMenu1.ItemLinks.Add(this.barButtonItem4);
-            this.popupMenu1.ItemLinks.Add(this.barButtonItem5);
-            this.popupMenu1.ItemLinks.Add(this.barButtonItem6);
-            this.popupMenu1.ItemLinks.Add(this.barButtonItem7);
-            this.popupMenu1.Name = "popupMenu1";
-            this.popupMenu1.Ribbon = this.ribbonControl1;
             // 
             // barButtonItem4
             // 
@@ -274,7 +260,6 @@
             this.barButtonItem6.Caption = "Phương Án";
             this.barButtonItem6.Id = 23;
             this.barButtonItem6.Name = "barButtonItem6";
-            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
             // barButtonItem7
             // 
@@ -449,7 +434,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,7 +462,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemNhanVien;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem barButtonItemBanDo;
-        private DevExpress.XtraBars.PopupMenu popupMenu1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;

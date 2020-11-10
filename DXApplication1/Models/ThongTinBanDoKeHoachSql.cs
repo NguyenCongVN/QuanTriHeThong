@@ -25,15 +25,12 @@ namespace DXApplication1.Models
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@maBanDo", thongTin.MaBanDo);
                 command.Parameters.AddWithValue("@maKeHoach", thongTin.MaKeHoach);
-                command.Parameters.AddWithValue("@chieuRong", thongTin.ChieuRong);
-                command.Parameters.AddWithValue("@chieuDai", thongTin.ChieuDai);
                 command.ExecuteScalar();
                 Connection.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show("Có lỗi xảy ra");
-                throw;
             }
             finally
             {
@@ -64,5 +61,30 @@ namespace DXApplication1.Models
             }
         }
 
+        public int GetIdThongTinBanDoKeHoach(int maKeHoach, int maBanDo)
+        {
+            try
+            {
+                Connection.Open();
+                SqlCommand command = new SqlCommand("GetIdThongTinBanDoKeHoach", Connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@maBanDo", maBanDo);
+                command.Parameters.AddWithValue("@maKeHoach", maKeHoach);
+                int ma = (int)command.ExecuteScalar();
+                Connection.Close();
+                return ma;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Có lỗi xảy ra");
+                throw;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        
     }
 }

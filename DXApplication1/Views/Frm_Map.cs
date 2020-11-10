@@ -80,7 +80,7 @@ namespace DXApplication1.Views
 
 
         // Bitmap Temp to be used in virtualization
-        Bitmap bitmapTemp = new Bitmap(bitmapInit1, 1201, 1201);
+        public Bitmap bitmapTemp = new Bitmap(bitmapInit1, 1201, 1201);
 
         // Bitmap to be used in resize mode
         public Bitmap bitmapResize = new Bitmap(bitmapInit1, 1201, 1201);
@@ -785,6 +785,11 @@ namespace DXApplication1.Views
 
         private void simpleButtonBatDau_Click(object sender, EventArgs e)
         {
+            if (Program.frm_Map.KeHoach.BanDo == null || Program.frm_Map.KeHoach.FileDem == null)
+            {
+                MessageBox.Show("Hãy chọn bản đồ và dữ liệu cho kế hoạch để mô phỏng");
+                return;
+            }
             Frm_test1.readyToWrite.Set();
             Program.frm_Map.a = new Thread((() =>
             {

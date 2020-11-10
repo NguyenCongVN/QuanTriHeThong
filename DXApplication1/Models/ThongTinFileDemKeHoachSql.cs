@@ -64,18 +64,18 @@ namespace DXApplication1.Models
             }
         }
 
-
-        public void LayThongTinFileDemKeHoachBangKeHoach(int maKeHoach)
+        public int GetIdThongTinFileDemKeHoach(int maKeHoach, int maFileDem)
         {
             try
             {
                 Connection.Open();
-                SqlCommand command = new SqlCommand("ThemThongTinFileDemKeHoach", Connection);
+                SqlCommand command = new SqlCommand("GetIdThongTinFileDemKeHoach", Connection);
                 command.CommandType = CommandType.StoredProcedure;
-                //command.Parameters.AddWithValue("@maFile", thongTin.MaFile);
-                //command.Parameters.AddWithValue("@maKeHoach", thongTin.MaKeHoach);
-                command.ExecuteScalar();
+                command.Parameters.AddWithValue("@maFileDem", maFileDem);
+                command.Parameters.AddWithValue("@maKeHoach", maKeHoach);
+                int ma = (int)command.ExecuteScalar();
                 Connection.Close();
+                return ma;
             }
             catch (Exception e)
             {
@@ -87,5 +87,29 @@ namespace DXApplication1.Models
                 Connection.Close();
             }
         }
+
+
+        //public void LayThongTinFileDemKeHoachBangKeHoach(int maKeHoach)
+        //{
+        //    try
+        //    {
+        //        Connection.Open();
+        //        SqlCommand command = new SqlCommand("ThemThongTinFileDemKeHoach", Connection);
+        //        command.CommandType = CommandType.StoredProcedure;
+        //        command.Parameters.AddWithValue("@maFile", thongTin.MaFile);
+        //        command.Parameters.AddWithValue("@maKeHoach", thongTin.MaKeHoach);
+        //        command.ExecuteScalar();
+        //        Connection.Close();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show("Có lỗi xảy ra");
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        Connection.Close();
+        //    }
+        //}
     }
 }
