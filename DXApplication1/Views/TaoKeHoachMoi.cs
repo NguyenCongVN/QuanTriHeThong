@@ -182,6 +182,22 @@ namespace DXApplication1.Views
             {
                 if (this.timeEditThoiGianLap.DateTime <= DateTime.Now)
                 {
+                    if (textEditTenPhuongAn.Text == string.Empty)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Bạn chưa đặt tên cho kế hoạch ! Bạn có muốn đặt tên không?", "Lưu ý", MessageBoxButtons.YesNoCancel);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            textEditTenPhuongAn.ReadOnly = false;
+                            timeEditThoiGianLap.ReadOnly = false;
+                            richEditControlChiTiet.ReadOnly = false;
+                            return;
+                        }
+                        else
+                        {
+                            if(dialogResult == DialogResult.Cancel)
+                            return;
+                        }
+                    }
                     if (comboBoxMaBanDo.SelectedItem == null || comboBoxMaFile.SelectedItem == null)
                     {
                         DialogResult dialogResult = MessageBox.Show("Bạn chưa chọn bản đồ hoặc kế hoạch ! Bạn có lưu lại luôn không?", "Lưu ý", MessageBoxButtons.YesNo);

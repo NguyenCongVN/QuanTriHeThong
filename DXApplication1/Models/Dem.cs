@@ -20,12 +20,6 @@ namespace DXApplication1.Models
             this._TenFile = ten;
             this._Duongdan = duongdan;
         }
-        public enum FileFields
-        {
-            TenFile,
-            DuongDan,
-            MaKeHoach
-        }
         public string TenFile
         {
             get { return _TenFile; }

@@ -66,7 +66,6 @@ namespace DXApplication1.Models
             values[2] = fdem.TenFile;
             values[1] = fdem.DuongDan;
             values[0] = fdem.MaFile;
-
             try
             {
                 connection connect = new connection();

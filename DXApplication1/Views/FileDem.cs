@@ -46,6 +46,7 @@ namespace DXApplication1.Views
             simpleButtonHuy.Visible = true;
             simpleButtonXN.Visible = true;
             txtDuongDan.ReadOnly = false;
+            txtTenFile.ReadOnly = false;
             opt = 2;
         }
 
@@ -84,8 +85,8 @@ namespace DXApplication1.Views
                         txtTenFile.ReadOnly = true;
                         loadTable();
                     }
-                }    
-            }  
+                }
+            }
             else if(opt == 2)
             {
                 if (txtDuongDan.Text == null || txtTenFile.Text == null)
@@ -94,7 +95,7 @@ namespace DXApplication1.Views
                 }
                 else
                 {
-                    Dem fdem = new Dem(txtTenFile.Text, txtDuongDan.Text);
+                    Dem fdem = new Dem(){TenFile = txtTenFile.Text,DuongDan = txtDuongDan.Text , MaFile = Int32.Parse(textEditMaFile.Text) };
                     if (demSql.UpdateDem(fdem) == true)
                     {
                         MessageBox.Show("Sửa thành công!");
@@ -103,7 +104,7 @@ namespace DXApplication1.Views
                         txtDuongDan.ReadOnly = true;
                         loadTable();
                     }
-                }    
+                }
             }
             else if (opt == 3)
             {
@@ -113,7 +114,7 @@ namespace DXApplication1.Views
                 }
                 else
                 {
-                    Dem fdem = new Dem(txtTenFile.Text, txtDuongDan.Text);
+                    Dem fdem = new Dem(){TenFile = txtTenFile.Text,DuongDan = txtDuongDan.Text , MaFile = Int32.Parse(textEditMaFile.Text)};
                     if (demSql.DeleteDem(fdem) == true)
                     {
                         MessageBox.Show("Xóa thành công!");
@@ -140,8 +141,9 @@ namespace DXApplication1.Views
         {
             if(dataGridViewDSDem.SelectedRows.Count > 0)
             {
-                txtTenFile.Text = dataGridViewDSDem.SelectedRows[0].Cells[1].Value.ToString();
-                txtDuongDan.Text = dataGridViewDSDem.SelectedRows[0].Cells[2].Value.ToString();
+                txtTenFile.Text = dataGridViewDSDem.SelectedRows[0].Cells["TenFile"].Value.ToString();
+                txtDuongDan.Text = dataGridViewDSDem.SelectedRows[0].Cells["DuongDan"].Value.ToString();
+                textEditMaFile.Text = dataGridViewDSDem.SelectedRows[0].Cells["MaFile"].Value.ToString();
             }
         }
 
