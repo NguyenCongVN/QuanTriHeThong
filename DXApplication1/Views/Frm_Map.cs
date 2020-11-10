@@ -327,7 +327,10 @@ namespace DXApplication1.Views
                 {
                     DoiTuong doiTuong = new DoiTuong();
                     doiTuong.ThongTinChiTietDoiTuong.MaDonVi = e.Node.Name;
-                    doiTuong.ThongTinChiTietDoiTuong.MaKeHoach = Program.frm_Map.KeHoach.MaKeHoach;
+                    if(Program.frm_Map.KeHoach != null)
+                    {
+                        doiTuong.ThongTinChiTietDoiTuong.MaKeHoach = Program.frm_Map.KeHoach.MaKeHoach;
+                    }
                     doiTuong.ThongTinChiTietDoiTuong.ChieuDoc = 10;
                     doiTuong.ThongTinChiTietDoiTuong.ChieuNgang = 10;
                     doiTuong.InitImage = imageListChild.Images[i];

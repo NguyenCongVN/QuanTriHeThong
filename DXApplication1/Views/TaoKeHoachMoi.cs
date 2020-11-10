@@ -182,7 +182,6 @@ namespace DXApplication1.Views
             {
                 if (this.timeEditThoiGianLap.DateTime <= DateTime.Now)
                 {
-
                     if (comboBoxMaBanDo.SelectedItem == null || comboBoxMaFile.SelectedItem == null)
                     {
                         DialogResult dialogResult = MessageBox.Show("Bạn chưa chọn bản đồ hoặc kế hoạch ! Bạn có lưu lại luôn không?", "Lưu ý", MessageBoxButtons.YesNo);
@@ -193,6 +192,8 @@ namespace DXApplication1.Views
                                 MaNguoiLap = Program.lg.UserLogin.MaDangNhapNguoiDung,
                                 TenKeHoach = textEditTenPhuongAn.Text
                             };
+                            Program.KeHoachSql.ThemKeHoach(keHoach);
+                            Program.frm_Map.KeHoach = keHoach;
                             List<ThongTinChiTietDoiTuong> list = new List<ThongTinChiTietDoiTuong>();
                             for (int i = 0; i < Count.IntVar; i++)
                             {
@@ -209,9 +210,6 @@ namespace DXApplication1.Views
                                     TenDoiTuong = isChange.DoiTuongs[i].ThongTinChiTietDoiTuong.TenDoiTuong
                                 });
                             }
-
-                            Program.KeHoachSql.ThemKeHoach(keHoach);
-                            Program.frm_Map.KeHoach = keHoach;
                             Program.ThongTinChiTietDoiTuongSql.AddDoiTuong(list);
                             MessageBox.Show("Thành Công");
                             LoadKeHoach();
