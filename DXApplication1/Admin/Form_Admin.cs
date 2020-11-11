@@ -171,7 +171,7 @@ namespace DXApplication1
 
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (Program.fileDem.IsDisposed)
+            if (Program.fileDem==null||Program.fileDem.IsDisposed)
             {
                 Program.fileDem = new FileDem();
                 Program.fileDem.Show();
@@ -184,7 +184,7 @@ namespace DXApplication1
 
         private void barButtonItemQLBanDo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (Program.QuanLyBanDo.IsDisposed)
+            if (Program.QuanLyBanDo==null || Program.QuanLyBanDo.IsDisposed)
             {
                 Program.QuanLyBanDo = new QuanLyBanDo();
                 Program.QuanLyBanDo.ShowDialog();
@@ -197,7 +197,7 @@ namespace DXApplication1
 
         private void barButtonItemQuanLyDuLieuTranDau_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (Program.fileDem.IsDisposed)
+            if (Program.fileDem == null || Program.fileDem.IsDisposed)
             {
                 Program.fileDem = new FileDem();
                 Program.fileDem.ShowDialog();

@@ -191,5 +191,10 @@ namespace DXApplication1.Views
                 }
             }
         }
+
+        private void labelDanhSachBanDo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
