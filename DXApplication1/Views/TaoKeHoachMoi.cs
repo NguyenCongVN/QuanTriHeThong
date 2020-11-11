@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Braincase.USGS.DEM;
 using ComboBoxItemBanDo = DXApplication1.Utilizes.ComboBoxItemBanDo;
+using System.IO;
 
 namespace DXApplication1.Views
 {
@@ -371,18 +372,25 @@ namespace DXApplication1.Views
             Program.frm_Map.KeHoach = keHoach;
             if (keHoach.BanDo != null)
             {
-                Frm_test1.bitmapInit1 = new Bitmap(keHoach.BanDo.DuongDanAnh);
+                if(File.Exists(keHoach.BanDo.DuongDanAnh))
+                {
+                    Frm_test1.bitmapInit1 = new Bitmap(keHoach.BanDo.DuongDanAnh);
 
-                // Resize bitmap background
-                Program.frm_Map.bitmapInit = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+                    // Resize bitmap background
+                    Program.frm_Map.bitmapInit = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
 
-                Program.frm_Map.pictureBoxMap.Image = Program.frm_Map.bitmapInit;
+                    Program.frm_Map.pictureBoxMap.Image = Program.frm_Map.bitmapInit;
 
-                // Bitmap Temp to be used in virtualization
-                Program.frm_Map.bitmapTemp = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+                    // Bitmap Temp to be used in virtualization
+                    Program.frm_Map.bitmapTemp = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
 
-                // Bitmap to be used in resize mode
-                Program.frm_Map.bitmapResize = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+                    // Bitmap to be used in resize mode
+                    Program.frm_Map.bitmapResize = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+                }
+               else
+                {
+                    MessageBox.Show("Không tồn tại file bản đồ");
+                }
             }
 
             if (keHoach.FileDem != null)
