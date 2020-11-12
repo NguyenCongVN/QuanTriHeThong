@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gridViewDetail = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumnCheck = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -50,8 +50,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonLuu = new System.Windows.Forms.Button();
             this.buttonThoat = new System.Windows.Forms.Button();
-            this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.sidePanelQuanLy = new DevExpress.XtraEditors.SidePanel();
+            this.labelTieuDe = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMainPhanQuyen)).BeginInit();
@@ -61,7 +61,7 @@
             this.panelVaitro.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.sidePanel1.SuspendLayout();
+            this.sidePanelQuanLy.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridViewDetail
@@ -140,10 +140,10 @@
             // 
             this.gridControlMainPhanQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlMainPhanQuyen.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            gridLevelNode2.LevelTemplate = this.gridViewDetail;
-            gridLevelNode2.RelationName = "Detail";
+            gridLevelNode1.LevelTemplate = this.gridViewDetail;
+            gridLevelNode1.RelationName = "Detail";
             this.gridControlMainPhanQuyen.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridControlMainPhanQuyen.Location = new System.Drawing.Point(3, 17);
             this.gridControlMainPhanQuyen.MainView = this.gridViewMain;
             this.gridControlMainPhanQuyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -329,30 +329,30 @@
             this.buttonThoat.Text = "Thoát";
             this.buttonThoat.UseVisualStyleBackColor = false;
             // 
-            // sidePanel1
+            // sidePanelQuanLy
             // 
-            this.sidePanel1.Appearance.BackColor = System.Drawing.Color.GhostWhite;
-            this.sidePanel1.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.sidePanel1.Appearance.Options.UseBackColor = true;
-            this.sidePanel1.Appearance.Options.UseBorderColor = true;
-            this.sidePanel1.Controls.Add(this.groupBox1);
-            this.sidePanel1.Controls.Add(this.panelVaitro);
-            this.sidePanel1.Controls.Add(this.groupBox2);
-            this.sidePanel1.Location = new System.Drawing.Point(480, 71);
-            this.sidePanel1.Name = "sidePanel1";
-            this.sidePanel1.Size = new System.Drawing.Size(828, 454);
-            this.sidePanel1.TabIndex = 14;
-            this.sidePanel1.Text = "sidePanel1";
+            this.sidePanelQuanLy.Appearance.BackColor = System.Drawing.Color.GhostWhite;
+            this.sidePanelQuanLy.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sidePanelQuanLy.Appearance.Options.UseBackColor = true;
+            this.sidePanelQuanLy.Appearance.Options.UseBorderColor = true;
+            this.sidePanelQuanLy.Controls.Add(this.groupBox1);
+            this.sidePanelQuanLy.Controls.Add(this.panelVaitro);
+            this.sidePanelQuanLy.Controls.Add(this.groupBox2);
+            this.sidePanelQuanLy.Location = new System.Drawing.Point(480, 71);
+            this.sidePanelQuanLy.Name = "sidePanelQuanLy";
+            this.sidePanelQuanLy.Size = new System.Drawing.Size(828, 454);
+            this.sidePanelQuanLy.TabIndex = 14;
+            this.sidePanelQuanLy.Text = "sidePanel1";
             // 
-            // label1
+            // labelTieuDe
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(713, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(419, 19);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "QUẢN LÝ CHỨC VỤ VÀ PHÂN QUYỀN NGƯỜI DÙNG";
+            this.labelTieuDe.AutoSize = true;
+            this.labelTieuDe.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTieuDe.Location = new System.Drawing.Point(713, 33);
+            this.labelTieuDe.Name = "labelTieuDe";
+            this.labelTieuDe.Size = new System.Drawing.Size(419, 19);
+            this.labelTieuDe.TabIndex = 15;
+            this.labelTieuDe.Text = "QUẢN LÝ CHỨC VỤ VÀ PHÂN QUYỀN NGƯỜI DÙNG";
             // 
             // Phanquyen
             // 
@@ -360,9 +360,9 @@
             this.Appearance.Options.UseBorderColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1791, 644);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.sidePanel1);
+            this.ClientSize = new System.Drawing.Size(1376, 644);
+            this.Controls.Add(this.labelTieuDe);
+            this.Controls.Add(this.sidePanelQuanLy);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Phanquyen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -379,7 +379,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.sidePanel1.ResumeLayout(false);
+            this.sidePanelQuanLy.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,7 +406,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonLuu;
         private System.Windows.Forms.Button buttonThoat;
-        private DevExpress.XtraEditors.SidePanel sidePanel1;
-        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.SidePanel sidePanelQuanLy;
+        private System.Windows.Forms.Label labelTieuDe;
     }
 }

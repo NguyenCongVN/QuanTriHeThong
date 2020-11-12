@@ -40,6 +40,8 @@ namespace DXApplication1.Admin
             AddChucVuVaoCombobox();
             gridViewMain.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             gridViewDetail.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            DesignHelper.AlignControlLocationX(sidePanelQuanLy);
+            DesignHelper.AlignControlLocationX(labelTieuDe);
         }
         #endregion
 
