@@ -1,0 +1,12 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+CREATE PROC [dbo].[Delete_FileDem](@MaFile int)
+AS BEGIN
+	DELETE FileDem WHERE MaFile = @MaFile
+	END
+
+
+GO

@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROC [dbo].[XoaDoiTuong](@maDoiTuong INT)
+AS
+BEGIN
+DELETE FROM dbo.DoiTuong
+WHERE MaDoiTuong = @maDoiTuong
+END
+GO

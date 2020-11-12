@@ -1,0 +1,12 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+CREATE PROC [dbo].[XoaDonVi](@maDonVi varCHAR(10))
+AS
+BEGIN
+	DELETE dbo.DonVi WHERE MaDonVi = @maDonVi
+END
+
+GO

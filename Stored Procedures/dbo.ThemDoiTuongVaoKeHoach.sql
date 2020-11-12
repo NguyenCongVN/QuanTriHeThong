@@ -2,13 +2,18 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-CREATE PROC [dbo].[ThemDoiTuongVaoKeHoach](@maDonVi char(10) ,
-@moTa nvarchar(250),
+
+
+CREATE PROC [dbo].[ThemDoiTuongVaoKeHoach](@maDonVi VARCHAR(10) ,
+@moTa NVARCHAR(250),
 @toaDoX INT,
 @toaDoY INT,
 @maKeHoach INT,
 @chieuRongAnh INT,
-@chieuDaiAnh int )
+@chieuDaiAnh INT,
+@chieuNgang INT , 
+@chieuDoc INT,
+@tenDoiTuong nvarchar(50))
 AS
 BEGIN
 INSERT INTO dbo.DoiTuong
@@ -18,7 +23,10 @@ INSERT INTO dbo.DoiTuong
           ToaDoY ,
           MaKeHoach ,
           ChieuRongAnh ,
-          ChieuDaiAnh
+          ChieuDaiAnh,
+		  ChieuNgang,
+		  ChieuDoc,
+		  TenDoiTuong
         )
 VALUES  ( @maDonVi , -- MaDonVi - char(10)
           @moTa , -- MoTa - nvarchar(250)
@@ -26,7 +34,12 @@ VALUES  ( @maDonVi , -- MaDonVi - char(10)
           @toaDoY , -- ToaDoY - int
           @maKeHoach , -- MaKeHoach - int
           @chieuRongAnh , -- ChieuRongAnh - int
-          @chieuDaiAnh  -- ChieuDaiAnh - int
+          @chieuDaiAnh,  -- ChieuDaiAnh - int
+		  @chieuNgang,
+		  @chieuDoc,
+		  @tenDoiTuong
         )
-end
+END
+
+
 GO

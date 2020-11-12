@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[BanDo]
+(
+[MaBanDo] [int] NOT NULL IDENTITY(1, 1),
+[TenBanDo] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[DuongDanAnh] [varchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[BanDo] ADD CONSTRAINT [PK_BanDo] PRIMARY KEY CLUSTERED  ([MaBanDo]) ON [PRIMARY]
+GO
