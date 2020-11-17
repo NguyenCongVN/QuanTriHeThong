@@ -36,8 +36,6 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.timeEditThoiGianLap = new DevExpress.XtraEditors.DateEdit();
-            this.richEditControlChiTiet = new DevExpress.XtraRichEdit.RichEditControl();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonThem = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonXoa = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonLuu = new DevExpress.XtraEditors.SimpleButton();
@@ -146,24 +144,6 @@
             this.timeEditThoiGianLap.Size = new System.Drawing.Size(361, 20);
             this.timeEditThoiGianLap.TabIndex = 15;
             // 
-            // richEditControlChiTiet
-            // 
-            this.richEditControlChiTiet.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
-            this.richEditControlChiTiet.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
-            this.richEditControlChiTiet.Location = new System.Drawing.Point(153, 76);
-            this.richEditControlChiTiet.Name = "richEditControlChiTiet";
-            this.richEditControlChiTiet.ReadOnly = true;
-            this.richEditControlChiTiet.Size = new System.Drawing.Size(361, 122);
-            this.richEditControlChiTiet.TabIndex = 16;
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Location = new System.Drawing.Point(17, 82);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(89, 13);
-            this.labelControl8.TabIndex = 18;
-            this.labelControl8.Text = "Chi tiết phương án";
-            // 
             // simpleButtonThem
             // 
             this.simpleButtonThem.Location = new System.Drawing.Point(519, 23);
@@ -217,13 +197,13 @@
             this.dataGridViewKeHoach.Name = "dataGridViewKeHoach";
             this.dataGridViewKeHoach.RowHeadersWidth = 51;
             this.dataGridViewKeHoach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewKeHoach.Size = new System.Drawing.Size(613, 221);
+            this.dataGridViewKeHoach.Size = new System.Drawing.Size(613, 309);
             this.dataGridViewKeHoach.TabIndex = 25;
             this.dataGridViewKeHoach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKeHoach_CellClick);
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(17, 220);
+            this.labelControl1.Location = new System.Drawing.Point(17, 81);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(82, 13);
             this.labelControl1.TabIndex = 26;
@@ -232,7 +212,7 @@
             // comboBoxMaBanDo
             // 
             this.comboBoxMaBanDo.FormattingEnabled = true;
-            this.comboBoxMaBanDo.Location = new System.Drawing.Point(173, 216);
+            this.comboBoxMaBanDo.Location = new System.Drawing.Point(173, 77);
             this.comboBoxMaBanDo.Name = "comboBoxMaBanDo";
             this.comboBoxMaBanDo.Size = new System.Drawing.Size(126, 21);
             this.comboBoxMaBanDo.TabIndex = 27;
@@ -241,7 +221,7 @@
             // comboBoxMaFile
             // 
             this.comboBoxMaFile.FormattingEnabled = true;
-            this.comboBoxMaFile.Location = new System.Drawing.Point(173, 249);
+            this.comboBoxMaFile.Location = new System.Drawing.Point(173, 110);
             this.comboBoxMaFile.Name = "comboBoxMaFile";
             this.comboBoxMaFile.Size = new System.Drawing.Size(126, 21);
             this.comboBoxMaFile.TabIndex = 29;
@@ -249,7 +229,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(17, 249);
+            this.labelControl3.Location = new System.Drawing.Point(17, 110);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(66, 13);
             this.labelControl3.TabIndex = 28;
@@ -258,7 +238,7 @@
             // comboBoxTenFile
             // 
             this.comboBoxTenFile.FormattingEnabled = true;
-            this.comboBoxTenFile.Location = new System.Drawing.Point(359, 249);
+            this.comboBoxTenFile.Location = new System.Drawing.Point(359, 110);
             this.comboBoxTenFile.Name = "comboBoxTenFile";
             this.comboBoxTenFile.Size = new System.Drawing.Size(155, 21);
             this.comboBoxTenFile.TabIndex = 31;
@@ -267,7 +247,7 @@
             // comboBoxTenBanDo
             // 
             this.comboBoxTenBanDo.FormattingEnabled = true;
-            this.comboBoxTenBanDo.Location = new System.Drawing.Point(359, 216);
+            this.comboBoxTenBanDo.Location = new System.Drawing.Point(359, 77);
             this.comboBoxTenBanDo.Name = "comboBoxTenBanDo";
             this.comboBoxTenBanDo.Size = new System.Drawing.Size(155, 21);
             this.comboBoxTenBanDo.TabIndex = 30;
@@ -275,7 +255,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(153, 252);
+            this.labelControl4.Location = new System.Drawing.Point(153, 113);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(14, 13);
             this.labelControl4.TabIndex = 33;
@@ -283,7 +263,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(153, 219);
+            this.labelControl5.Location = new System.Drawing.Point(153, 80);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(14, 13);
             this.labelControl5.TabIndex = 32;
@@ -291,7 +271,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(335, 252);
+            this.labelControl6.Location = new System.Drawing.Point(335, 113);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(18, 13);
             this.labelControl6.TabIndex = 35;
@@ -299,7 +279,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(335, 219);
+            this.labelControl10.Location = new System.Drawing.Point(335, 80);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(18, 13);
             this.labelControl10.TabIndex = 34;
@@ -324,9 +304,7 @@
             this.groupBox1.Controls.Add(this.labelControl10);
             this.groupBox1.Controls.Add(this.labelControl7);
             this.groupBox1.Controls.Add(this.labelControl4);
-            this.groupBox1.Controls.Add(this.richEditControlChiTiet);
             this.groupBox1.Controls.Add(this.labelControl5);
-            this.groupBox1.Controls.Add(this.labelControl8);
             this.groupBox1.Controls.Add(this.comboBoxTenFile);
             this.groupBox1.Controls.Add(this.simpleButtonThem);
             this.groupBox1.Controls.Add(this.comboBoxTenBanDo);
@@ -341,7 +319,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 46);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(619, 283);
+            this.groupBox1.Size = new System.Drawing.Size(619, 195);
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phương án";
@@ -350,9 +328,9 @@
             // 
             this.groupBox2.Controls.Add(this.dataGridViewKeHoach);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 329);
+            this.groupBox2.Location = new System.Drawing.Point(0, 241);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(619, 241);
+            this.groupBox2.Size = new System.Drawing.Size(619, 329);
             this.groupBox2.TabIndex = 38;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách phương án";
@@ -390,8 +368,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.DateEdit timeEditThoiGianLap;
-        private DevExpress.XtraRichEdit.RichEditControl richEditControlChiTiet;
-        private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.SimpleButton simpleButtonThem;
         private DevExpress.XtraEditors.SimpleButton simpleButtonXoa;
         private DevExpress.XtraEditors.SimpleButton simpleButtonLuu;
