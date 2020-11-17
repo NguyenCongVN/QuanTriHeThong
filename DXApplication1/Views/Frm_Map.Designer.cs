@@ -317,10 +317,9 @@ namespace DXApplication1.Views
             // 
             this.pictureBoxMap.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxMap.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBoxMap.InitialImage = null;
             this.pictureBoxMap.Location = new System.Drawing.Point(-69, 18);
-            this.pictureBoxMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxMap.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBoxMap.Name = "pictureBoxMap";
             this.pictureBoxMap.Size = new System.Drawing.Size(861, 266);
             this.pictureBoxMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;

@@ -122,6 +122,7 @@ namespace DXApplication1.Views
             hided = true;
             hidedFile = true;
             pictureBoxMap.MouseWheel += PictureBoxMap_MouseWheel;
+            pictureBoxMap.Margin = new Padding(0);
         }
 
         // Ke Hoach
@@ -461,13 +462,16 @@ namespace DXApplication1.Views
                         }
                         Debug.WriteLine("Size of bitmapInit1 :" + bitmapInit1.Size);
                         Debug.WriteLine("Size of picuteBox after :" + pictureBoxMap.Size);
+                        Debug.WriteLine("Size of picture in picturebox after :" + pictureBoxMap.Image.Size);
                         Debug.WriteLine("Size of resize :" + widthResize + " " + heightResize);
                         bitmapResize = new Bitmap(bitmapTemp, pictureBoxMap.Width + widthResize,
                             pictureBoxMap.Height + heightResize);
+                        Debug.WriteLine("Size of bitmap resize :" + bitmapResize.Size);
                         _mPictureBox.Invoke((MethodInvoker) delegate
                         {
                             // Running on the UI thread
                             _mPictureBox.Image = bitmapResize;
+                            Debug.WriteLine("Size of picuteBox after invoke :" + pictureBoxMap.Size);
                         });
                     }
                 }
