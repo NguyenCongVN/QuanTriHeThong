@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Threading;
@@ -402,7 +403,6 @@ namespace DXApplication1.Views
                         }
                     }
                 }
-
                 readyToRead.Set();
             }
         }
@@ -439,7 +439,8 @@ namespace DXApplication1.Views
                     {
                         //var bitmap = new Bitmap(_mDem.ARecord.northings_rows, _mDem.ARecord.eastings_cols);
                         bitmapTemp = new Bitmap(bitmapInit1, 1201, 1201);
-
+                        Debug.WriteLine("Size of bitmapInit1 :" + bitmapInit1.Size);
+                        Debug.WriteLine("Size of picuteBox before :" + pictureBoxMap.Size);
                         for (var col = 0; col < _mDem.ARecord.eastings_cols; col++)
                         for (var row = 0; row < _mDem.ARecord.northings_rows; row++)
                         {
@@ -458,10 +459,11 @@ namespace DXApplication1.Views
                                         DrawHelper.GetGreenYellowRedByPropotion(0, max - min));
                                 //bitmap.SetPixel(col, _mDem.ARecord.northings_rows - row - 1, Color.FromArgb(128, 128, 0));
                         }
-
+                        Debug.WriteLine("Size of bitmapInit1 :" + bitmapInit1.Size);
+                        Debug.WriteLine("Size of picuteBox after :" + pictureBoxMap.Size);
+                        Debug.WriteLine("Size of resize :" + widthResize + " " + heightResize);
                         bitmapResize = new Bitmap(bitmapTemp, pictureBoxMap.Width + widthResize,
                             pictureBoxMap.Height + heightResize);
-
                         _mPictureBox.Invoke((MethodInvoker) delegate
                         {
                             // Running on the UI thread
