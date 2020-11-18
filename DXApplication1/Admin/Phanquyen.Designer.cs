@@ -46,8 +46,12 @@
             this.buttonThemChucVu = new System.Windows.Forms.Button();
             this.comboBoxChucVu = new System.Windows.Forms.ComboBox();
             this.labelVaitro = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonLuu = new System.Windows.Forms.Button();
             this.buttonThoat = new System.Windows.Forms.Button();
+            this.sidePanelQuanLy = new DevExpress.XtraEditors.SidePanel();
+            this.labelTieuDe = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlMainPhanQuyen)).BeginInit();
@@ -55,6 +59,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.panelVaitro.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.sidePanelQuanLy.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridViewDetail
@@ -63,7 +70,8 @@
             this.gridColumnCheck,
             this.gridColumnQuyenId,
             this.gridColumnThaoTac});
-            this.gridViewDetail.CustomizationFormBounds = new System.Drawing.Rectangle(1044, 202, 322, 276);
+            this.gridViewDetail.CustomizationFormBounds = new System.Drawing.Rectangle(1044, 202, 276, 224);
+            this.gridViewDetail.DetailHeight = 284;
             this.gridViewDetail.GridControl = this.gridControlMainPhanQuyen;
             this.gridViewDetail.Name = "gridViewDetail";
             this.gridViewDetail.OptionsCustomization.AllowRowSizing = true;
@@ -80,12 +88,12 @@
             this.gridColumnCheck.Caption = "Check";
             this.gridColumnCheck.ColumnEdit = this.repositoryItemCheckEdit1;
             this.gridColumnCheck.FieldName = "Check";
-            this.gridColumnCheck.MinWidth = 24;
+            this.gridColumnCheck.MinWidth = 21;
             this.gridColumnCheck.Name = "gridColumnCheck";
             this.gridColumnCheck.OptionsColumn.FixedWidth = true;
             this.gridColumnCheck.Visible = true;
             this.gridColumnCheck.VisibleIndex = 0;
-            this.gridColumnCheck.Width = 500;
+            this.gridColumnCheck.Width = 429;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -104,13 +112,13 @@
             this.gridColumnQuyenId.AppearanceHeader.Options.UseFont = true;
             this.gridColumnQuyenId.Caption = "QuyenId";
             this.gridColumnQuyenId.FieldName = "QuyenId";
-            this.gridColumnQuyenId.MinWidth = 24;
+            this.gridColumnQuyenId.MinWidth = 21;
             this.gridColumnQuyenId.Name = "gridColumnQuyenId";
             this.gridColumnQuyenId.OptionsColumn.AllowEdit = false;
             this.gridColumnQuyenId.OptionsColumn.FixedWidth = true;
             this.gridColumnQuyenId.Visible = true;
             this.gridColumnQuyenId.VisibleIndex = 1;
-            this.gridColumnQuyenId.Width = 640;
+            this.gridColumnQuyenId.Width = 549;
             // 
             // gridColumnThaoTac
             // 
@@ -120,28 +128,29 @@
             this.gridColumnThaoTac.AppearanceHeader.Options.UseFont = true;
             this.gridColumnThaoTac.Caption = "Mô Tả";
             this.gridColumnThaoTac.FieldName = "MoTa";
-            this.gridColumnThaoTac.MinWidth = 24;
+            this.gridColumnThaoTac.MinWidth = 21;
             this.gridColumnThaoTac.Name = "gridColumnThaoTac";
             this.gridColumnThaoTac.OptionsColumn.AllowEdit = false;
             this.gridColumnThaoTac.OptionsColumn.FixedWidth = true;
             this.gridColumnThaoTac.Visible = true;
             this.gridColumnThaoTac.VisibleIndex = 2;
-            this.gridColumnThaoTac.Width = 800;
+            this.gridColumnThaoTac.Width = 686;
             // 
             // gridControlMainPhanQuyen
             // 
+            this.gridControlMainPhanQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlMainPhanQuyen.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             gridLevelNode1.LevelTemplate = this.gridViewDetail;
             gridLevelNode1.RelationName = "Detail";
             this.gridControlMainPhanQuyen.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.gridControlMainPhanQuyen.Location = new System.Drawing.Point(553, 79);
+            this.gridControlMainPhanQuyen.Location = new System.Drawing.Point(3, 17);
             this.gridControlMainPhanQuyen.MainView = this.gridViewMain;
             this.gridControlMainPhanQuyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControlMainPhanQuyen.Name = "gridControlMainPhanQuyen";
             this.gridControlMainPhanQuyen.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gridControlMainPhanQuyen.Size = new System.Drawing.Size(1023, 666);
+            this.gridControlMainPhanQuyen.Size = new System.Drawing.Size(822, 319);
             this.gridControlMainPhanQuyen.TabIndex = 1;
             this.gridControlMainPhanQuyen.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewMain,
@@ -153,6 +162,7 @@
             // 
             this.gridViewMain.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumnQuyen});
+            this.gridViewMain.DetailHeight = 284;
             this.gridViewMain.GridControl = this.gridControlMainPhanQuyen;
             this.gridViewMain.Name = "gridViewMain";
             this.gridViewMain.OptionsCustomization.AllowRowSizing = true;
@@ -175,16 +185,17 @@
             this.gridColumnQuyen.AppearanceHeader.Options.UseForeColor = true;
             this.gridColumnQuyen.Caption = "QUYỀN";
             this.gridColumnQuyen.FieldName = "MoTa";
-            this.gridColumnQuyen.MinWidth = 24;
+            this.gridColumnQuyen.MinWidth = 21;
             this.gridColumnQuyen.Name = "gridColumnQuyen";
             this.gridColumnQuyen.OptionsColumn.AllowEdit = false;
             this.gridColumnQuyen.OptionsColumn.FixedWidth = true;
             this.gridColumnQuyen.Visible = true;
             this.gridColumnQuyen.VisibleIndex = 0;
-            this.gridColumnQuyen.Width = 94;
+            this.gridColumnQuyen.Width = 81;
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControlMainPhanQuyen;
             this.gridView1.Name = "gridView1";
             // 
@@ -195,22 +206,23 @@
             this.panelVaitro.Controls.Add(this.buttonThemChucVu);
             this.panelVaitro.Controls.Add(this.comboBoxChucVu);
             this.panelVaitro.Controls.Add(this.labelVaitro);
-            this.panelVaitro.Location = new System.Drawing.Point(238, 11);
+            this.panelVaitro.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelVaitro.Location = new System.Drawing.Point(0, 0);
             this.panelVaitro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelVaitro.Name = "panelVaitro";
-            this.panelVaitro.Size = new System.Drawing.Size(309, 756);
+            this.panelVaitro.Size = new System.Drawing.Size(828, 57);
             this.panelVaitro.TabIndex = 0;
             // 
             // buttonXoaChucVu
             // 
             this.buttonXoaChucVu.AutoSize = true;
-            this.buttonXoaChucVu.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonXoaChucVu.BackColor = System.Drawing.Color.Transparent;
             this.buttonXoaChucVu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonXoaChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonXoaChucVu.Location = new System.Drawing.Point(6, 308);
+            this.buttonXoaChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonXoaChucVu.Location = new System.Drawing.Point(655, 13);
             this.buttonXoaChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonXoaChucVu.Name = "buttonXoaChucVu";
-            this.buttonXoaChucVu.Size = new System.Drawing.Size(232, 46);
+            this.buttonXoaChucVu.Size = new System.Drawing.Size(126, 31);
             this.buttonXoaChucVu.TabIndex = 9;
             this.buttonXoaChucVu.Text = "Xoá chức vụ";
             this.buttonXoaChucVu.UseVisualStyleBackColor = false;
@@ -219,13 +231,13 @@
             // buttonSuaChucVu
             // 
             this.buttonSuaChucVu.AutoSize = true;
-            this.buttonSuaChucVu.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonSuaChucVu.BackColor = System.Drawing.Color.Transparent;
             this.buttonSuaChucVu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSuaChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonSuaChucVu.Location = new System.Drawing.Point(6, 234);
+            this.buttonSuaChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonSuaChucVu.Location = new System.Drawing.Point(523, 13);
             this.buttonSuaChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSuaChucVu.Name = "buttonSuaChucVu";
-            this.buttonSuaChucVu.Size = new System.Drawing.Size(232, 46);
+            this.buttonSuaChucVu.Size = new System.Drawing.Size(129, 31);
             this.buttonSuaChucVu.TabIndex = 8;
             this.buttonSuaChucVu.Text = "Sửa chức vụ";
             this.buttonSuaChucVu.UseVisualStyleBackColor = false;
@@ -234,13 +246,13 @@
             // buttonThemChucVu
             // 
             this.buttonThemChucVu.AutoSize = true;
-            this.buttonThemChucVu.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonThemChucVu.BackColor = System.Drawing.Color.Transparent;
             this.buttonThemChucVu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThemChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonThemChucVu.Location = new System.Drawing.Point(6, 158);
+            this.buttonThemChucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonThemChucVu.Location = new System.Drawing.Point(389, 13);
             this.buttonThemChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonThemChucVu.Name = "buttonThemChucVu";
-            this.buttonThemChucVu.Size = new System.Drawing.Size(232, 46);
+            this.buttonThemChucVu.Size = new System.Drawing.Size(128, 31);
             this.buttonThemChucVu.TabIndex = 7;
             this.buttonThemChucVu.Text = "Thêm chức vụ";
             this.buttonThemChucVu.UseVisualStyleBackColor = false;
@@ -250,66 +262,111 @@
             // 
             this.comboBoxChucVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxChucVu.FormattingEnabled = true;
-            this.comboBoxChucVu.Location = new System.Drawing.Point(6, 47);
+            this.comboBoxChucVu.Location = new System.Drawing.Point(129, 13);
             this.comboBoxChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxChucVu.Name = "comboBoxChucVu";
-            this.comboBoxChucVu.Size = new System.Drawing.Size(280, 30);
+            this.comboBoxChucVu.Size = new System.Drawing.Size(241, 27);
             this.comboBoxChucVu.TabIndex = 2;
             this.comboBoxChucVu.SelectedIndexChanged += new System.EventHandler(this.comboBoxChucVu_SelectedIndexChanged);
             // 
             // labelVaitro
             // 
-            this.labelVaitro.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelVaitro.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVaitro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelVaitro.Location = new System.Drawing.Point(0, 0);
+            this.labelVaitro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelVaitro.Location = new System.Drawing.Point(15, 11);
             this.labelVaitro.Name = "labelVaitro";
-            this.labelVaitro.Size = new System.Drawing.Size(309, 32);
+            this.labelVaitro.Size = new System.Drawing.Size(108, 26);
             this.labelVaitro.TabIndex = 0;
             this.labelVaitro.Text = "Chức vụ";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.gridControlMainPhanQuyen);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 57);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(828, 339);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "PHÂN QUYỀN";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.buttonLuu);
+            this.groupBox2.Controls.Add(this.buttonThoat);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox2.Location = new System.Drawing.Point(0, 396);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(828, 58);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
             // 
             // buttonLuu
             // 
             this.buttonLuu.AutoSize = true;
-            this.buttonLuu.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonLuu.BackColor = System.Drawing.Color.Transparent;
             this.buttonLuu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLuu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonLuu.Location = new System.Drawing.Point(553, 11);
+            this.buttonLuu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonLuu.Location = new System.Drawing.Point(320, 16);
             this.buttonLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLuu.Name = "buttonLuu";
-            this.buttonLuu.Size = new System.Drawing.Size(147, 46);
+            this.buttonLuu.Size = new System.Drawing.Size(126, 37);
             this.buttonLuu.TabIndex = 6;
             this.buttonLuu.Text = "Lưu";
             this.buttonLuu.UseVisualStyleBackColor = false;
-            this.buttonLuu.Click += new System.EventHandler(this.buttonLuu_Click);
             // 
             // buttonThoat
             // 
             this.buttonThoat.AutoSize = true;
-            this.buttonThoat.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.buttonThoat.BackColor = System.Drawing.Color.Transparent;
             this.buttonThoat.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonThoat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonThoat.Location = new System.Drawing.Point(741, 11);
+            this.buttonThoat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonThoat.Location = new System.Drawing.Point(452, 16);
             this.buttonThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonThoat.Name = "buttonThoat";
-            this.buttonThoat.Size = new System.Drawing.Size(147, 46);
+            this.buttonThoat.Size = new System.Drawing.Size(126, 37);
             this.buttonThoat.TabIndex = 11;
             this.buttonThoat.Text = "Thoát";
             this.buttonThoat.UseVisualStyleBackColor = false;
-            this.buttonThoat.Click += new System.EventHandler(this.buttonThoat_Click);
+            // 
+            // sidePanelQuanLy
+            // 
+            this.sidePanelQuanLy.Appearance.BackColor = System.Drawing.Color.GhostWhite;
+            this.sidePanelQuanLy.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sidePanelQuanLy.Appearance.Options.UseBackColor = true;
+            this.sidePanelQuanLy.Appearance.Options.UseBorderColor = true;
+            this.sidePanelQuanLy.Controls.Add(this.groupBox1);
+            this.sidePanelQuanLy.Controls.Add(this.panelVaitro);
+            this.sidePanelQuanLy.Controls.Add(this.groupBox2);
+            this.sidePanelQuanLy.Location = new System.Drawing.Point(480, 71);
+            this.sidePanelQuanLy.Name = "sidePanelQuanLy";
+            this.sidePanelQuanLy.Size = new System.Drawing.Size(828, 454);
+            this.sidePanelQuanLy.TabIndex = 14;
+            this.sidePanelQuanLy.Text = "sidePanel1";
+            // 
+            // labelTieuDe
+            // 
+            this.labelTieuDe.AutoSize = true;
+            this.labelTieuDe.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTieuDe.Location = new System.Drawing.Point(713, 33);
+            this.labelTieuDe.Name = "labelTieuDe";
+            this.labelTieuDe.Size = new System.Drawing.Size(419, 19);
+            this.labelTieuDe.TabIndex = 15;
+            this.labelTieuDe.Text = "QUẢN LÝ CHỨC VỤ VÀ PHÂN QUYỀN NGƯỜI DÙNG";
             // 
             // Phanquyen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Appearance.Options.UseBorderColor = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1932, 756);
-            this.Controls.Add(this.buttonThoat);
-            this.Controls.Add(this.buttonLuu);
-            this.Controls.Add(this.panelVaitro);
-            this.Controls.Add(this.gridControlMainPhanQuyen);
+            this.ClientSize = new System.Drawing.Size(1376, 644);
+            this.Controls.Add(this.labelTieuDe);
+            this.Controls.Add(this.sidePanelQuanLy);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Phanquyen";
-            this.Text = "Phanquyen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "PHÂN QUYỀN NGƯỜI DÙNG";
             this.Load += new System.EventHandler(this.Phanquyen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
@@ -319,6 +376,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.panelVaitro.ResumeLayout(false);
             this.panelVaitro.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.sidePanelQuanLy.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,7 +402,11 @@
         private System.Windows.Forms.Button buttonThemChucVu;
         private System.Windows.Forms.ComboBox comboBoxChucVu;
         private System.Windows.Forms.Label labelVaitro;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonLuu;
         private System.Windows.Forms.Button buttonThoat;
+        private DevExpress.XtraEditors.SidePanel sidePanelQuanLy;
+        private System.Windows.Forms.Label labelTieuDe;
     }
 }

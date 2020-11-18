@@ -40,13 +40,13 @@
             this.barButtonItemPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNhanVien = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemBanDo = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemQLBanDo = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemQuanLyDuLieuTranDau = new DevExpress.XtraBars.BarButtonItem();
@@ -241,6 +241,22 @@
             this.barButtonItemBanDo.ItemAppearance.Pressed.Options.UseFont = true;
             this.barButtonItemBanDo.Name = "barButtonItemBanDo";
             // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.ActAsDropDown = true;
+            this.barButtonItem2.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.barButtonItem2.Caption = "File";
+            this.barButtonItem2.Id = 19;
+            this.barButtonItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Mô phỏng";
+            this.barButtonItem3.Id = 20;
+            this.barButtonItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
             // barButtonItem4
             // 
             this.barButtonItem4.Caption = "Mô Phỏng";
@@ -261,33 +277,17 @@
             this.barButtonItem6.Id = 23;
             this.barButtonItem6.Name = "barButtonItem6";
             // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "Thoát";
-            this.barButtonItem7.Id = 25;
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.ActAsDropDown = true;
-            this.barButtonItem2.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.barButtonItem2.Caption = "File";
-            this.barButtonItem2.Id = 19;
-            this.barButtonItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "Mô phỏng";
-            this.barButtonItem3.Id = 20;
-            this.barButtonItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
             // barSubItem1
             // 
             this.barSubItem1.Caption = "barSubItem1";
             this.barSubItem1.Id = 24;
             this.barSubItem1.Name = "barSubItem1";
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "Thoát";
+            this.barButtonItem7.Id = 25;
+            this.barButtonItem7.Name = "barButtonItem7";
             // 
             // barButtonItem8
             // 
@@ -326,6 +326,7 @@
             this.rbpHeThong.Appearance.Options.UseFont = true;
             this.rbpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbHeThong,
+            this.ribbonPageGroup1,
             this.rbBackground});
             this.rbpHeThong.Name = "rbpHeThong";
             this.rbpHeThong.Text = "Quản trị hệ thống";
@@ -350,7 +351,6 @@
             this.rbpManage.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbpManage.Appearance.Options.UseFont = true;
             this.rbpManage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
             this.ribbonPageGroup3,
             this.ribbonPageGroup4,
             this.ribbonPageGroup5});
@@ -403,10 +403,10 @@
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 183);
+            this.panelMain.Location = new System.Drawing.Point(0, 149);
             this.panelMain.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1376, 600);
+            this.panelMain.Size = new System.Drawing.Size(1376, 634);
             this.panelMain.TabIndex = 3;
             // 
             // rbData
@@ -419,7 +419,7 @@
             // FrmMain_Admin
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1376, 783);
             this.Controls.Add(this.panelMain);

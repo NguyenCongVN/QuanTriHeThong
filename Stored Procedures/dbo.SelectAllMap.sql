@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+ CREATE PROC [dbo].[SelectAllMap]
+ AS
+ begin
+ SELECT * FROM dbo.BanDo
+ end
+GO

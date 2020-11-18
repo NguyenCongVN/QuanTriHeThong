@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Braincase.USGS.DEM;
 using ComboBoxItemBanDo = DXApplication1.Utilizes.ComboBoxItemBanDo;
+using System.IO;
 
 namespace DXApplication1.Views
 {
@@ -35,10 +36,10 @@ namespace DXApplication1.Views
             this.TreeView = treeView;
             this.isChange = isChange;
             InitializeComponent();
-            LoadKeHoach();
-            LoadKeHoachDeTail();
             InitComBoBoxFile();
             InitComBoBoxBanDo();
+            LoadKeHoach();
+            LoadKeHoachDeTail();
         }
 
         // Load Thong tin ke hoach vao trong cac text box
@@ -48,6 +49,33 @@ namespace DXApplication1.Views
             {
                 textEditTenPhuongAn.Text = Program.frm_Map.KeHoach.TenKeHoach;
                 timeEditThoiGianLap.DateTime = Program.frm_Map.KeHoach.ThoiGianTao;
+                if (Program.frm_Map.KeHoach.BanDo != null)
+                    foreach (ComboBoxItemBanDo comboBoxItemBanDo in comboBoxMaBanDo.Items)
+                    {
+                        if (comboBoxItemBanDo.MaBanDo == Program.frm_Map.KeHoach.BanDo.MaBanDo)
+                        {
+                            comboBoxMaBanDo.SelectedItem = comboBoxItemBanDo;
+                        }
+                    }
+                else
+                {
+                    comboBoxMaBanDo.SelectedIndex = -1;
+                    comboBoxTenBanDo.SelectedIndex = -1;
+                }
+
+                if (Program.frm_Map.KeHoach.FileDem != null)
+                    foreach (ComboBoxItemFileDem comboBoxItemFileDem in comboBoxMaFile.Items)
+                    {
+                        if (comboBoxItemFileDem.MaFile == Program.frm_Map.KeHoach.FileDem.MaFile)
+                        {
+                            comboBoxMaFile.SelectedItem = comboBoxItemFileDem;
+                        }
+                    }
+                else
+                {
+                    comboBoxMaFile.SelectedIndex = -1;
+                    comboBoxTenFile.SelectedIndex = -1;
+                }
             }
         }
 
@@ -62,17 +90,27 @@ namespace DXApplication1.Views
                     if (comboBoxItemBanDo.MaBanDo == keHoach.BanDo.MaBanDo)
                     {
                         comboBoxMaBanDo.SelectedItem = comboBoxItemBanDo;
-                        comboBoxTenBanDo.SelectedItem = comboBoxItemBanDo;
                     }
                 }
+            else
+            {
+                comboBoxMaBanDo.SelectedIndex = -1;
+                comboBoxTenBanDo.SelectedIndex = -1;
+            }
+
             if (keHoach.FileDem != null)
                 foreach (ComboBoxItemFileDem comboBoxItemFileDem in comboBoxMaFile.Items)
                 {
                     if (comboBoxItemFileDem.MaFile == keHoach.FileDem.MaFile)
                     {
-                        comboBoxMaBanDo.SelectedItem = comboBoxItemFileDem;
+                        comboBoxMaFile.SelectedItem = comboBoxItemFileDem;
                     }
                 }
+            else
+            {
+                comboBoxMaFile.SelectedIndex = -1;
+                comboBoxTenFile.SelectedIndex = -1;
+            }
         }
 
         // Load Ke Hoach vao trong GridView
@@ -182,6 +220,22 @@ namespace DXApplication1.Views
             {
                 if (this.timeEditThoiGianLap.DateTime <= DateTime.Now)
                 {
+                    if (textEditTenPhuongAn.Text == string.Empty)
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Bạn chưa đặt tên cho kế hoạch ! Bạn có muốn đặt tên không?", "Lưu ý", MessageBoxButtons.YesNoCancel);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            textEditTenPhuongAn.ReadOnly = false;
+                            timeEditThoiGianLap.ReadOnly = false;
+                            richEditControlChiTiet.ReadOnly = false;
+                            return;
+                        }
+                        else
+                        {
+                            if(dialogResult == DialogResult.Cancel)
+                            return;
+                        }
+                    }
                     if (comboBoxMaBanDo.SelectedItem == null || comboBoxMaFile.SelectedItem == null)
                     {
                         DialogResult dialogResult = MessageBox.Show("Bạn chưa chọn bản đồ hoặc kế hoạch ! Bạn có lưu lại luôn không?", "Lưu ý", MessageBoxButtons.YesNo);
@@ -318,18 +372,25 @@ namespace DXApplication1.Views
             Program.frm_Map.KeHoach = keHoach;
             if (keHoach.BanDo != null)
             {
-                Frm_test1.bitmapInit1 = new Bitmap(keHoach.BanDo.DuongDanAnh);
+                if(File.Exists(keHoach.BanDo.DuongDanAnh))
+                {
+                    Frm_test1.bitmapInit1 = new Bitmap(keHoach.BanDo.DuongDanAnh);
 
-                // Resize bitmap background
-                Program.frm_Map.bitmapInit = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+                    // Resize bitmap background
+                    Program.frm_Map.bitmapInit = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
 
-                Program.frm_Map.pictureBoxMap.Image = Program.frm_Map.bitmapInit;
+                    Program.frm_Map.pictureBoxMap.Image = Program.frm_Map.bitmapInit;
 
-                // Bitmap Temp to be used in virtualization
-                Program.frm_Map.bitmapTemp = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+                    // Bitmap Temp to be used in virtualization
+                    Program.frm_Map.bitmapTemp = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
 
-                // Bitmap to be used in resize mode
-                Program.frm_Map.bitmapResize = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+                    // Bitmap to be used in resize mode
+                    Program.frm_Map.bitmapResize = new Bitmap(Frm_test1.bitmapInit1, 1201, 1201);
+                }
+               else
+                {
+                    MessageBox.Show("Không tồn tại file bản đồ");
+                }
             }
 
             if (keHoach.FileDem != null)

@@ -35,24 +35,27 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtTenBanDo = new DevExpress.XtraEditors.TextEdit();
-            this.labelDanhSachBanDo = new System.Windows.Forms.Label();
             this.dataGridViewDSBanDo = new System.Windows.Forms.DataGridView();
             this.txtDuongDan = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonHuy = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.textEditMaBanDo = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonChonDuongDan = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenBanDo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSBanDo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDuongDan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditMaBanDo.Properties)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // simpleButtonXN
             // 
-            this.simpleButtonXN.Location = new System.Drawing.Point(152, 150);
+            this.simpleButtonXN.Location = new System.Drawing.Point(378, 119);
             this.simpleButtonXN.Name = "simpleButtonXN";
-            this.simpleButtonXN.Size = new System.Drawing.Size(90, 23);
+            this.simpleButtonXN.Size = new System.Drawing.Size(70, 23);
             this.simpleButtonXN.TabIndex = 36;
             this.simpleButtonXN.Text = "Xác Nhận";
             this.simpleButtonXN.Visible = false;
@@ -60,34 +63,34 @@
             // 
             // simpleButtonXoa
             // 
-            this.simpleButtonXoa.Location = new System.Drawing.Point(519, 84);
+            this.simpleButtonXoa.Location = new System.Drawing.Point(300, 119);
             this.simpleButtonXoa.Name = "simpleButtonXoa";
-            this.simpleButtonXoa.Size = new System.Drawing.Size(90, 23);
+            this.simpleButtonXoa.Size = new System.Drawing.Size(70, 23);
             this.simpleButtonXoa.TabIndex = 35;
             this.simpleButtonXoa.Text = "Xóa";
             this.simpleButtonXoa.Click += new System.EventHandler(this.simpleButtonXoa_Click);
             // 
             // simpleButtonSua
             // 
-            this.simpleButtonSua.Location = new System.Drawing.Point(519, 55);
+            this.simpleButtonSua.Location = new System.Drawing.Point(222, 119);
             this.simpleButtonSua.Name = "simpleButtonSua";
-            this.simpleButtonSua.Size = new System.Drawing.Size(90, 23);
+            this.simpleButtonSua.Size = new System.Drawing.Size(70, 23);
             this.simpleButtonSua.TabIndex = 34;
             this.simpleButtonSua.Text = "Sửa";
             this.simpleButtonSua.Click += new System.EventHandler(this.simpleButtonSua_Click);
             // 
             // simpleButtonThem
             // 
-            this.simpleButtonThem.Location = new System.Drawing.Point(519, 25);
+            this.simpleButtonThem.Location = new System.Drawing.Point(144, 119);
             this.simpleButtonThem.Name = "simpleButtonThem";
-            this.simpleButtonThem.Size = new System.Drawing.Size(90, 23);
+            this.simpleButtonThem.Size = new System.Drawing.Size(70, 23);
             this.simpleButtonThem.TabIndex = 26;
             this.simpleButtonThem.Text = "Thêm mới";
             this.simpleButtonThem.Click += new System.EventHandler(this.simpleButtonThem_Click);
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(12, 85);
+            this.labelControl7.Location = new System.Drawing.Point(25, 84);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(111, 13);
             this.labelControl7.TabIndex = 30;
@@ -95,7 +98,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 56);
+            this.labelControl2.Location = new System.Drawing.Point(25, 55);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(56, 13);
             this.labelControl2.TabIndex = 29;
@@ -103,49 +106,40 @@
             // 
             // txtTenBanDo
             // 
-            this.txtTenBanDo.Location = new System.Drawing.Point(153, 53);
+            this.txtTenBanDo.Location = new System.Drawing.Point(145, 54);
             this.txtTenBanDo.Name = "txtTenBanDo";
             this.txtTenBanDo.Properties.ReadOnly = true;
-            this.txtTenBanDo.Size = new System.Drawing.Size(361, 20);
+            this.txtTenBanDo.Size = new System.Drawing.Size(382, 20);
             this.txtTenBanDo.TabIndex = 27;
-            // 
-            // labelDanhSachBanDo
-            // 
-            this.labelDanhSachBanDo.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDanhSachBanDo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelDanhSachBanDo.Location = new System.Drawing.Point(8, 199);
-            this.labelDanhSachBanDo.Name = "labelDanhSachBanDo";
-            this.labelDanhSachBanDo.Size = new System.Drawing.Size(487, 38);
-            this.labelDanhSachBanDo.TabIndex = 39;
-            this.labelDanhSachBanDo.Text = "Danh Sách Bản Đồ";
             // 
             // dataGridViewDSBanDo
             // 
             this.dataGridViewDSBanDo.AllowUserToAddRows = false;
             this.dataGridViewDSBanDo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDSBanDo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDSBanDo.Location = new System.Drawing.Point(7, 239);
+            this.dataGridViewDSBanDo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewDSBanDo.Location = new System.Drawing.Point(3, 17);
             this.dataGridViewDSBanDo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDSBanDo.Name = "dataGridViewDSBanDo";
             this.dataGridViewDSBanDo.RowHeadersWidth = 51;
             this.dataGridViewDSBanDo.RowTemplate.Height = 24;
-            this.dataGridViewDSBanDo.Size = new System.Drawing.Size(611, 214);
+            this.dataGridViewDSBanDo.Size = new System.Drawing.Size(539, 191);
             this.dataGridViewDSBanDo.TabIndex = 38;
             this.dataGridViewDSBanDo.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSDem_CellEnter);
             // 
             // txtDuongDan
             // 
-            this.txtDuongDan.Location = new System.Drawing.Point(152, 82);
+            this.txtDuongDan.Location = new System.Drawing.Point(144, 81);
             this.txtDuongDan.Name = "txtDuongDan";
             this.txtDuongDan.Properties.ReadOnly = true;
-            this.txtDuongDan.Size = new System.Drawing.Size(361, 20);
+            this.txtDuongDan.Size = new System.Drawing.Size(343, 20);
             this.txtDuongDan.TabIndex = 41;
             // 
             // simpleButtonHuy
             // 
-            this.simpleButtonHuy.Location = new System.Drawing.Point(423, 150);
+            this.simpleButtonHuy.Location = new System.Drawing.Point(456, 119);
             this.simpleButtonHuy.Name = "simpleButtonHuy";
-            this.simpleButtonHuy.Size = new System.Drawing.Size(90, 23);
+            this.simpleButtonHuy.Size = new System.Drawing.Size(70, 23);
             this.simpleButtonHuy.TabIndex = 42;
             this.simpleButtonHuy.Text = "Hủy";
             this.simpleButtonHuy.Visible = false;
@@ -153,7 +147,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 30);
+            this.labelControl1.Location = new System.Drawing.Point(25, 29);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(52, 13);
             this.labelControl1.TabIndex = 44;
@@ -161,41 +155,66 @@
             // 
             // textEditMaBanDo
             // 
-            this.textEditMaBanDo.Location = new System.Drawing.Point(153, 27);
+            this.textEditMaBanDo.Location = new System.Drawing.Point(145, 26);
             this.textEditMaBanDo.Name = "textEditMaBanDo";
             this.textEditMaBanDo.Properties.ReadOnly = true;
-            this.textEditMaBanDo.Size = new System.Drawing.Size(361, 20);
+            this.textEditMaBanDo.Size = new System.Drawing.Size(382, 20);
             this.textEditMaBanDo.TabIndex = 43;
             // 
             // simpleButtonChonDuongDan
             // 
-            this.simpleButtonChonDuongDan.Location = new System.Drawing.Point(152, 108);
+            this.simpleButtonChonDuongDan.Location = new System.Drawing.Point(493, 80);
             this.simpleButtonChonDuongDan.Name = "simpleButtonChonDuongDan";
-            this.simpleButtonChonDuongDan.Size = new System.Drawing.Size(97, 23);
+            this.simpleButtonChonDuongDan.Size = new System.Drawing.Size(30, 23);
             this.simpleButtonChonDuongDan.TabIndex = 45;
-            this.simpleButtonChonDuongDan.Text = "Chọn Đường Dẫn";
-            this.simpleButtonChonDuongDan.Visible = false;
+            this.simpleButtonChonDuongDan.Text = "...";
+            this.simpleButtonChonDuongDan.ToolTipTitle = "Chọn đường dẫn";
             this.simpleButtonChonDuongDan.Click += new System.EventHandler(this.simpleButtonChonDuongDan_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textEditMaBanDo);
+            this.groupBox1.Controls.Add(this.simpleButtonHuy);
+            this.groupBox1.Controls.Add(this.simpleButtonChonDuongDan);
+            this.groupBox1.Controls.Add(this.txtTenBanDo);
+            this.groupBox1.Controls.Add(this.labelControl1);
+            this.groupBox1.Controls.Add(this.simpleButtonXN);
+            this.groupBox1.Controls.Add(this.labelControl2);
+            this.groupBox1.Controls.Add(this.simpleButtonXoa);
+            this.groupBox1.Controls.Add(this.labelControl7);
+            this.groupBox1.Controls.Add(this.simpleButtonSua);
+            this.groupBox1.Controls.Add(this.simpleButtonThem);
+            this.groupBox1.Controls.Add(this.txtDuongDan);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(545, 155);
+            this.groupBox1.TabIndex = 46;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin bản đồ";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridViewDSBanDo);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.groupBox2.Location = new System.Drawing.Point(0, 155);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(545, 211);
+            this.groupBox2.TabIndex = 47;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Danh Sách Bản Đồ";
             // 
             // QuanLyBanDo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 446);
-            this.Controls.Add(this.simpleButtonChonDuongDan);
-            this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.textEditMaBanDo);
-            this.Controls.Add(this.simpleButtonHuy);
-            this.Controls.Add(this.txtDuongDan);
-            this.Controls.Add(this.labelDanhSachBanDo);
-            this.Controls.Add(this.dataGridViewDSBanDo);
-            this.Controls.Add(this.simpleButtonXN);
-            this.Controls.Add(this.simpleButtonXoa);
-            this.Controls.Add(this.simpleButtonSua);
-            this.Controls.Add(this.simpleButtonThem);
-            this.Controls.Add(this.labelControl7);
-            this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.txtTenBanDo);
+            this.ClientSize = new System.Drawing.Size(545, 366);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "QuanLyBanDo";
             this.Text = "Quản Lý Bản Đồ";
@@ -203,8 +222,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSBanDo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDuongDan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditMaBanDo.Properties)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -216,12 +237,13 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtTenBanDo;
-        private System.Windows.Forms.Label labelDanhSachBanDo;
         public System.Windows.Forms.DataGridView dataGridViewDSBanDo;
         private DevExpress.XtraEditors.TextEdit txtDuongDan;
         private DevExpress.XtraEditors.SimpleButton simpleButtonHuy;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit textEditMaBanDo;
         private DevExpress.XtraEditors.SimpleButton simpleButtonChonDuongDan;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

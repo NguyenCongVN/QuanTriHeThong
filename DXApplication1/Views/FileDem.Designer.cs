@@ -38,37 +38,42 @@
             this.txtTenFile = new DevExpress.XtraEditors.TextEdit();
             this.searchLookUpEditDSNV = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.labelDSNV = new System.Windows.Forms.Label();
             this.dataGridViewDSDem = new System.Windows.Forms.DataGridView();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DuongDan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKeHoach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDuongDan = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonHuy = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControlMaFile = new DevExpress.XtraEditors.LabelControl();
+            this.textEditMaFile = new DevExpress.XtraEditors.TextEdit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenFile.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditDSNV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSDem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDuongDan.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditMaFile.Properties)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // simpleButtonMo
             // 
-            this.simpleButtonMo.Location = new System.Drawing.Point(331, 92);
-            this.simpleButtonMo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonMo.Location = new System.Drawing.Point(491, 86);
             this.simpleButtonMo.Name = "simpleButtonMo";
-            this.simpleButtonMo.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonMo.Size = new System.Drawing.Size(30, 23);
             this.simpleButtonMo.TabIndex = 37;
-            this.simpleButtonMo.Text = "Mở File";
+            this.simpleButtonMo.Text = "...";
             this.simpleButtonMo.Click += new System.EventHandler(this.simpleButtonMo_Click);
             // 
             // simpleButtonXN
             // 
-            this.simpleButtonXN.Location = new System.Drawing.Point(241, 150);
-            this.simpleButtonXN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonXN.Location = new System.Drawing.Point(384, 119);
             this.simpleButtonXN.Name = "simpleButtonXN";
-            this.simpleButtonXN.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonXN.Size = new System.Drawing.Size(65, 23);
             this.simpleButtonXN.TabIndex = 36;
             this.simpleButtonXN.Text = "Xác Nhận";
             this.simpleButtonXN.Visible = false;
@@ -76,65 +81,59 @@
             // 
             // simpleButtonXoa
             // 
-            this.simpleButtonXoa.Location = new System.Drawing.Point(605, 92);
-            this.simpleButtonXoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonXoa.Location = new System.Drawing.Point(309, 119);
             this.simpleButtonXoa.Name = "simpleButtonXoa";
-            this.simpleButtonXoa.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonXoa.Size = new System.Drawing.Size(65, 23);
             this.simpleButtonXoa.TabIndex = 35;
             this.simpleButtonXoa.Text = "Xóa";
             this.simpleButtonXoa.Click += new System.EventHandler(this.simpleButtonXoa_Click);
             // 
             // simpleButtonSua
             // 
-            this.simpleButtonSua.Location = new System.Drawing.Point(605, 57);
-            this.simpleButtonSua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonSua.Location = new System.Drawing.Point(234, 119);
             this.simpleButtonSua.Name = "simpleButtonSua";
-            this.simpleButtonSua.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonSua.Size = new System.Drawing.Size(65, 23);
             this.simpleButtonSua.TabIndex = 34;
             this.simpleButtonSua.Text = "Sửa";
             this.simpleButtonSua.Click += new System.EventHandler(this.simpleButtonSua_Click);
             // 
             // simpleButtonThem
             // 
-            this.simpleButtonThem.Location = new System.Drawing.Point(605, 20);
-            this.simpleButtonThem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonThem.Location = new System.Drawing.Point(159, 119);
             this.simpleButtonThem.Name = "simpleButtonThem";
-            this.simpleButtonThem.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonThem.Size = new System.Drawing.Size(65, 23);
             this.simpleButtonThem.TabIndex = 26;
             this.simpleButtonThem.Text = "Thêm mới";
             this.simpleButtonThem.Click += new System.EventHandler(this.simpleButtonThem_Click);
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(20, 65);
-            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl7.Location = new System.Drawing.Point(19, 90);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(92, 17);
+            this.labelControl7.Size = new System.Drawing.Size(73, 13);
             this.labelControl7.TabIndex = 30;
             this.labelControl7.Text = "Đường dẫn File";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(20, 28);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl2.Location = new System.Drawing.Point(19, 63);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(46, 16);
+            this.labelControl2.Size = new System.Drawing.Size(37, 13);
             this.labelControl2.TabIndex = 29;
             this.labelControl2.Text = "Tên File";
             // 
             // txtTenFile
             // 
-            this.txtTenFile.Location = new System.Drawing.Point(178, 26);
-            this.txtTenFile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTenFile.Location = new System.Drawing.Point(160, 60);
             this.txtTenFile.Name = "txtTenFile";
             this.txtTenFile.Properties.ReadOnly = true;
-            this.txtTenFile.Size = new System.Drawing.Size(421, 22);
+            this.txtTenFile.Size = new System.Drawing.Size(361, 20);
             this.txtTenFile.TabIndex = 27;
             // 
             // searchLookUpEditDSNV
             // 
             this.searchLookUpEditDSNV.EditValue = " ";
-            this.searchLookUpEditDSNV.Location = new System.Drawing.Point(260, 185);
+            this.searchLookUpEditDSNV.Location = new System.Drawing.Point(98, 25);
             this.searchLookUpEditDSNV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchLookUpEditDSNV.Name = "searchLookUpEditDSNV";
             this.searchLookUpEditDSNV.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -142,7 +141,7 @@
             this.searchLookUpEditDSNV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchLookUpEditDSNV.Properties.PopupView = this.searchLookUpEdit1View;
-            this.searchLookUpEditDSNV.Size = new System.Drawing.Size(271, 28);
+            this.searchLookUpEditDSNV.Size = new System.Drawing.Size(232, 26);
             this.searchLookUpEditDSNV.TabIndex = 40;
             this.searchLookUpEditDSNV.EditValueChanged += new System.EventHandler(this.searchLookUpEditDSNV_EditValueChanged);
             // 
@@ -153,16 +152,6 @@
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
-            // labelDSNV
-            // 
-            this.labelDSNV.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDSNV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelDSNV.Location = new System.Drawing.Point(31, 187);
-            this.labelDSNV.Name = "labelDSNV";
-            this.labelDSNV.Size = new System.Drawing.Size(568, 47);
-            this.labelDSNV.TabIndex = 39;
-            this.labelDSNV.Text = "Danh Sách Fie Dem";
-            // 
             // dataGridViewDSDem
             // 
             this.dataGridViewDSDem.AllowUserToAddRows = false;
@@ -172,13 +161,15 @@
             this.STT,
             this.TenFile,
             this.DuongDan,
-            this.MaKeHoach});
-            this.dataGridViewDSDem.Location = new System.Drawing.Point(-1, 236);
+            this.MaFile});
+            this.dataGridViewDSDem.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridViewDSDem.Location = new System.Drawing.Point(3, 57);
             this.dataGridViewDSDem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDSDem.Name = "dataGridViewDSDem";
             this.dataGridViewDSDem.RowHeadersWidth = 51;
             this.dataGridViewDSDem.RowTemplate.Height = 24;
-            this.dataGridViewDSDem.Size = new System.Drawing.Size(713, 263);
+            this.dataGridViewDSDem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewDSDem.Size = new System.Drawing.Size(566, 217);
             this.dataGridViewDSDem.TabIndex = 38;
             this.dataGridViewDSDem.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSDem_CellEnter);
             this.dataGridViewDSDem.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewDSDem_RowPrePaint);
@@ -211,51 +202,99 @@
             this.DuongDan.Name = "DuongDan";
             this.DuongDan.ReadOnly = true;
             // 
-            // MaKeHoach
+            // MaFile
             // 
-            this.MaKeHoach.DataPropertyName = "MaKeHoach";
-            this.MaKeHoach.HeaderText = "Mã Kế Hoạch";
-            this.MaKeHoach.MinimumWidth = 6;
-            this.MaKeHoach.Name = "MaKeHoach";
+            this.MaFile.DataPropertyName = "MaFile";
+            this.MaFile.HeaderText = "Mã File";
+            this.MaFile.Name = "MaFile";
             // 
             // txtDuongDan
             // 
-            this.txtDuongDan.Location = new System.Drawing.Point(178, 62);
-            this.txtDuongDan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDuongDan.Location = new System.Drawing.Point(159, 87);
             this.txtDuongDan.Name = "txtDuongDan";
             this.txtDuongDan.Properties.ReadOnly = true;
-            this.txtDuongDan.Size = new System.Drawing.Size(421, 22);
+            this.txtDuongDan.Size = new System.Drawing.Size(326, 20);
             this.txtDuongDan.TabIndex = 41;
             // 
             // simpleButtonHuy
             // 
-            this.simpleButtonHuy.Location = new System.Drawing.Point(405, 150);
-            this.simpleButtonHuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonHuy.Location = new System.Drawing.Point(459, 119);
             this.simpleButtonHuy.Name = "simpleButtonHuy";
-            this.simpleButtonHuy.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonHuy.Size = new System.Drawing.Size(65, 23);
             this.simpleButtonHuy.TabIndex = 42;
             this.simpleButtonHuy.Text = "Hủy";
             this.simpleButtonHuy.Visible = false;
             this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
             // 
+            // labelControlMaFile
+            // 
+            this.labelControlMaFile.Location = new System.Drawing.Point(19, 36);
+            this.labelControlMaFile.Name = "labelControlMaFile";
+            this.labelControlMaFile.Size = new System.Drawing.Size(33, 13);
+            this.labelControlMaFile.TabIndex = 43;
+            this.labelControlMaFile.Text = "Mã File";
+            // 
+            // textEditMaFile
+            // 
+            this.textEditMaFile.Location = new System.Drawing.Point(159, 33);
+            this.textEditMaFile.Name = "textEditMaFile";
+            this.textEditMaFile.Properties.ReadOnly = true;
+            this.textEditMaFile.Size = new System.Drawing.Size(361, 20);
+            this.textEditMaFile.TabIndex = 44;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelControlMaFile);
+            this.groupBox1.Controls.Add(this.textEditMaFile);
+            this.groupBox1.Controls.Add(this.txtTenFile);
+            this.groupBox1.Controls.Add(this.labelControl2);
+            this.groupBox1.Controls.Add(this.simpleButtonHuy);
+            this.groupBox1.Controls.Add(this.labelControl7);
+            this.groupBox1.Controls.Add(this.txtDuongDan);
+            this.groupBox1.Controls.Add(this.simpleButtonThem);
+            this.groupBox1.Controls.Add(this.simpleButtonSua);
+            this.groupBox1.Controls.Add(this.simpleButtonXoa);
+            this.groupBox1.Controls.Add(this.simpleButtonXN);
+            this.groupBox1.Controls.Add(this.simpleButtonMo);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(572, 157);
+            this.groupBox1.TabIndex = 45;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin file DEM";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.dataGridViewDSDem);
+            this.groupBox2.Controls.Add(this.searchLookUpEditDSNV);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(0, 157);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(572, 277);
+            this.groupBox2.TabIndex = 46;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Danh Sách Fie Dem";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 19);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "Tìm kiếm";
+            // 
             // FileDem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 511);
-            this.Controls.Add(this.simpleButtonHuy);
-            this.Controls.Add(this.txtDuongDan);
-            this.Controls.Add(this.searchLookUpEditDSNV);
-            this.Controls.Add(this.labelDSNV);
-            this.Controls.Add(this.dataGridViewDSDem);
-            this.Controls.Add(this.simpleButtonMo);
-            this.Controls.Add(this.simpleButtonXN);
-            this.Controls.Add(this.simpleButtonXoa);
-            this.Controls.Add(this.simpleButtonSua);
-            this.Controls.Add(this.simpleButtonThem);
-            this.Controls.Add(this.labelControl7);
-            this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.txtTenFile);
+            this.ClientSize = new System.Drawing.Size(572, 434);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FileDem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -266,8 +305,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSDem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDuongDan.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditMaFile.Properties)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -282,13 +325,17 @@
         private DevExpress.XtraEditors.TextEdit txtTenFile;
         private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEditDSNV;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
-        private System.Windows.Forms.Label labelDSNV;
         public System.Windows.Forms.DataGridView dataGridViewDSDem;
         private DevExpress.XtraEditors.TextEdit txtDuongDan;
         private DevExpress.XtraEditors.SimpleButton simpleButtonHuy;
+        private DevExpress.XtraEditors.LabelControl labelControlMaFile;
+        private DevExpress.XtraEditors.TextEdit textEditMaFile;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenFile;
         private System.Windows.Forms.DataGridViewTextBoxColumn DuongDan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaKeHoach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaFile;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label1;
     }
 }

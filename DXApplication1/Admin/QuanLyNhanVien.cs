@@ -1,7 +1,9 @@
-﻿using DXApplication1.Models;
+﻿using System.Diagnostics;
+using DXApplication1.Models;
 using System.Windows.Forms;
 using DXApplication1.Account;
 using DevExpress.XtraEditors;
+using DXApplication1.Utilizes;
 
 namespace DXApplication1.Admin
 {
@@ -10,7 +12,7 @@ namespace DXApplication1.Admin
         public QuanLyNhanVien()
         {
             InitializeComponent();
-
+            DesignHelper.CenterControl(sidePanelThongTin);
         }
         public void QuanLyNhanVien_Load(object sender, System.EventArgs e)
         {
