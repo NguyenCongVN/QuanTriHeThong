@@ -227,7 +227,6 @@ namespace DXApplication1.Views
                         {
                             textEditTenPhuongAn.ReadOnly = false;
                             timeEditThoiGianLap.ReadOnly = false;
-                            richEditControlChiTiet.ReadOnly = false;
                             return;
                         }
                         else
@@ -469,7 +468,6 @@ namespace DXApplication1.Views
                 Program.frm_Map.KeHoach = null;
                 textEditTenPhuongAn.Text = "";
                 timeEditThoiGianLap.DateTime = DateTime.Now;
-                richEditControlChiTiet.Text = "";
 
                 // 
 
@@ -479,13 +477,11 @@ namespace DXApplication1.Views
                     Program.frm_Map.KeHoach = null;
                     textEditTenPhuongAn.Text = "";
                     timeEditThoiGianLap.DateTime = DateTime.Now;
-                    richEditControlChiTiet.Text = "";
                     Program.frm_Map.listUpdate.Clear();
                     Program.frm_Map.listAdd.Clear();
                     Program.frm_Map.listRemove.Clear();
                     textEditTenPhuongAn.ReadOnly = false;
                     timeEditThoiGianLap.DateTime = DateTime.Now;
-                    richEditControlChiTiet.ReadOnly = false;
                 }
                 else
                 {
@@ -494,7 +490,6 @@ namespace DXApplication1.Views
                         Program.frm_Map.KeHoach = null;
                         textEditTenPhuongAn.Text = "";
                         timeEditThoiGianLap.DateTime = DateTime.Now;
-                        richEditControlChiTiet.Text = "";
                         isChange.DoiTuongs.Clear();
                         Program.frm_Map.listUpdate.Clear();
                         Program.frm_Map.listAdd.Clear();
@@ -502,7 +497,6 @@ namespace DXApplication1.Views
                         Program.frm_Map.pictureBoxMap.Controls.Clear();
                         textEditTenPhuongAn.ReadOnly = false;
                         timeEditThoiGianLap.DateTime = DateTime.Now;
-                        richEditControlChiTiet.ReadOnly = false;
                         Program.frm_Map.opted = 0;
                     }
                     else
@@ -635,7 +629,6 @@ namespace DXApplication1.Views
             {
                 textEditTenPhuongAn.ReadOnly = false;
                 timeEditThoiGianLap.ReadOnly = false;
-                richEditControlChiTiet.ReadOnly = false;
             }
         }
     }
