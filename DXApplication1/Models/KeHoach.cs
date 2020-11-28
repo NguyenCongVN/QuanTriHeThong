@@ -11,7 +11,7 @@ namespace DXApplication1.Models
         public string TenNguoiLap { get; set; }
         public BanDo BanDo { get; set; }
         public Dem FileDem { get; set; }
-
+        public int idThamSo { get; set; }
         public int MaThongTinBanDoKeHoach
         {
             get

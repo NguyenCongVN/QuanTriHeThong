@@ -228,5 +228,11 @@ namespace DXApplication1
                 
             }
         }
+
+        private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TSDV thamSoDauVao = new TSDV();
+            thamSoDauVao.ShowDialog();
+        }
     }
 }

@@ -82,7 +82,7 @@ namespace DXApplication1
             donVi = new DonVi();
             fileDem = new FileDem();
             thamSoDauVao = new TSDV();
-            Application.Run(thamSoDauVao);
+            Application.Run(lg);
         }
     }
 }

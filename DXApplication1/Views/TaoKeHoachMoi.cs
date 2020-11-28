@@ -20,7 +20,8 @@ namespace DXApplication1.Views
             TenKeHoach,
             NguoiLapKeHoach,
             ThoiGianLap,
-            MaNguoiLap
+            MaNguoiLap,
+            idThamSo
         }
         private IntClass Count { get; set; }
         private TreeView TreeView { get; set; }
@@ -76,6 +77,35 @@ namespace DXApplication1.Views
                     comboBoxMaFile.SelectedIndex = -1;
                     comboBoxTenFile.SelectedIndex = -1;
                 }
+
+
+                if (Program.frm_Map.KeHoach.idThamSo != 0)
+                    foreach (ComboBoxThamSoDauVao comboBoxThamSoDauVao in comboBoxIdThamSoDauVao.Items)
+                    {
+                        if (comboBoxThamSoDauVao.MaThamSo == Program.frm_Map.KeHoach.idThamSo)
+                        {
+                            comboBoxIdThamSoDauVao.SelectedItem = comboBoxThamSoDauVao;
+                        }
+                    }
+                else
+                {
+                    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+                    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+                }
+
+                //if (Program.frm_Map.KeHoach.idThamSo != 0)
+                //    foreach (ComboBoxThamSoDauVao comboBoxThamSoDauVao in comboBoxIdThamSoDauVao.Items)
+                //    {
+                //        if (comboBoxThamSoDauVao.MaThamSo == Program.frm_Map.KeHoach.idThamSo)
+                //        {
+                //            comboBoxIdThamSoDauVao.SelectedItem = comboBoxThamSoDauVao;
+                //        }
+                //    }
+                //else
+                //{
+                //    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+                //    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+                //}
             }
         }
 
@@ -111,6 +141,35 @@ namespace DXApplication1.Views
                 comboBoxMaFile.SelectedIndex = -1;
                 comboBoxTenFile.SelectedIndex = -1;
             }
+
+
+            if (keHoach.idThamSo != 0)
+                foreach (ComboBoxThamSoDauVao comboBoxThamSoDauVao in comboBoxIdThamSoDauVao.Items)
+                {
+                    if (comboBoxThamSoDauVao.MaThamSo == keHoach.idThamSo)
+                    {
+                        comboBoxIdThamSoDauVao.SelectedItem = comboBoxThamSoDauVao;
+                    }
+                }
+            else
+            {
+                comboBoxIdThamSoDauVao.SelectedIndex = -1;
+                comboBoxIdThamSoDauVao.SelectedIndex = -1;
+            }
+
+            //if (keHoach.idThamSo != 0)
+            //    foreach (ComboBoxThamSoDauVao comboBoxThamSoDauVao in comboBoxIdThamSoDauVao.Items)
+            //    {
+            //        if (comboBoxThamSoDauVao.MaThamSo == keHoach.idThamSo)
+            //        {
+            //            comboBoxIdThamSoDauVao.SelectedItem = comboBoxThamSoDauVao;
+            //        }
+            //    }
+            //else
+            //{
+            //    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+            //    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+            //}
         }
 
         // Load Ke Hoach vao trong GridView

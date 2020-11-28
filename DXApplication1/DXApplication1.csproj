@@ -196,6 +196,7 @@
     <Compile Include="Utilizes\ComboBoxItemBanDo.cs" />
     <Compile Include="Utilizes\ComboBoxItemFileDem.cs" />
     <Compile Include="Utilizes\ComboBoxItemPhanQuyen.cs" />
+    <Compile Include="Utilizes\ComboBoxThamSoDauVao.cs" />
     <Compile Include="Utilizes\DesignHelper.cs" />
     <Compile Include="Utilizes\DrawHelper.cs" />
     <Compile Include="Utilizes\IntClass.cs" />
