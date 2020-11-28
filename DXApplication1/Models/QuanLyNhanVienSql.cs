@@ -11,7 +11,7 @@ using DevExpress.XtraEditors;
 
 namespace DXApplication1.Models
 {
-    class QuanLyNhanVienSql: ConnectionDatabase
+    class QuanLyNhanVienSql: connection
     {
         connection connect;
         public void getDataDSNV(DataGridView dataGridView, SearchLookUpEdit searchLookUpEdit)
@@ -32,7 +32,7 @@ namespace DXApplication1.Models
             string[] para = { "@maDangNhap" };
             string[] value = { madangnhap };
             connect = new connection();
-            int result = connect.Excute_Sql(query, CommandType.StoredProcedure, para, value);
+            int result = Excute_Sql(query, CommandType.StoredProcedure, para, value);
             if (result > 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Xoa nhan vien thanh cong", "Information message", MessageBoxButtons.OK, MessageBoxIcon.Information);

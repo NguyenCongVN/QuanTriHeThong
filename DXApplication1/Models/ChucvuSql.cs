@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace DXApplication1.Models
 {
-    class ChucvuSql:ConnectionDatabase
+    class ChucvuSql:connection
     {
         SqlInfoMessageEventHandler showResultFromSql = (sender, e) =>
         {
@@ -175,8 +175,8 @@ namespace DXApplication1.Models
             string query = "SuaTenChucVu";
             string[] para = { "@tenChucVu_Cu", "@tenChucVu_Moi" };
             string[] value = { tenCu, tenMoi };
-            connection connect = new connection();
-            int result = connect.Excute_Sql(query, CommandType.StoredProcedure, para, value);
+            //connection connect = new connection();
+            int result = Excute_Sql(query, CommandType.StoredProcedure, para, value);
             if (result > 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Thay đổi tên chức vụ thành công", "Information message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -197,7 +197,7 @@ namespace DXApplication1.Models
             string[] para = { "@tenChucVu" };
             string[] value = { tenChucVu };
             connection connect = new connection();
-            int result = connect.Excute_Sql(query, CommandType.StoredProcedure, para, value);
+            int result = Excute_Sql(query, CommandType.StoredProcedure, para, value);
             if (result > 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Xoá chức vụ thành công", "Information message", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -40,12 +40,12 @@
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelDSNV = new System.Windows.Forms.Label();
             this.dataGridViewDSDem = new System.Windows.Forms.DataGridView();
+            this.txtDuongDan = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButtonHuy = new DevExpress.XtraEditors.SimpleButton();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DuongDan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaKeHoach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDuongDan = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButtonHuy = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenFile.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEditDSNV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
@@ -183,6 +183,26 @@
             this.dataGridViewDSDem.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSDem_CellEnter);
             this.dataGridViewDSDem.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewDSDem_RowPrePaint);
             // 
+            // txtDuongDan
+            // 
+            this.txtDuongDan.Location = new System.Drawing.Point(178, 62);
+            this.txtDuongDan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDuongDan.Name = "txtDuongDan";
+            this.txtDuongDan.Properties.ReadOnly = true;
+            this.txtDuongDan.Size = new System.Drawing.Size(421, 22);
+            this.txtDuongDan.TabIndex = 41;
+            // 
+            // simpleButtonHuy
+            // 
+            this.simpleButtonHuy.Location = new System.Drawing.Point(405, 150);
+            this.simpleButtonHuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButtonHuy.Name = "simpleButtonHuy";
+            this.simpleButtonHuy.Size = new System.Drawing.Size(105, 28);
+            this.simpleButtonHuy.TabIndex = 42;
+            this.simpleButtonHuy.Text = "Hủy";
+            this.simpleButtonHuy.Visible = false;
+            this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
+            // 
             // STT
             // 
             this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -213,30 +233,10 @@
             // 
             // MaKeHoach
             // 
-            this.MaKeHoach.DataPropertyName = "MaKeHoach";
-            this.MaKeHoach.HeaderText = "Mã Kế Hoạch";
+            this.MaKeHoach.DataPropertyName = "MaFile";
+            this.MaKeHoach.HeaderText = "Mã File";
             this.MaKeHoach.MinimumWidth = 6;
             this.MaKeHoach.Name = "MaKeHoach";
-            // 
-            // txtDuongDan
-            // 
-            this.txtDuongDan.Location = new System.Drawing.Point(178, 62);
-            this.txtDuongDan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtDuongDan.Name = "txtDuongDan";
-            this.txtDuongDan.Properties.ReadOnly = true;
-            this.txtDuongDan.Size = new System.Drawing.Size(421, 22);
-            this.txtDuongDan.TabIndex = 41;
-            // 
-            // simpleButtonHuy
-            // 
-            this.simpleButtonHuy.Location = new System.Drawing.Point(405, 150);
-            this.simpleButtonHuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.simpleButtonHuy.Name = "simpleButtonHuy";
-            this.simpleButtonHuy.Size = new System.Drawing.Size(105, 28);
-            this.simpleButtonHuy.TabIndex = 42;
-            this.simpleButtonHuy.Text = "Hủy";
-            this.simpleButtonHuy.Visible = false;
-            this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
             // 
             // FileDem
             // 

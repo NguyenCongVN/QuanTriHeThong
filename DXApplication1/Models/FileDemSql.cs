@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DXApplication1.Models
 {
-    class FileDemSql : ConnectionDatabase
+    class FileDemSql : connection
     {
 
         enum FileDemField
@@ -37,7 +37,7 @@ namespace DXApplication1.Models
             try
             {
                 connection connect = new connection();
-                int a = connect.Excute_Sql(query, CommandType.StoredProcedure, para, values);
+                int a = Excute_Sql(query, CommandType.StoredProcedure, para, values);
                 if (a != 0)
                     return true;
                 return false;
@@ -70,7 +70,7 @@ namespace DXApplication1.Models
             try
             {
                 connection connect = new connection();
-                int a = connect.Excute_Sql(query, CommandType.StoredProcedure, para, values);
+                int a = Excute_Sql(query, CommandType.StoredProcedure, para, values);
                 if (a != 0)
                     return true;
                 return false;
@@ -101,8 +101,8 @@ namespace DXApplication1.Models
 
             try
             {
-                connection connect = new connection();
-                int a = connect.Excute_Sql(query, CommandType.StoredProcedure, para, values);
+                
+                int a = Excute_Sql(query, CommandType.StoredProcedure, para, values);
                 if (a != 0)
                     return true;
                 return false;

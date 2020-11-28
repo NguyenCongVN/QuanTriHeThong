@@ -136,6 +136,8 @@
     <Compile Include="Models\QuyenSql.cs" />
     <Compile Include="Models\Quyen_LoaiQuyen.cs" />
     <Compile Include="Models\Quyen_LoaiQuyenSql.cs" />
+    <Compile Include="Models\SuCo.cs" />
+    <Compile Include="Models\SuCosql.cs" />
     <Compile Include="Models\ThongTinBanDoKeHoach.cs" />
     <Compile Include="Models\ThongTinBanDoKeHoachSql.cs" />
     <Compile Include="Models\ThongTinChiTietDoiTuong.cs" />
@@ -181,6 +183,12 @@
     <Compile Include="Utilizes\UserUtilizes.cs" />
     <Compile Include="Views\CustomScrollPanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\HienThiSuCo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\HienThiSuCo.Designer.cs">
+      <DependentUpon>HienThiSuCo.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuanLyBanDo.cs">
       <SubType>Form</SubType>
@@ -281,6 +289,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HienThiSuCo.resx">
+      <DependentUpon>HienThiSuCo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanLyBanDo.resx">
       <DependentUpon>QuanLyBanDo.cs</DependentUpon>
