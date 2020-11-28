@@ -67,7 +67,7 @@ namespace DXApplication1.Admin
        
         private void getDataFromDgvIntoTextBox(TextBox tb, int row, string column)
         {
-            tb = new TextBox();
+           // tb = new TextBox();
             tb.Text = dataGridViewDSNV.Rows[row].Cells[column].Value.ToString();  
         }
 

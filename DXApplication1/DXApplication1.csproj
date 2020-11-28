@@ -136,6 +136,8 @@
     <Compile Include="Models\QuyenSql.cs" />
     <Compile Include="Models\Quyen_LoaiQuyen.cs" />
     <Compile Include="Models\Quyen_LoaiQuyenSql.cs" />
+    <Compile Include="Models\ThamSoDauVao_class.cs" />
+    <Compile Include="Models\ThamSoDauVaoSql.cs" />
     <Compile Include="Models\ThongTinBanDoKeHoach.cs" />
     <Compile Include="Models\ThongTinBanDoKeHoachSql.cs" />
     <Compile Include="Models\ThongTinChiTietDoiTuong.cs" />
@@ -169,6 +171,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ThamSoDauVao\SuaTDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThamSoDauVao\SuaTDV.Designer.cs">
+      <DependentUpon>SuaTDV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThamSoDauVao\TSDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThamSoDauVao\TSDV.Designer.cs">
+      <DependentUpon>TSDV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThamSoDauVao\ThemTSDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThamSoDauVao\ThemTSDV.Designer.cs">
+      <DependentUpon>ThemTSDV.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilizes\BooleanClass.cs" />
     <Compile Include="Utilizes\ComboBoxItemBanDo.cs" />
@@ -282,6 +302,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThamSoDauVao\SuaTDV.resx">
+      <DependentUpon>SuaTDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThamSoDauVao\TSDV.resx">
+      <DependentUpon>TSDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThamSoDauVao\ThemTSDV.resx">
+      <DependentUpon>ThemTSDV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanLyBanDo.resx">
       <DependentUpon>QuanLyBanDo.cs</DependentUpon>
