@@ -631,5 +631,16 @@ namespace DXApplication1.Views
                 timeEditThoiGianLap.ReadOnly = false;
             }
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(dataGridViewKeHoach[0, dataGridViewKeHoach.SelectedRows[0].Index].Value.ToString()))
+            {
+                int MaKeHoach = Int32.Parse(dataGridViewKeHoach[0, dataGridViewKeHoach.SelectedRows[0].Index].Value.ToString());
+                LoadKeHoachDeTail(Program.KeHoachSql.GetKeHoachAndDetailById(MaKeHoach));
+                HienThiSuCo hienThiSuCo = new HienThiSuCo(MaKeHoach);
+                hienThiSuCo.ShowDialog();
+            }
+        }
     }
 }

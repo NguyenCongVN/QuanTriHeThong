@@ -67,7 +67,7 @@ namespace DXApplication1.Views
             //// Đăng kí tài khoản
             ///
 
-            DangKy(txtUser.Text, txtPass.Text, txtHoTen.Text,
+            DangKy(txtUser.Text.ToLower(), txtPass.Text.ToLower(), txtHoTen.Text,
                 txtEmail.Text, txtSoDienThoai.Text, txtDiaChi.Text, dateNgaySinh.DateTime, comboBoxEditChucVu.Text);
         }
 
