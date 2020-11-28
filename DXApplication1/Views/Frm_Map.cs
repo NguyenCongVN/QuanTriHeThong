@@ -460,13 +460,8 @@ namespace DXApplication1.Views
                                         DrawHelper.GetGreenYellowRedByPropotion(0, max - min));
                                 //bitmap.SetPixel(col, _mDem.ARecord.northings_rows - row - 1, Color.FromArgb(128, 128, 0));
                         }
-                        Debug.WriteLine("Size of bitmapInit1 :" + bitmapInit1.Size);
-                        Debug.WriteLine("Size of picuteBox after :" + pictureBoxMap.Size);
-                        Debug.WriteLine("Size of picture in picturebox after :" + pictureBoxMap.Image.Size);
-                        Debug.WriteLine("Size of resize :" + widthResize + " " + heightResize);
                         bitmapResize = new Bitmap(bitmapTemp, pictureBoxMap.Width + widthResize,
                             pictureBoxMap.Height + heightResize);
-                        Debug.WriteLine("Size of bitmap resize :" + bitmapResize.Size);
                         _mPictureBox.Invoke((MethodInvoker) delegate
                         {
                             // Running on the UI thread
