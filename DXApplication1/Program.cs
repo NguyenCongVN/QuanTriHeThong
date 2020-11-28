@@ -2,11 +2,11 @@
 using DXApplication1.Account;
 using DXApplication1.Admin;
 using DXApplication1.Models;
+using DXApplication1.Objects_Icon;
 using DXApplication1.Views;
 using System;
 using System.Windows.Forms;
-using DXApplication1.Objects_Icon;
-
+using DXApplication1.ThamSoDauVao;
 
 namespace DXApplication1
 {
@@ -49,6 +49,12 @@ namespace DXApplication1
         public static QuanLyPhuongAnForm quanLyPhuongAnForm;
         public static BinhChung binhChung;
         public static DonVi donVi;
+        public static TSDV thamSoDauVao;
+        public static ThamSoDauVaoSql thamSoDauVaoSql;
+        public static ThemTSDV themTSDV;
+        public static string maLoaiDau;
+        public static ThamSoDauVao_class thamSoDauVao_Class;
+        public static string[] arr;
         [STAThread]
 
         static void Main()
@@ -75,7 +81,8 @@ namespace DXApplication1
             binhChung = new BinhChung();
             donVi = new DonVi();
             fileDem = new FileDem();
-            Application.Run(lg);
+            thamSoDauVao = new TSDV();
+            Application.Run(thamSoDauVao);
         }
     }
 }

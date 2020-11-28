@@ -522,7 +522,7 @@ namespace DXApplication1.Views
             }
         }
 
-        private void btnAnHienMophong_Click(object sender, EventArgs e)
+        public void btnAnHienMophong_Click(object sender, EventArgs e)
         {
             timerMP.Start();
         }
@@ -641,12 +641,12 @@ namespace DXApplication1.Views
             e.Graphics.DrawString("Mô phỏng", font, brush, 0, 0);
         }
 
-        private void buttonAnHienChiTietFile_Click_1(object sender, EventArgs e)
+        public void buttonAnHienChiTietFile_Click_1(object sender, EventArgs e)
         {
             timerAnHienFile.Start();
         }
 
-        private void buttonKyHieuQuanSu_Click(object sender, EventArgs e)
+        public void buttonKyHieuQuanSu_Click(object sender, EventArgs e)
         {
             timerAnHien.Start();
         }

@@ -426,6 +426,10 @@ namespace DXApplication1.Views
                                       Environment.NewLine;
 
                 }
+                else
+                {
+                    MessageBox.Show("Không tồn tại file dem");
+                }
             }
             this.isChange.DoiTuongs = Program.ThongTinChiTietDoiTuongSql.LayCacDoiTuongTuKeHoach(keHoach.MaKeHoach, TreeView, ImageList, Count);
             this.isChange.BoolVar = true;
@@ -468,7 +472,6 @@ namespace DXApplication1.Views
                 Program.frm_Map.KeHoach = null;
                 textEditTenPhuongAn.Text = "";
                 timeEditThoiGianLap.DateTime = DateTime.Now;
-
                 // 
 
                 DialogResult dialogResult1 = MessageBox.Show("Bạn có muốn giữ lại các đối tượng hiện tại không>", "Thành Công", MessageBoxButtons.YesNoCancel);

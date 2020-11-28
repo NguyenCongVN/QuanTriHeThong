@@ -214,10 +214,18 @@ namespace DXApplication1
             {
                 barButtonItem4_ItemClick(null, null);
                 Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
+                Program.frm_Map.btnAnHienMophong_Click(null, null);
+                Program.frm_Map.buttonAnHienChiTietFile_Click_1(null, null);
+                Program.frm_Map.buttonKyHieuQuanSu_Click(null, null);
+                
             }
             else
             {
                 Program.frm_Map.simpleButtonLuuPhuongAn_Click(null, null);
+                Program.frm_Map.btnAnHienMophong_Click(null, null);
+                Program.frm_Map.buttonAnHienChiTietFile_Click_1(null, null);
+                Program.frm_Map.buttonKyHieuQuanSu_Click(null, null);
+                
             }
         }
     }
