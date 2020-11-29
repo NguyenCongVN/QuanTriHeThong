@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using DevExpress.XtraEditors.Controls;
 
 namespace DXApplication1.Models
 {
@@ -56,7 +57,6 @@ namespace DXApplication1.Models
             dataSet = connect.FillDataSet(query, CommandType.StoredProcedure);
             dataGridView.DataSource = dataSet.Tables[0];
             searchLookUpEdit.Properties.DataSource = dataSet.Tables[0];
-
         }
 
         public void XoaNhanVien(string madangnhap)
@@ -200,6 +200,18 @@ namespace DXApplication1.Models
             Connection.Open();
             cmd.ExecuteScalar();
             Connection.Close();
+        }
+
+        public DataTable GetLoaiDau()
+        {
+            SqlCommand cmd = new SqlCommand("SelectLoaiDau" , Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            Connection.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            Connection.Close();
+            return table;
         }
     }
 }

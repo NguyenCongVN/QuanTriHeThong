@@ -92,6 +92,7 @@ namespace DXApplication1.Views
         private void buttonSua_Click(object sender, EventArgs e)
         {
             SuaTDV suaTdv = new SuaTDV();
+            suaTdv.ShowDialog();
         }
     }
 }

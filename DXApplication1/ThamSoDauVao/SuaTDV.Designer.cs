@@ -88,6 +88,7 @@
             this.gridLookUpEditDau.Properties.Appearance.Options.UseFont = true;
             this.gridLookUpEditDau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gridLookUpEditDau.Properties.NullText = "";
             this.gridLookUpEditDau.Properties.PopupView = this.gridLookUpEdit1View;
             this.gridLookUpEditDau.Size = new System.Drawing.Size(192, 28);
             this.gridLookUpEditDau.TabIndex = 89;

@@ -16,6 +16,9 @@ namespace DXApplication1.ThamSoDauVao
         public SuaTDV()
         {
             InitializeComponent();
+            gridLookUpEditDau.Properties.DataSource = Program.thamSoDauVaoSql.GetLoaiDau();
+            gridLookUpEditDau.Properties.ValueMember = "idLoaiDau";
+            gridLookUpEditDau.Properties.DisplayMember = "TenLoaiDau";
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
