@@ -54,7 +54,7 @@ namespace DXApplication1
         public static ThemTSDV themTSDV;
         public static string maLoaiDau;
         public static ThamSoDauVao_class thamSoDauVao_Class;
-        public static string[] arr;
+        public static string[] arr = new string[20];
         [STAThread]
 
         static void Main()
@@ -75,6 +75,7 @@ namespace DXApplication1
             fileDemSql = new FileDemSql();
             ThongTinBanDoKeHoachSql = new ThongTinBanDoKeHoachSql();
             ThongTinFileDemKeHoachSql = new ThongTinFileDemKeHoachSql();
+            thamSoDauVaoSql = new ThamSoDauVaoSql();
             lg = new frmLogin();
             frm_Map = new Frm_test1();
             nodeOnMap = new NodeOnMap();
@@ -82,7 +83,7 @@ namespace DXApplication1
             donVi = new DonVi();
             fileDem = new FileDem();
             thamSoDauVao = new TSDV();
-            Application.Run(thamSoDauVao);
+            Application.Run(lg);
         }
     }
 }

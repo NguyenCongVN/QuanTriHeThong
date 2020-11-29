@@ -60,6 +60,8 @@ namespace DXApplication1.Views
             this.doiTentoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
             this.xoatoolStripMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
             this.timerMP = new System.Windows.Forms.Timer(this.components);
+            this.panelMap = new DXApplication1.Views.CustomScrollPanel();
+            this.pictureBoxMap = new System.Windows.Forms.PictureBox();
             this.panelMP = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.labeTocDo = new System.Windows.Forms.Label();
@@ -67,8 +69,6 @@ namespace DXApplication1.Views
             this.checkButtonTamDung = new DevExpress.XtraEditors.CheckButton();
             this.simpleButtonDatLai = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonBatDau = new DevExpress.XtraEditors.SimpleButton();
-            this.panelMap = new DXApplication1.Views.CustomScrollPanel();
-            this.pictureBoxMap = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panelSideBar.SuspendLayout();
@@ -76,10 +76,10 @@ namespace DXApplication1.Views
             this.controlDanhSach.SuspendLayout();
             this.controlParentNode.SuspendLayout();
             this.controlChildNode.SuspendLayout();
-            this.panelMP.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).BeginInit();
             this.panelMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).BeginInit();
+            this.panelMP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).BeginInit();
             this.SuspendLayout();
             // 
             // imageListChild
@@ -303,6 +303,31 @@ namespace DXApplication1.Views
             this.timerMP.Interval = 10;
             this.timerMP.Tick += new System.EventHandler(this.timerMP_Tick);
             // 
+            // panelMap
+            // 
+            this.panelMap.AutoScroll = true;
+            this.panelMap.Controls.Add(this.pictureBoxMap);
+            this.panelMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMap.Location = new System.Drawing.Point(0, 0);
+            this.panelMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelMap.Name = "panelMap";
+            this.panelMap.Size = new System.Drawing.Size(570, 756);
+            this.panelMap.TabIndex = 14;
+            // 
+            // pictureBoxMap
+            // 
+            this.pictureBoxMap.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxMap.InitialImage = null;
+            this.pictureBoxMap.Location = new System.Drawing.Point(-80, 22);
+            this.pictureBoxMap.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBoxMap.Name = "pictureBoxMap";
+            this.pictureBoxMap.Size = new System.Drawing.Size(861, 266);
+            this.pictureBoxMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxMap.TabIndex = 0;
+            this.pictureBoxMap.TabStop = false;
+            this.pictureBoxMap.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // panelMP
             // 
             this.panelMP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -389,31 +414,6 @@ namespace DXApplication1.Views
             this.simpleButtonBatDau.Text = "Bắt đầu";
             this.simpleButtonBatDau.Click += new System.EventHandler(this.simpleButtonBatDau_Click);
             // 
-            // panelMap
-            // 
-            this.panelMap.AutoScroll = true;
-            this.panelMap.Controls.Add(this.pictureBoxMap);
-            this.panelMap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMap.Location = new System.Drawing.Point(0, 0);
-            this.panelMap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelMap.Name = "panelMap";
-            this.panelMap.Size = new System.Drawing.Size(570, 756);
-            this.panelMap.TabIndex = 14;
-            // 
-            // pictureBoxMap
-            // 
-            this.pictureBoxMap.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxMap.InitialImage = null;
-            this.pictureBoxMap.Location = new System.Drawing.Point(-80, 22);
-            this.pictureBoxMap.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBoxMap.Name = "pictureBoxMap";
-            this.pictureBoxMap.Size = new System.Drawing.Size(861, 266);
-            this.pictureBoxMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxMap.TabIndex = 0;
-            this.pictureBoxMap.TabStop = false;
-            this.pictureBoxMap.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // Frm_test1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -436,12 +436,12 @@ namespace DXApplication1.Views
             this.controlDanhSach.ResumeLayout(false);
             this.controlParentNode.ResumeLayout(false);
             this.controlChildNode.ResumeLayout(false);
-            this.panelMP.ResumeLayout(false);
-            this.panelMP.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).EndInit();
             this.panelMap.ResumeLayout(false);
             this.panelMap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMap)).EndInit();
+            this.panelMP.ResumeLayout(false);
+            this.panelMP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarTocDo)).EndInit();
             this.ResumeLayout(false);
 
         }

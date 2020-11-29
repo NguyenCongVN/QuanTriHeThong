@@ -6,12 +6,43 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
-
+using System.Configuration;
 
 namespace DXApplication1.Models
 {
     class connection: ConnectionDatabase
     {
+        public static string sqlcon = ConfigurationManager.AppSettings["MainConnection"];
+        public static SqlConnection Getconnection()
+        {
+            SqlConnection con = new SqlConnection(sqlcon);
+            return con;
+        }
+
+        public static void open()
+        {
+            try
+            {
+                if (Getconnection().State == ConnectionState.Closed)
+                    Getconnection().Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message);
+            }
+        }
+        public static void close()
+        {
+            try
+            {
+                if (Getconnection().State == ConnectionState.Open)
+                    Getconnection().Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
         public DataSet FillDataSet(string strQuery, CommandType cmdtype)
         {
             DataSet ds = new DataSet();
@@ -29,29 +60,33 @@ namespace DXApplication1.Models
             }
             return ds;
         }
-        public int Excute_Sql(string strQuery, CommandType cmdtype, string[] para, object[] values)
+        public static int Excute_Sql(string strQuery, CommandType cmdtype, string[] para, object[] values)
         {
-            Connection.Open();
-            SqlCommand sqlCommand = new SqlCommand(strQuery, Connection);
+            SqlConnection conn = new SqlConnection();
+            conn = Getconnection();
+            conn.Open();
             int efftectRecord = 0;
-            sqlCommand.CommandType = cmdtype;
+            SqlCommand sqlcmd = new SqlCommand();
+            sqlcmd.CommandText = strQuery;
+            sqlcmd.Connection = conn;
+            sqlcmd.CommandType = cmdtype;
+
             SqlParameter sqlpara;
             for (int i = 0; i < para.Length; i++)
             {
                 sqlpara = new SqlParameter();
                 sqlpara.ParameterName = para[i];
                 sqlpara.SqlValue = values[i];
-                sqlCommand.Parameters.Add(sqlpara);
+                sqlcmd.Parameters.Add(sqlpara);
             }
             try
             {
-                efftectRecord = sqlCommand.ExecuteNonQuery();
+                efftectRecord = sqlcmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error:" + ex.Message);
             }
-            Connection.Close();
             return efftectRecord;
         }
 

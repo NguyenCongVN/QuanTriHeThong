@@ -20,7 +20,8 @@ namespace DXApplication1.Views
             TenKeHoach,
             NguoiLapKeHoach,
             ThoiGianLap,
-            MaNguoiLap
+            MaNguoiLap,
+            idThamSo
         }
         private IntClass Count { get; set; }
         private TreeView TreeView { get; set; }
@@ -38,6 +39,7 @@ namespace DXApplication1.Views
             InitializeComponent();
             InitComBoBoxFile();
             InitComBoBoxBanDo();
+            InitComBoBoxThamSo();
             LoadKeHoach();
             LoadKeHoachDeTail();
         }
@@ -76,6 +78,35 @@ namespace DXApplication1.Views
                     comboBoxMaFile.SelectedIndex = -1;
                     comboBoxTenFile.SelectedIndex = -1;
                 }
+
+
+                if (Program.frm_Map.KeHoach.ThamSoDauVao != null)
+                    foreach (ComboBoxThamSoDauVao comboBoxThamSoDauVao in comboBoxIdThamSoDauVao.Items)
+                    {
+                        if (comboBoxThamSoDauVao.MaThamSo == Program.frm_Map.KeHoach.ThamSoDauVao.Mathamso)
+                        {
+                            comboBoxIdThamSoDauVao.SelectedItem = comboBoxThamSoDauVao;
+                        }
+                    }
+                else
+                {
+                    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+                    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+                }
+
+                //if (Program.frm_Map.KeHoach.idThamSo != 0)
+                //    foreach (ComboBoxThamSoDauVao comboBoxThamSoDauVao in comboBoxIdThamSoDauVao.Items)
+                //    {
+                //        if (comboBoxThamSoDauVao.MaThamSo == Program.frm_Map.KeHoach.idThamSo)
+                //        {
+                //            comboBoxIdThamSoDauVao.SelectedItem = comboBoxThamSoDauVao;
+                //        }
+                //    }
+                //else
+                //{
+                //    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+                //    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+                //}
             }
         }
 
@@ -111,6 +142,35 @@ namespace DXApplication1.Views
                 comboBoxMaFile.SelectedIndex = -1;
                 comboBoxTenFile.SelectedIndex = -1;
             }
+
+
+            if (keHoach.ThamSoDauVao != null)
+                foreach (ComboBoxThamSoDauVao comboBoxThamSoDauVao in comboBoxIdThamSoDauVao.Items)
+                {
+                    if (comboBoxThamSoDauVao.MaThamSo == keHoach.ThamSoDauVao.Mathamso)
+                    {
+                        comboBoxIdThamSoDauVao.SelectedItem = comboBoxThamSoDauVao;
+                    }
+                }
+            else
+            {
+                comboBoxIdThamSoDauVao.SelectedIndex = -1;
+                comboBoxIdThamSoDauVao.SelectedIndex = -1;
+            }
+
+            //if (keHoach.idThamSo != 0)
+            //    foreach (ComboBoxThamSoDauVao comboBoxThamSoDauVao in comboBoxIdThamSoDauVao.Items)
+            //    {
+            //        if (comboBoxThamSoDauVao.MaThamSo == keHoach.idThamSo)
+            //        {
+            //            comboBoxIdThamSoDauVao.SelectedItem = comboBoxThamSoDauVao;
+            //        }
+            //    }
+            //else
+            //{
+            //    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+            //    comboBoxIdThamSoDauVao.SelectedIndex = -1;
+            //}
         }
 
         // Load Ke Hoach vao trong GridView
@@ -214,6 +274,12 @@ namespace DXApplication1.Views
                             MaFile = Program.frm_Map.KeHoach.FileDem.MaFile,
                         });
                     }
+
+                    if (comboBoxIdThamSoDauVao.SelectedItem != null)
+                    {
+                        Program.thamSoDauVaoSql.UpdateThamSo(Program.frm_Map.KeHoach.MaKeHoach,
+                            (comboBoxIdThamSoDauVao.SelectedItem as ComboBoxThamSoDauVao).MaThamSo);
+                    }
                 }
             }
             else
@@ -227,7 +293,6 @@ namespace DXApplication1.Views
                         {
                             textEditTenPhuongAn.ReadOnly = false;
                             timeEditThoiGianLap.ReadOnly = false;
-                          
                             return;
                         }
                         else
@@ -236,9 +301,9 @@ namespace DXApplication1.Views
                             return;
                         }
                     }
-                    if (comboBoxMaBanDo.SelectedItem == null || comboBoxMaFile.SelectedItem == null)
+                    if (comboBoxMaBanDo.SelectedItem == null || comboBoxMaFile.SelectedItem == null || comboBoxIdThamSoDauVao.SelectedItem != null)
                     {
-                        DialogResult dialogResult = MessageBox.Show("Bạn chưa chọn bản đồ hoặc kế hoạch ! Bạn có lưu lại luôn không?", "Lưu ý", MessageBoxButtons.YesNo);
+                        DialogResult dialogResult = MessageBox.Show("Bạn chưa chọn bản đồ hoặc kế hoạch hoặc tham số ! Bạn có lưu lại luôn không?", "Lưu ý", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
                             KeHoach keHoach = new KeHoach()
@@ -265,6 +330,7 @@ namespace DXApplication1.Views
                                 });
                             }
                             Program.ThongTinChiTietDoiTuongSql.AddDoiTuong(list);
+                            
                             MessageBox.Show("Thành Công");
                             LoadKeHoach();
                             LoadKeHoachDeTail();
@@ -283,6 +349,14 @@ namespace DXApplication1.Views
                         };
 
                         Program.KeHoachSql.ThemKeHoach(keHoach);
+                        // lưu lại thông tin tham số đầu vào
+
+                        if (comboBoxIdThamSoDauVao.SelectedItem != null)
+                        {
+                            Program.thamSoDauVaoSql.UpdateThamSo(Program.frm_Map.KeHoach.MaKeHoach,
+                                (comboBoxIdThamSoDauVao.SelectedItem as ComboBoxThamSoDauVao).MaThamSo);
+                        }
+
                         // Lưu lại bản đồ và file dem
                         ComboBoxItemBanDo banDo = (ComboBoxItemBanDo)comboBoxMaBanDo.SelectedItem;
                         keHoach.BanDo = new BanDo()
@@ -473,8 +547,6 @@ namespace DXApplication1.Views
                 Program.frm_Map.KeHoach = null;
                 textEditTenPhuongAn.Text = "";
                 timeEditThoiGianLap.DateTime = DateTime.Now;
-               
-
                 // 
 
                 DialogResult dialogResult1 = MessageBox.Show("Bạn có muốn giữ lại các đối tượng hiện tại không>", "Thành Công", MessageBoxButtons.YesNoCancel);
@@ -483,13 +555,11 @@ namespace DXApplication1.Views
                     Program.frm_Map.KeHoach = null;
                     textEditTenPhuongAn.Text = "";
                     timeEditThoiGianLap.DateTime = DateTime.Now;
-                    
                     Program.frm_Map.listUpdate.Clear();
                     Program.frm_Map.listAdd.Clear();
                     Program.frm_Map.listRemove.Clear();
                     textEditTenPhuongAn.ReadOnly = false;
                     timeEditThoiGianLap.DateTime = DateTime.Now;
-                    
                 }
                 else
                 {
@@ -498,7 +568,6 @@ namespace DXApplication1.Views
                         Program.frm_Map.KeHoach = null;
                         textEditTenPhuongAn.Text = "";
                         timeEditThoiGianLap.DateTime = DateTime.Now;
-                       
                         isChange.DoiTuongs.Clear();
                         Program.frm_Map.listUpdate.Clear();
                         Program.frm_Map.listAdd.Clear();
@@ -506,7 +575,6 @@ namespace DXApplication1.Views
                         Program.frm_Map.pictureBoxMap.Controls.Clear();
                         textEditTenPhuongAn.ReadOnly = false;
                         timeEditThoiGianLap.DateTime = DateTime.Now;
-                        
                         Program.frm_Map.opted = 0;
                     }
                     else
@@ -565,6 +633,15 @@ namespace DXApplication1.Views
             {
                 comboBoxMaFile.Items.Add(new ComboBoxItemFileDem() { MaFile = fileDem.MaFile, TenFile = fileDem.TenFile, checkComboBox = true, DuongDan = fileDem.DuongDan });
                 comboBoxTenFile.Items.Add(new ComboBoxItemFileDem() { MaFile = fileDem.MaFile, TenFile = fileDem.TenFile, checkComboBox = false, DuongDan = fileDem.DuongDan });
+            }
+        }
+
+        private void InitComBoBoxThamSo()
+        {
+            List<ThamSoDauVao_class> thamSoDauVaos = Program.thamSoDauVaoSql.LayThamSoDauVao();
+            foreach (ThamSoDauVao_class thamSoDauVao in thamSoDauVaos)
+            {
+                comboBoxIdThamSoDauVao.Items.Add(new ComboBoxThamSoDauVao(){ MaThamSo = thamSoDauVao.Mathamso});
             }
         }
 
@@ -639,7 +716,17 @@ namespace DXApplication1.Views
             {
                 textEditTenPhuongAn.ReadOnly = false;
                 timeEditThoiGianLap.ReadOnly = false;
-                
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(dataGridViewKeHoach[0, dataGridViewKeHoach.SelectedRows[0].Index].Value.ToString()))
+            {
+                int MaKeHoach = Int32.Parse(dataGridViewKeHoach[0, dataGridViewKeHoach.SelectedRows[0].Index].Value.ToString());
+                LoadKeHoachDeTail(Program.KeHoachSql.GetKeHoachAndDetailById(MaKeHoach));
+                HienThiSuCo hienThiSuCo = new HienThiSuCo(MaKeHoach);
+                hienThiSuCo.ShowDialog();
             }
         }
     }

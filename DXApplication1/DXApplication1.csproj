@@ -136,6 +136,8 @@
     <Compile Include="Models\QuyenSql.cs" />
     <Compile Include="Models\Quyen_LoaiQuyen.cs" />
     <Compile Include="Models\Quyen_LoaiQuyenSql.cs" />
+    <Compile Include="Models\SuCo.cs" />
+    <Compile Include="Models\SuCosql.cs" />
     <Compile Include="Models\ThamSoDauVao_class.cs" />
     <Compile Include="Models\ThamSoDauVaoSql.cs" />
     <Compile Include="Models\ThongTinBanDoKeHoach.cs" />
@@ -194,6 +196,7 @@
     <Compile Include="Utilizes\ComboBoxItemBanDo.cs" />
     <Compile Include="Utilizes\ComboBoxItemFileDem.cs" />
     <Compile Include="Utilizes\ComboBoxItemPhanQuyen.cs" />
+    <Compile Include="Utilizes\ComboBoxThamSoDauVao.cs" />
     <Compile Include="Utilizes\DesignHelper.cs" />
     <Compile Include="Utilizes\DrawHelper.cs" />
     <Compile Include="Utilizes\IntClass.cs" />
@@ -202,6 +205,12 @@
     <Compile Include="Utilizes\UserUtilizes.cs" />
     <Compile Include="Views\CustomScrollPanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\HienThiSuCo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\HienThiSuCo.Designer.cs">
+      <DependentUpon>HienThiSuCo.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuanLyBanDo.cs">
       <SubType>Form</SubType>
@@ -303,6 +312,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\HienThiSuCo.resx">
+      <DependentUpon>HienThiSuCo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThamSoDauVao\SuaTDV.resx">
       <DependentUpon>SuaTDV.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +329,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FileDem.resx">
       <DependentUpon>FileDem.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmDky.resx">
       <DependentUpon>frmDky.cs</DependentUpon>

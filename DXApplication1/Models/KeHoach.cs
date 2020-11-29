@@ -11,7 +11,6 @@ namespace DXApplication1.Models
         public string TenNguoiLap { get; set; }
         public BanDo BanDo { get; set; }
         public Dem FileDem { get; set; }
-
         public int MaThongTinBanDoKeHoach
         {
             get
@@ -39,6 +38,11 @@ namespace DXApplication1.Models
                 }
             }
             set { MaThongTinFileDemKeHoach = value; }
+        }
+
+        public ThamSoDauVao_class ThamSoDauVao
+        {
+            get { return Program.thamSoDauVaoSql.LayThamSoDauVaoVoiMaKeHoach(MaKeHoach); }
         }
     }
 }

@@ -55,6 +55,7 @@ namespace DXApplication1
                 XtraMessageBox.Show("Bạn phải nhập đầy đủ thông tin!");
             else
             {
+                
                 if (CheckLogin(txtUser.Text, txtPass.Text) == 1)
                 {
                     if(checkEditNhoMatKhau.Checked == true)
@@ -104,7 +105,7 @@ namespace DXApplication1
             foreach (var value in list)
             {
 
-                if (value.MaDangNhapNguoiDung == _name && UserUtilizes.GetHashString(_pass) == value.MatKhau)
+                if (value.MaDangNhapNguoiDung.ToLower() == _name.ToLower() && UserUtilizes.GetHashString(_pass.ToLower()) == value.MatKhau)
                 {
                     check = 1;
                     this.userLogin = new NguoiDung();
