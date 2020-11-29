@@ -9,19 +9,10 @@ namespace DXApplication1.Utilizes
     public class ComboBoxThamSoDauVao
     {
         public int MaThamSo { get; set; }
-        public string TenThamSo { get; set; }
-        public bool IsID { get; set; }
 
         public override string ToString()
         {
-            if (IsID)
-            {
-                return MaThamSo.ToString();
-            }
-            else
-            {
-                return TenThamSo;
-            }
+            return MaThamSo.ToString();
         }
     }
 }

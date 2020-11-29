@@ -39,6 +39,7 @@ namespace DXApplication1.Views
             InitializeComponent();
             InitComBoBoxFile();
             InitComBoBoxBanDo();
+            InitComBoBoxThamSo();
             LoadKeHoach();
             LoadKeHoachDeTail();
         }
@@ -79,10 +80,10 @@ namespace DXApplication1.Views
                 }
 
 
-                if (Program.frm_Map.KeHoach.idThamSo != 0)
+                if (Program.frm_Map.KeHoach.ThamSoDauVao != null)
                     foreach (ComboBoxThamSoDauVao comboBoxThamSoDauVao in comboBoxIdThamSoDauVao.Items)
                     {
-                        if (comboBoxThamSoDauVao.MaThamSo == Program.frm_Map.KeHoach.idThamSo)
+                        if (comboBoxThamSoDauVao.MaThamSo == Program.frm_Map.KeHoach.ThamSoDauVao.Mathamso)
                         {
                             comboBoxIdThamSoDauVao.SelectedItem = comboBoxThamSoDauVao;
                         }
@@ -143,10 +144,10 @@ namespace DXApplication1.Views
             }
 
 
-            if (keHoach.idThamSo != 0)
+            if (keHoach.ThamSoDauVao != null)
                 foreach (ComboBoxThamSoDauVao comboBoxThamSoDauVao in comboBoxIdThamSoDauVao.Items)
                 {
-                    if (comboBoxThamSoDauVao.MaThamSo == keHoach.idThamSo)
+                    if (comboBoxThamSoDauVao.MaThamSo == keHoach.ThamSoDauVao.Mathamso)
                     {
                         comboBoxIdThamSoDauVao.SelectedItem = comboBoxThamSoDauVao;
                     }
@@ -273,6 +274,12 @@ namespace DXApplication1.Views
                             MaFile = Program.frm_Map.KeHoach.FileDem.MaFile,
                         });
                     }
+
+                    if (comboBoxIdThamSoDauVao.SelectedItem != null)
+                    {
+                        Program.thamSoDauVaoSql.UpdateThamSo(Program.frm_Map.KeHoach.MaKeHoach,
+                            (comboBoxIdThamSoDauVao.SelectedItem as ComboBoxThamSoDauVao).MaThamSo);
+                    }
                 }
             }
             else
@@ -294,9 +301,9 @@ namespace DXApplication1.Views
                             return;
                         }
                     }
-                    if (comboBoxMaBanDo.SelectedItem == null || comboBoxMaFile.SelectedItem == null)
+                    if (comboBoxMaBanDo.SelectedItem == null || comboBoxMaFile.SelectedItem == null || comboBoxIdThamSoDauVao.SelectedItem != null)
                     {
-                        DialogResult dialogResult = MessageBox.Show("Bạn chưa chọn bản đồ hoặc kế hoạch ! Bạn có lưu lại luôn không?", "Lưu ý", MessageBoxButtons.YesNo);
+                        DialogResult dialogResult = MessageBox.Show("Bạn chưa chọn bản đồ hoặc kế hoạch hoặc tham số ! Bạn có lưu lại luôn không?", "Lưu ý", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
                             KeHoach keHoach = new KeHoach()
@@ -323,6 +330,7 @@ namespace DXApplication1.Views
                                 });
                             }
                             Program.ThongTinChiTietDoiTuongSql.AddDoiTuong(list);
+                            
                             MessageBox.Show("Thành Công");
                             LoadKeHoach();
                             LoadKeHoachDeTail();
@@ -341,6 +349,14 @@ namespace DXApplication1.Views
                         };
 
                         Program.KeHoachSql.ThemKeHoach(keHoach);
+                        // lưu lại thông tin tham số đầu vào
+
+                        if (comboBoxIdThamSoDauVao.SelectedItem != null)
+                        {
+                            Program.thamSoDauVaoSql.UpdateThamSo(Program.frm_Map.KeHoach.MaKeHoach,
+                                (comboBoxIdThamSoDauVao.SelectedItem as ComboBoxThamSoDauVao).MaThamSo);
+                        }
+
                         // Lưu lại bản đồ và file dem
                         ComboBoxItemBanDo banDo = (ComboBoxItemBanDo)comboBoxMaBanDo.SelectedItem;
                         keHoach.BanDo = new BanDo()
@@ -617,6 +633,15 @@ namespace DXApplication1.Views
             {
                 comboBoxMaFile.Items.Add(new ComboBoxItemFileDem() { MaFile = fileDem.MaFile, TenFile = fileDem.TenFile, checkComboBox = true, DuongDan = fileDem.DuongDan });
                 comboBoxTenFile.Items.Add(new ComboBoxItemFileDem() { MaFile = fileDem.MaFile, TenFile = fileDem.TenFile, checkComboBox = false, DuongDan = fileDem.DuongDan });
+            }
+        }
+
+        private void InitComBoBoxThamSo()
+        {
+            List<ThamSoDauVao_class> thamSoDauVaos = Program.thamSoDauVaoSql.LayThamSoDauVao();
+            foreach (ThamSoDauVao_class thamSoDauVao in thamSoDauVaos)
+            {
+                comboBoxIdThamSoDauVao.Items.Add(new ComboBoxThamSoDauVao(){ MaThamSo = thamSoDauVao.Mathamso});
             }
         }
 

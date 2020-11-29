@@ -54,13 +54,11 @@
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonChinhSua = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.comboBoxIdThamSoDauVao = new System.Windows.Forms.ComboBox();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxTenThamSoDauVao = new System.Windows.Forms.ComboBox();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTenPhuongAn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -327,8 +325,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.labelControl12);
-            this.groupBox1.Controls.Add(this.comboBoxTenThamSoDauVao);
             this.groupBox1.Controls.Add(this.labelControl8);
             this.groupBox1.Controls.Add(this.comboBoxIdThamSoDauVao);
             this.groupBox1.Controls.Add(this.labelControl11);
@@ -363,28 +359,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phương án";
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(478, 204);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(121, 28);
-            this.simpleButton1.TabIndex = 37;
-            this.simpleButton1.Text = "Sự Cố Liên Vùng";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridViewKeHoach);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 297);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(722, 405);
-            this.groupBox2.TabIndex = 38;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Danh sách phương án";
-            // 
             // labelControl8
             // 
             this.labelControl8.Location = new System.Drawing.Point(178, 173);
@@ -412,23 +386,27 @@
             this.labelControl11.TabIndex = 38;
             this.labelControl11.Text = "Chọn Tham Số Đầu Vào";
             // 
-            // labelControl12
+            // simpleButton1
             // 
-            this.labelControl12.Location = new System.Drawing.Point(393, 174);
-            this.labelControl12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(22, 16);
-            this.labelControl12.TabIndex = 42;
-            this.labelControl12.Text = "Tên";
+            this.simpleButton1.Location = new System.Drawing.Point(478, 204);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(121, 28);
+            this.simpleButton1.TabIndex = 37;
+            this.simpleButton1.Text = "Sự Cố Liên Vùng";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // comboBoxTenThamSoDauVao
+            // groupBox2
             // 
-            this.comboBoxTenThamSoDauVao.FormattingEnabled = true;
-            this.comboBoxTenThamSoDauVao.Location = new System.Drawing.Point(421, 170);
-            this.comboBoxTenThamSoDauVao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBoxTenThamSoDauVao.Name = "comboBoxTenThamSoDauVao";
-            this.comboBoxTenThamSoDauVao.Size = new System.Drawing.Size(180, 24);
-            this.comboBoxTenThamSoDauVao.TabIndex = 41;
+            this.groupBox2.Controls.Add(this.dataGridViewKeHoach);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 297);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(722, 405);
+            this.groupBox2.TabIndex = 38;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Danh sách phương án";
             // 
             // QuanLyPhuongAnForm
             // 
@@ -486,8 +464,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.LabelControl labelControl12;
-        private System.Windows.Forms.ComboBox comboBoxTenThamSoDauVao;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private System.Windows.Forms.ComboBox comboBoxIdThamSoDauVao;
         private DevExpress.XtraEditors.LabelControl labelControl11;

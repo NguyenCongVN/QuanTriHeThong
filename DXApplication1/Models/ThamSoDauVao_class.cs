@@ -9,23 +9,23 @@ namespace DXApplication1.Models
     public class ThamSoDauVao_class
     {
         private int mathamso;
-        private float x_water;
-        private float y_water;
-        private float x_wind;
-        private float y_wind;
-        private float upward_sea;
-        private float sign_height;
-        private float drift_x;
-        private float drift_y;
-        private float temperature;
-        private float salinity;
+        private double x_water;
+        private double y_water;
+        private double x_wind;
+        private double y_wind;
+        private double upward_sea;
+        private double sign_height;
+        private double drift_x;
+        private double drift_y;
+        private double temperature;
+        private double salinity;
         private int idLoaiDau;
         private int vitri_x;
         private int vitr_y;
-        private float luongdau;
+        private double luongdau;
         private DateTime thoigian;
 
-        //public ThamSoDauVao_class(int mathamso, float x_water, float y_water, float x_wind, float y_wind, float upward_sea, float sign_height, float drift_x, float drift_y, float temperature, float salinity, int idLoaiDau, int vitri_x, int vitr_y, float luongdau, DateTime thoigian)
+        //public ThamSoDauVao_class(int mathamso, double x_water, double y_water, double x_wind, double y_wind, double upward_sea, double sign_height, double drift_x, double drift_y, double temperature, double salinity, int idLoaiDau, int vitri_x, int vitr_y, double luongdau, DateTime thoigian)
         //{
         //    this.mathamso = mathamso;
         //    this.x_water = x_water;
@@ -46,20 +46,20 @@ namespace DXApplication1.Models
         //}
 
         public int Mathamso { get => mathamso; set => mathamso = value; }
-        public float X_water { get => x_water; set => x_water = value; }
-        public float Y_water { get => y_water; set => y_water = value; }
-        public float X_wind { get => x_wind; set => x_wind = value; }
-        public float Y_wind { get => y_wind; set => y_wind = value; }
-        public float Upward_sea { get => upward_sea; set => upward_sea = value; }
-        public float Sign_height { get => sign_height; set => sign_height = value; }
-        public float Drift_x { get => drift_x; set => drift_x = value; }
-        public float Drift_y { get => drift_y; set => drift_y = value; }
-        public float Temperature { get => temperature; set => temperature = value; }
-        public float Salinity { get => salinity; set => salinity = value; }
+        public double X_water { get => x_water; set => x_water = value; }
+        public double Y_water { get => y_water; set => y_water = value; }
+        public double X_wind { get => x_wind; set => x_wind = value; }
+        public double Y_wind { get => y_wind; set => y_wind = value; }
+        public double Upward_sea { get => upward_sea; set => upward_sea = value; }
+        public double Sign_height { get => sign_height; set => sign_height = value; }
+        public double Drift_x { get => drift_x; set => drift_x = value; }
+        public double Drift_y { get => drift_y; set => drift_y = value; }
+        public double Temperature { get => temperature; set => temperature = value; }
+        public double Salinity { get => salinity; set => salinity = value; }
         public int IdLoaiDau { get => idLoaiDau; set => idLoaiDau = value; }
         public int Vitri_x { get => vitri_x; set => vitri_x = value; }
         public int Vitr_y { get => vitr_y; set => vitr_y = value; }
-        public float Luongdau { get => luongdau; set => luongdau = value; }
+        public double Luongdau { get => luongdau; set => luongdau = value; }
         public DateTime Thoigian { get => thoigian; set => thoigian = value; }
     }
 }

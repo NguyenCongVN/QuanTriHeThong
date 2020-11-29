@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DXApplication1.Utilizes;
 using DXApplication1.Models;
+using DXApplication1.ThamSoDauVao;
 
 namespace DXApplication1.Views
 {
@@ -29,9 +30,8 @@ namespace DXApplication1.Views
         }
         private void getDataFromDgvIntoTextBox(TextBox tb, int row, string column)
         {
-             tb = new TextBox();
+            //tb = new TextBox();
             tb.Text = dataGridViewTSDV.Rows[row].Cells[column].Value.ToString();
-          
         }
 
         private void dataGridViewTSDV_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -52,7 +52,6 @@ namespace DXApplication1.Views
             Program.arr[5] = tbupward_sea.Text;
             getDataFromDgvIntoTextBox(tbsign_height, numrow, "significant_height");
             Program.arr[6] = tbsign_height.Text;
-
             getDataFromDgvIntoTextBox(tbdrift_x, numrow, "stokes_drift_x");
             Program.arr[7] = tbdrift_x.Text;
             getDataFromDgvIntoTextBox(tbdrift_y, numrow, "stokes_drift_y");
@@ -71,8 +70,6 @@ namespace DXApplication1.Views
             Program.arr[14] = tbluongdau.Text;
             getDataFromDgvIntoTextBox(tbthoigian, numrow, "thoigianmophong");
             Program.arr[15] = tbthoigian.Text;
-
-
         }
 
        
@@ -94,7 +91,7 @@ namespace DXApplication1.Views
 
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            
+            SuaTDV suaTdv = new SuaTDV();
         }
     }
 }
