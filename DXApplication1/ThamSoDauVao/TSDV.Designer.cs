@@ -149,6 +149,7 @@
             this.dataGridViewTSDV.Name = "dataGridViewTSDV";
             this.dataGridViewTSDV.RowHeadersWidth = 51;
             this.dataGridViewTSDV.RowTemplate.Height = 24;
+            this.dataGridViewTSDV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTSDV.Size = new System.Drawing.Size(1489, 295);
             this.dataGridViewTSDV.TabIndex = 0;
             this.dataGridViewTSDV.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTSDV_CellEnter);

@@ -205,7 +205,7 @@ namespace DXApplication1.Models
 
         public DataTable GetLoaiDau()
         {
-            SqlCommand cmd = new SqlCommand("SelectLoaiDau" , Connection);
+            SqlCommand cmd = new SqlCommand("SelectLoaiDau", Connection);
             cmd.CommandType = CommandType.StoredProcedure;
             Connection.Open();
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -213,6 +213,7 @@ namespace DXApplication1.Models
             adapter.Fill(table);
             Connection.Close();
             return table;
+        }
          public void XoaThamSo(int mathamso)
         {
             string query = "XoaThamSo";
@@ -228,6 +229,74 @@ namespace DXApplication1.Models
                 {
                     Program.thamSoDauVao.ThamSoDauVao_Load(null,null);
                 }
+            }
+        }
+
+        public ThamSoDauVao_class LayThamSoDauVaoVoiMaThamSo(int maThamSo)
+        {
+            SqlCommand cmd = new SqlCommand("SelectThamSoDauVao", Connection);
+            cmd.Parameters.AddWithValue("maThamSo", maThamSo);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                if (table.Rows.Count > 0)
+                {
+                    ThamSoDauVao_class thamSoDauVao = new ThamSoDauVao_class()
+                    {
+                        Drift_x = table.Rows[0].Field<double>((int)ThamSoDauVaoEnum.sea_surface_wave_stokes_drift_x_velocity),
+                        Drift_y = table.Rows[0].Field<double>((int)ThamSoDauVaoEnum.sea_surface_wave_stokes_drift_y_velocity),
+                        IdLoaiDau = table.Rows[0].Field<int>((int)ThamSoDauVaoEnum.idLoaiDau),
+                        Luongdau = table.Rows[0].Field<double>((int)ThamSoDauVaoEnum.khoiluongdau),
+                        Mathamso = table.Rows[0].Field<int>((int)ThamSoDauVaoEnum.idThamSo),
+                        Salinity = table.Rows[0].Field<double>((int)ThamSoDauVaoEnum.sea_water_salinity),
+                        Sign_height = table.Rows[0].Field<double>((int)ThamSoDauVaoEnum.sea_surface_wave_significant_height),
+                        Temperature = table.Rows[0].Field<double>((int)ThamSoDauVaoEnum.sea_water_temperature),
+                        Thoigian = table.Rows[0].Field<DateTime>((int)ThamSoDauVaoEnum.thoigianmophong),
+                        Upward_sea = table.Rows[0].Field<double>((int)ThamSoDauVaoEnum.upward_sea_water_velocity),
+                        Vitri_x = table.Rows[0].Field<int>((int)ThamSoDauVaoEnum.vitridauthatthoat_x),
+                        Vitr_y = table.Rows[0].Field<int>((int)ThamSoDauVaoEnum.vitridauthatthoat_y),
+                        X_water = table.Rows[0].Field<double>((int)ThamSoDauVaoEnum.x_water_velocity),
+                        X_wind = table.Rows[0].Field<double>((int)ThamSoDauVaoEnum.x_wind),
+                        Y_water = table.Rows[0].Field<double>((int)ThamSoDauVaoEnum.y_water_velocity),
+                        Y_wind = table.Rows[0].Field<double>((int)ThamSoDauVaoEnum.y_wind)
+                    };
+                    return thamSoDauVao;
+                }
+                return null;
+            }
+        }
+
+        public void UpdateThamSoDauVao(ThamSoDauVao_class thamSoDauVao)
+        {
+            try
+            {
+                Connection.Open();
+                SqlCommand cmd = new SqlCommand("UpdateThamSoDauVao", Connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idLoaiDau", thamSoDauVao.IdLoaiDau);
+                cmd.Parameters.AddWithValue("@seaWaterTemperature", thamSoDauVao.Temperature);
+                cmd.Parameters.AddWithValue("@thoiGianMoPhong", thamSoDauVao.Thoigian);
+                cmd.Parameters.AddWithValue("@upwardSeaWaterVelocity", thamSoDauVao.Upward_sea);
+                cmd.Parameters.AddWithValue("@viTriDauThoatY", thamSoDauVao.Vitr_y);
+                cmd.Parameters.AddWithValue("@viTriDauThoatX", thamSoDauVao.Vitri_x);
+                cmd.Parameters.AddWithValue("@xWind", thamSoDauVao.X_wind);
+                cmd.Parameters.AddWithValue("@yWind", thamSoDauVao.Y_wind);
+                cmd.Parameters.AddWithValue("@seaSurfaceWaveStokesDriftXVelocity", thamSoDauVao.Drift_x);
+                cmd.Parameters.AddWithValue("@seaSurfaceWaveStokesDriftYVelocity", thamSoDauVao.Drift_y);
+                cmd.Parameters.AddWithValue("@khoiLuongDau", thamSoDauVao.Luongdau);
+                cmd.Parameters.AddWithValue("@seaWaterSalinity", thamSoDauVao.Salinity);
+                cmd.Parameters.AddWithValue("@seaSurfaceWaveSignificantHeight", thamSoDauVao.Sign_height);
+                cmd.Parameters.AddWithValue("@xWaterVelocity", thamSoDauVao.X_water);
+                cmd.Parameters.AddWithValue("@yWaterVelocity", thamSoDauVao.Y_water);
+                cmd.Parameters.AddWithValue("@maThamSo", thamSoDauVao.Mathamso);
+                cmd.ExecuteScalar();
+                Connection.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
         }
     }

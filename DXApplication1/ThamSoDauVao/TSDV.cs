@@ -30,7 +30,6 @@ namespace DXApplication1.Views
         }
         private void getDataFromDgvIntoTextBox(TextBox tb, int row, string column)
         {
-            //tb = new TextBox();
             tb.Text = dataGridViewTSDV.Rows[row].Cells[column].Value.ToString();
         }
 
@@ -68,8 +67,11 @@ namespace DXApplication1.Views
             Program.arr[13] = tbvitrithatthoat_y.Text;
             getDataFromDgvIntoTextBox(tbluongdau, numrow, "khoiluongdau");
             Program.arr[14] = tbluongdau.Text;
-            getDataFromDgvIntoTextBox(tbthoigian, numrow, "thoigianmophong");
-            Program.arr[15] = tbthoigian.Text;
+            ThamSoDauVao_class thamSoDauVao = Program.thamSoDauVaoSql.LayThamSoDauVaoVoiMaKeHoach(Int32.Parse(dataGridViewTSDV.Rows[e.RowIndex].Cells["idThamSo"].Value.ToString()));
+            if (thamSoDauVao != null)
+            {
+                tbthoigian.Text = thamSoDauVao.Thoigian.ToString("hh:mm:ss dd/MM/yyyy");
+            }
         }
 
        
@@ -96,8 +98,18 @@ namespace DXApplication1.Views
 
         private void buttonSua_Click(object sender, EventArgs e)
         {
-            SuaTDV suaTdv = new SuaTDV();
-            suaTdv.ShowDialog();
+            
+            ThamSoDauVao_class thamSoDauVao = Program.thamSoDauVaoSql.LayThamSoDauVaoVoiMaThamSo(Int32.Parse(dataGridViewTSDV.Rows[dataGridViewTSDV.SelectedRows[0].Index].Cells["idThamSo"].Value.ToString()));
+            if (thamSoDauVao != null)
+            {
+                SuaTDV suaTdv = new SuaTDV(thamSoDauVao);
+                suaTdv.ShowDialog();
+                Program.thamSoDauVaoSql.getDataTSDV(dataGridViewTSDV, searchLookUpEditTSDV);
+            }
+            else
+            {
+                MessageBox.Show("Có Lỗi Xảy Ra");
+            }
         }
     }
 }

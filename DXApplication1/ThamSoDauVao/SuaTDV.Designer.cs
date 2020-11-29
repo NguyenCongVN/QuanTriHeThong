@@ -76,7 +76,6 @@
             this.tbthoigian.Location = new System.Drawing.Point(737, 280);
             this.tbthoigian.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbthoigian.Name = "tbthoigian";
-            this.tbthoigian.ReadOnly = true;
             this.tbthoigian.Size = new System.Drawing.Size(193, 28);
             this.tbthoigian.TabIndex = 90;
             // 
@@ -179,9 +178,9 @@
             this.label6.Font = new System.Drawing.Font("Tahoma", 10.2F);
             this.label6.Location = new System.Drawing.Point(532, 331);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 21);
+            this.label6.Size = new System.Drawing.Size(72, 21);
             this.label6.TabIndex = 73;
-            this.label6.Text = "Mã loại dầu";
+            this.label6.Text = "Loại dầu";
             // 
             // label7
             // 
