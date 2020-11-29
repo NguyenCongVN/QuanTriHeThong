@@ -774,6 +774,7 @@
             this.ClientSize = new System.Drawing.Size(1653, 812);
             this.Controls.Add(this.sidePanelThamSoDauVao);
             this.Name = "TSDV";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThamSoDauVao";
             this.Load += new System.EventHandler(this.ThamSoDauVao_Load);
             this.sidePanelThamSoDauVao.ResumeLayout(false);
