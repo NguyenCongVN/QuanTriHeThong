@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using DXApplication1.Account;
 using DXApplication1.Models;
 using DXApplication1.Views;
+using DXApplication1.ThamSoDauVao;
 using System;
 using System.Drawing;
 using System.Threading;
@@ -229,10 +230,11 @@ namespace DXApplication1
             }
         }
 
-        private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+       
+        private void barButtonItemthamsodauvao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            TSDV thamSoDauVao = new TSDV();
-            thamSoDauVao.ShowDialog();
+            Program.thamSoDauVao = new TSDV();
+            Program.thamSoDauVao.ShowDialog();
         }
     }
 }

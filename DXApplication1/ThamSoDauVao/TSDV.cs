@@ -86,7 +86,12 @@ namespace DXApplication1.Views
         }
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc muốn xoá tham số này", "Question Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Program.thamSoDauVaoSql = new ThamSoDauVaoSql();
+                Program.thamSoDauVaoSql.XoaThamSo(Convert.ToInt32(tbmathamso.Text));
+            }
         }
 
         private void buttonSua_Click(object sender, EventArgs e)

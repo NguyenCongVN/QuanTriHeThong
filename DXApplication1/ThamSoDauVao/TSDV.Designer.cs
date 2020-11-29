@@ -31,6 +31,23 @@
             this.sidePanelThamSoDauVao = new DevExpress.XtraEditors.SidePanel();
             this.groupControlDanhSachNhanVien = new DevExpress.XtraEditors.GroupControl();
             this.dataGridViewTSDV = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idThamSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.x_water_velocity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.y_water_velocity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.x_wind = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.y_wind = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.upward_velocity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.significant_height = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stokes_drift_x = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stokes_drift_y = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.temperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salinity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idLoaiDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.khoiluongdau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thoigianmophong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vitridauthatthoat_x = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vitridauthatthoat_y = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupControlThongTinChiTiet = new DevExpress.XtraEditors.GroupControl();
             this.tbthoigian = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -71,23 +88,6 @@
             this.labelSoDienThoai = new System.Windows.Forms.Label();
             this.tbx_wind = new System.Windows.Forms.TextBox();
             this.tby_wind = new System.Windows.Forms.TextBox();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idThamSo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.x_water_velocity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.y_water_velocity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.x_wind = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.y_wind = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.upward_velocity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.significant_height = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stokes_drift_x = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stokes_drift_y = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.temperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salinity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idLoaiDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.khoiluongdau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thoigianmophong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vitridauthatthoat_x = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vitridauthatthoat_y = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sidePanelThamSoDauVao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlDanhSachNhanVien)).BeginInit();
             this.groupControlDanhSachNhanVien.SuspendLayout();
@@ -152,6 +152,143 @@
             this.dataGridViewTSDV.Size = new System.Drawing.Size(1489, 295);
             this.dataGridViewTSDV.TabIndex = 0;
             this.dataGridViewTSDV.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTSDV_CellEnter);
+            // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.STT.DataPropertyName = "STT";
+            this.STT.HeaderText = "STT";
+            this.STT.MinimumWidth = 2;
+            this.STT.Name = "STT";
+            this.STT.Width = 50;
+            // 
+            // idThamSo
+            // 
+            this.idThamSo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.idThamSo.DataPropertyName = "idThamSo";
+            this.idThamSo.HeaderText = "Mã tham số";
+            this.idThamSo.MinimumWidth = 6;
+            this.idThamSo.Name = "idThamSo";
+            this.idThamSo.ReadOnly = true;
+            this.idThamSo.Width = 125;
+            // 
+            // x_water_velocity
+            // 
+            this.x_water_velocity.DataPropertyName = "x_water_velocity";
+            this.x_water_velocity.FillWeight = 89.12591F;
+            this.x_water_velocity.HeaderText = "x_water velocity";
+            this.x_water_velocity.MinimumWidth = 6;
+            this.x_water_velocity.Name = "x_water_velocity";
+            this.x_water_velocity.ReadOnly = true;
+            // 
+            // y_water_velocity
+            // 
+            this.y_water_velocity.DataPropertyName = "y_water_velocity";
+            this.y_water_velocity.FillWeight = 89.12591F;
+            this.y_water_velocity.HeaderText = "y_water velocity";
+            this.y_water_velocity.MinimumWidth = 6;
+            this.y_water_velocity.Name = "y_water_velocity";
+            this.y_water_velocity.ReadOnly = true;
+            // 
+            // x_wind
+            // 
+            this.x_wind.DataPropertyName = "x_wind";
+            this.x_wind.HeaderText = "x_wind";
+            this.x_wind.MinimumWidth = 6;
+            this.x_wind.Name = "x_wind";
+            this.x_wind.ReadOnly = true;
+            // 
+            // y_wind
+            // 
+            this.y_wind.DataPropertyName = "y_wind";
+            this.y_wind.FillWeight = 89.12591F;
+            this.y_wind.HeaderText = "y_wind";
+            this.y_wind.MinimumWidth = 6;
+            this.y_wind.Name = "y_wind";
+            this.y_wind.ReadOnly = true;
+            // 
+            // upward_velocity
+            // 
+            this.upward_velocity.DataPropertyName = "upward_velocity";
+            this.upward_velocity.FillWeight = 89.12591F;
+            this.upward_velocity.HeaderText = "upward velocity";
+            this.upward_velocity.MinimumWidth = 6;
+            this.upward_velocity.Name = "upward_velocity";
+            this.upward_velocity.ReadOnly = true;
+            // 
+            // significant_height
+            // 
+            this.significant_height.DataPropertyName = "significant_height";
+            this.significant_height.FillWeight = 89.12591F;
+            this.significant_height.HeaderText = "significant height";
+            this.significant_height.MinimumWidth = 6;
+            this.significant_height.Name = "significant_height";
+            this.significant_height.ReadOnly = true;
+            // 
+            // stokes_drift_x
+            // 
+            this.stokes_drift_x.DataPropertyName = "stokes_drift_x";
+            this.stokes_drift_x.FillWeight = 89.12591F;
+            this.stokes_drift_x.HeaderText = "stokes drift_x";
+            this.stokes_drift_x.MinimumWidth = 6;
+            this.stokes_drift_x.Name = "stokes_drift_x";
+            this.stokes_drift_x.ReadOnly = true;
+            // 
+            // stokes_drift_y
+            // 
+            this.stokes_drift_y.DataPropertyName = "stokes_drift_y";
+            this.stokes_drift_y.HeaderText = "stokes drift_y";
+            this.stokes_drift_y.MinimumWidth = 6;
+            this.stokes_drift_y.Name = "stokes_drift_y";
+            // 
+            // temperature
+            // 
+            this.temperature.DataPropertyName = "temperature";
+            this.temperature.HeaderText = "temperature";
+            this.temperature.MinimumWidth = 6;
+            this.temperature.Name = "temperature";
+            // 
+            // salinity
+            // 
+            this.salinity.DataPropertyName = "salinity";
+            this.salinity.HeaderText = "salinity";
+            this.salinity.MinimumWidth = 6;
+            this.salinity.Name = "salinity";
+            // 
+            // idLoaiDau
+            // 
+            this.idLoaiDau.DataPropertyName = "idLoaiDau";
+            this.idLoaiDau.HeaderText = "Mã loại dầu";
+            this.idLoaiDau.MinimumWidth = 6;
+            this.idLoaiDau.Name = "idLoaiDau";
+            // 
+            // khoiluongdau
+            // 
+            this.khoiluongdau.DataPropertyName = "khoiluongdau";
+            this.khoiluongdau.HeaderText = "Khối lượng dầu";
+            this.khoiluongdau.MinimumWidth = 6;
+            this.khoiluongdau.Name = "khoiluongdau";
+            // 
+            // thoigianmophong
+            // 
+            this.thoigianmophong.DataPropertyName = "thoigianmophong";
+            this.thoigianmophong.HeaderText = "Thời gian mô phỏng";
+            this.thoigianmophong.MinimumWidth = 6;
+            this.thoigianmophong.Name = "thoigianmophong";
+            // 
+            // vitridauthatthoat_x
+            // 
+            this.vitridauthatthoat_x.DataPropertyName = "vitridauthatthoat_x";
+            this.vitridauthatthoat_x.HeaderText = "Vị trí dầu thất thoát_x";
+            this.vitridauthatthoat_x.MinimumWidth = 6;
+            this.vitridauthatthoat_x.Name = "vitridauthatthoat_x";
+            // 
+            // vitridauthatthoat_y
+            // 
+            this.vitridauthatthoat_y.DataPropertyName = "vitridauthatthoat_y";
+            this.vitridauthatthoat_y.HeaderText = "Vị trí dầu thất thoát_y";
+            this.vitridauthatthoat_y.MinimumWidth = 6;
+            this.vitridauthatthoat_y.Name = "vitridauthatthoat_y";
             // 
             // groupControlThongTinChiTiet
             // 
@@ -629,143 +766,6 @@
             this.tby_wind.Size = new System.Drawing.Size(193, 28);
             this.tby_wind.TabIndex = 19;
             // 
-            // STT
-            // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.STT.DataPropertyName = "STT";
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 2;
-            this.STT.Name = "STT";
-            this.STT.Width = 50;
-            // 
-            // idThamSo
-            // 
-            this.idThamSo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.idThamSo.DataPropertyName = "idThamSo";
-            this.idThamSo.HeaderText = "Mã tham số";
-            this.idThamSo.MinimumWidth = 6;
-            this.idThamSo.Name = "idThamSo";
-            this.idThamSo.ReadOnly = true;
-            this.idThamSo.Width = 125;
-            // 
-            // x_water_velocity
-            // 
-            this.x_water_velocity.DataPropertyName = "x_water_velocity";
-            this.x_water_velocity.FillWeight = 89.12591F;
-            this.x_water_velocity.HeaderText = "x_water velocity";
-            this.x_water_velocity.MinimumWidth = 6;
-            this.x_water_velocity.Name = "x_water_velocity";
-            this.x_water_velocity.ReadOnly = true;
-            // 
-            // y_water_velocity
-            // 
-            this.y_water_velocity.DataPropertyName = "y_water_velocity";
-            this.y_water_velocity.FillWeight = 89.12591F;
-            this.y_water_velocity.HeaderText = "y_water velocity";
-            this.y_water_velocity.MinimumWidth = 6;
-            this.y_water_velocity.Name = "y_water_velocity";
-            this.y_water_velocity.ReadOnly = true;
-            // 
-            // x_wind
-            // 
-            this.x_wind.DataPropertyName = "x_wind";
-            this.x_wind.HeaderText = "x_wind";
-            this.x_wind.MinimumWidth = 6;
-            this.x_wind.Name = "x_wind";
-            this.x_wind.ReadOnly = true;
-            // 
-            // y_wind
-            // 
-            this.y_wind.DataPropertyName = "y_wind";
-            this.y_wind.FillWeight = 89.12591F;
-            this.y_wind.HeaderText = "y_wind";
-            this.y_wind.MinimumWidth = 6;
-            this.y_wind.Name = "y_wind";
-            this.y_wind.ReadOnly = true;
-            // 
-            // upward_velocity
-            // 
-            this.upward_velocity.DataPropertyName = "upward_velocity";
-            this.upward_velocity.FillWeight = 89.12591F;
-            this.upward_velocity.HeaderText = "upward velocity";
-            this.upward_velocity.MinimumWidth = 6;
-            this.upward_velocity.Name = "upward_velocity";
-            this.upward_velocity.ReadOnly = true;
-            // 
-            // significant_height
-            // 
-            this.significant_height.DataPropertyName = "significant_height";
-            this.significant_height.FillWeight = 89.12591F;
-            this.significant_height.HeaderText = "significant height";
-            this.significant_height.MinimumWidth = 6;
-            this.significant_height.Name = "significant_height";
-            this.significant_height.ReadOnly = true;
-            // 
-            // stokes_drift_x
-            // 
-            this.stokes_drift_x.DataPropertyName = "stokes_drift_x";
-            this.stokes_drift_x.FillWeight = 89.12591F;
-            this.stokes_drift_x.HeaderText = "stokes drift_x";
-            this.stokes_drift_x.MinimumWidth = 6;
-            this.stokes_drift_x.Name = "stokes_drift_x";
-            this.stokes_drift_x.ReadOnly = true;
-            // 
-            // stokes_drift_y
-            // 
-            this.stokes_drift_y.DataPropertyName = "stokes_drift_y";
-            this.stokes_drift_y.HeaderText = "stokes drift_y";
-            this.stokes_drift_y.MinimumWidth = 6;
-            this.stokes_drift_y.Name = "stokes_drift_y";
-            // 
-            // temperature
-            // 
-            this.temperature.DataPropertyName = "temperature";
-            this.temperature.HeaderText = "temperature";
-            this.temperature.MinimumWidth = 6;
-            this.temperature.Name = "temperature";
-            // 
-            // salinity
-            // 
-            this.salinity.DataPropertyName = "salinity";
-            this.salinity.HeaderText = "salinity";
-            this.salinity.MinimumWidth = 6;
-            this.salinity.Name = "salinity";
-            // 
-            // idLoaiDau
-            // 
-            this.idLoaiDau.DataPropertyName = "idLoaiDau";
-            this.idLoaiDau.HeaderText = "Mã loại dầu";
-            this.idLoaiDau.MinimumWidth = 6;
-            this.idLoaiDau.Name = "idLoaiDau";
-            // 
-            // khoiluongdau
-            // 
-            this.khoiluongdau.DataPropertyName = "khoiluongdau";
-            this.khoiluongdau.HeaderText = "Khối lượng dầu";
-            this.khoiluongdau.MinimumWidth = 6;
-            this.khoiluongdau.Name = "khoiluongdau";
-            // 
-            // thoigianmophong
-            // 
-            this.thoigianmophong.DataPropertyName = "thoigianmophong";
-            this.thoigianmophong.HeaderText = "Thời gian mô phỏng";
-            this.thoigianmophong.MinimumWidth = 6;
-            this.thoigianmophong.Name = "thoigianmophong";
-            // 
-            // vitridauthatthoat_x
-            // 
-            this.vitridauthatthoat_x.DataPropertyName = "vitridauthatthoat_x";
-            this.vitridauthatthoat_x.HeaderText = "Vị trí dầu thất thoát_x";
-            this.vitridauthatthoat_x.MinimumWidth = 6;
-            this.vitridauthatthoat_x.Name = "vitridauthatthoat_x";
-            // 
-            // vitridauthatthoat_y
-            // 
-            this.vitridauthatthoat_y.DataPropertyName = "vitridauthatthoat_y";
-            this.vitridauthatthoat_y.HeaderText = "Vị trí dầu thất thoát_y";
-            this.vitridauthatthoat_y.MinimumWidth = 6;
-            this.vitridauthatthoat_y.Name = "vitridauthatthoat_y";
-            // 
             // TSDV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -773,6 +773,7 @@
             this.ClientSize = new System.Drawing.Size(1653, 812);
             this.Controls.Add(this.sidePanelThamSoDauVao);
             this.Name = "TSDV";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ThamSoDauVao";
             this.Load += new System.EventHandler(this.ThamSoDauVao_Load);
             this.sidePanelThamSoDauVao.ResumeLayout(false);

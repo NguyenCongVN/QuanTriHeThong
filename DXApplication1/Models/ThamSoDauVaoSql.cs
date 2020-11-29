@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace DXApplication1.Models
 {
-    class ThamSoDauVaoSql : ConnectionDatabase
+    class ThamSoDauVaoSql : connection
     {
 
         enum ThamSoDauVaoEnum
@@ -200,6 +201,24 @@ namespace DXApplication1.Models
             Connection.Open();
             cmd.ExecuteScalar();
             Connection.Close();
+        }
+
+         public void XoaThamSo(int mathamso)
+        {
+            string query = "XoaThamSo";
+            string[] para = { "@mathamso" };
+            int[] value = new int[] { mathamso };
+            object[] obj = (from i in value select i).Cast<object>().ToArray();
+            connect = new connection();
+            int result = Excute_Sql(query, CommandType.StoredProcedure, para, obj);
+            if (result > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Xoa tham so thanh cong", "Information message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.OK)
+                {
+                    Program.thamSoDauVao.ThamSoDauVao_Load(null,null);
+                }
+            }
         }
     }
 }
