@@ -236,5 +236,11 @@ namespace DXApplication1
             Program.thamSoDauVao = new TSDV();
             Program.thamSoDauVao.ShowDialog();
         }
+
+        private void barButtonItem10_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string filePath = @"..\..\..\TỔNG QUAN.docx";
+            System.Diagnostics.Process.Start(filePath);
+        }
     }
 }

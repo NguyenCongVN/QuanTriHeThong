@@ -54,6 +54,7 @@
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonGroup1 = new DevExpress.XtraBars.BarButtonGroup();
             this.barButtonItemthamsodauvao = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -63,6 +64,8 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -100,14 +103,16 @@
             this.barButtonItemQLPhuongAn,
             this.barButtonItem9,
             this.barButtonGroup1,
-            this.barButtonItemthamsodauvao});
+            this.barButtonItemthamsodauvao,
+            this.barButtonItem10});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 5;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpHeThong,
-            this.rbpManage});
+            this.rbpManage,
+            this.ribbonPage1});
             this.ribbonControl1.Size = new System.Drawing.Size(1376, 183);
             // 
             // btnLogin
@@ -343,10 +348,19 @@
             // 
             this.barButtonItemthamsodauvao.Caption = "Quản Lý Tham Số Đầu Vào";
             this.barButtonItemthamsodauvao.Id = 3;
-            this.barButtonItemthamsodauvao.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.Image")));
-            this.barButtonItemthamsodauvao.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.LargeImage")));
+            this.barButtonItemthamsodauvao.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemthamsodauvao.ImageOptions.Image")));
+            this.barButtonItemthamsodauvao.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemthamsodauvao.ImageOptions.LargeImage")));
             this.barButtonItemthamsodauvao.Name = "barButtonItemthamsodauvao";
             this.barButtonItemthamsodauvao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemthamsodauvao_ItemClick);
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "Tài Liệu Hướng Dẫn";
+            this.barButtonItem10.Id = 4;
+            this.barButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.Image")));
+            this.barButtonItem10.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.LargeImage")));
+            this.barButtonItem10.Name = "barButtonItem10";
+            this.barButtonItem10.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick);
             // 
             // rbpHeThong
             // 
@@ -415,6 +429,21 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItemthamsodauvao);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Quản Lý Tham Số Tràn Dầu";
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.ribbonPage1.Appearance.Options.UseFont = true;
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup6});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "Hướng Dẫn Sử Dụng";
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem10);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
+            this.ribbonPageGroup6.Text = "Hướng Dẫn Sử Dụng";
             // 
             // ribbonPage3
             // 
@@ -516,6 +545,9 @@
         private DevExpress.XtraBars.BarButtonGroup barButtonGroup1;
         private DevExpress.XtraBars.BarButtonItem barButtonItemthamsodauvao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
     }
 }
 
