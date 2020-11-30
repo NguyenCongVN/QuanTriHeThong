@@ -39,8 +39,6 @@
             this.searchLookUpEditDSNV = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dataGridViewDSDem = new System.Windows.Forms.DataGridView();
-            this.txtDuongDan = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButtonHuy = new DevExpress.XtraEditors.SimpleButton();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenFile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DuongDan = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -150,6 +148,7 @@
             this.searchLookUpEditDSNV.Properties.Appearance.Options.UseFont = true;
             this.searchLookUpEditDSNV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.searchLookUpEditDSNV.Properties.NullText = "";
             this.searchLookUpEditDSNV.Properties.PopupView = this.searchLookUpEdit1View;
             this.searchLookUpEditDSNV.Size = new System.Drawing.Size(271, 28);
             this.searchLookUpEditDSNV.TabIndex = 40;
@@ -183,26 +182,6 @@
             this.dataGridViewDSDem.TabIndex = 38;
             this.dataGridViewDSDem.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSDem_CellEnter);
             this.dataGridViewDSDem.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewDSDem_RowPrePaint);
-            // 
-            // txtDuongDan
-            // 
-            this.txtDuongDan.Location = new System.Drawing.Point(178, 62);
-            this.txtDuongDan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtDuongDan.Name = "txtDuongDan";
-            this.txtDuongDan.Properties.ReadOnly = true;
-            this.txtDuongDan.Size = new System.Drawing.Size(421, 22);
-            this.txtDuongDan.TabIndex = 41;
-            // 
-            // simpleButtonHuy
-            // 
-            this.simpleButtonHuy.Location = new System.Drawing.Point(405, 150);
-            this.simpleButtonHuy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.simpleButtonHuy.Name = "simpleButtonHuy";
-            this.simpleButtonHuy.Size = new System.Drawing.Size(105, 28);
-            this.simpleButtonHuy.TabIndex = 42;
-            this.simpleButtonHuy.Text = "Hủy";
-            this.simpleButtonHuy.Visible = false;
-            this.simpleButtonHuy.Click += new System.EventHandler(this.simpleButtonHuy_Click);
             // 
             // STT
             // 

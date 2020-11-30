@@ -531,6 +531,17 @@ namespace DXApplication1.Views
                     .ToString());
                 KeHoach selectedKeHoach = Program.KeHoachSql.GetKeHoachAndDetailById(ma);
                 MoKeHoach(selectedKeHoach);
+                // Kiểm tra xem file có đúng định dạng không
+                if (Program.frm_Map.KeHoach.FileDem == null)
+                {
+                    var result = MessageBox.Show(
+                        "File dữ liệu không tồn tại hoặc không đúng định dạng ! Bạn có muốn mở hướng dẫn sử dụng ?" , "Lỗi" , MessageBoxButtons.YesNo , MessageBoxIcon.Error);
+                    if (result == DialogResult.Yes)
+                    {
+                        string filePath = @"..\..\..\TỔNG QUAN.docx";
+                        System.Diagnostics.Process.Start(filePath);
+                    }
+                }
             }
         }
 

@@ -27,6 +27,7 @@ namespace DXApplication1.Views
             opt = 1;
             var dialog = new OpenFileDialog();
             dialog.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
+            dialog.Filter = "Image File (*.jpg,*png)|*.jpg,*png|All Files (*.*)|*.*";
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 if (System.IO.File.Exists(dialog.FileName))

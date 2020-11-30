@@ -30,6 +30,7 @@ namespace DXApplication1.Views
             txtTenFile.ReadOnly = false;
             opt = 1;
             var dialog = new OpenFileDialog();
+            dialog.Filter = "Dem File (*.dem)|*.dem|All Files (*.*)|*.*";
             dialog.InitialDirectory = System.IO.Directory.GetCurrentDirectory();
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -38,7 +39,6 @@ namespace DXApplication1.Views
                     txtDuongDan.Text = dialog.FileName;
                 }
             }
-
         }
 
         private void simpleButtonSua_Click(object sender, EventArgs e)
