@@ -111,5 +111,62 @@ namespace DXApplication1.Views
                 MessageBox.Show("Có Lỗi Xảy Ra");
             }
         }
+
+        private void searchLookUpEditTSDV_EditValueChanged(object sender, EventArgs e)
+        {
+            searchLookUpEditTSDV.Text = "";
+            var view = searchLookUpEditTSDV.Properties.View;
+            int row = view.FocusedRowHandle;
+            string fieldNamemathamso = "idThamSo";
+            string fieldNamex_water = "x_water_velocity";
+            string fieldNamey_water = "y_water_velocity";
+            string fieldNamesox_wind = "x_wind";
+            string fieldNamesoy_wind = "y_wind";
+            string fieldNameupward = "upward_velocity";
+            string fieldNamesign_height = "significant_height";
+            string fieldNamedrift_x = "stokes_drift_x";
+            string fieldNamedrift_y = "stokes_drift_y";
+            string fieldNametemperature = "temperature";
+            string fieldNamesalinity = "salinity";
+            string fieldNameidLoaiDau = "idLoaiDau";
+            string fieldNamekhoiluongdau = "khoiluongdau";
+            string fieldNamethoigianmophong = "thoigianmophong";
+            string fieldNamevitri_x = "vitridauthatthoat_x";
+            string fieldNamevitri_y = "vitridauthatthoat_y";
+
+            object valuemaidThamSo = view.GetRowCellValue(row, fieldNamemathamso);
+            object valuex_water_velocity = view.GetRowCellValue(row, fieldNamex_water);
+            object valuey_water_velocity = view.GetRowCellValue(row, fieldNamey_water);
+            object valuex_wind = view.GetRowCellValue(row, fieldNamesox_wind);
+            object valuey_wind = view.GetRowCellValue(row, fieldNamesoy_wind);
+            object valueupward_velocity = view.GetRowCellValue(row, fieldNameupward);
+            object valuesignificant_height = view.GetRowCellValue(row, fieldNamesign_height);
+            object valuedrift_x = view.GetRowCellValue(row, fieldNamedrift_x);
+            object valuedrift_y = view.GetRowCellValue(row, fieldNamedrift_y);
+            object valuetemperature = view.GetRowCellValue(row, fieldNametemperature);
+            object valuesalinity = view.GetRowCellValue(row, fieldNamesalinity);
+            object valueidLoaiDau = view.GetRowCellValue(row, fieldNameidLoaiDau);
+            object valuekhoiluongdau = view.GetRowCellValue(row, fieldNamekhoiluongdau);
+            object valuethoigianmophong = view.GetRowCellValue(row, fieldNamethoigianmophong);
+            object valuevitri_x = view.GetRowCellValue(row, fieldNamevitri_x);
+            object valuevitri_y = view.GetRowCellValue(row, fieldNamevitri_y);
+
+            tbmathamso.Text = valuemaidThamSo.ToString();
+            tbx_water.Text = valuex_water_velocity.ToString();
+            tby_water.Text = valuey_water_velocity.ToString();
+            tbx_wind.Text = valuex_wind.ToString();
+            tby_wind.Text = valuey_wind.ToString();
+            tbupward_sea.Text = valueupward_velocity.ToString();
+            tbsign_height.Text = valuesignificant_height.ToString();
+            tbdrift_x.Text = valuedrift_x.ToString();
+            tbdrift_y.Text = valuedrift_y.ToString();
+            tbtemperature.Text = valuetemperature.ToString();
+            tbsalinity.Text = valuesalinity.ToString();
+            tbmaloaidau.Text = valueidLoaiDau.ToString();
+            tbluongdau.Text = valuekhoiluongdau.ToString();
+            tbthoigian.Text = valuethoigianmophong.ToString();
+            tbvitrithatthoat_x.Text = valuevitri_x.ToString();
+            tbvitrithatthoat_y.Text = valuevitri_y.ToString();
+        }
     }
 }
