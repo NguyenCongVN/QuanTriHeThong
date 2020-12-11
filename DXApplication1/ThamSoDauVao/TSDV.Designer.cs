@@ -592,6 +592,7 @@
             this.searchLookUpEditTSDV.Properties.PopupView = this.searchLookUpEdit1View;
             this.searchLookUpEditTSDV.Size = new System.Drawing.Size(385, 28);
             this.searchLookUpEditTSDV.TabIndex = 2;
+            this.searchLookUpEditTSDV.EditValueChanged += new System.EventHandler(this.searchLookUpEditTSDV_EditValueChanged);
             // 
             // searchLookUpEdit1View
             // 
